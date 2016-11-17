@@ -67,19 +67,25 @@ void loop()
   getReadings(acceleration, rotation);
 
   /* Print rotational data */
-//  for (int i = 0; i < NUMBER_AXIS; i++)
-//  {
-//    sprintf(printBuff, "rot%c: %f ", AXIS_NAMES[i], rotation[i]);
-//  }
-//
-//  /* Print accel data */
-//  for (int i = 0; i < NUMBER_AXIS; i++)
-//  {
-//    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
-//  }
-//  Serial.println();
-  
-  delay(1500); 
+  for (int i = 0; i < NUMBER_AXIS; i++)
+  {
+    sprintf(printBuff, "rot%c: ", AXIS_NAMES[i]);
+    Serial.print(printBuff);
+    Serial.print(rotation[i]);
+    Serial.print(" ");
+  }
+
+  /* Print accel data */
+  for (int i = 0; i < NUMBER_AXIS; i++)
+  {
+    sprintf(printBuff, "accl%c: ", AXIS_NAMES[i], acceleration[i]);
+    Serial.print(printBuff);
+    Serial.print(acceleration[i]);
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  delay(100); 
 }
 
 void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
@@ -139,47 +145,22 @@ void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
   accl[AXIS_X] = DEGREES_PER_RADIAN * atan(rawAX / sqrt(square(rawAY) + square(rawAZ)));
   accl[AXIS_Y] = DEGREES_PER_RADIAN * atan(rawAY / sqrt(square(rawAX) + square(rawAZ)));
   accl[AXIS_Z] = DEGREES_PER_RADIAN * atan(sqrt(square(rawAY) + square(rawAX)) / rawAZ);
-
-  Serial.print("rawAX");
-  Serial.print(":");
-  Serial.print(rawAX);
-  Serial.print(" ");
-  Serial.print("rawAY");
-  Serial.print(":");
-  Serial.print(rawAY);
-  Serial.print(" ");
-  Serial.print("rawAZ");
-  Serial.print(":");
-  Serial.print(rawAZ);
-  Serial.println();
-
-    
-  /* Debug code */
-  for (int i = 0; i < NUMBER_AXIS; i++)
+ 
+  if (firstRun == true)
   {
-    Serial.print("accl");
-    Serial.print(i);
-    Serial.print(":");
-    Serial.print(accl[i]);
-    Serial.print(" ");
+    /* Set initial values to equal accel values */
+    lastGX = accl[AXIS_X];
+    lastGY = accl[AXIS_Y];
+    lastGZ = accl[AXIS_Z];
+    firstRun = false;
   }
-  Serial.println(); 
-  
-//  if (firstRun == true)
-//  {
-//    /* Set initial values to equal accel values */
-//    lastGX = accl[AXIS_X];
-//    lastGY = accl[AXIS_Y];
-//    lastGZ = accl[AXIS_Z];
-//    firstRun = false;
-//  }
-//  else
-//  {
-//    /* Integrate from past gyro values to calc new ones */
-//    lastGX = lastGX + (timeStep * scaledGX);
-//    lastGY = lastGY + (timeStep * scaledGY);
-//    lastGZ = lastGZ + (timeStep * scaledGZ);
-//  }
+  else
+  {
+    /* Integrate from past gyro values to calc new ones */
+    lastGX = lastGX + (timeStep * scaledGX);
+    lastGY = lastGY + (timeStep * scaledGY);
+    lastGZ = lastGZ + (timeStep * scaledGZ);
+  }
 
   /* Apply filter to values */
   rotation[AXIS_X] = (0.96 * accl[AXIS_X]) + (0.04 * lastGX);
