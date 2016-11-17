@@ -78,7 +78,7 @@ void loop()
   }
   Serial.println();
   
-  delay(5000); 
+  delay(500); 
 }
 
 void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
@@ -137,7 +137,11 @@ void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
   /* Debug code */
   for (int i = 0; i < NUMBER_AXIS; i++)
   {
-    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
+    Serial.print("accl");
+    Serial.print(i);
+    Serial.print(" ");
+    Serial.print(accl[i]);
+    Serial.println();
   }
   
 //  if (firstRun == true)
