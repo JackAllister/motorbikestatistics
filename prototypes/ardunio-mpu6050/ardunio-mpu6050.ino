@@ -7,7 +7,6 @@
  * SCL = A5
  * GND = GND
  * VCC = 5V
- * INT = PIN2
  * 
  * Registers and definitions found from 
  * reference manual: RM-MPU-6000A
@@ -16,17 +15,28 @@
  * Reference to wire library:
  * https://www.arduino.cc/en/Reference/Wire
  * 
+ * Reference to calculatingtilt from accelerometer data:
+ * http://www.geekmomprojects.com/gyroscopes-and-accelerometers-on-a-chip/
+ * 
  */
 #include <Wire.h>
 
 /* I2C address for the MPU6050 */
-static const uint8_t MPU_ADDR = 0x68;
+static const int MPU_ADDR = 0x68;
+
+static const uint8_t NUMBER_AXIS = 3;
+static const uint8_t AXIS_X = 0;
+static const uint8_t AXIS_Y = 1;
+static const uint8_t AXIS_Z = 2;
 
 /* defines for i2c when ending transmission session */
 #define RELEASE_BUS true
 #define RESTART_BUS false
 
-void setup() {
+void getReadings(double accl[NUMBER_AXIS], double gyro[NUMBER_AXIS]);
+
+void setup() 
+{
   static const uint8_t PWR_MGMT_1 = 0x6B;
   static const uint8_t WAKE_UP = 0;
 
@@ -45,15 +55,52 @@ void setup() {
   Serial.begin(9600);
 }
 
-void loop() {
+void loop() 
+{
+  static const char AXIS_NAMES[NUMBER_AXIS] = {'X', 'Y', 'Z'};
+  
+  double acceleration[NUMBER_AXIS];
+  double rotation[NUMBER_AXIS];
+  char printBuff[50];
+
+  getReadings(acceleration, rotation);
+
+  /* Print rotational data */
+  for (int i = 0; i < NUMBER_AXIS; i++)
+  {
+    sprintf(printBuff, "rot%c: %f ", AXIS_NAMES[i], rotation[i]);
+  }
+
+  /* Print accel data */
+  for (int i = 0; i < NUMBER_AXIS; i++)
+  {
+    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
+  }
+  Serial.println();
+  
+  delay(5000); 
+}
+
+void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
+{
   static const uint8_t START_ADDR = 0x3B; 
   static const uint8_t RECV_SIZE = 14;
-  static const uint8_t NUMBER_REGISTERS = 7;
   static const uint8_t BYTE_SIZE = 8;
 
-  static const char* data_name[] = {"acX", "acY", "acZ", "temp", "gX", "gY", "gZ"};
-  int16_t data_reg[NUMBER_REGISTERS];
-  char print_buff[50];
+  static const double GYRO_SCALE = 131.0f;
+  static const double DEGREES_PER_RADIAN = 57.2958f;
+
+  /* 
+   * These variables needs to be static as we want to be stored 
+   * for each call. We also want to be able to set initial values
+   */
+  static boolean firstRun = true;
+  static double lastGX, lastGY, lastGZ;
+  
+  static double lastTime = millis();
+
+  double currTime = millis();
+  double timeStep = (currTime - lastTime) / 1000.0f;
   
   /* Signal to i2c we want to send i2c again */
   Wire.beginTransmission(MPU_ADDR);
@@ -64,19 +111,57 @@ void loop() {
    */
   Wire.write(START_ADDR);
   Wire.endTransmission(RESTART_BUS);
-  Wire.requestFrom((int)MPU_ADDR, (int)RECV_SIZE, (int)true);
+  Wire.requestFrom(MPU_ADDR, (int)RECV_SIZE, (int)true);
 
-  for (int i = 0; i < NUMBER_REGISTERS; i++)
+  /* Read the raw acceleration values */
+  int16_t rawAX = (Wire.read() << BYTE_SIZE) | Wire.read();
+  int16_t rawAY = (Wire.read() << BYTE_SIZE) | Wire.read();
+  int16_t rawAZ = (Wire.read() << BYTE_SIZE) | Wire.read();
+
+  /* 
+   * For some stupid reason temperature register inbetween accel and gyro. 
+   * We can ignore this reading as it's not actually needed.
+   */
+  int16_t rawTmp = (Wire.read() << BYTE_SIZE) | Wire.read(); 
+
+  /* GYRO_SCALE needs to be taken into account (250 deg/s) */
+  double scaledGX = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
+  double scaledGY = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
+  double scaledGZ = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
+
+  /* Calculate the accelerometer angles */
+  accl[AXIS_X] = DEGREES_PER_RADIAN * atan(rawAX / (sqrt(sq(rawAY) + sq(rawAZ))));
+  accl[AXIS_Y] = DEGREES_PER_RADIAN * atan(rawAY / (sqrt(sq(rawAX) + sq(rawAZ))));
+  accl[AXIS_Z] = DEGREES_PER_RADIAN * atan(sqrt(sq(rawAY) + sq(rawAX)) / rawAZ);
+
+  /* Debug code */
+  for (int i = 0; i < NUMBER_AXIS; i++)
   {
-    /* We read in chunks of 2 int8's and store in an array */
-    data_reg[i] = (Wire.read() << BYTE_SIZE) | Wire.read();
-
-    /* Print register data */
-    sprintf(print_buff, "%s: %d | ", data_name[i], data_reg[i]);
-    Serial.print(print_buff);
+    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
   }
-
-  Serial.println();
-  delay(5000); 
+  
+//  if (firstRun == true)
+//  {
+//    /* Set initial values to equal accel values */
+//    lastGX = accl[AXIS_X];
+//    lastGY = accl[AXIS_Y];
+//    lastGZ = accl[AXIS_Z];
+//    firstRun = false;
+//  }
+//  else
+//  {
+//    /* Integrate from past gyro values to calc new ones */
+//    lastGX = lastGX + (timeStep * scaledGX);
+//    lastGY = lastGY + (timeStep * scaledGY);
+//    lastGZ = lastGZ + (timeStep * scaledGZ);
+//  }
+//
+//  /* Apply filter to values */
+//  rotation[AXIS_X] = (0.96 * accl[AXIS_X]) + (0.04 * lastGX);
+//  rotation[AXIS_Y] = (0.96 * accl[AXIS_Y]) + (0.04 * lastGY);
+//  rotation[AXIS_Z] = (0.96 * accl[AXIS_Z]) + (0.04 * lastGZ);
+  
+  /* These values need to be stored for next time function called */
+  lastTime = currTime;
 }
 
