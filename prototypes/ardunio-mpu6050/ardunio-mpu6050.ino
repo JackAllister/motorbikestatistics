@@ -19,6 +19,7 @@
  * http://www.geekmomprojects.com/gyroscopes-and-accelerometers-on-a-chip/
  * 
  */
+#include <Math.h>
 #include <Wire.h>
 
 /* I2C address for the MPU6050 */
@@ -66,23 +67,24 @@ void loop()
   getReadings(acceleration, rotation);
 
   /* Print rotational data */
-  for (int i = 0; i < NUMBER_AXIS; i++)
-  {
-    sprintf(printBuff, "rot%c: %f ", AXIS_NAMES[i], rotation[i]);
-  }
-
-  /* Print accel data */
-  for (int i = 0; i < NUMBER_AXIS; i++)
-  {
-    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
-  }
-  Serial.println();
+//  for (int i = 0; i < NUMBER_AXIS; i++)
+//  {
+//    sprintf(printBuff, "rot%c: %f ", AXIS_NAMES[i], rotation[i]);
+//  }
+//
+//  /* Print accel data */
+//  for (int i = 0; i < NUMBER_AXIS; i++)
+//  {
+//    sprintf(printBuff, "accl%c: %f ", AXIS_NAMES[i], acceleration[i]);
+//  }
+//  Serial.println();
   
-  delay(500); 
+  delay(1500); 
 }
 
 void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
 {
+
   static const uint8_t START_ADDR = 0x3B; 
   static const uint8_t RECV_SIZE = 14;
   static const uint8_t BYTE_SIZE = 8;
@@ -125,24 +127,43 @@ void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
   int16_t rawTmp = (Wire.read() << BYTE_SIZE) | Wire.read(); 
 
   /* GYRO_SCALE needs to be taken into account (250 deg/s) */
-  double scaledGX = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
-  double scaledGY = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
-  double scaledGZ = (double((Wire.read() << BYTE_SIZE) | Wire.read()) / GYRO_SCALE);
+  int16_t rawGX = (Wire.read() << BYTE_SIZE) | Wire.read();
+  int16_t rawGY = (Wire.read() << BYTE_SIZE) | Wire.read();
+  int16_t rawGZ = (Wire.read() << BYTE_SIZE) | Wire.read();
+  
+  double scaledGX = double(rawGX) / GYRO_SCALE;
+  double scaledGY = double(rawGY) / GYRO_SCALE;
+  double scaledGZ = double(rawGZ) / GYRO_SCALE;
 
   /* Calculate the accelerometer angles */
-  accl[AXIS_X] = DEGREES_PER_RADIAN * atan(rawAX / (sqrt(sq(rawAY) + sq(rawAZ))));
-  accl[AXIS_Y] = DEGREES_PER_RADIAN * atan(rawAY / (sqrt(sq(rawAX) + sq(rawAZ))));
-  accl[AXIS_Z] = DEGREES_PER_RADIAN * atan(sqrt(sq(rawAY) + sq(rawAX)) / rawAZ);
+  accl[AXIS_X] = DEGREES_PER_RADIAN * atan(rawAX / sqrt(square(rawAY) + square(rawAZ)));
+  accl[AXIS_Y] = DEGREES_PER_RADIAN * atan(rawAY / sqrt(square(rawAX) + square(rawAZ)));
+  accl[AXIS_Z] = DEGREES_PER_RADIAN * atan(sqrt(square(rawAY) + square(rawAX)) / rawAZ);
 
+  Serial.print("rawAX");
+  Serial.print(":");
+  Serial.print(rawAX);
+  Serial.print(" ");
+  Serial.print("rawAY");
+  Serial.print(":");
+  Serial.print(rawAY);
+  Serial.print(" ");
+  Serial.print("rawAZ");
+  Serial.print(":");
+  Serial.print(rawAZ);
+  Serial.println();
+
+    
   /* Debug code */
   for (int i = 0; i < NUMBER_AXIS; i++)
   {
     Serial.print("accl");
     Serial.print(i);
-    Serial.print(" ");
+    Serial.print(":");
     Serial.print(accl[i]);
-    Serial.println();
+    Serial.print(" ");
   }
+  Serial.println(); 
   
 //  if (firstRun == true)
 //  {
@@ -159,12 +180,12 @@ void getReadings(double accl[NUMBER_AXIS], double rotation[NUMBER_AXIS])
 //    lastGY = lastGY + (timeStep * scaledGY);
 //    lastGZ = lastGZ + (timeStep * scaledGZ);
 //  }
-//
-//  /* Apply filter to values */
-//  rotation[AXIS_X] = (0.96 * accl[AXIS_X]) + (0.04 * lastGX);
-//  rotation[AXIS_Y] = (0.96 * accl[AXIS_Y]) + (0.04 * lastGY);
-//  rotation[AXIS_Z] = (0.96 * accl[AXIS_Z]) + (0.04 * lastGZ);
-  
+
+  /* Apply filter to values */
+  rotation[AXIS_X] = (0.96 * accl[AXIS_X]) + (0.04 * lastGX);
+  rotation[AXIS_Y] = (0.96 * accl[AXIS_Y]) + (0.04 * lastGY);
+  rotation[AXIS_Z] = (0.96 * accl[AXIS_Z]) + (0.04 * lastGZ);
+ 
   /* These values need to be stored for next time function called */
   lastTime = currTime;
 }
