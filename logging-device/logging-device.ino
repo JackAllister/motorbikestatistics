@@ -7,15 +7,25 @@
  *  HC-06 BT receiver/transmitter
  *  MPU-6050 gyroscope
  *  
+ *  MPU-6050 Pin Config:
+ *    SDA = A4
+ *    SCL = A5
+ *    GND = GND
+ *    VCC = 5V
+ *  
  *  In future will need to port to Arduino 101
  *  this will remove the need for MPU-6050 and BT receiver
  */
 
 /* Module Includes */
+#include <Wire.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
+#include <I2Cdev.h>
+#include <MPU6050_6Axis_MotionApps20.h>
 
 /* Module Constants */
+#define SERIAL_BAUD 9600
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
 //#define GPS_TX_PIN 3
@@ -27,9 +37,14 @@
 #define GPS_RX_PIN 8
 #define GPS_BAUD 9600
 
+/* i2c address of MPU6050 */
+#define MPU_ADDR 0x68
+
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
+
+MPU6050 mpu(MPU_ADDR);
 
 /* Module Prototypes */
 String getGPSInfo();
@@ -40,7 +55,7 @@ void setup()
 {
   serGPS.begin(GPS_BAUD);
   
-  Serial.begin(9600);
+  Serial.begin(SERIAL_BAUD);
 }
 
 void loop() 
