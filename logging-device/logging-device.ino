@@ -18,14 +18,14 @@
 /* Module Constants */
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
-#define GPS_TX_PIN 3
-#define GPS_RX_PIN 2
-#define GPS_BAUD 4800
+//#define GPS_TX_PIN 3
+//#define GPS_RX_PIN 2
+//#define GPS_BAUD 4800
 
 /* Settings for sparkfun GPS logging shield (uSD version) */
-//#define GPS_TX_PIN 9
-//#define GPS_RX_PIN 8
-//#define GPS_BAUD 9600
+#define GPS_TX_PIN 9
+#define GPS_RX_PIN 8
+#define GPS_BAUD 9600
 
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
@@ -70,9 +70,9 @@ String getGPSInfo()
   result += "Location: ";
   if (gps.location.isValid())
   {
-    result += gps.location.lat();
+    result += String(gps.location.lat(), 6);
     result += ',';
-    result += gps.location.lng();
+    result += String(gps.location.lng(), 6);
   }
   else
     result += INVALID_STR;
