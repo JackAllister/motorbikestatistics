@@ -38,8 +38,9 @@
 #define GPS_BAUD 9600
 
 /* MPU6050 constants */
-#define MPU_ADDR 0x68
 #define MPU_INT_PIN 2
+#define MPU_ADDR 0x68
+#define NUMBER_AXIS 3
 
 #define GYRO_X_OFFSET 206
 #define GYRO_Y_OFFSET -31
@@ -48,15 +49,16 @@
 #define ACCL_Y_OFFSET -1075
 #define ACCL_Z_OFFSET 1515
 
+
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 MPU6050 mpu(MPU_ADDR);
-
-uint16_t packetSize; /* Expected packet size from the DMP */
+float yprAngle[NUMBER_AXIS] = {0, 0, 0};
 
 /* Module Prototypes */
+void updateYawPitchRoll();
 String getGPSInfo();
 String parseDateTime();
 
@@ -94,9 +96,6 @@ void setup()
   /* Enable the DMP and set interrupt handler */
   mpu.setDMPEnabled(true);
   attachInterrupt(digitalPinToInterrupt(MPU_INT_PIN), dmpDataReady, RISING);
-
-  /* Get expected size of FIFO packet from DMP */
-  packetSize = mpu.dmpGetFIFOPacketSize();
   
   Serial.begin(SERIAL_BAUD);
 }
@@ -104,15 +103,87 @@ void setup()
 /* Main Code */
 void loop() 
 {
-  static unsigned long lastMillis = 0;
-  
-  while (serGPS.available() > 0)
-    gps.encode(serGPS.read());
+//  static unsigned long lastMillis = 0;
+//
+//  /* Parse NMEA codes into GPS object */
+//  while (serGPS.available() > 0)
+//    gps.encode(serGPS.read());
 
-  if (millis() - lastMillis > 1000)
+  /* Update current Yaw, Pitch & Roll */
+  updateYawPitchRoll();
+
+//  /* Print orientation and location information */
+//  if (millis() - lastMillis > 1000)
+//  {
+//
+//    Serial.print("Yaw: ");
+//    Serial.print(yprAngle[0]);
+//    Serial.print("\tPitch: ");
+//    Serial.print(yprAngle[1]);
+//    Serial.print("\tRoll: ");
+//    Serial.print(yprAngle[2]);
+//    Serial.print("\n");
+//
+//    Serial.println(getGPSInfo().c_str());
+//    lastMillis = millis();
+//  }
+}
+
+void updateYawPitchRoll()
+{
+  static uint16_t packetSize = mpu.dmpGetFIFOPacketSize();  /* Get expected size of FIFO packet from DMP */
+  static uint16_t fifoCount;                                /* Counts all bytes in FIFO */
+  static uint8_t fifoBuffer[64];                            /* FIFO storage buffer */
+  static float ypr[NUMBER_AXIS] = {0, 0, 0};
+
+  uint8_t mpuIntStatus;   /* Holds interrupt status, can be used to find overflows */
+  Quaternion qn;          /* Quaternion container */
+  VectorFloat gravity;    /* Gravity vector */
+
+  /* Wait for MPU interrupt or packets available */
+  while ((mpuInterrupt == false) && (fifoCount < packetSize))
   {
-    Serial.println(getGPSInfo().c_str());
-    lastMillis = millis();
+  }
+  Serial.print("DEBUG2: ");
+  Serial.print(fifoCount);
+  Serial.print("/");
+  Serial.println(packetSize);
+
+  mpuInterrupt = false;
+  mpuIntStatus = mpu.getIntStatus();
+  fifoCount = mpu.getFIFOCount();
+
+  if ((mpuIntStatus & 0x10) || fifoCount >= 1024)
+  {
+    mpu.resetFIFO();
+    Serial.println("FIFO overflow!");
+  }
+  else if (mpuIntStatus & 0x02)
+  {   
+    while (fifoCount < packetSize)
+      fifoCount = mpu.getFIFOCount();
+
+    /* Read a FIFO packet */
+    mpu.getFIFOBytes(fifoBuffer, packetSize);
+
+    /* Subtract read packets from count */
+    fifoCount -= packetSize;
+
+    mpu.dmpGetQuaternion(&qn, fifoBuffer);
+    mpu.dmpGetGravity(&gravity, &qn);
+    mpu.dmpGetYawPitchRoll(ypr, &qn, &gravity);
+
+    yprAngle[0] = ypr[0] * 180/M_PI;
+    yprAngle[1] = ypr[1] * 180/M_PI;
+    yprAngle[2] = ypr[2] * 180/M_PI;
+
+    Serial.print("Yaw: ");
+    Serial.print(yprAngle[0]);
+    Serial.print("\tPitch: ");
+    Serial.print(yprAngle[1]);
+    Serial.print("\tRoll: ");
+    Serial.print(yprAngle[2]);
+    Serial.println();
   }
 }
 
