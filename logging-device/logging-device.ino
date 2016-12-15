@@ -37,8 +37,16 @@
 #define GPS_RX_PIN 8
 #define GPS_BAUD 9600
 
-/* i2c address of MPU6050 */
+/* MPU6050 constants */
 #define MPU_ADDR 0x68
+#define MPU_INT_PIN 2
+
+#define GYRO_X_OFFSET 206
+#define GYRO_Y_OFFSET -31
+#define GYRO_Z_OFFSET -23
+#define ACCL_X_OFFSET -2495
+#define ACCL_Y_OFFSET -1075
+#define ACCL_Z_OFFSET 1515
 
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
@@ -51,13 +59,41 @@ String getGPSInfo();
 String parseDateTime();
 
 /* Module Code */
+
+/* Interrupt Code */
+volatile bool mpuInterrupt = false;
+void dmpDataReady()
+{
+  mpuInterrupt = true;
+}
+
+/* System setup code */
 void setup() 
 {
+  /* Set up GPS */
   serGPS.begin(GPS_BAUD);
+
+  /* Set up MPU6050 */
+  Wire.begin();
+  Wire.setClock(400000);
+  pinMode(MPU_INT_PIN, INPUT);
+
+  /* Load and configure the DMP within MPU6050 chip */
+  mpu.dmpInitialize();
+
+  /* Calibration offsets for gyro/accel */
+  mpu.setXGyroOffset(GYRO_X_OFFSET);
+  mpu.setYGyroOffset(GYRO_Y_OFFSET);
+  mpu.setZGyroOffset(GYRO_Z_OFFSET);
+  mpu.setXAccelOffset(ACCL_X_OFFSET);
+  mpu.setYAccelOffset(ACCL_Y_OFFSET);
+  mpu.setZAccelOffset(ACCL_Z_OFFSET);
+  
   
   Serial.begin(SERIAL_BAUD);
 }
 
+/* Main Code */
 void loop() 
 {
   static unsigned long lastMillis = 0;
