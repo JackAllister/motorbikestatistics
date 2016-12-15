@@ -99,10 +99,16 @@ String parseDateTime()
 
     /* Add time to string */
     result += " ";
+    if (gps.time.hour() < 10)
+      result += '0';
     result += gps.time.hour();
     result += ":";
+    if (gps.time.minute() < 10)
+      result += '0';
     result += gps.time.minute();
     result += ":";
+    if (gps.time.second() < 10)
+      result += '0';
     result += gps.time.second();
   }
 
