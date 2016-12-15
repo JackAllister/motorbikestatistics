@@ -54,6 +54,8 @@ TinyGPSPlus gps;
 
 MPU6050 mpu(MPU_ADDR);
 
+uint16_t packetSize; /* Expected packet size from the DMP */
+
 /* Module Prototypes */
 String getGPSInfo();
 String parseDateTime();
@@ -88,7 +90,13 @@ void setup()
   mpu.setXAccelOffset(ACCL_X_OFFSET);
   mpu.setYAccelOffset(ACCL_Y_OFFSET);
   mpu.setZAccelOffset(ACCL_Z_OFFSET);
-  
+
+  /* Enable the DMP and set interrupt handler */
+  mpu.setDMPEnabled(true);
+  attachInterrupt(digitalPinToInterrupt(MPU_INT_PIN), dmpDataReady, RISING);
+
+  /* Get expected size of FIFO packet from DMP */
+  packetSize = mpu.dmpGetFIFOPacketSize();
   
   Serial.begin(SERIAL_BAUD);
 }
