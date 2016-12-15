@@ -16,9 +16,16 @@
 #include <TinyGPS++.h>
 
 /* Module Constants */
-#define GPS_TX_PIN 9
-#define GPS_RX_PIN 8
-#define GPS_BAUD 9600
+
+/* Settings for EM-506 GPS shield (borrowed from Peter) */
+#define GPS_TX_PIN 3
+#define GPS_RX_PIN 2
+#define GPS_BAUD 4800
+
+/* Settings for sparkfun GPS logging shield (uSD version) */
+//#define GPS_TX_PIN 9
+//#define GPS_RX_PIN 8
+//#define GPS_BAUD 9600
 
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
@@ -38,10 +45,16 @@ void setup()
 
 void loop() 
 {
+  static unsigned long lastMillis = 0;
+  
   while (serGPS.available() > 0)
     gps.encode(serGPS.read());
-    
-  Serial.println(getGPSInfo().c_str());
+
+  if (millis() - lastMillis > 1000)
+  {
+    Serial.println(getGPSInfo().c_str());
+    lastMillis = millis();
+  }
 }
 
 String getGPSInfo()
