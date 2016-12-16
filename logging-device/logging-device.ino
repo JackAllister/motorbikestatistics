@@ -50,6 +50,10 @@
 #define ACCL_Y_OFFSET -1075
 #define ACCL_Z_OFFSET 1515
 
+/* Bluetooth constants */
+static const int BT_TX_PIN = 10;
+static const int BT_RX_PIN = 11;
+
 
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
@@ -108,15 +112,11 @@ void loop()
 {
   static unsigned long lastMillis = 0;
 
-  /* Parse NMEA codes into GPS object */
-  while (serGPS.available() > 0)
-    gps.encode(serGPS.read());
- 
   /* Update current Yaw, Pitch & Roll */
   updateYawPitchRoll();
 
   /* Print orientation and location information */
-  if ((millis() - lastMillis) > 500)
+  if ((millis() - lastMillis) > 2000)
   {
     Serial.print("Yaw: ");
     Serial.print(yprAngle[0]);
@@ -126,6 +126,10 @@ void loop()
     Serial.print(yprAngle[2]);
     Serial.println();
 
+    /* Parse NMEA codes into GPS object */
+    while (serGPS.available() > 0)
+      gps.encode(serGPS.read());
+      
     Serial.println(getGPSInfo());
     lastMillis = millis();
   }
@@ -151,6 +155,7 @@ void updateYawPitchRoll()
   mpuInterrupt = false;
   mpuIntStatus = mpu.getIntStatus();
   fifoCount = mpu.getFIFOCount();
+  //Serial.println(fifoCount); /* Debug to see if FIFO buffer overflowing */
 
   if ((mpuIntStatus & 0x10) || fifoCount >= 1024)
   {
@@ -161,9 +166,7 @@ void updateYawPitchRoll()
   {   
     /* Interrupt triggered correctly */
     while (fifoCount < packetSize)
-    {
       fifoCount = mpu.getFIFOCount();
-    }
 
     /* Read a FIFO packet */
     mpu.getFIFOBytes(fifoBuffer, packetSize);
