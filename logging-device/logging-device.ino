@@ -83,10 +83,11 @@ void setup()
 
   /* Set up MPU6050 */
   Fastwire::setup(400, true);
+  mpu.initialize();
+  delay(100);
   pinMode(MPU_INT_PIN, INPUT);
 
   /* Load and configure the DMP within MPU6050 chip */
-  mpu.initialize();
   mpu.dmpInitialize();
 
   /* Calibration offsets for gyro/accel */
@@ -115,9 +116,8 @@ void loop()
   updateYawPitchRoll();
 
   /* Print orientation and location information */
-  if ((millis() - lastMillis) > 500)
-  {
-
+//  if ((millis() - lastMillis) > 500)
+//  {
     Serial.print("Yaw: ");
     Serial.print(yprAngle[0]);
     Serial.print("\tPitch: ");
@@ -128,7 +128,7 @@ void loop()
 
     Serial.println(getGPSInfo());
     lastMillis = millis();
-  }
+//  }
 }
 
 void updateYawPitchRoll()
