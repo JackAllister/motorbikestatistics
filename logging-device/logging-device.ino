@@ -12,6 +12,12 @@
  *    SCL = A5
  *    GND = GND
  *    VCC = 5V
+ *    
+ *  Bluetooth Pin Config (using hardware serial):  
+ *    VCC = 5V
+ *    GND = GND
+ *    TXD = RX
+ *    RXD = TX
  *  
  *  In future will need to port to Arduino 101
  *  this will remove the need for MPU-6050 and BT receiver
@@ -26,7 +32,7 @@
 /* Module Constants */
 #define I2CDEV_IMPLEMENTATION I2CDEV_BUILTIN_FASTWIRE
 
-#define SERIAL_BAUD 115200
+#define SERIAL_BAUD 9600
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
 //#define GPS_TX_PIN 3
@@ -49,11 +55,6 @@
 #define ACCL_X_OFFSET -2495
 #define ACCL_Y_OFFSET -1075
 #define ACCL_Z_OFFSET 1515
-
-/* Bluetooth constants */
-static const int BT_TX_PIN = 10;
-static const int BT_RX_PIN = 11;
-
 
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
