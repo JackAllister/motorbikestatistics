@@ -18,14 +18,15 @@
  */
 
 /* Module Includes */
-#include <Wire.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
 #include <I2Cdev.h>
 #include <MPU6050_6Axis_MotionApps20.h>
 
 /* Module Constants */
-#define SERIAL_BAUD 9600
+#define I2CDEV_IMPLEMENTATION I2CDEV_BUILTIN_FASTWIRE
+
+#define SERIAL_BAUD 115200
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
 //#define GPS_TX_PIN 3
@@ -55,6 +56,7 @@ SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 MPU6050 mpu(MPU_ADDR);
+volatile bool mpuInterrupt = false;
 float yprAngle[NUMBER_AXIS] = {0, 0, 0};
 
 /* Module Prototypes */
@@ -65,7 +67,6 @@ String parseDateTime();
 /* Module Code */
 
 /* Interrupt Code */
-volatile bool mpuInterrupt = false;
 void dmpDataReady()
 {
   mpuInterrupt = true;
@@ -74,15 +75,18 @@ void dmpDataReady()
 /* System setup code */
 void setup() 
 {
+  /* Set up serial for debugging */
+  Serial.begin(SERIAL_BAUD);
+  
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
 
   /* Set up MPU6050 */
-  Wire.begin();
-  Wire.setClock(400000);
+  Fastwire::setup(400, true);
   pinMode(MPU_INT_PIN, INPUT);
 
   /* Load and configure the DMP within MPU6050 chip */
+  mpu.initialize();
   mpu.dmpInitialize();
 
   /* Calibration offsets for gyro/accel */
@@ -96,37 +100,35 @@ void setup()
   /* Enable the DMP and set interrupt handler */
   mpu.setDMPEnabled(true);
   attachInterrupt(digitalPinToInterrupt(MPU_INT_PIN), dmpDataReady, RISING);
-  
-  Serial.begin(SERIAL_BAUD);
 }
 
 /* Main Code */
 void loop() 
 {
-//  static unsigned long lastMillis = 0;
-//
-//  /* Parse NMEA codes into GPS object */
-//  while (serGPS.available() > 0)
-//    gps.encode(serGPS.read());
+  static unsigned long lastMillis = 0;
 
+  /* Parse NMEA codes into GPS object */
+  while (serGPS.available() > 0)
+    gps.encode(serGPS.read());
+ 
   /* Update current Yaw, Pitch & Roll */
   updateYawPitchRoll();
 
-//  /* Print orientation and location information */
-//  if (millis() - lastMillis > 1000)
-//  {
-//
-//    Serial.print("Yaw: ");
-//    Serial.print(yprAngle[0]);
-//    Serial.print("\tPitch: ");
-//    Serial.print(yprAngle[1]);
-//    Serial.print("\tRoll: ");
-//    Serial.print(yprAngle[2]);
-//    Serial.print("\n");
-//
-//    Serial.println(getGPSInfo().c_str());
-//    lastMillis = millis();
-//  }
+  /* Print orientation and location information */
+  if ((millis() - lastMillis) > 500)
+  {
+
+    Serial.print("Yaw: ");
+    Serial.print(yprAngle[0]);
+    Serial.print("\tPitch: ");
+    Serial.print(yprAngle[1]);
+    Serial.print("\tRoll: ");
+    Serial.print(yprAngle[2]);
+    Serial.println();
+
+    Serial.println(getGPSInfo());
+    lastMillis = millis();
+  }
 }
 
 void updateYawPitchRoll()
@@ -135,19 +137,16 @@ void updateYawPitchRoll()
   static uint16_t fifoCount;                                /* Counts all bytes in FIFO */
   static uint8_t fifoBuffer[64];                            /* FIFO storage buffer */
   static float ypr[NUMBER_AXIS] = {0, 0, 0};
-
+  
   uint8_t mpuIntStatus;   /* Holds interrupt status, can be used to find overflows */
   Quaternion qn;          /* Quaternion container */
   VectorFloat gravity;    /* Gravity vector */
-
+  
   /* Wait for MPU interrupt or packets available */
   while ((mpuInterrupt == false) && (fifoCount < packetSize))
   {
+
   }
-  Serial.print("DEBUG2: ");
-  Serial.print(fifoCount);
-  Serial.print("/");
-  Serial.println(packetSize);
 
   mpuInterrupt = false;
   mpuIntStatus = mpu.getIntStatus();
@@ -155,13 +154,16 @@ void updateYawPitchRoll()
 
   if ((mpuIntStatus & 0x10) || fifoCount >= 1024)
   {
+    /* FIFO buffer on MPU overflow so we just reset it */
     mpu.resetFIFO();
-    Serial.println("FIFO overflow!");
   }
   else if (mpuIntStatus & 0x02)
   {   
+    /* Interrupt triggered correctly */
     while (fifoCount < packetSize)
+    {
       fifoCount = mpu.getFIFOCount();
+    }
 
     /* Read a FIFO packet */
     mpu.getFIFOBytes(fifoBuffer, packetSize);
@@ -176,14 +178,6 @@ void updateYawPitchRoll()
     yprAngle[0] = ypr[0] * 180/M_PI;
     yprAngle[1] = ypr[1] * 180/M_PI;
     yprAngle[2] = ypr[2] * 180/M_PI;
-
-    Serial.print("Yaw: ");
-    Serial.print(yprAngle[0]);
-    Serial.print("\tPitch: ");
-    Serial.print(yprAngle[1]);
-    Serial.print("\tRoll: ");
-    Serial.print(yprAngle[2]);
-    Serial.println();
   }
 }
 
