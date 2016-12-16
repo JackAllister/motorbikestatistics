@@ -116,8 +116,8 @@ void loop()
   updateYawPitchRoll();
 
   /* Print orientation and location information */
-//  if ((millis() - lastMillis) > 500)
-//  {
+  if ((millis() - lastMillis) > 500)
+  {
     Serial.print("Yaw: ");
     Serial.print(yprAngle[0]);
     Serial.print("\tPitch: ");
@@ -128,7 +128,7 @@ void loop()
 
     Serial.println(getGPSInfo());
     lastMillis = millis();
-//  }
+  }
 }
 
 void updateYawPitchRoll()
