@@ -16,7 +16,7 @@
 #include <TinyGPS++.h>
 
 /* Module Constants */
-#define SERIAL_BAUD 9600
+#define SERIAL_BAUD 115200
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
 //#define GPS_TX_PIN 3
@@ -74,34 +74,27 @@ void loop()
   static unsigned long lastMillis = 0;
 
   getOrientation();
-
-  Serial.print("Orientation: ");
-  Serial.print(IMUfilter.getYaw());
-  Serial.print(" ");
-  Serial.print(IMUfilter.getPitch());
-  Serial.print(" ");
-  Serial.println(IMUfilter.getRoll());
   
   /* Parse NMEA codes into GPS object */
-//  while (serGPS.available() > 0)
-//  {
-//    gps.encode(serGPS.read());
-//  }
-//
+  while (serGPS.available() > 0)
+  {
+    gps.encode(serGPS.read());
+  }
+
   /* Print orientation and location information */
   if ((millis() - lastMillis) > PRINT_DELAY)
   {
-//    Serial.print("Yaw: ");
-//    Serial.print(IMUfilter.getYaw());
-//    Serial.print("\tPitch: ");
-//    Serial.print(IMUfilter.getPitch());
-//    Serial.print("\tRoll: ");
-//    Serial.print(IMUfilter.getRoll());
-//    Serial.println();
-//
-//    /* Print out GPS information */
-//    Serial.println(getGPSInfo());
-//    lastMillis = millis();
+    Serial.print("Yaw: ");
+    Serial.print(IMUfilter.getYaw());
+    Serial.print("\tPitch: ");
+    Serial.print(IMUfilter.getPitch());
+    Serial.print("\tRoll: ");
+    Serial.print(IMUfilter.getRoll());
+    Serial.println();
+
+    /* Print out GPS information */
+    Serial.println(getGPSInfo());
+    lastMillis = millis();
   }
 }
 
