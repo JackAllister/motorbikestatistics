@@ -53,6 +53,10 @@ void setup()
 {  
   /* Set up serial for debugging */
   Serial.begin(SERIAL_BAUD);
+  while (!Serial)
+  {
+    
+  }
   
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
