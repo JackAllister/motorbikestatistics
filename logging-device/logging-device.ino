@@ -38,6 +38,8 @@
 #define AXIS_Y 1
 #define AXIS_Z 2
 
+#define LED_PIN 13
+
 /* Module Variables */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
@@ -51,12 +53,10 @@ float accelScale, gyroScale;
 /* System setup code */
 void setup() 
 {  
+  pinMode(LED_PIN, OUTPUT);
+  
   /* Set up serial for debugging */
   Serial.begin(SERIAL_BAUD);
-  while (!Serial)
-  {
-    
-  }
   
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
@@ -88,6 +88,8 @@ void loop()
   /* Print orientation and location information */
   if ((millis() - lastMillis) > PRINT_DELAY)
   {
+    digitalWrite(LED_PIN, HIGH);
+    
     Serial.print("Yaw: ");
     Serial.print(IMUfilter.getYaw());
     Serial.print("\tPitch: ");
@@ -99,6 +101,8 @@ void loop()
     /* Print out GPS information */
     Serial.println(getGPSInfo());
     lastMillis = millis();
+
+    digitalWrite(LED_PINputt, LOW);
   }
 }
 
