@@ -108,18 +108,18 @@ void loop()
 
 void getOrientation()
 {
-  static const unsigned long MS_PER_READING = 1000000 / IMU_FREQUENCY;
-  static unsigned long msPrevious = micros();
+  static const unsigned long US_PER_READING = 1000000 / IMU_FREQUENCY;
+  static unsigned long usPrevious = micros();
   
   int accel_raw[NUMBER_AXIS];
   int gyro_raw[NUMBER_AXIS];
   float accel_g[NUMBER_AXIS];
   float gyro_ds[NUMBER_AXIS];
-  unsigned long msNow;
+  unsigned long usNow;
 
   /* Ensures we stick to the sample rate */
-  msNow = micros();
-  if (msNow - msPrevious >= MS_PER_READING)
+  usNow = micros();
+  if (usNow - usPrevious >= US_PER_READING)
   {
     /* Read raw data from the IMU */
     CurieIMU.readMotionSensor(accel_raw[AXIS_X], accel_raw[AXIS_Y], accel_raw[AXIS_Z],
@@ -137,7 +137,7 @@ void getOrientation()
                         accel_g[AXIS_X], accel_g[AXIS_Y], accel_g[AXIS_Z]);
 
     /* Increment previous counter */
-    msPrevious += msNow;
+    usPrevious += US_PER_READING;
   }
 }
 
