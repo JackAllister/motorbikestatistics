@@ -16,7 +16,7 @@
 #include <TinyGPS++.h>
 
 /* Module Constants */
-#define SERIAL_BAUD 115200
+#define SERIAL_BAUD 9600
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
 //#define GPS_TX_PIN 3
@@ -102,7 +102,7 @@ void loop()
     Serial.println(getGPSInfo());
     lastMillis = millis();
 
-    digitalWrite(LED_PINputt, LOW);
+    digitalWrite(LED_PIN, LOW);
   }
 }
 
