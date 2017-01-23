@@ -5,7 +5,9 @@
  *  Arduino 101
  *  Sparkfun GPS Logger Shield
  *  Onboard gyroscope + accelerometer
- *  Onboard BLE for data transmission
+ *
+ * Not using onboard bluetooth as it is only BLE. Limits to 20 bytes and data rate is low,
+ * Better to use hardware serial and use HC-06 bluetooth board.
  *  
  */
 
@@ -56,7 +58,7 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
   
   /* Set up serial for debugging */
-  Serial.begin(SERIAL_BAUD);
+  Serial1.begin(SERIAL_BAUD);
   
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
@@ -90,16 +92,16 @@ void loop()
   {
     digitalWrite(LED_PIN, HIGH);
     
-    Serial.print("Yaw: ");
-    Serial.print(IMUfilter.getYaw());
-    Serial.print("\tPitch: ");
-    Serial.print(IMUfilter.getPitch());
-    Serial.print("\tRoll: ");
-    Serial.print(IMUfilter.getRoll());
-    Serial.println();
+    Serial1.print("Yaw: ");
+    Serial1.print(IMUfilter.getYaw());
+    Serial1.print("\tPitch: ");
+    Serial1.print(IMUfilter.getPitch());
+    Serial1.print("\tRoll: ");
+    Serial1.print(IMUfilter.getRoll());
+    Serial1.println();
 
     /* Print out GPS information */
-    Serial.println(getGPSInfo());
+    Serial1.println(getGPSInfo());
     lastMillis = millis();
 
     digitalWrite(LED_PIN, LOW);
