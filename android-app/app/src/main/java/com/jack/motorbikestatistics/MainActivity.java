@@ -3,6 +3,7 @@ package com.jack.motorbikestatistics;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -79,18 +80,25 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentManager fragmentManager = getFragmentManager();
 
         switch (id)
         {
             case R.id.nav_realtime:
             {
-                /* Handle selection of real time */
+                /* Replaces content frame with realtime frame */
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new RealtimeFragment())
+                        .commit();
                 break;
             }
 
             case R.id.nav_loaddevice:
             {
-                /* Handle selection of load from device */
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new LoadDeviceFragment())
+                        .commit();
+                /* Replaces content frame with load device frame */
                 break;
             }
 
