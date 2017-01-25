@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
@@ -20,26 +21,17 @@
         android:layout_below="@+id/textStatus"
         android:layout_alignLeft="@+id/textStatus"
         android:layout_alignStart="@+id/textStatus"
-        android:layout_above="@+id/btnPair"
-        android:id="@+id/deviceList" />
+        android:id="@+id/deviceList"
+        android:layout_above="@+id/btnScan" />
 
-    <Button
-        android:text="Pair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnPair"
-        android:layout_marginBottom="41dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnScan"
-        android:layout_toEndOf="@+id/btnScan" />
-
-    <Button
-        android:text="Scan"
+    <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnScan"
-        android:layout_below="@+id/deviceList"
-        android:layout_alignLeft="@+id/deviceList"
-        android:layout_alignStart="@+id/deviceList" />
+        android:layout_marginBottom="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textOff="@string/start_search_devices"
+        android:textOn="@string/stop_search_devices" />
 
 </RelativeLayout>
