@@ -27,24 +27,32 @@ import android.bluetooth.BluetoothDevice;
 
 public class PairDeviceFragment extends Fragment
         implements View.OnClickListener {
+    private static int REQUEST_BLUETOOTH = 1;
 
     private View myView;
+    private Button btnScan;
     private Button btnPair;
-    private ListView deviceList;
+    private ListView lvDevices;
 
     /* Bluetooth variables */
     private BluetoothAdapter btAdapter = null;
-    private Set pairedDevices;
+    private Set<BluetoothDevice> pairedDevices;
+
+    private ArrayList<BTDeviceItem> btDeviceItemList;
+    private ArrayAdapter<BTDeviceItem> lvAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         myView = inflater.inflate(R.layout.pairdevice_layout, container, false);
 
         /* Set our variables for UI buttons */
+        btnScan = (Button)myView.findViewById(R.id.btnScan);
+        btnScan.setOnClickListener(this);
         btnPair = (Button)myView.findViewById(R.id.btnPair);
-
-        deviceList = (ListView)myView.findViewById(R.id.deviceList);
+        btnPair.setOnClickListener(this);
+        lvDevices = (ListView)myView.findViewById(R.id.deviceList);
 
         /* Check and set up bluetooth adapter */
         btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -55,11 +63,31 @@ public class PairDeviceFragment extends Fragment
         }
         else
         {
+            /* Enable bluetooth adapter if disabled */
             if (btAdapter.isEnabled() == false)
             {
                 Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBT, 1);
+                startActivityForResult(enableBT, REQUEST_BLUETOOTH);
             }
+
+            btDeviceItemList = new ArrayList<BTDeviceItem>();
+
+            pairedDevices = btAdapter.getBondedDevices();
+            if (pairedDevices.size() > 0)
+            {
+                for (BluetoothDevice device : pairedDevices)
+                {
+                    BTDeviceItem newDevice = new BTDeviceItem(device.getName(), device.getAddress(), false);
+                    btDeviceItemList.add(newDevice);
+                }
+            }
+            else if (pairedDevices.size() == 0)
+            {
+                /* If device has no paired devices already */
+                btDeviceItemList.add(new BTDeviceItem("No Devices", "", false));
+            }
+
+            lvAdapter = new BTDeviceListAdapter(getActivity(), btDeviceItemList, btAdapter);
         }
 
         return myView;
@@ -67,6 +95,20 @@ public class PairDeviceFragment extends Fragment
 
     @Override
     public void onClick(View v) {
-        
+        switch (v.getId())
+        {
+            case R.id.btnScan:
+            {
+                Toast.makeText(getActivity().getApplicationContext(),
+                        "Button pressed", Toast.LENGTH_LONG).show();
+                break;
+            }
+
+            case R.id.btnPair:
+            {
+                break;
+            }
+        }
     }
+
 }

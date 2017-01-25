@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Pair Device"
+        android:text="Bluetooth Devices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,16 +14,6 @@
         android:layout_marginTop="17dp"
         android:id="@+id/textStatus" />
 
-    <Button
-        android:text="Pair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnPair"
-        android:layout_marginBottom="42dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textStatus"
-        android:layout_alignStart="@+id/textStatus" />
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,5 +22,24 @@
         android:layout_alignStart="@+id/textStatus"
         android:layout_above="@+id/btnPair"
         android:id="@+id/deviceList" />
+
+    <Button
+        android:text="Pair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPair"
+        android:layout_marginBottom="41dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnScan"
+        android:layout_toEndOf="@+id/btnScan" />
+
+    <Button
+        android:text="Scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnScan"
+        android:layout_below="@+id/deviceList"
+        android:layout_alignLeft="@+id/deviceList"
+        android:layout_alignStart="@+id/deviceList" />
 
 </RelativeLayout>
