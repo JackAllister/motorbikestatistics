@@ -18,9 +18,19 @@
         android:text="Pair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/btnPair"
+        android:layout_marginBottom="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textStatus"
+        android:layout_alignStart="@+id/textStatus" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/textStatus"
         android:layout_alignLeft="@+id/textStatus"
         android:layout_alignStart="@+id/textStatus"
-        android:layout_marginTop="10dp"
-        android:id="@+id/btnPair" />
+        android:layout_above="@+id/btnPair"
+        android:id="@+id/deviceList" />
+
 </RelativeLayout>
