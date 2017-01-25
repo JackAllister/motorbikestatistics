@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.graphics.drawable.Drawable;
 import android.content.Context;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
     }
 
     private class ViewHolder {
+        ImageView imageStatus;
         TextView name;
         TextView address;
         TextView status;
@@ -53,6 +56,7 @@ public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
             convertView = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new ViewHolder();
+            holder.imageStatus = (ImageView)convertView.findViewById(R.id.imageListStatus);
             holder.name = (TextView)convertView.findViewById(R.id.textListName);
             holder.address = (TextView)convertView.findViewById(R.id.textListAddress);
             holder.status = (TextView)convertView.findViewById(R.id.textListStatus);
@@ -64,9 +68,10 @@ public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
         }
 
         BTDeviceItem btItem = getItem(position);
+        holder.imageStatus.setImageResource(R.drawable.ic_bluetooth_disabled_black_24px);
         holder.name.setText(btItem.getName());
         holder.address.setText(btItem.getAddress());
-        holder.status.setText(Boolean.toString(btItem.isConnected()));
+        holder.status.setText(btItem.getStatus());
 
         return convertView;
     }

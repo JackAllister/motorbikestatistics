@@ -47,15 +47,21 @@ public class PairDeviceFragment extends Fragment
 
         myView = inflater.inflate(R.layout.pairdevice_layout, container, false);
 
+        /* Get bluetooth adapter for device & create device array */
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        btDeviceItemList = new ArrayList<BTDeviceItem>();
+
         /* Set our variables for UI buttons */
         btnScan = (Button)myView.findViewById(R.id.btnScan);
         btnScan.setOnClickListener(this);
         btnPair = (Button)myView.findViewById(R.id.btnPair);
         btnPair.setOnClickListener(this);
+
         lvDevices = (ListView)myView.findViewById(R.id.deviceList);
+        lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceItemList, btAdapter);
+        lvDevices.setAdapter(lvAdapter);
 
         /* Check and set up bluetooth adapter */
-        btAdapter = BluetoothAdapter.getDefaultAdapter();
         if (btAdapter == null)
         {
             Toast.makeText(getActivity().getApplicationContext(),
@@ -70,26 +76,23 @@ public class PairDeviceFragment extends Fragment
                 startActivityForResult(enableBT, REQUEST_BLUETOOTH);
             }
 
-            btDeviceItemList = new ArrayList<BTDeviceItem>();
-
+            /* Add all paired devices to list */
             pairedDevices = btAdapter.getBondedDevices();
             if (pairedDevices.size() > 0)
             {
                 for (BluetoothDevice device : pairedDevices)
                 {
-                    BTDeviceItem newDevice = new BTDeviceItem(device.getName(), device.getAddress(), false);
+                    BTDeviceItem newDevice =
+                            new BTDeviceItem(device.getName(), device.getAddress(), "paired", false);
                     btDeviceItemList.add(newDevice);
                 }
             }
             else if (pairedDevices.size() == 0)
             {
                 /* If device has no paired devices already */
-                btDeviceItemList.add(new BTDeviceItem("No Devices", "", false));
+                btDeviceItemList.add(new BTDeviceItem("No Devices", "", "", false));
             }
 
-            lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceItemList, btAdapter);
-            lvDevices.addHeaderView(inflater.inflate(R.layout.device_list_header, null));
-            lvDevices.setAdapter(lvAdapter);
         }
 
         return myView;

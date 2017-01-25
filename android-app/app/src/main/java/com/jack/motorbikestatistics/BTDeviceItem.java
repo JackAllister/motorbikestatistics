@@ -6,26 +6,32 @@ package com.jack.motorbikestatistics;
 
 public class BTDeviceItem {
 
-    private String name_;
-    private String address_;
-    private boolean connected_;
+    private String name;
+    private String address;
+    private String status;
+    private boolean connected;
 
     public String getName() {
-        return name_;
+        return name;
     }
 
     public String getAddress() {
-        return address_;
+        return address;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public boolean isConnected() {
-        return connected_;
+        return connected;
     }
 
-    public BTDeviceItem(String name, String address, boolean connected)
+    public BTDeviceItem(String name, String address, String status, boolean connected)
     {
-        this.name_ = name;
-        this.address_ = address;
-        this.connected_ = connected;
+        this.name = name;
+        this.address = address;
+        this.status = status;
+        this.connected = connected;
     }
 }
