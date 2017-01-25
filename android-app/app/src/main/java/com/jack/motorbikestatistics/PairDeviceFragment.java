@@ -87,7 +87,9 @@ public class PairDeviceFragment extends Fragment
                 btDeviceItemList.add(new BTDeviceItem("No Devices", "", false));
             }
 
-            lvAdapter = new BTDeviceListAdapter(getActivity(), btDeviceItemList, btAdapter);
+            lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceItemList, btAdapter);
+            lvDevices.addHeaderView(inflater.inflate(R.layout.device_list_header, null));
+            lvDevices.setAdapter(lvAdapter);
         }
 
         return myView;

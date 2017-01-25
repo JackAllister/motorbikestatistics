@@ -12,19 +12,19 @@
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="21dp"
-        android:id="@+id/textListName" />
+        android:id="@+id/textListNameHeader" />
 
     <TextView
         android:text="Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textListAddress"
+        android:id="@+id/textListAddressHeader"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
-        android:layout_alignBaseline="@+id/textListName"
-        android:layout_alignBottom="@+id/textListName"
-        android:layout_toRightOf="@+id/textListName"
-        android:layout_toEndOf="@+id/textListName" />
+        android:layout_alignBaseline="@+id/textListNameHeader"
+        android:layout_alignBottom="@+id/textListNameHeader"
+        android:layout_toRightOf="@+id/textListNameHeader"
+        android:layout_toEndOf="@+id/textListNameHeader" />
 
     <TextView
         android:text="Status"
@@ -32,10 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
-        android:id="@+id/textListStatus"
-        android:layout_alignBaseline="@+id/textListAddress"
-        android:layout_alignBottom="@+id/textListAddress"
-        android:layout_toRightOf="@+id/textListAddress"
-        android:layout_toEndOf="@+id/textListAddress" />
+        android:id="@+id/textListStatusHeader"
+        android:layout_alignBaseline="@+id/textListAddressHeader"
+        android:layout_alignBottom="@+id/textListAddressHeader"
+        android:layout_toRightOf="@+id/textListAddressHeader"
+        android:layout_toEndOf="@+id/textListAddressHeader" />
 
 </RelativeLayout>

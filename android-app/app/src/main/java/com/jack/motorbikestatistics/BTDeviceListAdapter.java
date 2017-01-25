@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.List;
 import android.bluetooth.BluetoothAdapter;
 
@@ -20,12 +22,16 @@ import android.bluetooth.BluetoothAdapter;
 
 public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
 
+    private int layoutResourceId;
     private Context context;
     private BluetoothAdapter btAdapter;
+    private ArrayList<BTDeviceItem> data;
 
-    public BTDeviceListAdapter(Context cnt, List items, BluetoothAdapter adapter) {
-        super(cnt, android.R.layout.simple_list_item_1, items);
+    public BTDeviceListAdapter(Context cnt, int layoutResourceId, ArrayList<BTDeviceItem> data, BluetoothAdapter adapter) {
+        super(cnt, layoutResourceId, data);
         this.context = cnt;
+        this.layoutResourceId = layoutResourceId;
+        this.data = data;
         this.btAdapter = adapter;
     }
 
@@ -44,7 +50,7 @@ public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
         if (convertView == null)
         {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.device_list_item, null);
+            convertView = inflater.inflate(layoutResourceId, parent, false);
 
             holder = new ViewHolder();
             holder.name = (TextView)convertView.findViewById(R.id.textListName);
