@@ -1,5 +1,6 @@
 package com.jack.motorbikestatistics;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,26 +83,35 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
 
+        Fragment newFragment = null;
+
         switch (id)
         {
             case R.id.nav_realtime:
             {
-                /* Replaces content frame with realtime frame */
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new RealtimeFragment())
-                        .commit();
+                newFragment = new RealtimeFragment();
                 break;
             }
 
             case R.id.nav_loaddevice:
             {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new LoadDeviceFragment())
-                        .commit();
-                /* Replaces content frame with load device frame */
+                newFragment = new LoadDeviceFragment();
                 break;
             }
 
+            case R.id.nav_pairdevice:
+            {
+                newFragment = new PairDeviceFragment();
+            }
+
+        }
+
+        if (newFragment != null)
+        {
+            /* Replaces content frame with newly selected one */
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, newFragment)
+                    .commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
