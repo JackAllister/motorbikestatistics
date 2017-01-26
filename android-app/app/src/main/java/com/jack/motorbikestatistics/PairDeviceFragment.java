@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 import android.widget.ListView;
@@ -60,6 +61,8 @@ public class PairDeviceFragment extends Fragment {
         btnScan.setOnCheckedChangeListener(toggleScanListener);
 
         lvDevices = (ListView)myView.findViewById(R.id.deviceList);
+        lvDevices.setOnItemClickListener(listItemListener);
+
         lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceItemList, btAdapter);
         lvDevices.setAdapter(lvAdapter);
 
@@ -76,6 +79,11 @@ public class PairDeviceFragment extends Fragment {
             {
                 Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBT, REQUEST_BLUETOOTH);
+            }
+
+            while (btAdapter.isEnabled() == false)
+            {
+                /* Wait for BT to be enabled */
             }
 
             /* Add all paired devices to list */
@@ -164,6 +172,15 @@ public class PairDeviceFragment extends Fragment {
                 getActivity().unregisterReceiver(btReceiver);
                 btAdapter.cancelDiscovery();
             }
+        }
+    };
+
+    public final ListView.OnItemClickListener listItemListener  = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            BTDeviceItem device = (BTDeviceItem)parent.getItemAtPosition(position);
+            Toast.makeText(parent.getContext(), device.getName(), Toast.LENGTH_SHORT).show();
         }
     };
 
