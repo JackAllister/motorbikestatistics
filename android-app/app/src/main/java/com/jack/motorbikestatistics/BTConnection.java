@@ -27,6 +27,9 @@ public class BTConnection implements Runnable {
     {
         this.btDevice = btDevice;
         this.uuid = uuid;
+
+        /* Connect the device so ready to use run */
+        connect();
     }
 
     @Override
