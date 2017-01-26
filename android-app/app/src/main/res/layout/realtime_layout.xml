@@ -12,6 +12,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
-        android:id="@+id/textView3" />
+        android:id="@+id/txtRTStatus" />
 
 </RelativeLayout>

@@ -18,9 +18,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static Fragment rtFragment = null;
-    private static Fragment ldFragment = null;
-    private static Fragment pdFragment = null;
+    private static RealtimeFragment rtFragment = null;
+    private static LoadDeviceFragment ldFragment = null;
+    private static PairDeviceFragment pdFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
         FragmentManager fragmentManager = getFragmentManager();
 
         Fragment newFragment = null;
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.nav_realtime:
             {
+                pdFragment.setRecvHandler(rtFragment.getRecvHandler());
                 newFragment = rtFragment;
                 break;
             }

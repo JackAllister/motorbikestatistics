@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -51,6 +52,7 @@ public class PairDeviceFragment extends Fragment {
     private ArrayAdapter<BTDeviceItem> lvAdapter;
 
     private BTDeviceItem btConnectedDevice = null;
+    private Handler recvHandler = null;
 
 
     public PairDeviceFragment() {
@@ -121,6 +123,11 @@ public class PairDeviceFragment extends Fragment {
         }
 
         return myView;
+    }
+
+    public void setRecvHandler(Handler handler)
+    {
+        recvHandler = handler;
     }
 
     private void getNeededPrivileges()
