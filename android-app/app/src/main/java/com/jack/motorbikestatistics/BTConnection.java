@@ -4,9 +4,12 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.UUID;
 
 /**
@@ -20,7 +23,10 @@ public class BTConnection implements Runnable {
     private BluetoothDevice btDevice;
 
     private BluetoothSocket btSocket = null;
+    private Handler RXHandler = null;
+
     private volatile boolean running = false;
+
 
     public BTConnection(BluetoothDevice btDevice)
             throws IOException
@@ -33,12 +39,61 @@ public class BTConnection implements Runnable {
 
     @Override
     public void run() {
+        InputStream RXStream;
 
+        /* Indicate that we are now running main thread */
         running = true;
 
-        while (isRunning() && isConnected())
+        if (isConnected())
         {
+            /* Get our input stream for receiving bytes */
+            try
+            {
+                RXStream = btSocket.getInputStream();
+            }
+            catch (IOException e)
+            {
+                Log.e(TAG, "Unable to get RXStream", e);
+                running = false;
+                return;
+            }
 
+            /*
+             * While still connected and not signalled to stop we receive data
+             * and then send it to the handler
+             */
+            while (isRunning() && isConnected())
+            {
+                /* No point sending to our handler if we have no handler */
+                if (RXHandler != null)
+                {
+                    try
+                    {
+                        int bytesAvailable = RXStream.available();
+
+                        if (bytesAvailable > 0)
+                        {
+                            byte[] packetBytes = new byte[bytesAvailable];
+                            int bytesRead = RXStream.read(packetBytes);
+
+                            /* Send our message to packet handler */
+                            Message message = new Message();
+                            message.obj = new String(packetBytes);
+                            message.setTarget(RXHandler);
+                            message.sendToTarget();
+                        }
+
+                    }
+                    catch (IOException e)
+                    {
+                        Log.e(TAG, "Unable to read data", e);
+                        running = false;
+                        return;
+                    }
+
+
+                }
+            }
         }
 
         /* Close bluetooth socket */
@@ -60,6 +115,10 @@ public class BTConnection implements Runnable {
         running = false;
     }
 
+    public void setRXHandler(Handler handler) {
+        RXHandler = handler;
+    }
+
     public boolean isRunning() {
         return running;
     }
@@ -75,7 +134,7 @@ public class BTConnection implements Runnable {
         return result;
     }
 
-    public void connect() throws IOException {
+    private void connect() throws IOException {
 
         /* Attempt to make connection to remote device, throw exception if not */
         try
@@ -109,7 +168,7 @@ public class BTConnection implements Runnable {
         }
     }
 
-    public void close() throws IOException {
+    private void close() throws IOException {
         if (btSocket != null)
         {
             try

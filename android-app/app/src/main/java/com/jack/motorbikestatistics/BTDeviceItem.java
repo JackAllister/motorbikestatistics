@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothDevice;
 public class BTDeviceItem {
 
     private BTConnection connection = null;
+    private Thread runThread = null;
     private int iconID;
     private BluetoothDevice device;
     private String status;
@@ -19,6 +20,10 @@ public class BTDeviceItem {
 
     public void setConnection(BTConnection newConn) {
         connection = newConn;
+    }
+
+    public void setThread(Thread thread) {
+        this.runThread = thread;
     }
 
     public BluetoothDevice getDevice() {
@@ -48,4 +53,5 @@ public class BTDeviceItem {
         this.status = status;
         this.iconID = iconID;
     }
+
 }

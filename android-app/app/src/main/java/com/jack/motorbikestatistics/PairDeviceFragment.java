@@ -52,8 +52,6 @@ public class PairDeviceFragment extends Fragment {
     private ArrayAdapter<BTDeviceItem> lvAdapter;
 
     private BTDeviceItem btConnectedDevice = null;
-    private Handler recvHandler = null;
-
 
     public PairDeviceFragment() {
         /* Get bluetooth adapter for device & create device arrays */
@@ -125,9 +123,9 @@ public class PairDeviceFragment extends Fragment {
         return myView;
     }
 
-    public void setRecvHandler(Handler handler)
+    public BTDeviceItem getConnectedDevice()
     {
-        recvHandler = handler;
+        return btConnectedDevice;
     }
 
     private void getNeededPrivileges()
@@ -223,6 +221,20 @@ public class PairDeviceFragment extends Fragment {
 
                     BTConnection newConn = new BTConnection(deviceItem.getDevice());
 
+                    /* Execute the 'run' procedure in object in new thread */
+                    Thread newThread = new Thread(newConn);
+                    newThread.start();
+                    deviceItem.setThread(newThread);
+
+                    /* Add set connection and add item to listview */
+                    deviceItem.setConnection(newConn);
+                    btConnectedDevice = deviceItem;
+
+                    /* Update status and icon in list view */
+                    deviceItem.setIconID(R.drawable.ic_bluetooth_connected_black_24px);
+                    deviceItem.setStatus(CONNECTED_STATUS);
+                    lvAdapter.notifyDataSetChanged();
+
                     /* Check to see if connected */
                     Toast.makeText(parent.getContext(), "Connected: " +
                             Boolean.toString(newConn.isConnected()), Toast.LENGTH_SHORT).show();
@@ -231,13 +243,6 @@ public class PairDeviceFragment extends Fragment {
                     Toast.makeText(parent.getContext(), "Running: " +
                             Boolean.toString(newConn.isRunning()), Toast.LENGTH_SHORT).show();
 
-                    /* Add set connection and add item to listview */
-                    deviceItem.setConnection(newConn);
-
-                    /* Update status and icon in list view */
-                    deviceItem.setIconID(R.drawable.ic_bluetooth_connected_black_24px);
-                    deviceItem.setStatus(CONNECTED_STATUS);
-                    lvAdapter.notifyDataSetChanged();
                 }
                 catch (IOException e)
                 {

@@ -41,7 +41,7 @@ public class RealtimeFragment extends Fragment {
 
             String data = (String)msg.obj;
 
-            textStatus.setText(data);
+            textStatus.setText(textStatus.getText() + data);
         }
     };
 

@@ -2,6 +2,7 @@ package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
@@ -99,7 +100,12 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.nav_realtime:
             {
-                pdFragment.setRecvHandler(rtFragment.getRecvHandler());
+                BTDeviceItem currDevice = pdFragment.getConnectedDevice();
+                if (currDevice != null)
+                {
+                    Handler rxHandler = rtFragment.getRecvHandler();
+                    currDevice.getConnection().setRXHandler(rxHandler);
+                }
                 newFragment = rtFragment;
                 break;
             }
