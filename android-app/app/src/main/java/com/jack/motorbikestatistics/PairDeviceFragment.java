@@ -40,9 +40,7 @@ public class PairDeviceFragment extends Fragment {
 
     private boolean firstRun = true;
 
-    private View myView;
     private ToggleButton btnScan;
-    private ListView lvDevices;
 
     /* Bluetooth variables */
     private BluetoothAdapter btAdapter = null;
@@ -64,7 +62,7 @@ public class PairDeviceFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        myView = inflater.inflate(R.layout.pairdevice_layout, container, false);
+        View myView = inflater.inflate(R.layout.pairdevice_layout, container, false);
 
         /* Request needed privileges for bluetooth to work */
         getNeededPrivileges();
@@ -73,7 +71,7 @@ public class PairDeviceFragment extends Fragment {
         btnScan = (ToggleButton)myView.findViewById(R.id.btnScan);
         btnScan.setOnCheckedChangeListener(toggleScanListener);
 
-        lvDevices = (ListView)myView.findViewById(R.id.deviceList);
+        ListView lvDevices = (ListView)myView.findViewById(R.id.deviceList);
         lvDevices.setOnItemClickListener(listItemListener);
 
         lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceList, btAdapter);
@@ -87,19 +85,29 @@ public class PairDeviceFragment extends Fragment {
         }
         else
         {
+            /* Check to see if connected device still is connected */
+            if (btConnectedDevice != null)
+            {
+                if (!btConnectedDevice.getConnection().isConnected() ||
+                        !btConnectedDevice.getConnection().isRunning())
+                {
+                    btConnectedDevice = null;
+                }
+            }
+
             /* firstRun check to list from being re-populated */
-            if (firstRun == true)
+            if (firstRun)
             {
                 firstRun = false;
 
                 /* Enable bluetooth adapter if disabled */
-                if (btAdapter.isEnabled() == false)
+                if (!btAdapter.isEnabled())
                 {
                     Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                     startActivityForResult(enableBT, REQUEST_BLUETOOTH);
                 }
 
-                while (btAdapter.isEnabled() == false)
+                while (!btAdapter.isEnabled())
                 {
                     /* Wait for BT to be enabled */
                 }
@@ -147,7 +155,7 @@ public class PairDeviceFragment extends Fragment {
             permsGranted &= (ContextCompat.checkSelfPermission(getActivity(), permission) == PackageManager.PERMISSION_GRANTED);
         }
 
-        if (permsGranted == false)
+        if (!permsGranted)
         {
             ActivityCompat.requestPermissions(getActivity(), permsToRequest, REQUEST_CODE);
         }
@@ -176,7 +184,7 @@ public class PairDeviceFragment extends Fragment {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
             IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-            if (isChecked == true)
+            if (isChecked)
             {
                 /* Clear listview, add previous paired items, start discovery */
                 lvAdapter.clear();
@@ -205,7 +213,7 @@ public class PairDeviceFragment extends Fragment {
 
             /* Check if there is already a connection between devices */
             if ((deviceItem.getConnection() == null) ||
-                    (deviceItem.getConnection().isConnected() == false))
+                    (!deviceItem.getConnection().isConnected()))
             {
                 if (btAdapter.isDiscovering())
                 {
@@ -222,9 +230,8 @@ public class PairDeviceFragment extends Fragment {
                     BTConnection newConn = new BTConnection(deviceItem.getDevice());
 
                     /* Execute the 'run' procedure in object in new thread */
-                    Thread newThread = new Thread(newConn);
-                    newThread.start();
-                    deviceItem.setThread(newThread);
+                    Thread tmpThread = new Thread(newConn);
+                    tmpThread.start();
 
                     /* Add set connection and add item to listview */
                     deviceItem.setConnection(newConn);
@@ -234,15 +241,6 @@ public class PairDeviceFragment extends Fragment {
                     deviceItem.setIconID(R.drawable.ic_bluetooth_connected_black_24px);
                     deviceItem.setStatus(CONNECTED_STATUS);
                     lvAdapter.notifyDataSetChanged();
-
-                    /* Check to see if connected */
-                    Toast.makeText(parent.getContext(), "Connected: " +
-                            Boolean.toString(newConn.isConnected()), Toast.LENGTH_SHORT).show();
-
-                    /* Check to see if running */
-                    Toast.makeText(parent.getContext(), "Running: " +
-                            Boolean.toString(newConn.isRunning()), Toast.LENGTH_SHORT).show();
-
                 }
                 catch (IOException e)
                 {
