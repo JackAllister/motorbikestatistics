@@ -68,9 +68,9 @@ public class BTDeviceListAdapter extends ArrayAdapter<BTDeviceItem> {
         }
 
         BTDeviceItem btItem = getItem(position);
-        holder.imageStatus.setImageResource(R.drawable.ic_bluetooth_disabled_black_24px);
-        holder.name.setText(btItem.getName());
-        holder.address.setText(btItem.getAddress());
+        holder.imageStatus.setImageResource(btItem.getIconID());
+        holder.name.setText(btItem.getDevice().getName());
+        holder.address.setText(btItem.getDevice().getAddress());
         holder.status.setText(btItem.getStatus());
 
         return convertView;

@@ -16,17 +16,16 @@ import java.util.UUID;
 public class BTConnection implements Runnable {
 
     private static final String TAG = "BTConnection";
+    private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
     private BluetoothDevice btDevice;
-    private UUID uuid;
 
     private BluetoothSocket btSocket = null;
     private volatile boolean running = false;
 
-    public BTConnection(Context cnt, BluetoothDevice btDevice, UUID uuid)
+    public BTConnection(BluetoothDevice btDevice)
             throws IOException
     {
         this.btDevice = btDevice;
-        this.uuid = uuid;
 
         /* Connect the device so ready to use run */
         connect();
@@ -37,7 +36,7 @@ public class BTConnection implements Runnable {
 
         running = true;
 
-        while ((running == true) && this.isConnected())
+        while (isRunning() && isConnected())
         {
 
         }

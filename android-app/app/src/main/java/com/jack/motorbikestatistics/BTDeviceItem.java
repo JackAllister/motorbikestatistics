@@ -1,37 +1,51 @@
 package com.jack.motorbikestatistics;
 
+import android.bluetooth.BluetoothDevice;
+
 /**
  * Created by Jack on 25-Jan-17.
  */
 
 public class BTDeviceItem {
 
-    private String name;
-    private String address;
+    private BTConnection connection = null;
+    private int iconID;
+    private BluetoothDevice device;
     private String status;
-    private boolean connected;
 
-    public String getName() {
-        return name;
+    public BTConnection getConnection() {
+        return connection;
     }
 
-    public String getAddress() {
-        return address;
+    public void setConnection(BTConnection newConn) {
+        connection = newConn;
     }
+
+    public BluetoothDevice getDevice() {
+        return device;
+    }
+
 
     public String getStatus() {
         return status;
     }
 
-    public boolean isConnected() {
-        return connected;
+    public void setStatus(String newStatus) {
+        status = newStatus;
     }
 
-    public BTDeviceItem(String name, String address, String status, boolean connected)
+    public int getIconID() {
+        return iconID;
+    }
+
+    public void setIconID(int newID) {
+        iconID = newID;
+    }
+
+    public BTDeviceItem(BluetoothDevice device, String status, int iconID)
     {
-        this.name = name;
-        this.address = address;
+        this.device = device;
         this.status = status;
-        this.connected = connected;
+        this.iconID = iconID;
     }
 }
