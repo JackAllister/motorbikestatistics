@@ -37,6 +37,8 @@ public class PairDeviceFragment extends Fragment {
     private final static String CONNECTED_STATUS = "connected";
     private final static int BT_DISABLED_ICON = R.drawable.ic_bluetooth_disabled_black_24px;
 
+    private boolean firstRun = true;
+
     private View myView;
     private ToggleButton btnScan;
     private ListView lvDevices;
@@ -46,9 +48,17 @@ public class PairDeviceFragment extends Fragment {
 
     private ArrayList<BTDeviceItem> btDeviceList;
     private ArrayList<BTDeviceItem> btPairedList;
-    private ArrayList<BTDeviceItem> btConnectedList;
-
     private ArrayAdapter<BTDeviceItem> lvAdapter;
+
+    private BTDeviceItem btConnectedDevice = null;
+
+
+    public PairDeviceFragment() {
+        /* Get bluetooth adapter for device & create device arrays */
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        btDeviceList = new ArrayList<BTDeviceItem>();
+        btPairedList = new ArrayList<BTDeviceItem>();
+    }
 
     @Nullable
     @Override
@@ -58,12 +68,6 @@ public class PairDeviceFragment extends Fragment {
 
         /* Request needed privileges for bluetooth to work */
         getNeededPrivileges();
-
-        /* Get bluetooth adapter for device & create device array */
-        btAdapter = BluetoothAdapter.getDefaultAdapter();
-        btDeviceList = new ArrayList<BTDeviceItem>();
-        btPairedList = new ArrayList<BTDeviceItem>();
-        btConnectedList = new ArrayList<BTDeviceItem>();
 
         /* Set our variables for UI buttons */
         btnScan = (ToggleButton)myView.findViewById(R.id.btnScan);
@@ -83,30 +87,36 @@ public class PairDeviceFragment extends Fragment {
         }
         else
         {
-            /* Enable bluetooth adapter if disabled */
-            if (btAdapter.isEnabled() == false)
+            /* firstRun check to list from being re-populated */
+            if (firstRun == true)
             {
-                Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBT, REQUEST_BLUETOOTH);
-            }
+                firstRun = false;
 
-            while (btAdapter.isEnabled() == false)
-            {
-                /* Wait for BT to be enabled */
-            }
-
-            /* Add all paired devices to list */
-            Set<BluetoothDevice> pairedDevices = btAdapter.getBondedDevices();
-            if (pairedDevices.size() > 0)
-            {
-                for (BluetoothDevice device : pairedDevices)
+                /* Enable bluetooth adapter if disabled */
+                if (btAdapter.isEnabled() == false)
                 {
-                    BTDeviceItem newDevice =
-                            new BTDeviceItem(device, "paired", BT_DISABLED_ICON);
-                    btPairedList.add(newDevice);
+                    Intent enableBT = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                    startActivityForResult(enableBT, REQUEST_BLUETOOTH);
                 }
+
+                while (btAdapter.isEnabled() == false)
+                {
+                    /* Wait for BT to be enabled */
+                }
+
+                /* Add all paired devices to list */
+                Set<BluetoothDevice> pairedDevices = btAdapter.getBondedDevices();
+                if (pairedDevices.size() > 0)
+                {
+                    for (BluetoothDevice device : pairedDevices)
+                    {
+                        BTDeviceItem newDevice =
+                            new BTDeviceItem(device, "paired", BT_DISABLED_ICON);
+                        btPairedList.add(newDevice);
+                    }
+                }
+                btDeviceList.addAll(btPairedList);
             }
-            btDeviceList.addAll(btPairedList);
 
         }
 
@@ -166,6 +176,10 @@ public class PairDeviceFragment extends Fragment {
                 /* Clear listview, add previous paired items, start discovery */
                 lvAdapter.clear();
                 lvAdapter.addAll(btPairedList);
+
+                if (btConnectedDevice != null)
+                    lvAdapter.add(btConnectedDevice);
+
                 getActivity().registerReceiver(btReceiver, filter);
                 btAdapter.startDiscovery();
             }
@@ -184,7 +198,9 @@ public class PairDeviceFragment extends Fragment {
 
             BTDeviceItem deviceItem = (BTDeviceItem)parent.getItemAtPosition(position);
 
-            if (deviceItem.getStatus().equals(CONNECTED_STATUS) == false)
+            /* Check if there is already a connection between devices */
+            if ((deviceItem.getConnection() == null) ||
+                    (deviceItem.getConnection().isConnected() == false))
             {
                 if (btAdapter.isDiscovering())
                 {
@@ -195,6 +211,9 @@ public class PairDeviceFragment extends Fragment {
 
                 try
                 {
+                    Toast.makeText(parent.getContext(), "Connecting to: " +
+                            deviceItem.getDevice().getName(), Toast.LENGTH_SHORT).show();
+
                     BTConnection newConn = new BTConnection(deviceItem.getDevice());
 
                     /* Check to see if connected */
@@ -205,9 +224,8 @@ public class PairDeviceFragment extends Fragment {
                     Toast.makeText(parent.getContext(), "Running: " +
                             Boolean.toString(newConn.isRunning()), Toast.LENGTH_SHORT).show();
 
-                    /* Add set connection and item to list */
+                    /* Add set connection and add item to listview */
                     deviceItem.setConnection(newConn);
-                    btConnectedList.add(deviceItem);
 
                     /* Update status and icon in list view */
                     deviceItem.setIconID(R.drawable.ic_bluetooth_connected_black_24px);

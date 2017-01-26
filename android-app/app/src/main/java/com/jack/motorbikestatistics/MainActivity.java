@@ -18,6 +18,10 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static Fragment rtFragment = null;
+    private static Fragment ldFragment = null;
+    private static Fragment pdFragment = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        /* Create our fragments for different sections of UI */
+        rtFragment = new RealtimeFragment();
+        ldFragment = new LoadDeviceFragment();
+        pdFragment = new PairDeviceFragment();
     }
 
     @Override
@@ -89,19 +98,19 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.nav_realtime:
             {
-                newFragment = new RealtimeFragment();
+                newFragment = rtFragment;
                 break;
             }
 
             case R.id.nav_loaddevice:
             {
-                newFragment = new LoadDeviceFragment();
+                newFragment = ldFragment;
                 break;
             }
 
             case R.id.nav_pairdevice:
             {
-                newFragment = new PairDeviceFragment();
+                newFragment = pdFragment;
             }
 
         }
