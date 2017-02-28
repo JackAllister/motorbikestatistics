@@ -1,7 +1,7 @@
 
 /*
  * Prototype 2 for device side of the project.
- * 
+ *
  * Currently using:
  *  Arduino 101
  *  Sparkfun GPS Logger Shield
@@ -9,7 +9,7 @@
  *
  * Not using onboard bluetooth as it is only BLE. Limits to 20 bytes and data rate is low,
  * Better to use hardware serial and use HC-06 bluetooth board.
- *  
+ *
  */
 
 /* Module Includes */
@@ -20,6 +20,7 @@
 #include <ArduinoJson.h>
 
 /* Module Constants */
+#define SERIAL_TYPE Serial1
 #define SERIAL_BAUD 9600
 
 /* Settings for EM-506 GPS shield (borrowed from Peter) */
@@ -51,19 +52,21 @@ TinyGPSPlus gps;
 Madgwick IMUfilter;
 
 StaticJsonBuffer<200> jsonBuffer;
-JsonObject& jsonObject = jsonBuffer.createObject();
+JsonObject& mainJSON = jsonBuffer.createObject();
+JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
+JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
 
 
 /* Module Code */
 
 /* System setup code */
-void setup() 
-{  
+void setup()
+{
   pinMode(LED_PIN, OUTPUT);
-  
+
   /* Set up serial for data transmission */
-  Serial1.begin(SERIAL_BAUD);
-  
+  SERIAL_TYPE.begin(SERIAL_BAUD);
+
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
 
@@ -74,17 +77,17 @@ void setup()
   IMUfilter.begin(IMU_FREQUENCY);
 
   CurieIMU.setAccelerometerRange(ACCEL_RANGE);
-  CurieIMU.setGyroRange(GYRO_RANGE); 
+  CurieIMU.setGyroRange(GYRO_RANGE);
 }
 
 /* Main Code */
-void loop() 
+void loop()
 {
   static const unsigned long PRINT_DELAY = 2000;
   static unsigned long lastMillis = 0;
 
   getOrientation();
-  
+
   /* Parse NMEA codes into GPS object */
   while (serGPS.available() > 0)
   {
@@ -99,8 +102,9 @@ void loop()
     addOrientationToJSON();
     addGPSToJSON();
 
-    jsonObject.printTo(Serial1);
-    
+    mainJSON.printTo(SERIAL_TYPE);
+    SERIAL_TYPE.println();
+
     lastMillis = millis();
     digitalWrite(LED_PIN, LOW);
   }
@@ -110,7 +114,7 @@ void getOrientation()
 {
   static const unsigned long US_PER_READING = 1000000 / IMU_FREQUENCY;
   static unsigned long usPrevious = micros();
-  
+
   int accel_raw[NUMBER_AXIS];
   int gyro_raw[NUMBER_AXIS];
   float accel_g[NUMBER_AXIS];
@@ -145,7 +149,7 @@ float convertRawAcceleration(int aRaw) {
   // since we are using 2G range
   // -2g maps to a raw value of -32768
   // +2g maps to a raw value of 32767
-  
+
   float a = (aRaw * (float)ACCEL_RANGE) / 32768.0;
   return a;
 }
@@ -154,60 +158,44 @@ float convertRawGyro(int gRaw) {
   // since we are using 250 degrees/seconds range
   // -250 maps to a raw value of -32768
   // +250 maps to a raw value of 32767
-  
+
   float g = (gRaw * (float)GYRO_RANGE) / 32768.0;
   return g;
 }
 
 void addOrientationToJSON()
 {
-  jsonObject["Yaw"] = IMUfilter.getYaw();
-  jsonObject["Pitch"] = IMUfilter.getPitch();
-  jsonObject["Roll"] = IMUfilter.getRoll();
+  orientJSON["yaw"] = IMUfilter.getYaw();
+  orientJSON["pitch"] = IMUfilter.getPitch();
+  orientJSON["roll"] = IMUfilter.getRoll();
 }
 
 void addGPSToJSON()
 {
-  
-}
-
-String getGPSInfo()
-{
-  static const char* INVALID_STR = "INVALID";
-
-  /* Get GPS available */
-  String result = "GPS Available: ";
-  result += gps.satellites.value();
-  result += ' ';
-
-  /* Get location */
-  result += "Location: ";
+  /*
+   * If the GPS has not found valid location print 0 to indicate invalid.
+   * Obviously introduces a bug if GPS is actually at 0,0 but chances
+   * are extremely low.
+   */
   if (gps.location.isValid())
   {
-    result += String(gps.location.lat(), 6);
-    result += ',';
-    result += String(gps.location.lng(), 6);
+    gpsJSON["lat"] = double_with_n_digits(gps.location.lat(), 6);
+    gpsJSON["lng"] = double_with_n_digits(gps.location.lng(), 6);
   }
   else
-    result += INVALID_STR;
-  result += ' ';
+  {
+    gpsJSON["lat"] = 0;
+    gpsJSON["lng"] = 0;
+  }
 
-  /* Get speed */
-  result += "Velocity: ";
-  result += gps.speed.mph();
-  result += "mph";
-  result += ' ';
+  /*
+   * Print
+   */
 
-  /* Get altitude */
-  result += "Altitude: ";
-  result += gps.altitude.feet();
-  result += "ft";
-  result += ' ';
-
-  /* Get Date/Time */
-  result += parseDateTime();
-
-  return result;
+  /* Other crucial GPS information */
+  gpsJSON["available"] = gps.satellites.value();
+  gpsJSON["vel_mph"] = gps.speed.mph();
+  gpsJSON["alt_ft"] = gps.altitude.feet();
 }
 
 String parseDateTime()
@@ -241,4 +229,3 @@ String parseDateTime()
 
   return result;
 }
-
