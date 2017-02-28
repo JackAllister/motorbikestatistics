@@ -1,3 +1,4 @@
+
 /*
  * Prototype 2 for device side of the project.
  * 
@@ -16,6 +17,7 @@
 #include <MadgwickAHRS.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
+#include <ArduinoJson.h>
 
 /* Module Constants */
 #define SERIAL_BAUD 9600
@@ -47,7 +49,9 @@ SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 Madgwick IMUfilter;
-float accelScale, gyroScale;
+
+StaticJsonBuffer<200> jsonBuffer;
+JsonObject& jsonObject = jsonBuffer.createObject();
 
 
 /* Module Code */
@@ -57,7 +61,7 @@ void setup()
 {  
   pinMode(LED_PIN, OUTPUT);
   
-  /* Set up serial for debugging */
+  /* Set up serial for data transmission */
   Serial1.begin(SERIAL_BAUD);
   
   /* Set up GPS */
@@ -91,19 +95,13 @@ void loop()
   if ((millis() - lastMillis) > PRINT_DELAY)
   {
     digitalWrite(LED_PIN, HIGH);
+
+    addOrientationToJSON();
+    addGPSToJSON();
+
+    jsonObject.printTo(Serial1);
     
-    Serial1.print("Yaw: ");
-    Serial1.print(IMUfilter.getYaw());
-    Serial1.print("\tPitch: ");
-    Serial1.print(IMUfilter.getPitch());
-    Serial1.print("\tRoll: ");
-    Serial1.print(IMUfilter.getRoll());
-    Serial1.println();
-
-    /* Print out GPS information */
-    Serial1.println(getGPSInfo());
     lastMillis = millis();
-
     digitalWrite(LED_PIN, LOW);
   }
 }
@@ -159,6 +157,18 @@ float convertRawGyro(int gRaw) {
   
   float g = (gRaw * (float)GYRO_RANGE) / 32768.0;
   return g;
+}
+
+void addOrientationToJSON()
+{
+  jsonObject["Yaw"] = IMUfilter.getYaw();
+  jsonObject["Pitch"] = IMUfilter.getPitch();
+  jsonObject["Roll"] = IMUfilter.getRoll();
+}
+
+void addGPSToJSON()
+{
+  
 }
 
 String getGPSInfo()
