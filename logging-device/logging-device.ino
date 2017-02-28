@@ -195,4 +195,5 @@ void addTimeToJSON()
   timeJSON["hour"] = gps.time.hour();
   timeJSON["minute"] = gps.time.minute();
   timeJSON["second"] = gps.time.second();
+  timeJSON["centiseconds"] = gps.time.centisecond();
 }
