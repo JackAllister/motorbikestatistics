@@ -51,11 +51,11 @@ TinyGPSPlus gps;
 
 Madgwick IMUfilter;
 
-StaticJsonBuffer<200> jsonBuffer;
+StaticJsonBuffer<500> jsonBuffer;
 JsonObject& mainJSON = jsonBuffer.createObject();
 JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
 JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
-
+JsonObject& timeJSON = mainJSON.createNestedObject("time");
 
 /* Module Code */
 
@@ -83,7 +83,7 @@ void setup()
 /* Main Code */
 void loop()
 {
-  static const unsigned long PRINT_DELAY = 2000;
+  static const unsigned long PRINT_DELAY = 1000;
   static unsigned long lastMillis = 0;
 
   getOrientation();
@@ -101,6 +101,7 @@ void loop()
 
     addOrientationToJSON();
     addGPSToJSON();
+    addTimeToJSON();
 
     mainJSON.printTo(SERIAL_TYPE);
     SERIAL_TYPE.println();
@@ -172,25 +173,10 @@ void addOrientationToJSON()
 
 void addGPSToJSON()
 {
-  /*
-   * If the GPS has not found valid location print 0 to indicate invalid.
-   * Obviously introduces a bug if GPS is actually at 0,0 but chances
-   * are extremely low.
-   */
-  if (gps.location.isValid())
-  {
-    gpsJSON["lat"] = double_with_n_digits(gps.location.lat(), 6);
-    gpsJSON["lng"] = double_with_n_digits(gps.location.lng(), 6);
-  }
-  else
-  {
-    gpsJSON["lat"] = 0;
-    gpsJSON["lng"] = 0;
-  }
-
-  /*
-   * Print
-   */
+  /* Add location information */
+  gpsJSON["valid"] = gps.location.isValid();
+  gpsJSON["lat"] = double_with_n_digits(gps.location.lat(), 6);
+  gpsJSON["lng"] = double_with_n_digits(gps.location.lng(), 6);
 
   /* Other crucial GPS information */
   gpsJSON["available"] = gps.satellites.value();
@@ -198,34 +184,15 @@ void addGPSToJSON()
   gpsJSON["alt_ft"] = gps.altitude.feet();
 }
 
-String parseDateTime()
+void addTimeToJSON()
 {
-  String result = "Date: INVALID";
+  /* Add time information to JSON */
+  timeJSON["valid"] = gps.date.isValid() && gps.time.isValid();
+  timeJSON["day"] = gps.date.day();
+  timeJSON["month"] = gps.date.month();
+  timeJSON["year"] = gps.date.year();
 
-  if (gps.date.isValid() && gps.time.isValid())
-  {
-    /* Add date to string */
-    result = "Date: ";
-    result += gps.date.day();
-    result += "/";
-    result += gps.date.month();
-    result += "/";
-    result += gps.date.year();
-
-    /* Add time to string */
-    result += " ";
-    if (gps.time.hour() < 10)
-      result += '0';
-    result += gps.time.hour();
-    result += ":";
-    if (gps.time.minute() < 10)
-      result += '0';
-    result += gps.time.minute();
-    result += ":";
-    if (gps.time.second() < 10)
-      result += '0';
-    result += gps.time.second();
-  }
-
-  return result;
+  timeJSON["hour"] = gps.time.hour();
+  timeJSON["minute"] = gps.time.minute();
+  timeJSON["second"] = gps.time.second();
 }
