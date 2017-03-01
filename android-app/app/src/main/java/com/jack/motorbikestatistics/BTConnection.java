@@ -2,6 +2,8 @@ package com.jack.motorbikestatistics;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -21,18 +23,18 @@ public class BTConnection implements Runnable {
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
     private BluetoothDevice btDevice;
-    private PairDeviceFragment.JSONInterfaceListener jsonInterface;
+    private Handler RXHandler;
 
     private BluetoothSocket btSocket = null;
 
     private volatile boolean running = false;
 
 
-    public BTConnection(BluetoothDevice btDevice, PairDeviceFragment.JSONInterfaceListener jsonInterface)
+    public BTConnection(BluetoothDevice btDevice, Handler rxHandler)
             throws IOException
     {
         this.btDevice = btDevice;
-        this.jsonInterface = jsonInterface;
+        this.RXHandler = rxHandler;
 
         /* Connect the device so ready to use run */
         connect();
@@ -75,7 +77,29 @@ public class BTConnection implements Runnable {
                         byte[] packetBytes = new byte[bytesAvailable];
                         int bytesRead = RXStream.read(packetBytes);
 
-                        jsonString += packetBytes;
+                        //jsonString += packetBytes;
+
+                        Message message = new Message();
+                        message.obj = "Test";
+                        message.setTarget(RXHandler);
+                        message.sendToTarget();
+
+                        /*
+                         * If jsonString is valid we add to our JSON receiver.
+                         * Once that is completed we send to our interface.
+                         *
+                         * If not we wait till next run of while loop and then try re-add.
+                         */
+//                        try {
+//                            //JSONObject newJSON = new JSONObject(jsonString);
+//                            JSONObject newJSON = new JSONObject();
+//                            newJSON.put("Test", "DEBUG");
+//
+//                            jsonInterface.JSONReceived(newJSON);
+//                            jsonString = "";
+//                        } catch (JSONException e) {
+//                            /* Not valid JSON object so cannot send */
+//                        }
                     }
 
                 }
@@ -86,20 +110,6 @@ public class BTConnection implements Runnable {
                     return;
                 }
 
-                /*
-                 * If jsonString is valid we add to our JSON receiver.
-                 * Once that is completed we send to our interface.
-                 *
-                 * If not we wait till next run of while loop and then try re-add.
-                 */
-                try {
-                    JSONObject newJSON = new JSONObject(jsonString);
-
-                    jsonInterface.JSONReceived(newJSON);
-                    jsonString = "";
-                } catch (JSONException e) {
-                    /* Not valid JSON object so cannot send */
-                }
             }
         }
 

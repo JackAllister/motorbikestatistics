@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -43,8 +44,8 @@ public class PairDeviceFragment extends Fragment {
 
     private ToggleButton btnScan;
 
-    /* Interface for communication back to main activity */
-    JSONInterfaceListener jsonInterface;
+    /* Handler for receiving data */
+    Handler RXHandler = null;
 
     /* Bluetooth variables */
     private BluetoothAdapter btAdapter = null;
@@ -55,31 +56,14 @@ public class PairDeviceFragment extends Fragment {
 
     private BTDeviceItem btConnectedDevice = null;
 
+
+
     public PairDeviceFragment()
     {
         /* Get bluetooth adapter for device & create device arrays */
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         btDeviceList = new ArrayList<BTDeviceItem>();
         btPairedList = new ArrayList<BTDeviceItem>();
-    }
-
-    public interface JSONInterfaceListener {
-        public void JSONReceived(JSONObject jsonObject);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        /* Try set the JSON interface to main activity */
-        try {
-            /* Try get the JSON interface from main activity */
-            jsonInterface = (JSONInterfaceListener)getActivity();
-        } catch (ClassCastException e) {
-            //TODO: Change to LOG.e
-            Toast.makeText(getActivity(), "Unable to create listener: " +
-                    e.toString(), Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Nullable
@@ -158,6 +142,10 @@ public class PairDeviceFragment extends Fragment {
     public BTDeviceItem getConnectedDevice()
     {
         return btConnectedDevice;
+    }
+
+    public void setRXHandler(Handler rxHandler) {
+        this.RXHandler = rxHandler;
     }
 
     private void getNeededPrivileges()
@@ -251,7 +239,7 @@ public class PairDeviceFragment extends Fragment {
                     Toast.makeText(parent.getContext(), "Connecting to: " +
                             deviceItem.getDevice().getName(), Toast.LENGTH_SHORT).show();
 
-                    BTConnection newConn = new BTConnection(deviceItem.getDevice(), jsonInterface);
+                    BTConnection newConn = new BTConnection(deviceItem.getDevice(), RXHandler);
 
                     /* Execute the 'run' procedure in object in new thread */
                     Thread tmpThread = new Thread(newConn);

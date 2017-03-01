@@ -2,6 +2,9 @@ package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
@@ -18,11 +21,13 @@ import android.view.MenuItem;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, PairDeviceFragment.JSONInterfaceListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static RealtimeFragment rtFragment = null;
     private static LoadDeviceFragment ldFragment = null;
     private static PairDeviceFragment pdFragment = null;
+
+    private static Fragment activeFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,39 +100,33 @@ public class MainActivity extends AppCompatActivity
 
         FragmentManager fragmentManager = getFragmentManager();
 
-        Fragment newFragment = null;
-
         switch (id)
         {
             case R.id.nav_realtime:
             {
-                BTDeviceItem currDevice = pdFragment.getConnectedDevice();
-                if (currDevice != null)
-                {
-
-                }
-                newFragment = rtFragment;
+                activeFragment = rtFragment;
                 break;
             }
 
             case R.id.nav_loaddevice:
             {
-                newFragment = ldFragment;
+                activeFragment = ldFragment;
                 break;
             }
 
             case R.id.nav_pairdevice:
             {
-                newFragment = pdFragment;
+                activeFragment = pdFragment;
+                pdFragment.setRXHandler(jsonHandler);
             }
 
         }
 
-        if (newFragment != null)
+        if (activeFragment != null)
         {
             /* Replaces content frame with newly selected one */
             fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, newFragment)
+                    .replace(R.id.content_frame, activeFragment)
                     .commit();
         }
 
@@ -136,9 +135,19 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void JSONReceived(JSONObject jsonObject) {
-        /* Send JSON to realTime fragment? */
-        rtFragment.receiveJSON(jsonObject);
-    }
+    private final Handler jsonHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(Message msg) {
+
+            /* Relay message to active fragment */
+            if (activeFragment == rtFragment)
+            {
+                Message message = new Message();
+                message.obj = (String)msg.obj;
+                message.setTarget(rtFragment.getHandler());
+                message.sendToTarget();
+            }
+        }
+    };
+
 }

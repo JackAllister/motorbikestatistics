@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -21,6 +23,8 @@ public class RealtimeFragment extends Fragment {
     private View myView;
     private TextView textStatus;
 
+    private int counter = 0;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,9 +34,26 @@ public class RealtimeFragment extends Fragment {
         return myView;
     }
 
-    public void receiveJSON(JSONObject jsonObject)
+    public Handler getHandler()
     {
-        textStatus.setText(jsonObject.toString());
+        return recvHandler;
     }
 
+    private final Handler recvHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(Message msg) {
+
+            textStatus.setText((String)msg.obj);
+            counter++;
+
+//            JSONObject jsonObject = (JSONObject)msg.obj;
+//
+//            try {
+//                textStatus.setText(jsonObject.getString("Test"));
+//            } catch (JSONException e)
+//            {
+//
+//            }
+        }
+    };
 }
