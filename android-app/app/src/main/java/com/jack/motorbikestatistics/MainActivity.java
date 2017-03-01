@@ -2,7 +2,6 @@ package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
@@ -16,8 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, PairDeviceFragment.JSONInterfaceListener {
 
     private static RealtimeFragment rtFragment = null;
     private static LoadDeviceFragment ldFragment = null;
@@ -103,8 +104,7 @@ public class MainActivity extends AppCompatActivity
                 BTDeviceItem currDevice = pdFragment.getConnectedDevice();
                 if (currDevice != null)
                 {
-                    Handler rxHandler = rtFragment.getRecvHandler();
-                    currDevice.getConnection().setRXHandler(rxHandler);
+
                 }
                 newFragment = rtFragment;
                 break;
@@ -134,5 +134,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void JSONReceived(JSONObject jsonObject) {
+        /* Send JSON to realTime fragment? */
+        rtFragment.receiveJSON(jsonObject);
     }
 }

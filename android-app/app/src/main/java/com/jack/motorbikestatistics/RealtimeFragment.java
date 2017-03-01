@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import org.json.JSONObject;
 
 /**
  * Created by Jack on 23-Jan-17.
@@ -20,7 +21,6 @@ public class RealtimeFragment extends Fragment {
     private View myView;
     private TextView textStatus;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,19 +30,9 @@ public class RealtimeFragment extends Fragment {
         return myView;
     }
 
-    public Handler getRecvHandler()
+    public void receiveJSON(JSONObject jsonObject)
     {
-        return btRecvHandler;
+        textStatus.setText(jsonObject.toString());
     }
-
-    private final Handler btRecvHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(Message msg) {
-
-            String data = (String)msg.obj;
-
-            textStatus.setText(textStatus.getText() + data);
-        }
-    };
 
 }

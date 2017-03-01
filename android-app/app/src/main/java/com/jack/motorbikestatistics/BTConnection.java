@@ -1,12 +1,11 @@
 package com.jack.motorbikestatistics;
 
-import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,18 +19,20 @@ public class BTConnection implements Runnable {
 
     private static final String TAG = "BTConnection";
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
     private BluetoothDevice btDevice;
+    private PairDeviceFragment.JSONInterfaceListener jsonInterface;
 
     private BluetoothSocket btSocket = null;
-    private Handler RXHandler = null;
 
     private volatile boolean running = false;
 
 
-    public BTConnection(BluetoothDevice btDevice)
+    public BTConnection(BluetoothDevice btDevice, PairDeviceFragment.JSONInterfaceListener jsonInterface)
             throws IOException
     {
         this.btDevice = btDevice;
+        this.jsonInterface = jsonInterface;
 
         /* Connect the device so ready to use run */
         connect();
@@ -62,36 +63,42 @@ public class BTConnection implements Runnable {
              * While still connected and not signalled to stop we receive data
              * and then send it to the handler
              */
+            String jsonString = "";
             while (isRunning() && isConnected())
             {
-                /* No point sending to our handler if we have no handler */
-                if (RXHandler != null)
+                try
                 {
-                    try
+                    int bytesAvailable = RXStream.available();
+
+                    if (bytesAvailable > 0)
                     {
-                        int bytesAvailable = RXStream.available();
+                        byte[] packetBytes = new byte[bytesAvailable];
+                        int bytesRead = RXStream.read(packetBytes);
 
-                        if (bytesAvailable > 0)
-                        {
-                            byte[] packetBytes = new byte[bytesAvailable];
-                            int bytesRead = RXStream.read(packetBytes);
-
-                            /* Send our message to packet handler */
-                            Message message = new Message();
-                            message.obj = new String(packetBytes);
-                            message.setTarget(RXHandler);
-                            message.sendToTarget();
-                        }
-
-                    }
-                    catch (IOException e)
-                    {
-                        Log.e(TAG, "Unable to read data", e);
-                        running = false;
-                        return;
+                        jsonString += packetBytes;
                     }
 
+                }
+                catch (IOException e)
+                {
+                    Log.e(TAG, "Unable to read data", e);
+                    running = false;
+                    return;
+                }
 
+                /*
+                 * If jsonString is valid we add to our JSON receiver.
+                 * Once that is completed we send to our interface.
+                 *
+                 * If not we wait till next run of while loop and then try re-add.
+                 */
+                try {
+                    JSONObject newJSON = new JSONObject(jsonString);
+
+                    jsonInterface.JSONReceived(newJSON);
+                    jsonString = "";
+                } catch (JSONException e) {
+                    /* Not valid JSON object so cannot send */
                 }
             }
         }
@@ -113,10 +120,6 @@ public class BTConnection implements Runnable {
 
     public void stop() {
         running = false;
-    }
-
-    public void setRXHandler(Handler handler) {
-        RXHandler = handler;
     }
 
     public boolean isRunning() {
