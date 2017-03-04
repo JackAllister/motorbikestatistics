@@ -149,6 +149,10 @@ public class MainActivity extends AppCompatActivity
             {
                 String[] line = receiveString.split("\r\n");
 
+                /*
+                 * We want to check every line for JSON data as it could be possible
+                 * that multiple JSON objects arrive at once.
+                 */
                 for (int i = 0; i < line.length; i++)
                 {
                     /* Try parse each line for JSON data */
