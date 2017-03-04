@@ -34,26 +34,8 @@ public class RealtimeFragment extends Fragment {
         return myView;
     }
 
-    public Handler getHandler()
-    {
-        return recvHandler;
+    public final void newData(JSONObject jsonData) {
+        textStatus.setText(jsonData.toString());
     }
 
-    private final Handler recvHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(Message msg) {
-
-            textStatus.setText((String)msg.obj);
-            counter++;
-
-//            JSONObject jsonObject = (JSONObject)msg.obj;
-//
-//            try {
-//                textStatus.setText(jsonObject.getString("Test"));
-//            } catch (JSONException e)
-//            {
-//
-//            }
-        }
-    };
 }

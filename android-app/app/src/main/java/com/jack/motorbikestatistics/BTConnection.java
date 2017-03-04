@@ -65,7 +65,6 @@ public class BTConnection implements Runnable {
              * While still connected and not signalled to stop we receive data
              * and then send it to the handler
              */
-            String jsonString = "";
             while (isRunning() && isConnected())
             {
                 try
@@ -77,29 +76,16 @@ public class BTConnection implements Runnable {
                         byte[] packetBytes = new byte[bytesAvailable];
                         int bytesRead = RXStream.read(packetBytes);
 
-                        //jsonString += packetBytes;
-
+                        /*
+                         * Having to send data to main thread using messages
+                         * as we are multithreading.
+                         * If we try and use a standard call to function
+                         * will cause a crash.
+                         */
                         Message message = new Message();
-                        message.obj = "Test";
+                        message.obj = new String(packetBytes);
                         message.setTarget(RXHandler);
                         message.sendToTarget();
-
-                        /*
-                         * If jsonString is valid we add to our JSON receiver.
-                         * Once that is completed we send to our interface.
-                         *
-                         * If not we wait till next run of while loop and then try re-add.
-                         */
-//                        try {
-//                            //JSONObject newJSON = new JSONObject(jsonString);
-//                            JSONObject newJSON = new JSONObject();
-//                            newJSON.put("Test", "DEBUG");
-//
-//                            jsonInterface.JSONReceived(newJSON);
-//                            jsonString = "";
-//                        } catch (JSONException e) {
-//                            /* Not valid JSON object so cannot send */
-//                        }
                     }
 
                 }

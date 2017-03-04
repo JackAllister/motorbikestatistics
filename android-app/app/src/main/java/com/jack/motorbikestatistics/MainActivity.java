@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity
@@ -26,8 +27,9 @@ public class MainActivity extends AppCompatActivity
     private static RealtimeFragment rtFragment = null;
     private static LoadDeviceFragment ldFragment = null;
     private static PairDeviceFragment pdFragment = null;
-
     private static Fragment activeFragment = null;
+
+    private static String receiveString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,10 +97,10 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
+        /* Handle navigation view clicks here */
         FragmentManager fragmentManager = getFragmentManager();
+        int id = item.getItemId();
 
         switch (id)
         {
@@ -136,16 +138,35 @@ public class MainActivity extends AppCompatActivity
     }
 
     private final Handler jsonHandler = new Handler(Looper.getMainLooper()) {
+
         @Override
         public void handleMessage(Message msg) {
 
-            /* Relay message to active fragment */
-            if (activeFragment == rtFragment)
+            receiveString += (String)msg.obj;
+
+            /* Check that new line exists, otherwise wait till next time called */
+            if (receiveString.indexOf("\r\n") >= 0)
             {
-                Message message = new Message();
-                message.obj = (String)msg.obj;
-                message.setTarget(rtFragment.getHandler());
-                message.sendToTarget();
+                String[] line = receiveString.split("\r\n");
+
+                for (int i = 0; i < line.length; i++)
+                {
+                    /* Try parse each line for JSON data */
+                    try {
+                        JSONObject tmpJSON = new JSONObject(line[i]);
+
+                        /* Send data to current active fragment */
+                        if (activeFragment == rtFragment)
+                        {
+                            rtFragment.newData(tmpJSON);
+                        }
+                    } catch (JSONException e)
+                    {
+                        /* Ignore line if exception */
+                    }
+                }
+
+                receiveString = "";
             }
         }
     };
