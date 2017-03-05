@@ -58,7 +58,7 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
 
         /* Set our holder with current data of item */
         holder.name.setText(dataItem.getName());
-        holder.value.setText(dataItem.getValue());
+        holder.value.setText(dataItem.getValue().toString());
 
         return convertView;
     }

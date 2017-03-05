@@ -18,12 +18,25 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 
 /**
  * Created by Jack on 23-Jan-17.
  */
 
 public class RealtimeFragment extends Fragment {
+
+    private static String YAW_NAME = "Yaw";
+    private static String PITCH_NAME = "Pitch";
+    private static String ROLL_NAME = "Roll";
+    private static String GPS_VALID_NAME = "GPS Valid";
+    private static String SATELLITES_NAME = "Satellites";
+    private static String LATITUDE_NAME = "Latitude";
+    private static String LONGITUDE_NAME = "Longitude";
+    private static String VELOCITY_NAME = "Velocity (MPH)";
+    private static String ALTITUDE_NAME = "Altitude (FT)";
+    private static String DATE_VALID_NAME = "Date Valid";
+    private static String DATE_NAME = "Date";
 
     private View myView;
     private TextView textStatus;
@@ -34,6 +47,25 @@ public class RealtimeFragment extends Fragment {
     public RealtimeFragment()
     {
         dataList = new ArrayList<DataItem>();
+
+//        /* Create our data objects that we are going to use for storage */
+//
+//        /* Add orientation based data */
+//        dataList.add(new DataItem<Float>(YAW_NAME));
+//        dataList.add(new DataItem<Float>(PITCH_NAME));
+//        dataList.add(new DataItem<Float>(ROLL_NAME));
+//
+//        /* Add GPS based data */
+//        dataList.add(new DataItem<Boolean>(GPS_VALID_NAME));
+//        dataList.add(new DataItem<Integer>(SATELLITES_NAME));
+//        dataList.add(new DataItem<Integer>(LATITUDE_NAME));
+//        dataList.add(new DataItem<Integer>(LONGITUDE_NAME));
+//        dataList.add(new DataItem<Integer>(VELOCITY_NAME));
+//        dataList.add(new DataItem<Integer>(ALTITUDE_NAME));
+//
+//        /* DateTime based data */
+//        dataList.add(new DataItem<Boolean>(DATE_VALID_NAME));
+//        dataList.add(new DataItem<Integer>(DATE_NAME));
     }
 
     @Nullable
@@ -56,56 +88,84 @@ public class RealtimeFragment extends Fragment {
         return myView;
     }
 
+    private boolean updateItem(String name, Object value)
+    {
+        boolean result = false;
+
+        DataItem found = findItemByName(name);
+        if (found != null)
+        {
+            found.setValue(value);
+            result = true;
+        }
+
+        return result;
+    }
+
+    @Nullable
+    private DataItem findItemByName(String name)
+    {
+        for (int i = 0; i < dataList.size(); i++)
+        {
+            if (dataList.get(i).getName().equals(name))
+                return dataList.get(i);
+        }
+
+        return null;
+    }
+
+    private boolean iterateJSONObject(JSONObject jsonData)
+    {
+        boolean result = true;
+
+        Iterator<String> iter = jsonData.keys();
+        while (iter.hasNext())
+        {
+            String key = iter.next();
+
+            try
+            {
+                Object value = jsonData.get(key);
+
+                /* If the received object itself is a JSON object we iterate that that too */
+                if (value.getClass() == JSONObject.class)
+                {
+                    JSONObject nestedObject = jsonData.getJSONObject(key);
+                    iterateJSONObject(nestedObject);
+                }
+                else
+                {
+                    /* Add or update our value into a dataItem here */
+                    DataItem foundItem = findItemByName(key);
+                    if (foundItem == null)
+                    {
+                        /* Add our new DataItem here */
+                        DataItem newItem = new DataItem(key, value);
+                        dataList.add(newItem);
+                    }
+                    else
+                    {
+                        /* Update an existing object here */
+                        foundItem.setValue(value);
+                    }
+                }
+
+            } catch (JSONException e)
+            {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
     public final void newData(JSONObject jsonData) {
-
-        try
-        {
-            JSONObject orientObject = jsonData.getJSONObject("orientation");
-            JSONObject gpsObject = jsonData.getJSONObject("gps");
-            JSONObject timeObject = jsonData.getJSONObject("time");
-
-            dataList.clear();
-
-            /* Add orientation based data */
-            dataList.add(new DataItem("Yaw", orientObject.getString("yaw")));
-            dataList.add(new DataItem("Pitch", orientObject.getString("pitch")));
-            dataList.add(new DataItem("Roll", orientObject.getString("roll")));
-
-            /* Add GPS based data */
-            dataList.add(new DataItem("GPS Valid", Boolean.toString(gpsObject.getBoolean("valid"))));
-            dataList.add(new DataItem("Satellites", gpsObject.getString("available")));
-            dataList.add(new DataItem("Latitude", gpsObject.getString("lat")));
-            dataList.add(new DataItem("Longitude", gpsObject.getString("lng")));
-            dataList.add(new DataItem("Velocity (MPH)", gpsObject.getString("vel_mph")));
-            dataList.add(new DataItem("Altitude (FT)", gpsObject.getString("alt_ft")));
-
-            /* DateTime based data */
-            dataList.add(new DataItem("Date Valid", Boolean.toString(timeObject.getBoolean("valid"))));
-
-            Calendar cal = Calendar.getInstance();
-            cal.clear();
-            cal.set(Calendar.YEAR, timeObject.getInt("year"));
-            cal.set(Calendar.MONTH, timeObject.getInt("month"));
-            cal.set(Calendar.DATE, timeObject.getInt("day"));
-
-            cal.set(Calendar.HOUR, timeObject.getInt("hour"));
-            cal.set(Calendar.MINUTE, timeObject.getInt("minute"));
-            cal.set(Calendar.SECOND, timeObject.getInt("second"));
-            cal.set(Calendar.MILLISECOND, timeObject.getInt("centiseconds") * 10);
-
-            /* Create format for date and times then add to list */
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
-            dataList.add(new DataItem("Date", dateFormat.format(cal.getTime())));
-
-            dateFormat = new SimpleDateFormat("HH:mm:ss.SS");
-            dataList.add(new DataItem("Time", dateFormat.format(cal.getTime())));
+        /*
+         * If successfully iterates through the JSON object
+         * while updating data update list view
+         */
+        if (iterateJSONObject(jsonData))
             lvAdapter.notifyDataSetChanged();
-
-        }
-        catch (JSONException e)
-        {
-            /* Do nothing */
-        }
     }
 
 }

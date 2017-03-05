@@ -9,12 +9,17 @@ public class DataItem<T> {
     private static String NOT_SET = "";
 
     private String name;
-    private String value;
-    private String attribute1 = NOT_SET;
-    private String attribute2 = NOT_SET;
-    private String attribute3 = NOT_SET;
+    private T value = null;
+    private T attribute1 = null;
+    private T attribute2 = null;
+    private T attribute3 = null;
 
-    public DataItem(String name, String value)
+    public DataItem(String name)
+    {
+        this.name = name;
+    }
+
+    public DataItem(String name, T value)
     {
         this.name = name;
         this.value = value;
@@ -24,35 +29,35 @@ public class DataItem<T> {
         return name;
     }
 
-    public String getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public String getAttribute1() {
+    public T getAttribute1() {
         return attribute1;
     }
 
-    public void setAttribute1(String attribute1) {
+    public void setAttribute1(T attribute1) {
         this.attribute1 = attribute1;
     }
 
-    public String getAttribute2() {
+    public T getAttribute2() {
         return attribute2;
     }
 
-    public void setAttribute2(String attribute2) {
+    public void setAttribute2(T attribute2) {
         this.attribute2 = attribute2;
     }
 
-    public String getAttribute3() {
+    public T getAttribute3() {
         return attribute3;
     }
 
-    public void setAttribute3(String attribute3) {
+    public void setAttribute3(T attribute3) {
         this.attribute3 = attribute3;
     }
 }

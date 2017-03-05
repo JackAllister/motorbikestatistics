@@ -174,7 +174,7 @@ void addOrientationToJSON()
 void addGPSToJSON()
 {
   /* Add location information */
-  gpsJSON["valid"] = gps.location.isValid();
+  gpsJSON["gps_valid"] = gps.location.isValid();
   gpsJSON["lat"] = double_with_n_digits(gps.location.lat(), 6);
   gpsJSON["lng"] = double_with_n_digits(gps.location.lng(), 6);
 
@@ -187,7 +187,7 @@ void addGPSToJSON()
 void addTimeToJSON()
 {
   /* Add time information to JSON */
-  timeJSON["valid"] = gps.date.isValid() && gps.time.isValid();
+  timeJSON["time_valid"] = gps.date.isValid() && gps.time.isValid();
   timeJSON["day"] = gps.date.day();
   timeJSON["month"] = gps.date.month();
   timeJSON["year"] = gps.date.year();
