@@ -74,7 +74,7 @@ public class PairDeviceFragment extends Fragment {
         getNeededPrivileges();
 
         /* Set our variables for UI buttons */
-        btnScan = (ToggleButton)myView.findViewById(R.id.btnShowOrientation);
+        btnScan = (ToggleButton)myView.findViewById(R.id.realtime_show_orientation);
         btnScan.setOnCheckedChangeListener(toggleScanListener);
 
         ListView lvDevices = (ListView)myView.findViewById(R.id.deviceList);

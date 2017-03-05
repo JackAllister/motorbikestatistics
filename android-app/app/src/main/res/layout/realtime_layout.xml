@@ -12,36 +12,36 @@
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
-        android:id="@+id/txtRTStatus" />
+        android:id="@+id/realtime_status" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/txtRTStatus"
-        android:layout_alignLeft="@+id/txtRTStatus"
-        android:layout_alignStart="@+id/txtRTStatus"
-        android:id="@+id/realtimeDataList"
-        android:layout_above="@+id/btnShowOrientation"
+        android:layout_below="@+id/realtime_status"
+        android:layout_alignLeft="@+id/realtime_status"
+        android:layout_alignStart="@+id/realtime_status"
+        android:id="@+id/realtime_data_list"
+        android:layout_above="@+id/realtime_show_orientation"
         android:headerDividersEnabled="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnShowOrientation"
+        android:id="@+id/realtime_show_orientation"
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/realtimeDataList"
-        android:layout_alignStart="@+id/realtimeDataList"
+        android:layout_alignLeft="@+id/realtime_data_list"
+        android:layout_alignStart="@+id/realtime_data_list"
         android:text="@string/show_orientation" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
+        android:id="@+id/realtime_show_map"
         android:text="@string/show_map"
-        android:layout_below="@+id/realtimeDataList"
-        android:layout_toRightOf="@+id/btnShowOrientation"
-        android:layout_toEndOf="@+id/btnShowOrientation" />
+        android:layout_below="@+id/realtime_data_list"
+        android:layout_toRightOf="@+id/realtime_show_orientation"
+        android:layout_toEndOf="@+id/realtime_show_orientation" />
 
 
 </RelativeLayout>

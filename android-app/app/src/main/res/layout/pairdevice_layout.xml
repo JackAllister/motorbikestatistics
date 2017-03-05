@@ -22,13 +22,13 @@
         android:layout_alignLeft="@+id/textStatus"
         android:layout_alignStart="@+id/textStatus"
         android:id="@+id/deviceList"
-        android:layout_above="@+id/btnShowOrientation"
+        android:layout_above="@+id/realtime_show_orientation"
         android:headerDividersEnabled="false" />
 
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnShowOrientation"
+        android:id="@+id/realtime_show_orientation"
         android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
