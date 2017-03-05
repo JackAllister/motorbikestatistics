@@ -1,12 +1,14 @@
 package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,14 +28,14 @@ import java.util.Iterator;
 
 public class RealtimeFragment extends Fragment {
 
-    private ArrayList<JSONObject> jsonList;
+    private ArrayList<String> jsonList;
 
     private ArrayList<DataItem> dataList;
     private ArrayAdapter<DataItem> lvAdapter;
 
     public RealtimeFragment()
     {
-        jsonList = new ArrayList<JSONObject>();
+        jsonList = new ArrayList<String>();
         dataList = new ArrayList<DataItem>();
     }
 
@@ -53,8 +55,21 @@ public class RealtimeFragment extends Fragment {
         lvAdapter = new DataListAdapter(getActivity(), R.layout.data_list_item, dataList);
         lvDataItems.setAdapter(lvAdapter);
 
+        /* Set our listeners for buttons */
+        Button mapButton = (Button)myView.findViewById(R.id.realtime_show_map);
+        mapButton.setOnClickListener(mapButtonListener);
+
         return myView;
     }
+
+    private final Button.OnClickListener mapButtonListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), MapsActivity.class);
+            intent.putExtra("JSONList", jsonList);
+            startActivity(intent);
+        }
+    };
 
     public final void newData(JSONObject jsonData) {
 
@@ -99,8 +114,11 @@ public class RealtimeFragment extends Fragment {
 
             lvAdapter.notifyDataSetChanged();
 
-            /* Add json object to our list so we can do further data analysis later */
-            jsonList.add(jsonData);
+            /*
+             * Add json object to our list
+             * so we can send it to other activities/fragments later
+             */
+            jsonList.add(jsonData.toString());
         }
         catch (JSONException e)
         {
