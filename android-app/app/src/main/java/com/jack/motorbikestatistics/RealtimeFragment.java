@@ -26,52 +26,21 @@ import java.util.Iterator;
 
 public class RealtimeFragment extends Fragment {
 
-    private static String YAW_NAME = "Yaw";
-    private static String PITCH_NAME = "Pitch";
-    private static String ROLL_NAME = "Roll";
-    private static String GPS_VALID_NAME = "GPS Valid";
-    private static String SATELLITES_NAME = "Satellites";
-    private static String LATITUDE_NAME = "Latitude";
-    private static String LONGITUDE_NAME = "Longitude";
-    private static String VELOCITY_NAME = "Velocity (MPH)";
-    private static String ALTITUDE_NAME = "Altitude (FT)";
-    private static String DATE_VALID_NAME = "Date Valid";
-    private static String DATE_NAME = "Date";
-
-    private View myView;
-    private TextView textStatus;
+    private ArrayList<JSONObject> jsonList;
 
     private ArrayList<DataItem> dataList;
     private ArrayAdapter<DataItem> lvAdapter;
 
     public RealtimeFragment()
     {
+        jsonList = new ArrayList<JSONObject>();
         dataList = new ArrayList<DataItem>();
-
-//        /* Create our data objects that we are going to use for storage */
-//
-//        /* Add orientation based data */
-//        dataList.add(new DataItem<Float>(YAW_NAME));
-//        dataList.add(new DataItem<Float>(PITCH_NAME));
-//        dataList.add(new DataItem<Float>(ROLL_NAME));
-//
-//        /* Add GPS based data */
-//        dataList.add(new DataItem<Boolean>(GPS_VALID_NAME));
-//        dataList.add(new DataItem<Integer>(SATELLITES_NAME));
-//        dataList.add(new DataItem<Integer>(LATITUDE_NAME));
-//        dataList.add(new DataItem<Integer>(LONGITUDE_NAME));
-//        dataList.add(new DataItem<Integer>(VELOCITY_NAME));
-//        dataList.add(new DataItem<Integer>(ALTITUDE_NAME));
-//
-//        /* DateTime based data */
-//        dataList.add(new DataItem<Boolean>(DATE_VALID_NAME));
-//        dataList.add(new DataItem<Integer>(DATE_NAME));
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.realtime_layout, container, false);
+        View myView = inflater.inflate(R.layout.realtime_layout, container, false);
 
         /* Get the ListView via ID */
         ListView lvDataItems = (ListView)myView.findViewById(R.id.realtime_data_list);
@@ -84,88 +53,59 @@ public class RealtimeFragment extends Fragment {
         lvAdapter = new DataListAdapter(getActivity(), R.layout.data_list_item, dataList);
         lvDataItems.setAdapter(lvAdapter);
 
-        textStatus = (TextView)myView.findViewById(R.id.realtime_status);
         return myView;
     }
 
-    private boolean updateItem(String name, Object value)
-    {
-        boolean result = false;
-
-        DataItem found = findItemByName(name);
-        if (found != null)
-        {
-            found.setValue(value);
-            result = true;
-        }
-
-        return result;
-    }
-
-    @Nullable
-    private DataItem findItemByName(String name)
-    {
-        for (int i = 0; i < dataList.size(); i++)
-        {
-            if (dataList.get(i).getName().equals(name))
-                return dataList.get(i);
-        }
-
-        return null;
-    }
-
-    private boolean iterateJSONObject(JSONObject jsonData)
-    {
-        boolean result = true;
-
-        Iterator<String> iter = jsonData.keys();
-        while (iter.hasNext())
-        {
-            String key = iter.next();
-
-            try
-            {
-                Object value = jsonData.get(key);
-
-                /* If the received object itself is a JSON object we iterate that that too */
-                if (value.getClass() == JSONObject.class)
-                {
-                    JSONObject nestedObject = jsonData.getJSONObject(key);
-                    iterateJSONObject(nestedObject);
-                }
-                else
-                {
-                    /* Add or update our value into a dataItem here */
-                    DataItem foundItem = findItemByName(key);
-                    if (foundItem == null)
-                    {
-                        /* Add our new DataItem here */
-                        DataItem newItem = new DataItem(key, value);
-                        dataList.add(newItem);
-                    }
-                    else
-                    {
-                        /* Update an existing object here */
-                        foundItem.setValue(value);
-                    }
-                }
-
-            } catch (JSONException e)
-            {
-                result = false;
-            }
-        }
-
-        return result;
-    }
-
     public final void newData(JSONObject jsonData) {
-        /*
-         * If successfully iterates through the JSON object
-         * while updating data update list view
-         */
-        if (iterateJSONObject(jsonData))
+
+        try
+        {
+            dataList.clear();
+
+            JSONObject orientObject = jsonData.getJSONObject("orientation");
+            JSONObject gpsObject = jsonData.getJSONObject("gps");
+            JSONObject timeObject = jsonData.getJSONObject("time");
+
+            /* Add orientation based data */
+            dataList.add(new DataItem<Double>("Yaw", orientObject.getDouble("yaw")));
+            dataList.add(new DataItem<Double>("Pitch", orientObject.getDouble("pitch")));
+            dataList.add(new DataItem<Double>("Roll", orientObject.getDouble("roll")));
+
+            /* Add GPS based data to */
+            dataList.add(new DataItem<Boolean>("GPS Valid", gpsObject.getBoolean("gps_valid")));
+            dataList.add(new DataItem<Integer>("Satellites", gpsObject.getInt("available")));
+            dataList.add(new DataItem<Double>("Latitude", gpsObject.getDouble("lat")));
+            dataList.add(new DataItem<Double>("Longitude", gpsObject.getDouble("lng")));
+            dataList.add(new DataItem<Double>("Velocity (MPH)", gpsObject.getDouble("vel_mph")));
+            dataList.add(new DataItem<Double>("Altitude (FT)", gpsObject.getDouble("alt_ft")));
+
+            /* DateTime based data */
+            dataList.add(new DataItem<Boolean>("Date Valid", timeObject.getBoolean("time_valid")));
+
+            Calendar cal = Calendar.getInstance();
+            cal.clear();
+            cal.set(Calendar.YEAR, timeObject.getInt("year"));
+            cal.set(Calendar.MONTH, timeObject.getInt("month"));
+            cal.set(Calendar.DATE, timeObject.getInt("day"));
+
+            cal.set(Calendar.HOUR, timeObject.getInt("hour"));
+            cal.set(Calendar.MINUTE, timeObject.getInt("minute"));
+            cal.set(Calendar.SECOND, timeObject.getInt("second"));
+            cal.set(Calendar.MILLISECOND, timeObject.getInt("centiseconds") * 10);
+
+            /* Create format for date and times then add to list */
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
+            dataList.add(new DataItem<Date>("Date", cal.getTime()));
+
             lvAdapter.notifyDataSetChanged();
+
+            /* Add json object to our list so we can do further data analysis later */
+            jsonList.add(jsonData);
+        }
+        catch (JSONException e)
+        {
+            /* Do nothing */
+        }
     }
 
 }
