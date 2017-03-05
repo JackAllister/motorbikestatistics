@@ -6,7 +6,7 @@ package com.jack.motorbikestatistics;
 
 public class DataItem<T> {
 
-    private static String NOT_SET = "N/A";
+    private static String NOT_SET = "";
 
     private String name;
     private String value;

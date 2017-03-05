@@ -89,9 +89,12 @@ public class RealtimeFragment extends Fragment {
             cal.set(Calendar.SECOND, timeObject.getInt("second"));
             cal.set(Calendar.MILLISECOND, timeObject.getInt("centiseconds") * 10);
 
-            /* Create format for date and add to list */
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
+            /* Create format for date and times then add to list */
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
             dataList.add(new DataItem("Date", dateFormat.format(cal.getTime())));
+
+            dateFormat = new SimpleDateFormat("HH:mm:ss.SS");
+            dataList.add(new DataItem("Time", dateFormat.format(cal.getTime())));
             lvAdapter.notifyDataSetChanged();
 
         }
