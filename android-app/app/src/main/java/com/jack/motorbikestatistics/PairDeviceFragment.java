@@ -29,8 +29,6 @@ import android.content.Intent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 
-import org.json.JSONObject;
-
 /**
  * Created by Jack on 25-Jan-17.
  */
@@ -76,7 +74,7 @@ public class PairDeviceFragment extends Fragment {
         getNeededPrivileges();
 
         /* Set our variables for UI buttons */
-        btnScan = (ToggleButton)myView.findViewById(R.id.btnScan);
+        btnScan = (ToggleButton)myView.findViewById(R.id.btnShowOrientation);
         btnScan.setOnCheckedChangeListener(toggleScanListener);
 
         ListView lvDevices = (ListView)myView.findViewById(R.id.deviceList);
