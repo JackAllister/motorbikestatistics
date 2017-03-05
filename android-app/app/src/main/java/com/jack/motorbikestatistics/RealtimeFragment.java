@@ -41,8 +41,12 @@ public class RealtimeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.realtime_layout, container, false);
 
-        /* Get the listview via ID */
+        /* Get the ListView via ID */
         ListView lvDataItems = (ListView)myView.findViewById(R.id.realtime_data_list);
+
+        /* Inflate the header view for ListView */
+        ViewGroup headerView = (ViewGroup)inflater.inflate(R.layout.data_list_header, lvDataItems, false);
+        lvDataItems.addHeaderView(headerView);
 
         /* Create our new list adapter for our data list view */
         lvAdapter = new DataListAdapter(getActivity(), R.layout.data_list_item, dataList);

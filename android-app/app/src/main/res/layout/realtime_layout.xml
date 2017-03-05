@@ -21,8 +21,7 @@
         android:layout_alignLeft="@+id/realtime_status"
         android:layout_alignStart="@+id/realtime_status"
         android:id="@+id/realtime_data_list"
-        android:layout_above="@+id/realtime_show_orientation"
-        android:headerDividersEnabled="false" />
+        android:layout_above="@+id/realtime_show_orientation" />
 
     <Button
         android:layout_width="wrap_content"

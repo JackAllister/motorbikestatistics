@@ -31,9 +31,6 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
     private class ViewHolder {
         TextView name;
         TextView value;
-        TextView average;
-        TextView min;
-        TextView max;
     }
 
     @NonNull
@@ -50,9 +47,6 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
             holder = new ViewHolder();
             holder.name = (TextView)convertView.findViewById(R.id.datalist_name);
             holder.value = (TextView)convertView.findViewById(R.id.datalist_value);
-            holder.average = (TextView)convertView.findViewById(R.id.datalist_average);
-            holder.min = (TextView)convertView.findViewById(R.id.datalist_min);
-            holder.max = (TextView)convertView.findViewById(R.id.datalist_max);
             convertView.setTag(holder);
         }
         else
@@ -65,9 +59,6 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
         /* Set our holder with current data of item */
         holder.name.setText(dataItem.getName());
         holder.value.setText(dataItem.getValue());
-        holder.average.setText(dataItem.getAttribute1());
-        holder.min.setText(dataItem.getAttribute2());
-        holder.max.setText(dataItem.getAttribute3());
 
         return convertView;
     }
