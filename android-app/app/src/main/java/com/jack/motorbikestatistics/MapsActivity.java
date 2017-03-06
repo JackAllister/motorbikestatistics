@@ -1,5 +1,7 @@
 package com.jack.motorbikestatistics;
 
+import android.graphics.Color;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -10,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,12 +75,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        /* For now we just place our first icon, need to figure out routes... */
-        //TODO: Make so shows route
         if (jsonList.size() != 0)
         {
+            /* lineOpts will store our route */
+            PolylineOptions lineOpts = new PolylineOptions();
+            lineOpts.color(Color.parseColor( "#CC0000FF"));
+            lineOpts.width(5);
+            lineOpts.visible(true);
+
             try
             {
+                LatLng lastMarker = null;
+
                 for (int i = 0; i < jsonList.size(); i++)
                 {
                     JSONObject rootJSON = jsonList.get(i);
@@ -87,35 +96,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Double lng = gpsJSON.getDouble("lng");
                     LatLng location = new LatLng(lat, lng);
 
-                    MarkerOptions marker = new MarkerOptions();
-                    marker.position(location);
-                    marker.title("Reading " + Integer.toString(i));
+                    lineOpts.add(location);
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
 
-                    mMap.addMarker(marker);
+                    /*
+                     * Check if distance between this point and
+                     * last marker is greater than 5m otherwise don't add marker.
+                     * Adding markers every 5 metres prevents the map being spammed with
+                     * thousands of readings.
+                     */
+                    if ((lastMarker == null) || (calcDistance(location, lastMarker) > 5))
+                    {
+                        MarkerOptions marker = new MarkerOptions();
+                        marker.position(location);
+                        marker.title("Reading " + Integer.toString(i));
+                        mMap.addMarker(marker);
 
-                    if (i == 0)
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+                        lastMarker = location;
+                    }
+
                 }
-
-//                JSONObject rootJSON = jsonList.get(0);
-//
-//                JSONObject gpsJSON = rootJSON.getJSONObject("gps");
-//                Double lat = gpsJSON.getDouble("lat");
-//                Double lng = gpsJSON.getDouble("lng");
-//
-//                LatLng firstPoint = new LatLng(lat, lng);
-//                mMap.addMarker(new MarkerOptions().position(firstPoint).title("Location 0"));
-//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(firstPoint, 12));
+                mMap.addPolyline(lineOpts);
             }
             catch (JSONException e)
             {
                 /* Do nothing */
             }
         }
+    }
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    private float calcDistance(LatLng start, LatLng end)
+    {
+        float[] results = new float[1];
+
+        Location.distanceBetween(start.latitude, start.longitude, end.latitude, end.longitude, results);
+        return results[0];
     }
 }
