@@ -9,6 +9,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Marker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,15 +78,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
             try
             {
-                JSONObject rootJSON = jsonList.get(0);
+                for (int i = 0; i < jsonList.size(); i++)
+                {
+                    JSONObject rootJSON = jsonList.get(i);
+                    JSONObject gpsJSON = rootJSON.getJSONObject("gps");
 
-                JSONObject gpsJSON = rootJSON.getJSONObject("gps");
-                Double lat = gpsJSON.getDouble("lat");
-                Double lng = gpsJSON.getDouble("lng");
+                    Double lat = gpsJSON.getDouble("lat");
+                    Double lng = gpsJSON.getDouble("lng");
+                    LatLng location = new LatLng(lat, lng);
 
-                LatLng firstPoint = new LatLng(lat, lng);
-                mMap.addMarker(new MarkerOptions().position(firstPoint).title("Location 0"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(firstPoint));
+                    MarkerOptions marker = new MarkerOptions();
+                    marker.position(location);
+                    marker.title("Reading " + Integer.toString(i));
+
+                    mMap.addMarker(marker);
+
+                    if (i == 0)
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+                }
+
+//                JSONObject rootJSON = jsonList.get(0);
+//
+//                JSONObject gpsJSON = rootJSON.getJSONObject("gps");
+//                Double lat = gpsJSON.getDouble("lat");
+//                Double lng = gpsJSON.getDouble("lng");
+//
+//                LatLng firstPoint = new LatLng(lat, lng);
+//                mMap.addMarker(new MarkerOptions().position(firstPoint).title("Location 0"));
+//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(firstPoint, 12));
             }
             catch (JSONException e)
             {
