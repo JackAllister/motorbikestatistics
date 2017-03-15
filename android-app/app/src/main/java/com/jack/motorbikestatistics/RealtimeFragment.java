@@ -30,13 +30,26 @@ public class RealtimeFragment extends Fragment {
 
     private ArrayList<String> jsonList;
 
-    private ArrayList<DataItem> dataList;
+    private SetOfDataItems dataList;
     private ArrayAdapter<DataItem> lvAdapter;
 
-    public RealtimeFragment()
-    {
+    public RealtimeFragment() {
         jsonList = new ArrayList<String>();
-        dataList = new ArrayList<DataItem>();
+
+        dataList = new SetOfDataItems();
+
+        /* Set up our data items that we will want to log */
+        dataList.add(new DataItem<Double>("Yaw", true));
+        dataList.add(new DataItem<Double>("Pitch", true));
+        dataList.add(new DataItem<Double>("Roll", true));
+        dataList.add(new DataItem<Boolean>("GPS Valid", false));
+        dataList.add(new DataItem<Integer>("Satellites", false));
+        dataList.add(new DataItem<Double>("Latitude", false));
+        dataList.add(new DataItem<Double>("Longitude", false));
+        dataList.add(new DataItem<Double>("Velocity (MPH)", true));
+        dataList.add(new DataItem<Double>("Altitude (FT)", true));
+        dataList.add(new DataItem<Boolean>("Date Valid", false));
+        dataList.add(new DataItem<Date>("Date", false));
     }
 
     @Nullable
@@ -45,10 +58,10 @@ public class RealtimeFragment extends Fragment {
         View myView = inflater.inflate(R.layout.realtime_layout, container, false);
 
         /* Get the ListView via ID */
-        ListView lvDataItems = (ListView)myView.findViewById(R.id.realtime_data_list);
+        ListView lvDataItems = (ListView) myView.findViewById(R.id.realtime_data_list);
 
         /* Inflate the header view for ListView */
-        ViewGroup headerView = (ViewGroup)inflater.inflate(R.layout.data_list_header, lvDataItems, false);
+        ViewGroup headerView = (ViewGroup) inflater.inflate(R.layout.data_list_header, lvDataItems, false);
         lvDataItems.addHeaderView(headerView);
 
         /* Create our new list adapter for our data list view */
@@ -56,7 +69,7 @@ public class RealtimeFragment extends Fragment {
         lvDataItems.setAdapter(lvAdapter);
 
         /* Set our listeners for buttons */
-        Button mapButton = (Button)myView.findViewById(R.id.realtime_show_map);
+        Button mapButton = (Button) myView.findViewById(R.id.realtime_show_map);
         mapButton.setOnClickListener(mapButtonListener);
 
         return myView;
@@ -73,29 +86,26 @@ public class RealtimeFragment extends Fragment {
 
     public final void newData(JSONObject jsonData) {
 
-        try
-        {
-            dataList.clear();
-
+        try {
             JSONObject orientObject = jsonData.getJSONObject("orientation");
             JSONObject gpsObject = jsonData.getJSONObject("gps");
             JSONObject timeObject = jsonData.getJSONObject("time");
 
-            /* Add orientation based data */
-            dataList.add(new DataItem<Double>("Yaw", orientObject.getDouble("yaw")));
-            dataList.add(new DataItem<Double>("Pitch", orientObject.getDouble("pitch")));
-            dataList.add(new DataItem<Double>("Roll", orientObject.getDouble("roll")));
+            /* Update our data items */
+            dataList.getItemByName("Yaw").setCurrent(orientObject.getDouble("yaw"));
+            dataList.getItemByName("Pitch").setCurrent(orientObject.getDouble("pitch"));
+            dataList.getItemByName("Roll").setCurrent(orientObject.getDouble("roll"));
 
             /* Add GPS based data to */
-            dataList.add(new DataItem<Boolean>("GPS Valid", gpsObject.getBoolean("gps_valid")));
-            dataList.add(new DataItem<Integer>("Satellites", gpsObject.getInt("available")));
-            dataList.add(new DataItem<Double>("Latitude", gpsObject.getDouble("lat")));
-            dataList.add(new DataItem<Double>("Longitude", gpsObject.getDouble("lng")));
-            dataList.add(new DataItem<Double>("Velocity (MPH)", gpsObject.getDouble("vel_mph")));
-            dataList.add(new DataItem<Double>("Altitude (FT)", gpsObject.getDouble("alt_ft")));
+            dataList.getItemByName("GPS Valid").setCurrent(gpsObject.getBoolean("gps_valid"));
+            dataList.getItemByName("Satellites").setCurrent(gpsObject.getInt("available"));
+            dataList.getItemByName("Latitude").setCurrent(gpsObject.getDouble("lat"));
+            dataList.getItemByName("Longitude").setCurrent(gpsObject.getDouble("lng"));
+            dataList.getItemByName("Velocity (MPH)").setCurrent(gpsObject.getDouble("vel_mph"));
+            dataList.getItemByName("Altitude (FT)").setCurrent(gpsObject.getDouble("alt_ft"));
 
             /* DateTime based data */
-            dataList.add(new DataItem<Boolean>("Date Valid", timeObject.getBoolean("time_valid")));
+            dataList.getItemByName("Date Valid").setCurrent(timeObject.getBoolean("time_valid"));
 
             Calendar cal = Calendar.getInstance();
             cal.clear();
@@ -110,7 +120,7 @@ public class RealtimeFragment extends Fragment {
 
             /* Create format for date and times then add to list */
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
-            dataList.add(new DataItem<Date>("Date", cal.getTime()));
+            dataList.getItemByName("Date").setCurrent(cal.getTime());
 
             lvAdapter.notifyDataSetChanged();
 
@@ -119,9 +129,7 @@ public class RealtimeFragment extends Fragment {
              * so we can send it to other activities/fragments later
              */
             jsonList.add(jsonData.toString());
-        }
-        catch (JSONException e)
-        {
+        } catch (JSONException e) {
             /* Do nothing */
         }
     }

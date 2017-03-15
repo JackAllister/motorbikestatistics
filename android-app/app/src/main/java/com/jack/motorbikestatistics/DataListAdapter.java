@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +32,10 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
 
     private class ViewHolder {
         TextView name;
-        TextView value;
+        TextView current;
+        TextView average;
+        TextView minimum;
+        TextView maximum;
     }
 
     @NonNull
@@ -46,7 +51,10 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
 
             holder = new ViewHolder();
             holder.name = (TextView)convertView.findViewById(R.id.datalist_name);
-            holder.value = (TextView)convertView.findViewById(R.id.datalist_value);
+            holder.current = (TextView)convertView.findViewById(R.id.datalist_current);
+            holder.average = (TextView)convertView.findViewById(R.id.datalist_average);
+            holder.minimum = (TextView)convertView.findViewById(R.id.datalist_minimum);
+            holder.maximum = (TextView)convertView.findViewById(R.id.datalist_maximum);
             convertView.setTag(holder);
         }
         else
@@ -58,7 +66,28 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
 
         /* Set our holder with current data of item */
         holder.name.setText(dataItem.getName());
-        holder.value.setText(dataItem.getValue().toString());
+
+        Object current = dataItem.getCurrent();
+        if (current != null) {
+            DecimalFormat df = new DecimalFormat("#.####");
+            df.setRoundingMode(RoundingMode.CEILING);
+
+            if (current instanceof Double) {
+                holder.current.setText(df.format(current));
+            } else {
+                holder.current.setText(current.toString());
+            }
+
+            if (dataItem.getEnabledAvgMinMax()) {
+                holder.average.setText(df.format(dataItem.getAverage()));
+                holder.minimum.setText(df.format(dataItem.getMinimum()));
+                holder.maximum.setText(df.format(dataItem.getMaximum()));
+            } else {
+                holder.average.setText("N/A");
+                holder.minimum.setText("N/A");
+                holder.maximum.setText("N/A");
+            }
+        }
 
         return convertView;
     }
