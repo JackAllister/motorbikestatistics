@@ -49,7 +49,8 @@ public class RealtimeFragment extends Fragment {
         dataList.add(new DataItem<Double>("Velocity (MPH)", true));
         dataList.add(new DataItem<Double>("Altitude (FT)", true));
         dataList.add(new DataItem<Boolean>("Date Valid", false));
-        dataList.add(new DataItem<Date>("Date", false));
+        dataList.add(new DataItem<String>("Date", false));
+        dataList.add(new DataItem<String>("Time", false));
     }
 
     @Nullable
@@ -119,8 +120,11 @@ public class RealtimeFragment extends Fragment {
             cal.set(Calendar.MILLISECOND, timeObject.getInt("centiseconds") * 10);
 
             /* Create format for date and times then add to list */
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
-            dataList.getItemByName("Date").setCurrent(cal.getTime());
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+            dataList.getItemByName("Date").setCurrent(dateFormat.format(cal.getTime()));
+
+            DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss.SS");
+            dataList.getItemByName("Time").setCurrent(timeFormat.format(cal.getTime()));
 
             lvAdapter.notifyDataSetChanged();
 
