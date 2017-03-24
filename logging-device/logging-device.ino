@@ -33,6 +33,7 @@
 /* Settings for uSD logging */
 #define USD_CS 10
 #define MAX_LOG_FILES 5000
+#define MAX_STRING_SIZE 512
 #define LOG_NAME "trip_"
 #define LOG_EXTENSION "json"
 
@@ -112,6 +113,10 @@ void loop()
     addGPSToJSON();
     addTimeToJSON();
 
+    /* Log JSON to the microSD */
+    logToFile();
+
+    /* Print to our bluetooth module */
     mainJSON.printTo(SERIAL_TYPE);
     SERIAL_TYPE.println();
 
@@ -205,6 +210,22 @@ void addTimeToJSON()
   timeJSON["minute"] = gps.time.minute();
   timeJSON["second"] = gps.time.second();
   timeJSON["centiseconds"] = gps.time.centisecond();
+}
+
+void logToFile()
+{
+  char jsonString[MAX_STRING_SIZE];
+
+  /* Create handle to log file */
+  File logHandle = SD.open(logFileName, FILE_WRITE);
+
+  if (logHandle != false)
+  {
+    mainJSON.printTo(jsonString, MAX_STRING_SIZE);
+    logHandle.print(jsonString);
+    logHandle.println();
+    logHandle.close();
+  }
 }
 
 bool generateFileName()
