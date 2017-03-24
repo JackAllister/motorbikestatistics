@@ -13,6 +13,8 @@
  */
 
 /* Module Includes */
+#include <SPI.h>
+#include <SD.h>
 #include <CurieIMU.h>
 #include <MadgwickAHRS.h>
 #include <SoftwareSerial.h>
@@ -23,15 +25,16 @@
 #define SERIAL_TYPE Serial1
 #define SERIAL_BAUD 9600
 
-/* Settings for EM-506 GPS shield (borrowed from Peter) */
-//#define GPS_TX_PIN 3
-//#define GPS_RX_PIN 2
-//#define GPS_BAUD 4800
-
 /* Settings for sparkfun GPS logging shield (uSD version) */
 #define GPS_TX_PIN 9
 #define GPS_RX_PIN 8
 #define GPS_BAUD 9600
+
+/* Settings for uSD logging */
+#define USD_CS 10
+#define MAX_LOG_FILES 5000
+#define LOG_NAME "trip_"
+#define LOG_EXTENSION "json"
 
 /* Settings for inbuilt gyroscope and accelerometer */
 #define IMU_FREQUENCY 25
@@ -57,6 +60,8 @@ JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
 JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
 JsonObject& timeJSON = mainJSON.createNestedObject("time");
 
+char logFileName[30]; /* String to store file name in */
+
 /* Module Code */
 
 /* System setup code */
@@ -66,6 +71,10 @@ void setup()
 
   /* Set up serial for data transmission */
   SERIAL_TYPE.begin(SERIAL_BAUD);
+
+  /* Set up uSD card */
+  SD.begin(USD_CS);
+  generateFileName();
 
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
@@ -174,7 +183,7 @@ void addOrientationToJSON()
 void addGPSToJSON()
 {
   /* Add location information */
-  gpsJSON["gps_valid"] = gps.location.isValid();
+  gpsJSON["gps_valid"] = gps.location.isUpdated();
   gpsJSON["lat"] = double_with_n_digits(gps.location.lat(), 6);
   gpsJSON["lng"] = double_with_n_digits(gps.location.lng(), 6);
 
@@ -196,4 +205,28 @@ void addTimeToJSON()
   timeJSON["minute"] = gps.time.minute();
   timeJSON["second"] = gps.time.second();
   timeJSON["centiseconds"] = gps.time.centisecond();
+}
+
+bool generateFileName()
+{
+  bool result = false;
+  int i = 0;
+
+  for (i = 0; i < MAX_LOG_FILES; i++)
+  {
+    /* Clear name of log file */
+    memset(logFileName, 0, strlen(logFileName));
+
+    /* Set the new log file name to: trip_XXXXX.json */
+    sprintf(logFileName, "%s%d.%s", LOG_NAME, i, LOG_EXTENSION);
+
+    if (!SD.exists(logFileName))
+    {
+      /* If a file doesn't exist */
+      result = true;
+      break;
+    }
+  }
+
+  return result;
 }
