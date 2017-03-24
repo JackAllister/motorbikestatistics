@@ -22,7 +22,7 @@
 #include <ArduinoJson.h>
 
 /* Module Constants */
-#define SERIAL_TYPE Serial1
+#define BT_SERIAL Serial1
 #define SERIAL_BAUD 9600
 
 /* Settings for sparkfun GPS logging shield (uSD version) */
@@ -35,7 +35,7 @@
 #define MAX_LOG_FILES 5000
 #define MAX_STRING_SIZE 512
 #define LOG_NAME "trip_"
-#define LOG_EXTENSION "json"
+#define LOG_EXTENSION "txt"
 
 /* Settings for inbuilt gyroscope and accelerometer */
 #define IMU_FREQUENCY 25
@@ -71,7 +71,7 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
 
   /* Set up serial for data transmission */
-  SERIAL_TYPE.begin(SERIAL_BAUD);
+  BT_SERIAL.begin(SERIAL_BAUD);
 
   /* Set up uSD card */
   SD.begin(USD_CS);
@@ -117,8 +117,8 @@ void loop()
     logToFile();
 
     /* Print to our bluetooth module */
-    mainJSON.printTo(SERIAL_TYPE);
-    SERIAL_TYPE.println();
+    mainJSON.printTo(BT_SERIAL);
+    BT_SERIAL.println();
 
     lastMillis = millis();
     digitalWrite(LED_PIN, LOW);
@@ -219,11 +219,11 @@ void logToFile()
   /* Create handle to log file */
   File logHandle = SD.open(logFileName, FILE_WRITE);
 
-  if (logHandle != false)
+  if (logHandle)
   {
     mainJSON.printTo(jsonString, MAX_STRING_SIZE);
-    logHandle.print(jsonString);
-    logHandle.println();
+
+    logHandle.println(jsonString);
     logHandle.close();
   }
 }
@@ -243,7 +243,7 @@ bool generateFileName()
 
     if (!SD.exists(logFileName))
     {
-      /* If a file doesn't exist */
+      /* If a file doesn't exist */     
       result = true;
       break;
     }
