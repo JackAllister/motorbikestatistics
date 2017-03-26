@@ -13,22 +13,22 @@
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="17dp"
-        android:id="@+id/textStatus" />
+        android:id="@+id/pairdevice_status" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textStatus"
-        android:layout_alignLeft="@+id/textStatus"
-        android:layout_alignStart="@+id/textStatus"
-        android:id="@+id/deviceList"
-        android:layout_above="@+id/realtime_show_orientation"
+        android:layout_below="@+id/pairdevice_status"
+        android:layout_alignLeft="@+id/pairdevice_status"
+        android:layout_alignStart="@+id/pairdevice_status"
+        android:id="@+id/pairdevice_deviceList"
+        android:layout_above="@+id/pairdevice_search"
         android:headerDividersEnabled="false" />
 
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/realtime_show_orientation"
+        android:id="@+id/pairdevice_search"
         android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

@@ -71,10 +71,10 @@ public class PairDeviceFragment extends Fragment {
         getNeededPrivileges();
 
         /* Set our variables for UI buttons */
-        btnScan = (ToggleButton)myView.findViewById(R.id.realtime_show_orientation);
+        btnScan = (ToggleButton)myView.findViewById(R.id.pairdevice_search);
         btnScan.setOnCheckedChangeListener(toggleScanListener);
 
-        ListView lvDevices = (ListView)myView.findViewById(R.id.deviceList);
+        ListView lvDevices = (ListView)myView.findViewById(R.id.pairdevice_deviceList);
         lvDevices.setOnItemClickListener(listItemListener);
 
         lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceList, btAdapter);

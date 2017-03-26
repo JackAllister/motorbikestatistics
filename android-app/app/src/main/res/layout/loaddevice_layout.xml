@@ -13,4 +13,14 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
         android:id="@+id/textView3" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textStatus"
+        android:layout_alignLeft="@+id/textStatus"
+        android:layout_alignStart="@+id/textStatus"
+        android:id="@+id/deviceList"
+        android:layout_above="@+id/realtime_show_orientation"
+        android:headerDividersEnabled="false" />
 </RelativeLayout>
