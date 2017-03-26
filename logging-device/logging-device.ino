@@ -164,8 +164,13 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
     case REALTIME_CHAR:
     {
       /* Change mode and then generate new file name for new log */
+      if (systemMode != REALTIME)
+      {
+        /* Generate new name if not already in this mode */
+        generateFileName();
+      }
+
       newMode = REALTIME;
-      generateFileName();
       break;
     }
 
