@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
@@ -21,26 +22,19 @@
         android:layout_alignLeft="@+id/realtime_status"
         android:layout_alignStart="@+id/realtime_status"
         android:id="@+id/realtime_data_list"
-        android:layout_above="@+id/realtime_show_orientation" />
+        android:layout_above="@+id/realtime_show_map" />
 
-    <Button
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/realtime_show_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/realtime_show_orientation"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/realtime_data_list"
         android:layout_alignStart="@+id/realtime_data_list"
-        android:text="@string/show_orientation" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/realtime_show_map"
-        android:text="@string/show_map"
-        android:layout_below="@+id/realtime_data_list"
-        android:layout_toRightOf="@+id/realtime_show_orientation"
-        android:layout_toEndOf="@+id/realtime_show_orientation" />
+        android:src="@drawable/ic_map_white_24px" />
 
 
 </RelativeLayout>

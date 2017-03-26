@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,7 +76,7 @@ public class RealtimeFragment extends Fragment {
         lvDataItems.setAdapter(lvAdapter);
 
         /* Set our listeners for buttons */
-        Button mapButton = (Button) myView.findViewById(R.id.realtime_show_map);
+        FloatingActionButton mapButton = (FloatingActionButton) myView.findViewById(R.id.realtime_show_map);
         mapButton.setOnClickListener(mapButtonListener);
 
         return myView;
