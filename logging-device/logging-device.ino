@@ -257,6 +257,9 @@ void loadTripNames()
 
           fileJSON.printTo(BT_SERIAL);
           BT_SERIAL.println();
+
+          /* Delay to stop SD card from being thrashed too quickly */
+          delay(150);
         }
       }
       else
