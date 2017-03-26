@@ -12,7 +12,7 @@
  *
  */
 
-/* Module Includes */
+/* ------ Module Includes ------ */
 #include <SPI.h>
 #include <SD.h>
 #include <CurieIMU.h>
@@ -21,7 +21,14 @@
 #include <TinyGPS++.h>
 #include <ArduinoJson.h>
 
-/* Module Constants */
+/* ------ Module Constants ------ */
+
+/* Constants for mode changing characters */
+#define IDLE_CHAR 'I'
+#define REALTIME_CHAR 'R'
+#define LOAD_PREVIOUS_CHAR 'L'
+
+/* Settings for bluetooth serial */
 #define BT_SERIAL Serial1
 #define SERIAL_BAUD 9600
 
@@ -49,12 +56,24 @@
 
 #define LED_PIN 13
 
-/* Module Variables */
+/* ------ Module Typedefs ------ */
+typedef enum
+{
+  IDLE,
+  REALTIME,
+  LOAD_PREVIOUS
+} OPERATING_MODE;
+
+/* ------ Module Variables ------ */
+OPERATING_MODE systemMode = IDLE;
+
+/* Objects required for system functionality */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 Madgwick IMUfilter;
 
+/* JSON Objects used for parsing */
 StaticJsonBuffer<500> jsonBuffer;
 JsonObject& mainJSON = jsonBuffer.createObject();
 JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
@@ -63,7 +82,7 @@ JsonObject& timeJSON = mainJSON.createNestedObject("time");
 
 char logFileName[30]; /* String to store file name in */
 
-/* Module Code */
+/* ------ Module Code ------ */
 
 /* System setup code */
 void setup()
@@ -75,7 +94,6 @@ void setup()
 
   /* Set up uSD card */
   SD.begin(USD_CS);
-  generateFileName();
 
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
@@ -84,14 +102,93 @@ void setup()
   CurieIMU.begin();
   CurieIMU.setGyroRate(IMU_FREQUENCY);
   CurieIMU.setAccelerometerRate(IMU_FREQUENCY);
-  IMUfilter.begin(IMU_FREQUENCY);
-
   CurieIMU.setAccelerometerRange(ACCEL_RANGE);
   CurieIMU.setGyroRange(GYRO_RANGE);
+
+  IMUfilter.begin(IMU_FREQUENCY);
 }
 
 /* Main Code */
 void loop()
+{
+
+
+  /* Check if mode change character received from front-end */
+  if (BT_SERIAL.available() > 0)
+  {
+    char modeChar = BT_SERIAL.read();
+
+    OPERATING_MODE newMode;
+
+    /* If valid new mode character found change system state */
+    if (parseNewMode(modeChar, newMode) == true)
+    {
+      systemMode = newMode;
+    }
+  }
+
+  /* State machine for choosing what option takes place */
+  switch (systemMode)
+  {
+    case IDLE:
+    {
+      /* In IDLE mode MCU does nothing */
+      break;
+    }
+
+    case REALTIME:
+    {
+      realTimeMode();
+      break;
+    }
+
+    case LOAD_PREVIOUS:
+    {
+      break;
+    }
+  }
+}
+
+bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
+{
+  bool result = true;
+
+  switch (modeChar)
+  {
+    case IDLE_CHAR:
+    {
+      newMode = IDLE;
+      break;
+    }
+
+    case REALTIME_CHAR:
+    {
+      /* Change mode and then generate new file name for new log */
+      newMode = REALTIME;
+      generateFileName();
+      break;
+    }
+
+    case LOAD_PREVIOUS_CHAR:
+    {
+      newMode = LOAD_PREVIOUS;
+      break;
+    }
+
+    default:
+    {
+      /*
+       * If not a valid operating mode character
+       * then return that parsing failed.
+       */
+      result = false;
+    }
+  }
+
+  return result;
+}
+
+void realTimeMode()
 {
   static const unsigned long PRINT_DELAY = 1000;
   static unsigned long lastMillis = 0;
@@ -243,7 +340,7 @@ bool generateFileName()
 
     if (!SD.exists(logFileName))
     {
-      /* If a file doesn't exist */     
+      /* If a file doesn't exist */
       result = true;
       break;
     }

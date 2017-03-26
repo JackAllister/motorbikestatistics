@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -102,30 +102,25 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
         int id = item.getItemId();
 
-        switch (id)
-        {
-            case R.id.nav_realtime:
-            {
+        switch (id) {
+            case R.id.nav_realtime: {
                 activeFragment = rtFragment;
                 break;
             }
 
-            case R.id.nav_loaddevice:
-            {
+            case R.id.nav_loaddevice: {
                 activeFragment = ldFragment;
                 break;
             }
 
-            case R.id.nav_pairdevice:
-            {
+            case R.id.nav_pairdevice: {
                 activeFragment = pdFragment;
                 pdFragment.setRXHandler(jsonHandler);
             }
 
         }
 
-        if (activeFragment != null)
-        {
+        if (activeFragment != null) {
             /* Replaces content frame with newly selected one */
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, activeFragment)
@@ -137,35 +132,38 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    private final void sendToDevice(char modeChar) {
+//        Message message = new Message();
+//        message.obj = modeChar;
+//        message.setTarget
+//        message.sendToTarget();
+    }
+
     private final Handler jsonHandler = new Handler(Looper.getMainLooper()) {
 
         @Override
         public void handleMessage(Message msg) {
 
-            receiveString += (String)msg.obj;
+            receiveString += (String) msg.obj;
 
             /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf("\r\n") >= 0)
-            {
+            if (receiveString.indexOf("\r\n") >= 0) {
                 String[] line = receiveString.split("\r\n");
 
                 /*
                  * We want to check every line for JSON data as it could be possible
                  * that multiple JSON objects arrive at once.
                  */
-                for (int i = 0; i < line.length; i++)
-                {
+                for (int i = 0; i < line.length; i++) {
                     /* Try parse each line for JSON data */
                     try {
                         JSONObject tmpJSON = new JSONObject(line[i]);
 
                         /* Send data to current active fragment */
-                        if (activeFragment == rtFragment)
-                        {
+                        if (activeFragment == rtFragment) {
                             rtFragment.newData(tmpJSON);
                         }
-                    } catch (JSONException e)
-                    {
+                    } catch (JSONException e) {
                         /* Ignore line if exception */
                     }
                 }

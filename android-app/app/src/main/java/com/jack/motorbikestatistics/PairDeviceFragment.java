@@ -42,9 +42,6 @@ public class PairDeviceFragment extends Fragment {
 
     private ToggleButton btnScan;
 
-    /* Handler for receiving data */
-    Handler RXHandler = null;
-
     /* Bluetooth variables */
     private BluetoothAdapter btAdapter = null;
 
@@ -137,13 +134,9 @@ public class PairDeviceFragment extends Fragment {
         return myView;
     }
 
-    public BTDeviceItem getConnectedDevice()
+    public BTConnection getBTConnection()
     {
-        return btConnectedDevice;
-    }
-
-    public void setRXHandler(Handler rxHandler) {
-        this.RXHandler = rxHandler;
+        return btConnectedDevice.getConnection();
     }
 
     private void getNeededPrivileges()
@@ -237,7 +230,8 @@ public class PairDeviceFragment extends Fragment {
                     Toast.makeText(parent.getContext(), "Connecting to: " +
                             deviceItem.getDevice().getName(), Toast.LENGTH_SHORT).show();
 
-                    BTConnection newConn = new BTConnection(deviceItem.getDevice(), RXHandler);
+                    /* Create a new BTConnection item with no RX handler */
+                    BTConnection newConn = new BTConnection(deviceItem.getDevice());
 
                     /* Execute the 'run' procedure in object in new thread */
                     Thread tmpThread = new Thread(newConn);
