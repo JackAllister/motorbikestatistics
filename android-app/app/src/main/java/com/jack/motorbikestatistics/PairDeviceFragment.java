@@ -136,7 +136,11 @@ public class PairDeviceFragment extends Fragment {
 
     public BTConnection getBTConnection()
     {
-        return btConnectedDevice.getConnection();
+        if (btConnectedDevice != null) {
+            return btConnectedDevice.getConnection();
+        } else {
+            return null;
+        }
     }
 
     private void getNeededPrivileges()

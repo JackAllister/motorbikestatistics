@@ -24,17 +24,18 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String REALTIME_MODE = "R";
+    private static final String LOAD_PREVIOUS_MODE = "L";
+
     private static RealtimeFragment rtFragment = null;
     private static LoadDeviceFragment ldFragment = null;
     private static PairDeviceFragment pdFragment = null;
-    private static Fragment activeFragment = null;
-
-    private static String receiveString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -98,24 +99,63 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
+        Fragment activeFragment = null;
+
         /* Handle navigation view clicks here */
         FragmentManager fragmentManager = getFragmentManager();
         int id = item.getItemId();
 
         switch (id) {
             case R.id.nav_realtime: {
-                activeFragment = rtFragment;
+                /* Get our bluetooth connection from pairing fragment */
+                BTConnection btConn = pdFragment.getBTConnection();
+
+                if (btConn != null && btConn.isConnected()) {
+                    /* We set our RX handler and also send our command to indicate mode change */
+                    btConn.setRXHandler(rtFragment.RXHandler);
+                    Message message = new Message();
+                    message.obj = (String)REALTIME_MODE;
+                    message.setTarget(btConn.txHandler);
+                    message.sendToTarget();
+
+                    /* Change to our new active fragment */
+                    activeFragment = rtFragment;
+                } else {
+                    /* Indicate that we are not connected to device */
+                    View rootView = findViewById(R.id.content_main);
+                    Snackbar.make(rootView, "Please connect to a device first.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 break;
             }
 
             case R.id.nav_loaddevice: {
-                activeFragment = ldFragment;
+                /* Get our bluetooth connection from pairing fragment */
+                BTConnection btConn = pdFragment.getBTConnection();
+
+                if (btConn != null && btConn.isConnected()) {
+                    /* We set our RX handler and also send our command to indicate mode change */
+
+                    //TODO: Implement inheritance for the handlers etc. since rt and ld share same functionality
+                    //btConn.setRXHandler(ldFragment.RXHandler);
+                    Message message = new Message();
+                    message.obj = (String)LOAD_PREVIOUS_MODE;
+                    message.setTarget(btConn.txHandler);
+                    message.sendToTarget();
+
+                    /* Change to our new active fragment */
+                    activeFragment = ldFragment;
+                } else {
+                    /* Indicate that we are not connected to device */
+                    View rootView = findViewById(R.id.content_main);
+                    Snackbar.make(rootView, "Please connect to a device first.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
                 break;
             }
 
             case R.id.nav_pairdevice: {
                 activeFragment = pdFragment;
-                pdFragment.setRXHandler(jsonHandler);
             }
 
         }
@@ -129,48 +169,6 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return (activeFragment != null);
     }
-
-    private final void sendToDevice(char modeChar) {
-//        Message message = new Message();
-//        message.obj = modeChar;
-//        message.setTarget
-//        message.sendToTarget();
-    }
-
-    private final Handler jsonHandler = new Handler(Looper.getMainLooper()) {
-
-        @Override
-        public void handleMessage(Message msg) {
-
-            receiveString += (String) msg.obj;
-
-            /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf("\r\n") >= 0) {
-                String[] line = receiveString.split("\r\n");
-
-                /*
-                 * We want to check every line for JSON data as it could be possible
-                 * that multiple JSON objects arrive at once.
-                 */
-                for (int i = 0; i < line.length; i++) {
-                    /* Try parse each line for JSON data */
-                    try {
-                        JSONObject tmpJSON = new JSONObject(line[i]);
-
-                        /* Send data to current active fragment */
-                        if (activeFragment == rtFragment) {
-                            rtFragment.newData(tmpJSON);
-                        }
-                    } catch (JSONException e) {
-                        /* Ignore line if exception */
-                    }
-                }
-
-                receiveString = "";
-            }
-        }
-    };
-
 }

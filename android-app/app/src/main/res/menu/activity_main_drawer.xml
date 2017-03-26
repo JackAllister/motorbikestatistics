@@ -12,11 +12,8 @@
             android:id="@+id/nav_loaddevice"
             android:icon="@drawable/ic_sd_storage_black_24px"
             android:title="Load From Device" />
-    </group>
-    <group android:id="@+id/menu_bottom">
         <item android:title="Pair Device"
             android:id="@+id/nav_pairdevice"
             android:icon="@drawable/ic_bluetooth_black_24px" />
     </group>
-
 </menu>
