@@ -48,6 +48,9 @@ public class LoadDeviceFragment extends Fragment {
         lvAdapter = new TripListAdapter(getActivity(), R.layout.trip_list_item, tripList);
         lvTripList.setAdapter(lvAdapter);
 
+        tripList.clear();
+        lvAdapter.notifyDataSetChanged();
+
         return myView;
     }
 

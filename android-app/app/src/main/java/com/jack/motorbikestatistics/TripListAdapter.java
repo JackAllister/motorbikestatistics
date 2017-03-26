@@ -60,7 +60,7 @@ public class TripListAdapter extends ArrayAdapter<TripItem> {
 
         /* Set our holder with current data of item */
         holder.name.setText(tripItem.getTripName());
-        holder.fileSize.setText(tripItem.getFileSize());
+        holder.fileSize.setText(Integer.toString(tripItem.getFileSize()));
 
         return convertView;
     }
