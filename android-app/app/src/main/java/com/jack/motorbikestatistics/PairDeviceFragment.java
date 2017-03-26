@@ -147,7 +147,6 @@ public class PairDeviceFragment extends Fragment {
     {
         final int REQUEST_CODE = 5;
 
-        boolean result = true;
         boolean permsGranted = true;
         String[] permsToRequest =
                 {

@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
                     /* We set our RX handler and also send our command to indicate mode change */
 
                     //TODO: Implement inheritance for the handlers etc. since rt and ld share same functionality
-                    //btConn.setRXHandler(ldFragment.RXHandler);
+                    btConn.setRXHandler(ldFragment.RXHandler);
                     Message message = new Message();
                     message.obj = (String)LOAD_PREVIOUS_MODE;
                     message.setTarget(btConn.txHandler);

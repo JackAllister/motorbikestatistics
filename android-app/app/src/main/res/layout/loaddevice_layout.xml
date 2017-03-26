@@ -12,15 +12,14 @@
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="14dp"
-        android:id="@+id/textView3" />
+        android:id="@+id/loaddevice_status" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textStatus"
-        android:layout_alignLeft="@+id/textStatus"
-        android:layout_alignStart="@+id/textStatus"
-        android:id="@+id/deviceList"
-        android:layout_above="@+id/realtime_show_orientation"
+        android:layout_below="@+id/loaddevice_status"
+        android:layout_alignLeft="@+id/loaddevice_status"
+        android:layout_alignStart="@+id/loaddevice_status"
+        android:id="@+id/loaddevice_triplist"
         android:headerDividersEnabled="false" />
 </RelativeLayout>
