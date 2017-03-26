@@ -91,7 +91,6 @@ void setup()
 
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
-  Serial.begin(SERIAL_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
@@ -112,15 +111,6 @@ void setup()
 /* Main Code */
 void loop()
 {
-  static unsigned long lastMillis = 0;
-
-  if ((millis() - lastMillis) > 1000)
-  {
-    Serial.print("Current mode: ");
-    Serial.println(systemMode);
-
-    lastMillis = millis();
-  }
 
   /* Check if mode change character received from front-end */
   if (BT_SERIAL.available() > 0)
@@ -128,9 +118,6 @@ void loop()
     char modeChar = BT_SERIAL.read();
 
     OPERATING_MODE newMode;
-
-    Serial.print("Char received: ");
-    Serial.println(modeChar);
 
     /* If valid new mode character found change system state */
     if (parseNewMode(modeChar, newMode) == true)
@@ -250,8 +237,6 @@ void loadTripNames()
   /* Try to open directory for logs */
   if (root)
   {
-    Serial.println("Opened root");
-
     /* Ensure starting from start of directory */
     root.rewindDirectory();
 
@@ -266,11 +251,6 @@ void loadTripNames()
       {
         if (entry.isDirectory() == false)
         {
-          Serial.print("File found: ");
-          Serial.print(entry.name());
-          Serial.print("\t");
-          Serial.println(entry.size());
-
           /* Print out file name & size */
           fileJSON["name"] = entry.name();
           fileJSON["size"] = entry.size();
@@ -278,16 +258,9 @@ void loadTripNames()
           fileJSON.printTo(BT_SERIAL);
           BT_SERIAL.println();
         }
-        else
-        {
-          Serial.print("Directory found: ");
-          Serial.println(entry.name());
-        }
       }
       else
       {
-        Serial.println("No files remaining");
-
         /* No more files remaining in directory */
         filesRemaining = false;
       }
