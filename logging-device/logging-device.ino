@@ -92,7 +92,7 @@ void setup()
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
 
-  /* Set up uSD card */
+  /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
 
   /* Set up GPS */
@@ -111,7 +111,6 @@ void setup()
 /* Main Code */
 void loop()
 {
-
 
   /* Check if mode change character received from front-end */
   if (BT_SERIAL.available() > 0)
@@ -176,6 +175,8 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
 
     case LOAD_PREVIOUS_CHAR:
     {
+      /* Load all trips and send to application */
+      loadTripNames();
       newMode = LOAD_PREVIOUS;
       break;
     }
@@ -224,6 +225,39 @@ void realTimeMode()
 
     lastMillis = millis();
     digitalWrite(LED_PIN, LOW);
+  }
+}
+
+void loadTripNames()
+{
+  bool filesRemaining = true;
+
+  File root = SD.open("/");
+
+  /* Try to open directory for logs */
+  if (root)
+  {
+    /* Create our JSON object that we will use for sending */
+    JsonObject& fileJSON = jsonBuffer.createObject();
+
+    while (filesRemaining == true)
+    {
+      /* Try open handle for next file */
+      File entry = root.openNextFile();
+      if (entry && (entry.isDirectory() == false))
+      {
+          /* Print out file name & size */
+          fileJSON["name"] = entry.name();
+          fileJSON["size"] = entry.size();
+
+          fileJSON.printTo(BT_SERIAL);
+      }
+      else
+      {
+        /* No more files remaining in directory */
+        filesRemaining = false;
+      }
+    }
   }
 }
 
