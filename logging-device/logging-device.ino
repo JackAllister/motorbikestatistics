@@ -91,7 +91,6 @@ void setup()
 
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
-  Serial.begin(SERIAL_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
@@ -251,8 +250,6 @@ void loadSavedTrip()
       char recvByte = BT_SERIAL.read();
       fileName += recvByte;
 
-      Serial.print(recvByte);
-
       /* Wait until extension is found, then we know full file name */
       if (fileName.endsWith(LOG_EXTENSION))
       {
@@ -261,16 +258,22 @@ void loadSavedTrip()
     }
   }
 
-  Serial.println();
-  Serial.print("Searching for: ");
-  Serial.println(fileName);
-}
+  /* Check if file exists */
+  if (SD.exists(fileName))
+  {
+    /* Open file, then read out data byte by byte */
+    File fileHandle = SD.open(fileName);
+    if (fileHandle)
+    {
 
-File searchForFile(String name)
-{
-  File result = null;
+      while (fileHandle.available())
+      {
+        char readByte = fileHandle.read();
 
-  return result;
+        BT_SERIAL.write(readByte);
+      }
+    }
+  }
 }
 
 void loadTripNames()
