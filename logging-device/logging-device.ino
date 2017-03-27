@@ -31,7 +31,7 @@
 
 /* Settings for bluetooth serial */
 #define BT_SERIAL Serial1
-#define SERIAL_BAUD 9600
+#define BT_BAUD 460800
 
 /* Settings for sparkfun GPS logging shield (uSD version) */
 #define GPS_TX_PIN 9
@@ -90,7 +90,7 @@ void setup()
   pinMode(LED_PIN, OUTPUT);
 
   /* Set up serial for data transmission */
-  BT_SERIAL.begin(SERIAL_BAUD);
+  BT_SERIAL.begin(BT_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
