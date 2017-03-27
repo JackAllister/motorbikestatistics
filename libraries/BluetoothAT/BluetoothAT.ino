@@ -11,12 +11,12 @@ void setup()
     
     Serial.println("Enter AT commands:");
  
-    BTserial.begin(460800);  
+    BTserial.begin(115200);  
 
     // Configures the bluetooth module the way we want it.
     BTserial.println("AT");
     BTserial.println("AT+NAMELOGGING-DEVICE");
-    BTserial.println("AT+BAUDA");
+    //BTserial.println("AT+BAUD8");
 }
  
 void loop()

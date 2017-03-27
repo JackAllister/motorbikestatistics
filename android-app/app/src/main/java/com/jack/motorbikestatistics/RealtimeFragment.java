@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +23,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
 
 /**
  * Created by Jack on 23-Jan-17.
@@ -40,6 +37,7 @@ public class RealtimeFragment extends Fragment {
     private SetOfDataItems dataList;
     private ArrayAdapter<DataItem> lvAdapter;
 
+    private final static String NEW_LINE = "\r\n";
     private static String receiveString = "";
 
     public RealtimeFragment() {
@@ -158,8 +156,8 @@ public class RealtimeFragment extends Fragment {
             receiveString += (String) msg.obj;
 
             /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf("\r\n") >= 0) {
-                String[] line = receiveString.split("\r\n");
+            if (receiveString.indexOf(NEW_LINE) >= 0) {
+                String[] line = receiveString.split(NEW_LINE);
 
                 /*
                  * We want to check every line for JSON data as it could be possible
@@ -173,9 +171,10 @@ public class RealtimeFragment extends Fragment {
                         newData(tmpJSON);
 
                         /* Remove string from buffer if successfully added */
-                        receiveString = receiveString.replace(line[i], "");
+                        receiveString = receiveString.replace(line[i] + NEW_LINE, "");
                     } catch (JSONException e) {
                         /* Ignore line if exception */
+                        e.printStackTrace();
                     }
                 }
             }

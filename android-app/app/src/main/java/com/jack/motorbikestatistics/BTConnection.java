@@ -7,9 +7,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,7 +27,6 @@ public class BTConnection implements Runnable {
     private BluetoothSocket btSocket = null;
 
     private volatile boolean running = false;
-
 
     public BTConnection(BluetoothDevice btDevice)
             throws IOException {
@@ -94,7 +90,7 @@ public class BTConnection implements Runnable {
 
                     if (bytesAvailable > 0) {
                         byte[] packetBytes = new byte[bytesAvailable];
-                        int bytesRead = RXStream.read(packetBytes);
+                        int bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
 
                         if (RXHandler != null) {
                             /*
@@ -115,8 +111,8 @@ public class BTConnection implements Runnable {
                     running = false;
                     return;
                 }
-
             }
+
         }
 
         /* Close bluetooth socket */

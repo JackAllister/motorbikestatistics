@@ -31,7 +31,7 @@
 
 /* Settings for bluetooth serial */
 #define BT_SERIAL Serial1
-#define BT_BAUD 460800
+#define BT_BAUD 115200
 
 /* Settings for sparkfun GPS logging shield (uSD version) */
 #define GPS_TX_PIN 9
@@ -75,6 +75,7 @@ Madgwick IMUfilter;
 
 /* JSON Objects used for parsing */
 StaticJsonBuffer<500> jsonBuffer;
+JsonObject& fileJSON = jsonBuffer.createObject();
 JsonObject& mainJSON = jsonBuffer.createObject();
 JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
 JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
@@ -272,6 +273,8 @@ void loadSavedTrip()
 
         BT_SERIAL.write(readByte);
       }
+
+      fileHandle.close();
     }
   }
 }
@@ -287,9 +290,6 @@ void loadTripNames()
   {
     /* Ensure starting from start of directory */
     root.rewindDirectory();
-
-    /* Create our JSON object that we will use for sending */
-    JsonObject& fileJSON = jsonBuffer.createObject();
 
     while (filesRemaining == true)
     {

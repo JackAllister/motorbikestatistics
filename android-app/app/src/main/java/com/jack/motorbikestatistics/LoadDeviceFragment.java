@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 public class LoadDeviceFragment extends Fragment {
 
+    private final static String NEW_LINE = "\r\n";
     private final static String LOAD_TRIP_CHAR = "3";
 
     private BTConnection btConnection = null;
@@ -87,8 +88,8 @@ public class LoadDeviceFragment extends Fragment {
             receiveString += (String) msg.obj;
 
             /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf("\r\n") >= 0) {
-                String[] line = receiveString.split("\r\n");
+            if (receiveString.indexOf(NEW_LINE) >= 0) {
+                String[] line = receiveString.split(NEW_LINE);
 
                 /*
                  * We want to check every line for JSON data as it could be possible
@@ -101,7 +102,7 @@ public class LoadDeviceFragment extends Fragment {
                         addTrip(tmpJSON);
 
                         /* Remove string from buffer if successfully added */
-                        receiveString = receiveString.replace(line[i], "");
+                        receiveString = receiveString.replace(line[i] + NEW_LINE, "");
                     } catch (JSONException e) {
                         /* Ignore line if exception */
                     }
