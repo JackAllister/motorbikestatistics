@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -137,13 +138,13 @@ public class RealtimeFragment extends Fragment {
             dataList.getItemByName("Time").setCurrent(timeFormat.format(cal.getTime()));
 
             lvAdapter.notifyDataSetChanged();
-            textStatus.setText("Reading count: " + Integer.toString(jsonList.size()));
 
             /*
              * Add json object to our list
              * so we can send it to other activities/fragments later
              */
             jsonList.add(jsonData.toString());
+            textStatus.setText("Reading count: " + Integer.toString(jsonList.size()));
         } catch (JSONException e) {
             /* Do nothing */
         }
@@ -165,17 +166,18 @@ public class RealtimeFragment extends Fragment {
                  * that multiple JSON objects arrive at once.
                  */
                 for (int i = 0; i < line.length; i++) {
+
                     /* Try parse each line for JSON data */
                     try {
                         JSONObject tmpJSON = new JSONObject(line[i]);
                         newData(tmpJSON);
 
+                        /* Remove string from buffer if successfully added */
+                        receiveString = receiveString.replace(line[i], "");
                     } catch (JSONException e) {
                         /* Ignore line if exception */
                     }
                 }
-
-                receiveString = "";
             }
         }
     };

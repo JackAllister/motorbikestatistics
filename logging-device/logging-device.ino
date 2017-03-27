@@ -91,7 +91,6 @@ void setup()
 
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
-  Serial.begin(SERIAL_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
@@ -271,7 +270,6 @@ void loadSavedTrip()
       {
         char readByte = fileHandle.read();
 
-        Serial.write(readByte);
         BT_SERIAL.write(readByte);
       }
     }
@@ -307,9 +305,6 @@ void loadTripNames()
 
           fileJSON.printTo(BT_SERIAL);
           BT_SERIAL.println();
-
-          /* Delay to stop SD card from being thrashed too quickly */
-          delay(150);
         }
       }
       else

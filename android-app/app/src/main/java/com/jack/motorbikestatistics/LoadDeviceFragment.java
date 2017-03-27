@@ -100,12 +100,12 @@ public class LoadDeviceFragment extends Fragment {
                         JSONObject tmpJSON = new JSONObject(line[i]);
                         addTrip(tmpJSON);
 
+                        /* Remove string from buffer if successfully added */
+                        receiveString = receiveString.replace(line[i], "");
                     } catch (JSONException e) {
                         /* Ignore line if exception */
                     }
                 }
-
-                receiveString = "";
             }
         }
     };
