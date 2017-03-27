@@ -2,10 +2,14 @@ package com.jack.motorbikestatistics;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +24,7 @@ public class BTConnection implements Runnable {
 
     private static final String TAG = "BTConnection";
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+    private static final String NEW_LINE = "\r\n";
 
     private BluetoothDevice btDevice;
     private Handler RXHandler = null;
@@ -84,6 +89,7 @@ public class BTConnection implements Runnable {
              * While still connected and not signalled to stop we receive data
              * and then send it to the handler
              */
+            String recvBuff = "";
             while (isRunning() && isConnected()) {
                 try {
                     int bytesAvailable = RXStream.available();
@@ -92,17 +98,29 @@ public class BTConnection implements Runnable {
                         byte[] packetBytes = new byte[bytesAvailable];
                         int bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
 
-                        if (RXHandler != null) {
+                        recvBuff += new String(packetBytes);
+                    }
+
+                    if (RXHandler != null) {
+
+                        if (recvBuff.indexOf(NEW_LINE) > 0) {
+
+                            String jsonLine = recvBuff.substring(0, recvBuff.indexOf(NEW_LINE));
+
                             /*
                              * Having to send data to main thread using messages
                              * as we are multithreading.
                              * If we try and use a standard call to function
                              * will cause a crash.
                              */
-                            Message message = new Message();
-                            message.obj = new String(packetBytes);
-                            message.setTarget(RXHandler);
+                            Bundle dataBundle =  new Bundle();
+                            dataBundle.putString("JSON", jsonLine);
+
+                            Message message = RXHandler.obtainMessage();
+                            message.setData(dataBundle);
                             message.sendToTarget();
+
+                            recvBuff = recvBuff.replace(jsonLine + NEW_LINE, "");
                         }
                     }
 

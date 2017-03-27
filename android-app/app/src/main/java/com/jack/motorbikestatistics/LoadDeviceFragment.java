@@ -32,8 +32,6 @@ public class LoadDeviceFragment extends Fragment {
     private ArrayList<TripItem> tripList;
     private ArrayAdapter<TripItem> lvAdapter;
 
-    String receiveString = "";
-
     public LoadDeviceFragment() {
 
         tripList = new ArrayList<TripItem>();
@@ -85,27 +83,19 @@ public class LoadDeviceFragment extends Fragment {
 
         @Override
         public void handleMessage(Message msg) {
-            receiveString += (String) msg.obj;
 
-            /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf(NEW_LINE) >= 0) {
-                String[] line = receiveString.split(NEW_LINE);
+            Bundle msgData = msg.getData();
+            String jsonString = msgData.getString("JSON");
 
-                /*
-                 * We want to check every line for JSON data as it could be possible
-                 * that multiple JSON objects arrive at once.
-                 */
-                for (int i = 0; i < line.length; i++) {
-                    /* Try parse each line for JSON data */
-                    try {
-                        JSONObject tmpJSON = new JSONObject(line[i]);
-                        addTrip(tmpJSON);
+            if (jsonString != null) {
 
-                        /* Remove string from buffer if successfully added */
-                        receiveString = receiveString.replace(line[i] + NEW_LINE, "");
-                    } catch (JSONException e) {
-                        /* Ignore line if exception */
-                    }
+                /* Try parse the string to JSON object, then pass to new trip function */
+                try {
+                    JSONObject tmpJSON = new JSONObject(jsonString);
+                    addTrip(tmpJSON);
+
+                } catch (JSONException e) {
+                    /* Ignore line if exception */
                 }
             }
         }

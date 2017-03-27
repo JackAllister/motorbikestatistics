@@ -38,7 +38,6 @@ public class RealtimeFragment extends Fragment {
     private ArrayAdapter<DataItem> lvAdapter;
 
     private final static String NEW_LINE = "\r\n";
-    private static String receiveString = "";
 
     public RealtimeFragment() {
         jsonList = new ArrayList<String>();
@@ -153,29 +152,18 @@ public class RealtimeFragment extends Fragment {
         @Override
         public void handleMessage(Message msg) {
 
-            receiveString += (String) msg.obj;
+            Bundle msgData = msg.getData();
+            String jsonString = msgData.getString("JSON");
 
-            /* Check that new line exists, otherwise wait till next time called */
-            if (receiveString.indexOf(NEW_LINE) >= 0) {
-                String[] line = receiveString.split(NEW_LINE);
+            if (jsonString != null) {
 
-                /*
-                 * We want to check every line for JSON data as it could be possible
-                 * that multiple JSON objects arrive at once.
-                 */
-                for (int i = 0; i < line.length; i++) {
+                /* Try parse the string into a JSON object & send to new data function */
+                try {
+                    JSONObject tmpJSON = new JSONObject(jsonString);
+                    newData(tmpJSON);
 
-                    /* Try parse each line for JSON data */
-                    try {
-                        JSONObject tmpJSON = new JSONObject(line[i]);
-                        newData(tmpJSON);
-
-                        /* Remove string from buffer if successfully added */
-                        receiveString = receiveString.replace(line[i] + NEW_LINE, "");
-                    } catch (JSONException e) {
-                        /* Ignore line if exception */
-                        e.printStackTrace();
-                    }
+                } catch (JSONException e) {
+                    /* Ignore line if exception */
                 }
             }
         }
