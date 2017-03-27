@@ -32,6 +32,8 @@ import java.util.Iterator;
 
 public class RealtimeFragment extends Fragment {
 
+    private TextView textStatus;
+
     private ArrayList<String> jsonList;
 
     private SetOfDataItems dataList;
@@ -63,6 +65,8 @@ public class RealtimeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.realtime_layout, container, false);
+
+        textStatus = (TextView)myView.findViewById(R.id.realtime_status);
 
         /* Get the ListView via ID */
         ListView lvDataItems = (ListView) myView.findViewById(R.id.realtime_data_list);
@@ -133,6 +137,7 @@ public class RealtimeFragment extends Fragment {
             dataList.getItemByName("Time").setCurrent(timeFormat.format(cal.getTime()));
 
             lvAdapter.notifyDataSetChanged();
+            textStatus.setText("Reading count: " + Integer.toString(jsonList.size()));
 
             /*
              * Add json object to our list

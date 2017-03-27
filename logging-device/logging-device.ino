@@ -91,6 +91,7 @@ void setup()
 
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
+  Serial.begin(SERIAL_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
@@ -270,6 +271,7 @@ void loadSavedTrip()
       {
         char readByte = fileHandle.read();
 
+        Serial.write(readByte);
         BT_SERIAL.write(readByte);
       }
     }

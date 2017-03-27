@@ -1,6 +1,7 @@
 package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -113,14 +114,26 @@ public class LoadDeviceFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            if (btConnection != null) {
+            if (btConnection != null && btConnection.isConnected()) {
                 TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+
+                /*
+                 * Create a new statistics fragment.
+                 * This will receive the stored data from the logging device.
+                 */
+                RealtimeFragment statFragment = new RealtimeFragment();
+                btConnection.setRXHandler(statFragment.RXHandler);
 
                 /* Transmit over the name of the trip we want to load */
                 Message message = new Message();
                 message.obj = (String) LOAD_TRIP_CHAR + tripItem.getTripName();
                 message.setTarget(btConnection.txHandler);
                 message.sendToTarget();
+
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, statFragment)
+                        .commit();
             }
         }
     };
