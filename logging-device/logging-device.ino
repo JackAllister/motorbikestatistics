@@ -306,6 +306,8 @@ void loadTripNames()
           fileJSON.printTo(BT_SERIAL);
           BT_SERIAL.println();
         }
+
+        entry.close();
       }
       else
       {
