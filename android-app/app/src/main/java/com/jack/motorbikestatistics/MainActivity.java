@@ -2,10 +2,7 @@ package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
 import android.view.View;
@@ -15,17 +12,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String REALTIME_MODE = "R";
-    private static final String LOAD_PREVIOUS_MODE = "L";
+    private static final String REALTIME_CHAR = "1";
+    private static final String LIST_SAVED_CHAR = "2";
 
     private static RealtimeFragment rtFragment = null;
     private static LoadDeviceFragment ldFragment = null;
@@ -83,7 +76,7 @@ public class MainActivity extends AppCompatActivity
                     /* We set our RX handler and also send our command to indicate mode change */
                     btConn.setRXHandler(rtFragment.RXHandler);
                     Message message = new Message();
-                    message.obj = (String)REALTIME_MODE;
+                    message.obj = (String) REALTIME_CHAR;
                     message.setTarget(btConn.txHandler);
                     message.sendToTarget();
 
@@ -105,10 +98,12 @@ public class MainActivity extends AppCompatActivity
                 if (btConn != null && btConn.isConnected()) {
                     /* We set our RX handler and also send our command to indicate mode change */
 
+                    ldFragment.setBTConnection(btConn);
+
                     //TODO: Implement inheritance for the handlers etc. since rt and ld share same functionality
                     btConn.setRXHandler(ldFragment.RXHandler);
                     Message message = new Message();
-                    message.obj = (String)LOAD_PREVIOUS_MODE;
+                    message.obj = (String) LIST_SAVED_CHAR;
                     message.setTarget(btConn.txHandler);
                     message.sendToTarget();
 

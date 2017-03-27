@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -23,7 +24,9 @@ import java.util.ArrayList;
 
 public class LoadDeviceFragment extends Fragment {
 
+    private final static String LOAD_TRIP_CHAR = "3";
 
+    private BTConnection btConnection = null;
     private ArrayList<TripItem> tripList;
     private ArrayAdapter<TripItem> lvAdapter;
 
@@ -41,6 +44,7 @@ public class LoadDeviceFragment extends Fragment {
 
         /* Get our ListView via ID, set headers and create our ArrayAdapter for it */
         ListView lvTripList = (ListView)myView.findViewById(R.id.loaddevice_triplist);
+        lvTripList.setOnItemClickListener(tripClickListener);
 
         ViewGroup headerView = (ViewGroup)inflater.inflate(R.layout.trip_list_header, lvTripList, false);
         lvTripList.addHeaderView(headerView);
@@ -52,6 +56,10 @@ public class LoadDeviceFragment extends Fragment {
         lvAdapter.notifyDataSetChanged();
 
         return myView;
+    }
+
+    public void setBTConnection(BTConnection btConnection) {
+        this.btConnection = btConnection;
     }
 
     private final void addTrip(JSONObject jsonData) {
@@ -97,6 +105,22 @@ public class LoadDeviceFragment extends Fragment {
                 }
 
                 receiveString = "";
+            }
+        }
+    };
+
+    public final ListView.OnItemClickListener tripClickListener = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            if (btConnection != null) {
+                TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+
+                /* Transmit over the name of the trip we want to load */
+                Message message = new Message();
+                message.obj = (String) LOAD_TRIP_CHAR + tripItem.getTripName();
+                message.setTarget(btConnection.txHandler);
+                message.sendToTarget();
             }
         }
     };

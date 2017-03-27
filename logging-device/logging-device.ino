@@ -24,9 +24,10 @@
 /* ------ Module Constants ------ */
 
 /* Constants for mode changing characters */
-#define IDLE_CHAR 'I'
-#define REALTIME_CHAR 'R'
-#define LOAD_PREVIOUS_CHAR 'L'
+#define IDLE_CHAR '0'
+#define REALTIME_CHAR '1'
+#define LIST_SAVED_CHAR '2'
+#define LOAD_TRIP_CHAR '3'
 
 /* Settings for bluetooth serial */
 #define BT_SERIAL Serial1
@@ -41,8 +42,8 @@
 #define USD_CS 10
 #define MAX_LOG_FILES 5000
 #define MAX_STRING_SIZE 512
-#define LOG_NAME "trip_"
-#define LOG_EXTENSION "txt"
+#define LOG_NAME "TRIP_"
+#define LOG_EXTENSION "TXT"
 
 /* Settings for inbuilt gyroscope and accelerometer */
 #define IMU_FREQUENCY 25
@@ -61,7 +62,6 @@ typedef enum
 {
   IDLE,
   REALTIME,
-  LOAD_PREVIOUS
 } OPERATING_MODE;
 
 /* ------ Module Variables ------ */
@@ -91,6 +91,7 @@ void setup()
 
   /* Set up serial for data transmission */
   BT_SERIAL.begin(SERIAL_BAUD);
+  Serial.begin(SERIAL_BAUD);
 
   /* Set up uSD card, create log folder if doesn't exist */
   SD.begin(USD_CS);
@@ -131,18 +132,16 @@ void loop()
   {
     case IDLE:
     {
-      /* In IDLE mode MCU does nothing */
+      /*
+       * In IDLE mode MCU does nothing.
+       * System waits and still parses incoming commands.
+       */
       break;
     }
 
     case REALTIME:
     {
       realTimeMode();
-      break;
-    }
-
-    case LOAD_PREVIOUS:
-    {
       break;
     }
   }
@@ -173,11 +172,22 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
       break;
     }
 
-    case LOAD_PREVIOUS_CHAR:
+    case LIST_SAVED_CHAR:
     {
-      /* Load all trips and send to application */
+      /*
+       * Load all trips and send to application.
+       * Once we have finished sending trips we can go back to idle mode.
+       */
       loadTripNames();
-      newMode = LOAD_PREVIOUS;
+      newMode = IDLE;
+      break;
+    }
+
+    case LOAD_TRIP_CHAR:
+    {
+      /* Load a specific trip by file name */
+      loadSavedTrip();
+      newMode = IDLE;
       break;
     }
 
@@ -226,6 +236,41 @@ void realTimeMode()
     lastMillis = millis();
     digitalWrite(LED_PIN, LOW);
   }
+}
+
+void loadSavedTrip()
+{
+  bool nameComplete = false;
+  String fileName = "";
+
+  while (nameComplete == false)
+  {
+    /* Keep reading input in serial until file name is found */
+    if (BT_SERIAL.available() > 0)
+    {
+      char recvByte = BT_SERIAL.read();
+      fileName += recvByte;
+
+      Serial.print(recvByte);
+
+      /* Wait until extension is found, then we know full file name */
+      if (fileName.endsWith(LOG_EXTENSION))
+      {
+        nameComplete = true;
+      }
+    }
+  }
+
+  Serial.println();
+  Serial.print("Searching for: ");
+  Serial.println(fileName);
+}
+
+File searchForFile(String name)
+{
+  File result = null;
+
+  return result;
 }
 
 void loadTripNames()
