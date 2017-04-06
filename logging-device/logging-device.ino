@@ -13,13 +13,12 @@
  */
 
 /* ------ Module Includes ------ */
-#include <SPI.h>
-#include <SD.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
 #include <ArduinoJson.h>
 
 #include "Orientation.h"
+#include "Storage.h"
 
 /* ------ Module Constants ------ */
 
@@ -38,13 +37,6 @@
 #define GPS_RX_PIN 8
 #define GPS_BAUD 9600
 
-/* Settings for uSD logging */
-#define USD_CS 10
-#define MAX_LOG_FILES 5000
-#define MAX_STRING_SIZE 512
-#define LOG_NAME "TRIP_"
-#define LOG_EXTENSION "TXT"
-
 #define LED_PIN 13
 
 /* ------ Module Typedefs ------ */
@@ -55,23 +47,23 @@ typedef enum
 } OPERATING_MODE;
 
 /* ------ Module Variables ------ */
+
+/* State machine variable */
 OPERATING_MODE systemMode = IDLE;
 
 /* Objects required for system functionality */
 Orientation orientation;
+Storage storage;
 
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
 
 /* JSON Objects used for parsing */
 StaticJsonBuffer<500> jsonBuffer;
-JsonObject& fileJSON = jsonBuffer.createObject();
 JsonObject& mainJSON = jsonBuffer.createObject();
 JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
 JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
 JsonObject& timeJSON = mainJSON.createNestedObject("time");
-
-char logFileName[30]; /* String to store file name in */
 
 /* ------ Module Code ------ */
 
@@ -80,11 +72,11 @@ void setup()
 {
   pinMode(LED_PIN, OUTPUT);
 
+  /* Initialise our storage module */
+  storage.init();
+
   /* Set up serial for data transmission */
   BT_SERIAL.begin(BT_BAUD);
-
-  /* Set up uSD card, create log folder if doesn't exist */
-  SD.begin(USD_CS);
 
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
@@ -146,7 +138,7 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
       if (systemMode != REALTIME)
       {
         /* Generate new name if not already in this mode */
-        generateFileName();
+        storage.generateFileName();
       }
 
       newMode = REALTIME;
@@ -159,7 +151,7 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
        * Load all trips and send to application.
        * Once we have finished sending trips we can go back to idle mode.
        */
-      loadTripNames();
+      storage.loadTripNames();
       newMode = IDLE;
       break;
     }
@@ -167,7 +159,7 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
     case LOAD_TRIP_CHAR:
     {
       /* Load a specific trip by file name */
-      loadSavedTrip();
+      storage.loadSavedTrip();
       newMode = IDLE;
       break;
     }
@@ -187,8 +179,10 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
 
 void realTimeMode()
 {
+  static const unsigned int MAX_STRING_SIZE = 512;
   static const unsigned long PRINT_DELAY = 1000;
   static unsigned long lastMillis = 0;
+  char jsonString[MAX_STRING_SIZE];
 
   /* Poll our IMU to update XYZ */
   orientation.pollIMU();
@@ -208,97 +202,17 @@ void realTimeMode()
     addGPSToJSON();
     addTimeToJSON();
 
+    /* Print our json object into a string */
+    mainJSON.printTo(jsonString, MAX_STRING_SIZE);
+
     /* Log JSON to the microSD */
-    logToFile();
+    storage.saveToFile(jsonString, true);
 
     /* Print to our bluetooth module */
-    mainJSON.printTo(BT_SERIAL);
-    BT_SERIAL.println();
+    BT_SERIAL.println(jsonString);
 
     lastMillis = millis();
     digitalWrite(LED_PIN, LOW);
-  }
-}
-
-void loadSavedTrip()
-{
-  bool nameComplete = false;
-  String fileName = "";
-
-  while (nameComplete == false)
-  {
-    /* Keep reading input in serial until file name is found */
-    if (BT_SERIAL.available() > 0)
-    {
-      char recvByte = BT_SERIAL.read();
-      fileName += recvByte;
-
-      /* Wait until extension is found, then we know full file name */
-      if (fileName.endsWith(LOG_EXTENSION))
-      {
-        nameComplete = true;
-      }
-    }
-  }
-
-  /* Check if file exists */
-  if (SD.exists(fileName))
-  {
-    /* Open file, then read out data byte by byte */
-    File fileHandle = SD.open(fileName);
-    if (fileHandle)
-    {
-
-      while (fileHandle.available())
-      {
-        char readByte = fileHandle.read();
-
-        BT_SERIAL.write(readByte);
-      }
-
-      fileHandle.close();
-    }
-  }
-}
-
-void loadTripNames()
-{
-  bool filesRemaining = true;
-
-  File root = SD.open("/");
-
-  /* Try to open directory for logs */
-  if (root)
-  {
-    /* Ensure starting from start of directory */
-    root.rewindDirectory();
-
-    while (filesRemaining == true)
-    {
-      /* Try open handle for next file */
-      File entry = root.openNextFile();
-      if (entry)
-      {
-        if (entry.isDirectory() == false)
-        {
-          /* Print out file name & size */
-          fileJSON["name"] = entry.name();
-          fileJSON["size"] = entry.size();
-
-          fileJSON.printTo(BT_SERIAL);
-          BT_SERIAL.println();
-        }
-
-        entry.close();
-      }
-      else
-      {
-        /* No more files remaining in directory */
-        filesRemaining = false;
-      }
-    }
-
-    root.close();
   }
 }
 
@@ -334,44 +248,4 @@ void addTimeToJSON()
   timeJSON["minute"] = gps.time.minute();
   timeJSON["second"] = gps.time.second();
   timeJSON["centiseconds"] = gps.time.centisecond();
-}
-
-void logToFile()
-{
-  char jsonString[MAX_STRING_SIZE];
-
-  /* Create handle to log file */
-  File logHandle = SD.open(logFileName, FILE_WRITE);
-
-  if (logHandle)
-  {
-    mainJSON.printTo(jsonString, MAX_STRING_SIZE);
-
-    logHandle.println(jsonString);
-    logHandle.close();
-  }
-}
-
-bool generateFileName()
-{
-  bool result = false;
-  int i = 0;
-
-  for (i = 0; i < MAX_LOG_FILES; i++)
-  {
-    /* Clear name of log file */
-    memset(logFileName, 0, strlen(logFileName));
-
-    /* Set the new log file name to: trip_XXXXX.json */
-    sprintf(logFileName, "%s%d.%s", LOG_NAME, i, LOG_EXTENSION);
-
-    if (!SD.exists(logFileName))
-    {
-      /* If a file doesn't exist */
-      result = true;
-      break;
-    }
-  }
-
-  return result;
 }

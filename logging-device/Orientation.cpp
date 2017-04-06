@@ -1,4 +1,3 @@
-
 /*
  * Module created to deal with all orientation related functionality.
  */
@@ -6,7 +5,6 @@
 /* ------ Module Includes ------ */
 #include <BMI160.h>
 #include <CurieIMU.h>
-#include <MadgwickAHRS.h>
 
 #include "Orientation.h"
 
