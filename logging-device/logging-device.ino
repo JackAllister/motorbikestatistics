@@ -15,11 +15,11 @@
 /* ------ Module Includes ------ */
 #include <SPI.h>
 #include <SD.h>
-#include <CurieIMU.h>
-#include <MadgwickAHRS.h>
 #include <SoftwareSerial.h>
 #include <TinyGPS++.h>
 #include <ArduinoJson.h>
+
+#include "Orientation.h"
 
 /* ------ Module Constants ------ */
 
@@ -45,16 +45,6 @@
 #define LOG_NAME "TRIP_"
 #define LOG_EXTENSION "TXT"
 
-/* Settings for inbuilt gyroscope and accelerometer */
-#define IMU_FREQUENCY 25
-#define ACCEL_RANGE 2
-#define GYRO_RANGE 250
-
-#define NUMBER_AXIS 3
-#define AXIS_X 0
-#define AXIS_Y 1
-#define AXIS_Z 2
-
 #define LED_PIN 13
 
 /* ------ Module Typedefs ------ */
@@ -68,10 +58,10 @@ typedef enum
 OPERATING_MODE systemMode = IDLE;
 
 /* Objects required for system functionality */
+Orientation orientation;
+
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
 TinyGPSPlus gps;
-
-Madgwick IMUfilter;
 
 /* JSON Objects used for parsing */
 StaticJsonBuffer<500> jsonBuffer;
@@ -98,15 +88,6 @@ void setup()
 
   /* Set up GPS */
   serGPS.begin(GPS_BAUD);
-
-  /* Set up Gyroscope + Accelerometer */
-  CurieIMU.begin();
-  CurieIMU.setGyroRate(IMU_FREQUENCY);
-  CurieIMU.setAccelerometerRate(IMU_FREQUENCY);
-  CurieIMU.setAccelerometerRange(ACCEL_RANGE);
-  CurieIMU.setGyroRange(GYRO_RANGE);
-
-  IMUfilter.begin(IMU_FREQUENCY);
 }
 
 /* Main Code */
@@ -209,7 +190,8 @@ void realTimeMode()
   static const unsigned long PRINT_DELAY = 1000;
   static unsigned long lastMillis = 0;
 
-  getOrientation();
+  /* Poll our IMU to update XYZ */
+  orientation.pollIMU();
 
   /* Parse NMEA codes into GPS object */
   while (serGPS.available() > 0)
@@ -320,64 +302,11 @@ void loadTripNames()
   }
 }
 
-void getOrientation()
-{
-  static const unsigned long US_PER_READING = 1000000 / IMU_FREQUENCY;
-  static unsigned long usPrevious = micros();
-
-  int accel_raw[NUMBER_AXIS];
-  int gyro_raw[NUMBER_AXIS];
-  float accel_g[NUMBER_AXIS];
-  float gyro_ds[NUMBER_AXIS];
-  unsigned long usNow;
-
-  /* Ensures we stick to the sample rate */
-  usNow = micros();
-  if (usNow - usPrevious >= US_PER_READING)
-  {
-    /* Read raw data from the IMU */
-    CurieIMU.readMotionSensor(accel_raw[AXIS_X], accel_raw[AXIS_Y], accel_raw[AXIS_Z],
-                              gyro_raw[AXIS_X], gyro_raw[AXIS_Y], gyro_raw[AXIS_Z]);
-
-    accel_g[AXIS_X] = convertRawAcceleration(accel_raw[AXIS_X]);
-    accel_g[AXIS_Y] = convertRawAcceleration(accel_raw[AXIS_Y]);
-    accel_g[AXIS_Z] = convertRawAcceleration(accel_raw[AXIS_Z]);
-    gyro_ds[AXIS_X] = convertRawGyro(gyro_raw[AXIS_X]);
-    gyro_ds[AXIS_Y] = convertRawGyro(gyro_raw[AXIS_Y]);
-    gyro_ds[AXIS_Z] = convertRawGyro(gyro_raw[AXIS_Z]);
-
-    /* Update the filter. Orientation is calculated here */
-    IMUfilter.updateIMU(gyro_ds[AXIS_X], gyro_ds[AXIS_Y], gyro_ds[AXIS_Z],
-                        accel_g[AXIS_X], accel_g[AXIS_Y], accel_g[AXIS_Z]);
-
-    /* Increment previous counter */
-    usPrevious += US_PER_READING;
-  }
-}
-
-float convertRawAcceleration(int aRaw) {
-  // since we are using 2G range
-  // -2g maps to a raw value of -32768
-  // +2g maps to a raw value of 32767
-
-  float a = (aRaw * (float)ACCEL_RANGE) / 32768.0;
-  return a;
-}
-
-float convertRawGyro(int gRaw) {
-  // since we are using 250 degrees/seconds range
-  // -250 maps to a raw value of -32768
-  // +250 maps to a raw value of 32767
-
-  float g = (gRaw * (float)GYRO_RANGE) / 32768.0;
-  return g;
-}
-
 void addOrientationToJSON()
 {
-  orientJSON["yaw"] = IMUfilter.getYaw();
-  orientJSON["pitch"] = IMUfilter.getPitch();
-  orientJSON["roll"] = IMUfilter.getRoll();
+  orientJSON["yaw"] = orientation.getYaw();
+  orientJSON["pitch"] = orientation.getPitch();
+  orientJSON["roll"] = orientation.getRoll();
 }
 
 void addGPSToJSON()
