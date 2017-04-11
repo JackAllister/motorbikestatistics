@@ -1,15 +1,13 @@
-
-/*
- * Prototype 2 for device side of the project.
+/**
+ * @file logging-device.ino
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ * @brief Arduino sketch for the logging device.
  *
- * Currently using:
- *  Arduino 101
- *  Sparkfun GPS Logger Shield
- *  Onboard gyroscope + accelerometer
- *
- * Not using onboard bluetooth as it is only BLE. Limits to 20 bytes and data rate is low,
- * Better to use hardware serial and use HC-06 bluetooth board.
- *
+ *  - Arduino 101
+ *  - Sparkfun GPS Logger shield
+ *  - Onboard gyroscope + accelerometer
+ *  - HC-06 Serial Bluetooth Module
  */
 
 /* ------ Module Includes ------ */
@@ -22,24 +20,34 @@
 
 /* ------ Module Constants ------ */
 
-/* Constants for mode changing characters */
+/** @brief Command to set system to idle mode */
 #define IDLE_CHAR '0'
+/** @brief Command to set system to realtime logging mode */
 #define REALTIME_CHAR '1'
+/** @brief Command to list all saved trip names from uSD */
 #define LIST_SAVED_CHAR '2'
+/** @brief Command to load a trip stored on uSD */
 #define LOAD_TRIP_CHAR '3'
 
-/* Settings for bluetooth serial */
+/** @brief Mapping for which HW-Serial port BT module is on */
 #define BT_SERIAL Serial1
+/** @brief BAUD rate of BT device */
 #define BT_BAUD 115200
 
 /* Settings for sparkfun GPS logging shield (uSD version) */
+/** @brief GPS serial transmit pin */
 #define GPS_TX_PIN 9
+/** @brief GPS serial receive pin */
 #define GPS_RX_PIN 8
+/** @brief GPS serial baud rate */
 #define GPS_BAUD 9600
 
+/** @brief LED pin to indicate read */
 #define LED_PIN 13
 
 /* ------ Module Typedefs ------ */
+
+/** @brief Typedef holding two possible states for device. */
 typedef enum
 {
   IDLE,
@@ -48,26 +56,44 @@ typedef enum
 
 /* ------ Module Variables ------ */
 
-/* State machine variable */
+/** @brief State machine for system state of device. */
 OPERATING_MODE systemMode = IDLE;
 
-/* Objects required for system functionality */
+/** @brief Orientation object, used for receiving device orientation. */
 Orientation orientation;
+
+/** @brief Storage object, responsible for saving & loading from uSD */
 Storage storage;
 
+/** @brief Serial object for communicating with GPS module */
 SoftwareSerial serGPS(GPS_RX_PIN, GPS_TX_PIN);
+
+/** @brief Our GPS object, responsible for parsing NMEA codes */
 TinyGPSPlus gps;
 
-/* JSON Objects used for parsing */
+/** @brief Allocated space for holding all JSON objects within */
 StaticJsonBuffer<500> jsonBuffer;
+
+/** @brief Parent JSON object, holds orientation, time & gps children */
 JsonObject& mainJSON = jsonBuffer.createObject();
+
+/** @brief Holds all orientation related information */
 JsonObject& orientJSON = mainJSON.createNestedObject("orientation");
+
+/** @brief Holds all location related information */
 JsonObject& gpsJSON = mainJSON.createNestedObject("gps");
+
+/** @brief Holds all time related inforamtion */
 JsonObject& timeJSON = mainJSON.createNestedObject("time");
 
 /* ------ Module Code ------ */
 
-/* System setup code */
+/**
+ * @brief Runs once at boot of arduino.
+ *
+ * Responsible for setting up the peripherals. \n
+ * Initialises modules such as storage, bluetooth & gps.
+ */
 void setup()
 {
   pinMode(LED_PIN, OUTPUT);
@@ -82,7 +108,14 @@ void setup()
   serGPS.begin(GPS_BAUD);
 }
 
-/* Main Code */
+/**
+ * @brief Main system loop for arduino.
+ *
+ * Checks serial to see if any commands are available. \n
+ * If available reads the byte and changes system mode relating to it. \n\n
+ * System state machine is also iterated through each loop. \n
+ * Relevant procedure depending on system state is then called.
+ */
 void loop()
 {
 
@@ -120,6 +153,13 @@ void loop()
   }
 }
 
+/**
+ * @brief Returns whether system should change operating mode.
+ *
+ * @param modeChar - The received command byte
+ * @param &newMode - Reference to new operating mode calculated via command.
+ * @return bool - Whether a valid command was found.
+ */
 bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
 {
   bool result = true;
@@ -177,6 +217,18 @@ bool parseNewMode(char modeChar, OPERATING_MODE &newMode)
   return result;
 }
 
+/**
+ * @brief Responsible for completing work needed in relatime mode.
+ *
+ * Every time called this procedure will poll the IMU to update
+ * our orientation class with newest information. \n
+ * If available NMEA sentences received from GPS serial are sent
+ * to our GPS parsing object. \n
+ *
+ * Every 1000ms all current information is transmitted via bluetooth,
+ * this information is also stored to the uSD so it can be retrieved at
+ * a later point.
+ */
 void realTimeMode()
 {
   static const unsigned int MAX_STRING_SIZE = 512;
@@ -216,6 +268,13 @@ void realTimeMode()
   }
 }
 
+/**
+ * @brief Responsible for updating orientation JSON object
+ * with newest information.
+ *
+ * Interacts with devices Orientation object to get
+ * Yaw, Pitch & Roll.
+ */
 void addOrientationToJSON()
 {
   orientJSON["yaw"] = orientation.getYaw();
@@ -223,6 +282,14 @@ void addOrientationToJSON()
   orientJSON["roll"] = orientation.getRoll();
 }
 
+/**
+ * @brief Responsible for updating GPS JSON object
+ * with newest information.
+ *
+ * Interacts with devices TinyGPSPlus object to get
+ * all locational/gps related information.
+ * Floats are cat'd to 6 digits max.
+ */
 void addGPSToJSON()
 {
   /* Add location information */
@@ -236,6 +303,15 @@ void addGPSToJSON()
   gpsJSON["alt_ft"] = gps.altitude.feet();
 }
 
+/**
+ * @brief Responsible for updating time JSON object
+ * with newest information.
+ *
+ * Interacts with devices TinyGPSPlus object to get
+ * time related information.
+ * This is because GPS module has a RTC (Realtime-Clock) kept
+ * via NMEA sentences.
+ */
 void addTimeToJSON()
 {
   /* Add time information to JSON */

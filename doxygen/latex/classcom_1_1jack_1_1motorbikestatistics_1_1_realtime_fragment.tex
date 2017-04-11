@@ -1,0 +1,60 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment}{}\section{com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment}\index{com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment@{com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment}}
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a68850ca4bf4eabcdf4ed4005d5f0d4d7}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a68850ca4bf4eabcdf4ed4005d5f0d4d7}} 
+View {\bfseries on\+Create\+View} (Layout\+Inflater inflater, View\+Group container, Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Handler {\bfseries R\+X\+Handler}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by Jack on 23-\/\+Jan-\/17. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a7b39a40287200b7530c2d935e6717fa6}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a7b39a40287200b7530c2d935e6717fa6}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}!R\+X\+Handler@{R\+X\+Handler}}
+\index{R\+X\+Handler@{R\+X\+Handler}!com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}}
+\subsubsection{\texorpdfstring{R\+X\+Handler}{RXHandler}}
+{\footnotesize\ttfamily final Handler com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment.\+R\+X\+Handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Handler(Looper.getMainLooper()) \{
+
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg) \{
+
+            Bundle msgData = msg.getData();
+            String jsonString = msgData.getString(\textcolor{stringliteral}{"JSON"});
+
+            \textcolor{keywordflow}{if} (jsonString != null) \{
+
+                
+                \textcolor{keywordflow}{try} \{
+                    JSONObject tmpJSON = \textcolor{keyword}{new} JSONObject(jsonString);
+                    newData(tmpJSON);
+
+                \} \textcolor{keywordflow}{catch} (JSONException e) \{
+                    
+                \}
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/Realtime\+Fragment.\+java\end{DoxyCompactItemize}

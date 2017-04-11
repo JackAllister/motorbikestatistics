@@ -1,0 +1,173 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity}{}\section{com.\+jack.\+motorbikestatistics.\+Maps\+Activity Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity}\index{com.\+jack.\+motorbikestatistics.\+Maps\+Activity@{com.\+jack.\+motorbikestatistics.\+Maps\+Activity}}
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Maps\+Activity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aefa35b548b2f39bb46b2cb5024be383c}{on\+Map\+Ready} (Google\+Map google\+Map)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_afd23eb0cf651de276a9b85bb5fa609b8}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_afd23eb0cf651de276a9b85bb5fa609b8}} 
+void {\bfseries on\+Create} (Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aefa35b548b2f39bb46b2cb5024be383c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aefa35b548b2f39bb46b2cb5024be383c}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Maps\+Activity@{com\+::jack\+::motorbikestatistics\+::\+Maps\+Activity}!on\+Map\+Ready@{on\+Map\+Ready}}
+\index{on\+Map\+Ready@{on\+Map\+Ready}!com\+::jack\+::motorbikestatistics\+::\+Maps\+Activity@{com\+::jack\+::motorbikestatistics\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{on\+Map\+Ready()}{onMapReady()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+Maps\+Activity.\+on\+Map\+Ready (\begin{DoxyParamCaption}\item[{Google\+Map}]{google\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Manipulates the map once available. This callback is triggered when the map is ready to be used. This is where we can add markers or lines, add listeners or move the camera. In this case, we just add a marker near Sydney, Australia. If Google Play services is not installed on the device, the user will be prompted to install it inside the Support\+Map\+Fragment. This method will only be triggered once the user has installed Google Play services and returned to the app. 
+
+References gps\+J\+S\+ON, orient\+J\+S\+ON, and time\+J\+S\+ON.
+
+
+\begin{DoxyCode}
+114                                                 \{
+115         mMap = googleMap;
+116 
+117         mMap.setMapType(GoogleMap.MAP\_TYPE\_HYBRID);
+118 
+119         \textcolor{comment}{/* Create our info window adapter class that is shown when marker clicked */}
+120         mMap.setInfoWindowAdapter(\textcolor{keyword}{new} GoogleMap.InfoWindowAdapter() \{
+121             @Override
+122             \textcolor{keyword}{public} View getInfoWindow(Marker marker) \{
+123                 \textcolor{keywordflow}{return} null;
+124             \}
+125 
+126             @Override
+127             \textcolor{keyword}{public} View getInfoContents(Marker marker) \{
+128 
+129                 View v =  getLayoutInflater().inflate(R.layout.map\_marker\_info, null);
+130 
+131                 \textcolor{comment}{/* Get latitude and longitude from marker */}
+132                 LatLng latlng = marker.getPosition();
+133 
+134                 \textcolor{comment}{/* Find the JSONObject relating to this location */}
+135                 JSONObject rootJSON = findJSONByLatLng(latlng);
+136                 \textcolor{keywordflow}{if} (rootJSON != null) \{
+137                     \textcolor{keywordflow}{try} \{
+138                         JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+139                         JSONObject \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"orientation"});
+140                         JSONObject \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"time"});
+141 
+142                         \textcolor{comment}{/* Set latitude and longitude in info window */}
+143                         TextView tvLatLng = (TextView)v.findViewById(R.id.map\_latlng);
+144                         tvLatLng.setText(\textcolor{stringliteral}{"Lat/Lng: "} + Double.toString(latlng.latitude) + \textcolor{stringliteral}{"/"}
+145                                 + Double.toString(latlng.longitude));
+146 
+147                         \textcolor{comment}{/* Set time */}
+148                         TextView tvTime = (TextView)v.findViewById(R.id.map\_time);
+149                         Calendar cal = Calendar.getInstance();
+150                         cal.clear();
+151                         cal.set(Calendar.YEAR, timeJSON.getInt(\textcolor{stringliteral}{"year"}));
+152                         cal.set(Calendar.MONTH, timeJSON.getInt(\textcolor{stringliteral}{"month"}));
+153                         cal.set(Calendar.DATE, timeJSON.getInt(\textcolor{stringliteral}{"day"}));
+154 
+155                         cal.set(Calendar.HOUR, timeJSON.getInt(\textcolor{stringliteral}{"hour"}));
+156                         cal.set(Calendar.MINUTE, timeJSON.getInt(\textcolor{stringliteral}{"minute"}));
+157                         cal.set(Calendar.SECOND, timeJSON.getInt(\textcolor{stringliteral}{"second"}));
+158                         cal.set(Calendar.MILLISECOND, timeJSON.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
+159 
+160                         \textcolor{comment}{/* Create format for date and times then add to view */}
+161                         DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy HH:mm:ss.SS"});
+162                         tvTime.setText(\textcolor{stringliteral}{"Time: "} + dateFormat.format(cal.getTime()));
+163 
+164                         \textcolor{comment}{/* Velocity & Altitude */}
+165                         TextView tvVelocity = (TextView)v.findViewById(R.id.map\_velocity);
+166                         tvVelocity.setText(\textcolor{stringliteral}{"Velocity: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"vel\_mph"}) + \textcolor{stringliteral}{"mph"});
+167 
+168                         TextView tvAltitude = (TextView)v.findViewById(R.id.map\_altitude);
+169                         tvAltitude.setText(\textcolor{stringliteral}{"Altitude: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"alt\_ft"}) + \textcolor{stringliteral}{"ft"});
+170 
+171                         \textcolor{comment}{/* Orientation */}
+172                         TextView tvPitch = (TextView)v.findViewById(R.id.map\_pitch);
+173                         tvPitch.setText(\textcolor{stringliteral}{"Pitch Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"pitch"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+174 
+175                         TextView tvRoll = (TextView)v.findViewById(R.id.map\_roll);
+176                         tvRoll.setText(\textcolor{stringliteral}{"Roll/Lean Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"roll"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+177 
+178                     \} \textcolor{keywordflow}{catch} (JSONException e) \{
+179                         marker.hideInfoWindow();
+180                     \}
+181                 \} \textcolor{keywordflow}{else} \{
+182                     \textcolor{comment}{/* If unable to find relating we hide the info window */}
+183                     marker.hideInfoWindow();
+184                 \}
+185 
+186                 \textcolor{keywordflow}{return} v;
+187             \}
+188         \});
+189 
+190 
+191         \textcolor{keywordflow}{if} (jsonList.size() != 0)
+192         \{
+193             \textcolor{comment}{/* lineOpts will store our route */}
+194             PolylineOptions lineOpts = \textcolor{keyword}{new} PolylineOptions();
+195             lineOpts.color(Color.parseColor( \textcolor{stringliteral}{"#CC0000FF"}));
+196             lineOpts.width(5);
+197             lineOpts.visible(\textcolor{keyword}{true});
+198 
+199             \textcolor{keywordflow}{try}
+200             \{
+201                 LatLng lastMarker = null;
+202 
+203                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < jsonList.size(); i++)
+204                 \{
+205                     JSONObject rootJSON = jsonList.get(i);
+206                     JSONObject gpsJSON = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+207 
+208                     Double lat = gpsJSON.getDouble(\textcolor{stringliteral}{"lat"});
+209                     Double lng = gpsJSON.getDouble(\textcolor{stringliteral}{"lng"});
+210                     LatLng location = \textcolor{keyword}{new} LatLng(lat, lng);
+211 
+212                     \textcolor{comment}{/* Add this location to our trip line */}
+213                     lineOpts.add(location);
+214 
+215                     \textcolor{comment}{/*}
+216 \textcolor{comment}{                     * Check if distance between this point and}
+217 \textcolor{comment}{                     * last marker is greater than 5m otherwise don't add marker.}
+218 \textcolor{comment}{                     * Adding markers every 5 metres prevents the map being spammed with}
+219 \textcolor{comment}{                     * thousands of readings.}
+220 \textcolor{comment}{                     */}
+221                     \textcolor{keywordflow}{if} ((lastMarker == null) || (calcDistance(location, lastMarker) > 5))
+222                     \{
+223                         \textcolor{comment}{/* Only add a marker if the gps data is valid */}
+224                         \textcolor{keywordflow}{if} (gpsJSON.getBoolean(\textcolor{stringliteral}{"gps\_valid"}) == \textcolor{keyword}{true}) \{
+225                             MarkerOptions markerOptions = \textcolor{keyword}{new} MarkerOptions();
+226                             markerOptions.position(location);
+227                             markerOptions.title(\textcolor{stringliteral}{"Reading: "} + i);
+228 
+229                             mMap.addMarker(markerOptions);
+230 
+231                             lastMarker = location;
+232 
+233                             \textcolor{comment}{/* Changes camera to point to newest marker */}
+234                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+235                         \}
+236                     \}
+237 
+238                 \}
+239                 mMap.addPolyline(lineOpts);
+240             \}
+241             \textcolor{keywordflow}{catch} (JSONException e)
+242             \{
+243                 \textcolor{comment}{/* Do nothing */}
+244             \}
+245         \}
+246     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/Maps\+Activity.\+java\end{DoxyCompactItemize}

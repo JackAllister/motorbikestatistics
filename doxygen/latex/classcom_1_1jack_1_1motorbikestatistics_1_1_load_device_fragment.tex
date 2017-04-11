@@ -1,0 +1,98 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment}{}\section{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment}\index{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment@{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment}}
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a9ad9f0d9ef69417e2131613009c02338}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a9ad9f0d9ef69417e2131613009c02338}} 
+View {\bfseries on\+Create\+View} (Layout\+Inflater inflater, View\+Group container, Bundle saved\+Instance\+State)
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_aec66dc5fd944098de78ace4175fca5b6}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_aec66dc5fd944098de78ace4175fca5b6}} 
+void {\bfseries set\+B\+T\+Connection} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}{B\+T\+Connection} bt\+Connection)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Handler {\bfseries R\+X\+Handler}
+\item 
+final List\+View.\+On\+Item\+Click\+Listener {\bfseries trip\+Click\+Listener}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by Jack on 23-\/\+Jan-\/17. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7c26c8686c290d8766b051f31473d716}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7c26c8686c290d8766b051f31473d716}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}!R\+X\+Handler@{R\+X\+Handler}}
+\index{R\+X\+Handler@{R\+X\+Handler}!com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{R\+X\+Handler}{RXHandler}}
+{\footnotesize\ttfamily final Handler com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+R\+X\+Handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Handler(Looper.getMainLooper()) \{
+
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg) \{
+
+            Bundle msgData = msg.getData();
+            String jsonString = msgData.getString(\textcolor{stringliteral}{"JSON"});
+
+            \textcolor{keywordflow}{if} (jsonString != null) \{
+
+                
+                \textcolor{keywordflow}{try} \{
+                    JSONObject tmpJSON = \textcolor{keyword}{new} JSONObject(jsonString);
+                    addTrip(tmpJSON);
+
+                \} \textcolor{keywordflow}{catch} (JSONException e) \{
+                    
+                \}
+            \}
+        \}
+    \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}!trip\+Click\+Listener@{trip\+Click\+Listener}}
+\index{trip\+Click\+Listener@{trip\+Click\+Listener}!com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{trip\+Click\+Listener}{tripClickListener}}
+{\footnotesize\ttfamily final List\+View.\+On\+Item\+Click\+Listener com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+trip\+Click\+Listener}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} ListView.OnItemClickListener() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onItemClick(AdapterView<?> parent, View view, \textcolor{keywordtype}{int} position, \textcolor{keywordtype}{long} \textcolor{keywordtype}{id}) \{
+
+            \textcolor{keywordflow}{if} (btConnection != null && btConnection.isConnected()) \{
+                TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+
+                
+                RealtimeFragment statFragment = \textcolor{keyword}{new} RealtimeFragment();
+                btConnection.setRXHandler(statFragment.RXHandler);
+
+                
+                Message message = \textcolor{keyword}{new} Message();
+                message.obj = (String) LOAD\_TRIP\_CHAR + tripItem.getTripName();
+                message.setTarget(btConnection.txHandler);
+                message.sendToTarget();
+
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content\_frame, statFragment)
+                        .commit();
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/Load\+Device\+Fragment.\+java\end{DoxyCompactItemize}

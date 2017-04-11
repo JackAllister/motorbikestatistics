@@ -1,0 +1,98 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment}{}\section{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment}\index{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment@{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment}}
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_afc7756a10d0798aa2493b9c7f6b010ad}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_afc7756a10d0798aa2493b9c7f6b010ad}} 
+View {\bfseries on\+Create\+View} (Layout\+Inflater inflater, View\+Group container, Bundle saved\+Instance\+State)
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a32debe1358d94bb1c972137f60d1aa36}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a32debe1358d94bb1c972137f60d1aa36}} 
+\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}{B\+T\+Connection} {\bfseries get\+B\+T\+Connection} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Broadcast\+Receiver {\bfseries bt\+Receiver}
+\item 
+final Toggle\+Button.\+On\+Checked\+Change\+Listener {\bfseries toggle\+Scan\+Listener}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a4ec3a304c1da2bc4e4d2ca16da764e23}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a4ec3a304c1da2bc4e4d2ca16da764e23}} 
+final List\+View.\+On\+Item\+Click\+Listener {\bfseries list\+Item\+Listener}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by Jack on 25-\/\+Jan-\/17. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a73a8c234c66657d94a4382925aa91517}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a73a8c234c66657d94a4382925aa91517}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment}!bt\+Receiver@{bt\+Receiver}}
+\index{bt\+Receiver@{bt\+Receiver}!com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{bt\+Receiver}{btReceiver}}
+{\footnotesize\ttfamily final Broadcast\+Receiver com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+bt\+Receiver}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} BroadcastReceiver() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onReceive(Context context, Intent intent) \{
+            String action = intent.getAction();
+
+            
+            \textcolor{keywordflow}{if} (BluetoothDevice.ACTION\_FOUND.equals(action))
+            \{
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA\_DEVICE);
+
+                
+                BTDeviceItem newDevice = \textcolor{keyword}{new} BTDeviceItem(device, \textcolor{stringliteral}{"unpaired"}, BT\_DISABLED\_ICON);
+                lvAdapter.add(newDevice);
+                lvAdapter.notifyDataSetChanged();
+            \}
+        \}
+    \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ad61a96414649df9171ae051c3a2d4487}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ad61a96414649df9171ae051c3a2d4487}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment}!toggle\+Scan\+Listener@{toggle\+Scan\+Listener}}
+\index{toggle\+Scan\+Listener@{toggle\+Scan\+Listener}!com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{toggle\+Scan\+Listener}{toggleScanListener}}
+{\footnotesize\ttfamily final Toggle\+Button.\+On\+Checked\+Change\+Listener com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+toggle\+Scan\+Listener}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} ToggleButton.OnCheckedChangeListener() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onCheckedChanged(CompoundButton buttonView, \textcolor{keywordtype}{boolean} isChecked) \{
+
+            IntentFilter filter = \textcolor{keyword}{new} IntentFilter(BluetoothDevice.ACTION\_FOUND);
+            \textcolor{keywordflow}{if} (isChecked)
+            \{
+                
+                lvAdapter.clear();
+                lvAdapter.addAll(btPairedList);
+
+                \textcolor{keywordflow}{if} (btConnectedDevice != null)
+                    lvAdapter.add(btConnectedDevice);
+
+                getActivity().registerReceiver(btReceiver, filter);
+                btAdapter.startDiscovery();
+            \}
+            \textcolor{keywordflow}{else}
+            \{
+                
+                getActivity().unregisterReceiver(btReceiver);
+                btAdapter.cancelDiscovery();
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/Pair\+Device\+Fragment.\+java\end{DoxyCompactItemize}

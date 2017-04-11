@@ -1,0 +1,76 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}{}\section{com.\+jack.\+motorbikestatistics.\+B\+T\+Connection Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}\index{com.\+jack.\+motorbikestatistics.\+B\+T\+Connection@{com.\+jack.\+motorbikestatistics.\+B\+T\+Connection}}
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+B\+T\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}} 
+{\bfseries B\+T\+Connection} (Bluetooth\+Device bt\+Device)  throws I\+O\+Exception 
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}} 
+void {\bfseries set\+R\+X\+Handler} (Handler new\+Handler)
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}} 
+void {\bfseries run} ()
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a229363b085c81e1a42037075b675677d}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a229363b085c81e1a42037075b675677d}} 
+void {\bfseries stop} ()
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}} 
+boolean {\bfseries is\+Running} ()
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}} 
+boolean {\bfseries is\+Connected} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Handler {\bfseries tx\+Handler}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created by Jack on 26-\/\+Jan-\/17. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!tx\+Handler@{tx\+Handler}}
+\index{tx\+Handler@{tx\+Handler}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{tx\+Handler}{txHandler}}
+{\footnotesize\ttfamily final Handler com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Handler(Looper.getMainLooper()) \{
+
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg) \{
+
+            
+            \textcolor{keywordflow}{if} (isConnected() && isRunning()) \{
+                OutputStream TXStream;
+
+                
+                \textcolor{keywordflow}{try} \{
+                    TXStream = btSocket.getOutputStream();
+
+                    String txString = (String)msg.obj;
+                    TXStream.write(txString.getBytes());
+                \} \textcolor{keywordflow}{catch} (IOException e) \{
+                    Log.e(TAG, \textcolor{stringliteral}{"Unable to use TXStream"}, e);
+                    \textcolor{keywordflow}{return};
+                \}
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/B\+T\+Connection.\+java\end{DoxyCompactItemize}
