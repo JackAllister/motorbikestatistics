@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['storage',['storage',['../logging-device_8ino.html#a40059244119c00baa1b841119cfd1b2e',1,'logging-device.ino']]],
-  ['systemmode',['systemMode',['../logging-device_8ino.html#a13a2ecbcf455940dd240e54e9e39cf7a',1,'logging-device.ino']]]
+  ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]]
 ];

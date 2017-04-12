@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['orientation',['orientation',['../logging-device_8ino.html#a47be0262307aa023a1bda3d98986a16d',1,'logging-device.ino']]],
-  ['orientjson',['orientJSON',['../logging-device_8ino.html#ae8e95a76df2aaa373792e5b744a6bb73',1,'logging-device.ino']]]
+  ['jsonbuffer',['jsonBuffer',['../logging-device_8ino.html#ae3799d2cbf8f13e21cbaef64b75c6833',1,'logging-device.ino']]],
+  ['jsonfilebuffer',['jsonFileBuffer',['../class_storage.html#a14a7ad7e46c7cd5983344b81fed4265f',1,'Storage']]]
 ];

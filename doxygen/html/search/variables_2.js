@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]]
+  ['imufilter',['IMUfilter',['../class_orientation.html#a3b0d70328334e69797438ccc408806c1',1,'Orientation']]]
 ];

@@ -134,7 +134,7 @@ Runs once at boot of arduino.
 Responsible for setting up the peripherals. ~\newline
 Initialises modules such as storage, bluetooth \& gps. 
 
-References B\+T\+\_\+\+B\+A\+UD, B\+T\+\_\+\+S\+E\+R\+I\+AL, G\+P\+S\+\_\+\+B\+A\+UD, Orientation\+::init(), L\+E\+D\+\_\+\+P\+IN, and ser\+G\+P\+S().
+References B\+T\+\_\+\+B\+A\+UD, B\+T\+\_\+\+S\+E\+R\+I\+AL, G\+P\+S\+\_\+\+B\+A\+UD, Storage\+::init(), Orientation\+::init(), L\+E\+D\+\_\+\+P\+IN, and ser\+G\+P\+S().
 
 
 \begin{DoxyCode}
@@ -142,7 +142,7 @@ References B\+T\+\_\+\+B\+A\+UD, B\+T\+\_\+\+S\+E\+R\+I\+AL, G\+P\+S\+\_\+\+B\+A
 99   pinMode(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, OUTPUT);
 100 
 101   \textcolor{comment}{/* Initialise our created modules */}
-102   \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.init();
+102   \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.\hyperlink{class_storage_a98b01eb20a64a4bf4127685147f7f6f1}{init}();
 103   \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_a317461c5c8afa8c3abf56847d4544728}{init}();
 104 
 105   \textcolor{comment}{/* Set up serial for wireless data transmission */}
@@ -251,7 +251,7 @@ References I\+D\+L\+E\+\_\+\+C\+H\+AR.
 179       \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode} != REALTIME)
 180       \{
 181         \textcolor{comment}{/* Generate new name if not already in this mode */}
-182         \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.generateFileName();
+182         \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.\hyperlink{class_storage_a571ce9630665d9407ffbaeff55c47b0a}{generateFileName}();
 183       \}
 184 
 185       newMode = REALTIME;
@@ -264,7 +264,7 @@ References I\+D\+L\+E\+\_\+\+C\+H\+AR.
 192 \textcolor{comment}{       * Load all trips and send to application.}
 193 \textcolor{comment}{       * Once we have finished sending trips we can go back to idle mode.}
 194 \textcolor{comment}{       */}
-195       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadTripNames();
+195       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.\hyperlink{class_storage_a4831b2e8ecfa22da6971f5a8690cc4e3}{loadTripNames}();
 196       newMode = IDLE;
 197       \textcolor{keywordflow}{break};
 198     \}
@@ -272,7 +272,7 @@ References I\+D\+L\+E\+\_\+\+C\+H\+AR.
 200     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_aa72e33a6bcfedf9118f573741b4e137b}{LOAD\_TRIP\_CHAR}:
 201     \{
 202       \textcolor{comment}{/* Load a specific trip by file name */}
-203       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadSavedTrip();
+203       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.\hyperlink{class_storage_af56ca8289ed925300e3385114c561eec}{loadSavedTrip}();
 204       newMode = IDLE;
 205       \textcolor{keywordflow}{break};
 206     \}
@@ -304,7 +304,7 @@ Every time called this procedure will poll the I\+MU to update our orientation c
 If available N\+M\+EA sentences received from G\+PS serial are sent to our G\+PS parsing object. ~\newline
  Every 1000ms all current information is transmitted via bluetooth, this information is also stored to the u\+SD so it can be retrieved at a later point. 
 
-References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), add\+Time\+To\+J\+S\+O\+N(), B\+T\+\_\+\+S\+E\+R\+I\+AL, gps, L\+E\+D\+\_\+\+P\+IN, main\+J\+S\+ON, Orientation\+::poll\+I\+M\+U(), and ser\+G\+P\+S().
+References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), add\+Time\+To\+J\+S\+O\+N(), B\+T\+\_\+\+S\+E\+R\+I\+AL, gps, L\+E\+D\+\_\+\+P\+IN, main\+J\+S\+ON, Orientation\+::poll\+I\+M\+U(), Storage\+::save\+To\+File(), and ser\+G\+P\+S().
 
 
 \begin{DoxyCode}
@@ -336,7 +336,7 @@ References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), a
 259     \hyperlink{logging-device_8ino_a5eebfb3b76a83174d0f5d032d1f6bfb7}{mainJSON}.printTo(jsonString, MAX\_STRING\_SIZE);
 260 
 261     \textcolor{comment}{/* Log JSON to the microSD */}
-262     \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.saveToFile(jsonString, \textcolor{keyword}{true});
+262     \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.\hyperlink{class_storage_a044a17325b2917afca49aa19ddb488f6}{saveToFile}(jsonString, \textcolor{keyword}{true});
 263 
 264     \textcolor{comment}{/* Print to our bluetooth module */}
 265     \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.println(jsonString);

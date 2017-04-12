@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_5faxis',['NUMBER_AXIS',['../_orientation_8cpp.html#a203c415ee0716aeaf05afca2a736a9dc',1,'Orientation.cpp']]]
+  ['max_5flog_5ffiles',['MAX_LOG_FILES',['../_storage_8cpp.html#a777ac288f17a847a5ce37bf9a89a0037',1,'Storage.cpp']]]
 ];

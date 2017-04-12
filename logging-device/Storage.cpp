@@ -1,5 +1,11 @@
-/*
- * Module create to deal with all storage related functionality.
+/**
+ * @file Storage.cpp
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ * @brief Module created to handle all storage related functionality.
+ *
+ * Handles saving, listing & loading of trips.
+ * Uses MicroSD available on the Sparkfun GPS logging shield.
  */
 
 /* ------ Module Includes ------ */
@@ -9,23 +15,40 @@
 #include "Storage.h"
 
 /* ------ Module Constants ------ */
-#define BT_SERIAL Serial1
-#define USD_CS 10
-#define MAX_LOG_FILES 5000
-#define LOG_NAME "TRIP_"
-#define LOG_EXTENSION "TXT"
 
-/* ------ Module Variables ------ */
-StaticJsonBuffer<200> jsonFileBuffer;
-JsonObject& fileJSON = jsonFileBuffer.createObject();
+/** @brief Mapping for which HW-Serial port BT module is on */
+#define BT_SERIAL Serial1
+/** @brief Chip select pin for MicroSD card (SPI) */
+#define USD_CS 10
+/** @brief Maximum amount of log files that can be stored on the device */
+#define MAX_LOG_FILES 5000
+/** @brief The prefix of the name for logs */
+#define LOG_NAME "TRIP_"
+/** @brief The suffix of the name for logs (file extension) */
+#define LOG_EXTENSION "TXT"
 
 /* ------ Module Code ------ */
 
+/**
+ * @brief Initialisation function for storage module.
+ *
+ * Responsible for starting the uSD library.
+ */
 void Storage::init()
 {
   SD.begin(USD_CS);
 }
 
+/**
+ * @brief Saves a single line of data to a file.
+ *
+ * Opens a handle to the current fileName. If the file exists data is
+ * appended, if not the file is created first.
+ *
+ * @param data - Character array of data to save.
+ * @param newLine - Whether to add new line character at end of line.
+ * @return bool - Whether saving was a success.
+ */
 bool Storage::saveToFile(char data[], bool newLine)
 {
   bool result = false;
@@ -50,6 +73,14 @@ bool Storage::saveToFile(char data[], bool newLine)
   return result;
 }
 
+/**
+ * @brief Generates a new filename to use for saving.
+ *
+ * Searches through existing files using pattern PREFIX_ID.SUFFIX \n
+ * Existing files are skipped, once non-existant is found that is used.
+ *
+ * @return bool - Whether a valid file name was able to be found.
+ */
 bool Storage::generateFileName()
 {
   bool result = false;
@@ -74,6 +105,11 @@ bool Storage::generateFileName()
   return result;
 }
 
+/**
+ * @brief Loads the information of all trips and sends them over bluetooth.
+ *
+ * Searches directory for trips, then sends trip's name & size over serial.
+ */
 void Storage::loadTripNames()
 {
   bool filesRemaining = true;
@@ -114,6 +150,13 @@ void Storage::loadTripNames()
   }
 }
 
+/**
+ * @brief Loads a saved trip and sends data to client via Serial.
+ *
+ * Waits for the filename to be received via serial.
+ * Once file name is received, procedure attempts to open the file.
+ * If the file exists it then sends all bytes in the file via Serial.
+ */
 void Storage::loadSavedTrip()
 {
   bool nameComplete = false;

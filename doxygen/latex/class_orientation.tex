@@ -24,8 +24,8 @@ float \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convert\+R
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_orientation_a3b0d70328334e69797438ccc408806c1}\label{class_orientation_a3b0d70328334e69797438ccc408806c1}} 
-Madgwick {\bfseries I\+M\+Ufilter}
-\end{DoxyCompactItemize}
+Madgwick \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{I\+M\+Ufilter}
+\begin{DoxyCompactList}\small\item\em Madgwick filter object uses to steady orientation readings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
@@ -109,7 +109,7 @@ Initialisation function for orientation module.
 
 Initialises the Curie\+I\+MU module with set ranges and rates, our Madgwick filter is also initialised with this information. 
 
-References A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE, G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE, and I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY.
+References A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE, G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE, I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY, and I\+M\+Ufilter.
 
 
 \begin{DoxyCode}
@@ -121,7 +121,7 @@ References A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE, G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE, and 
 49   CurieIMU.setAccelerometerRange(\hyperlink{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}{ACCEL\_RANGE});
 50   CurieIMU.setGyroRange(\hyperlink{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}{GYRO\_RANGE});
 51 
-52   IMUfilter.begin(\hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY});
+52   \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{IMUfilter}.begin(\hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY});
 53 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_orientation_aad568a473f999c181abac46a4d832387}\label{class_orientation_aad568a473f999c181abac46a4d832387}} 
@@ -144,7 +144,7 @@ bool -\/ Whether the I\+MU was actually updated.
 \end{DoxyReturn}
 
 
-References A\+X\+I\+S\+\_\+X, A\+X\+I\+S\+\_\+Y, A\+X\+I\+S\+\_\+Z, convert\+Raw\+Accel(), convert\+Raw\+Gyro(), I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY, and N\+U\+M\+B\+E\+R\+\_\+\+A\+X\+IS.
+References A\+X\+I\+S\+\_\+X, A\+X\+I\+S\+\_\+Y, A\+X\+I\+S\+\_\+Z, convert\+Raw\+Accel(), convert\+Raw\+Gyro(), I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY, I\+M\+Ufilter, and N\+U\+M\+B\+E\+R\+\_\+\+A\+X\+IS.
 
 
 \begin{DoxyCode}
@@ -177,7 +177,7 @@ References A\+X\+I\+S\+\_\+X, A\+X\+I\+S\+\_\+Y, A\+X\+I\+S\+\_\+Z, convert\+Raw
 94     gyro\_ds[\hyperlink{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}{AXIS\_Z}] = \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convertRawGyro}(gyro\_raw[AXIS\_Z]);
 95 
 96     \textcolor{comment}{/* Update the filter. Orientation is calculated here */}
-97     IMUfilter.updateIMU(gyro\_ds[AXIS\_X], gyro\_ds[AXIS\_Y], gyro\_ds[AXIS\_Z],
+97     \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{IMUfilter}.updateIMU(gyro\_ds[AXIS\_X], gyro\_ds[AXIS\_Y], gyro\_ds[AXIS\_Z],
 98                         accel\_g[AXIS\_X], accel\_g[AXIS\_Y], accel\_g[AXIS\_Z]);
 99 
 100     \textcolor{comment}{/* Increment previous counter */}
@@ -203,9 +203,13 @@ Returns the Yaw orientation of the device.
 float -\/ Yaw orientation. 
 \end{DoxyReturn}
 
+
+References I\+M\+Ufilter.
+
+
 \begin{DoxyCode}
 148 \{
-149   \textcolor{keywordflow}{return} IMUfilter.getYaw();
+149   \textcolor{keywordflow}{return} \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{IMUfilter}.getYaw();
 150 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}\label{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}} 
@@ -222,9 +226,13 @@ Returns the Pitch orientation of the device.
 float -\/ Pitch orientation. 
 \end{DoxyReturn}
 
+
+References I\+M\+Ufilter.
+
+
 \begin{DoxyCode}
 157 \{
-158   \textcolor{keywordflow}{return} IMUfilter.getPitch();
+158   \textcolor{keywordflow}{return} \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{IMUfilter}.getPitch();
 159 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}\label{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}} 
@@ -241,9 +249,13 @@ Returns the Roll orientation of the device.
 float -\/ Roll orientation. 
 \end{DoxyReturn}
 
+
+References I\+M\+Ufilter.
+
+
 \begin{DoxyCode}
 166 \{
-167   \textcolor{keywordflow}{return} IMUfilter.getRoll();
+167   \textcolor{keywordflow}{return} \hyperlink{class_orientation_a3b0d70328334e69797438ccc408806c1}{IMUfilter}.getRoll();
 168 \}
 \end{DoxyCode}
 

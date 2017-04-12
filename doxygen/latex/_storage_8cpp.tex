@@ -1,0 +1,39 @@
+\hypertarget{_storage_8cpp}{}\section{logging-\/device/\+Storage.cpp File Reference}
+\label{_storage_8cpp}\index{logging-\/device/\+Storage.\+cpp@{logging-\/device/\+Storage.\+cpp}}
+
+
+Module created to handle all storage related functionality.  
+
+
+{\ttfamily \#include $<$S\+D.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Storage.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}\label{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}} 
+\#define \hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{B\+T\+\_\+\+S\+E\+R\+I\+AL}~Serial1
+\begin{DoxyCompactList}\small\item\em Mapping for which H\+W-\/\+Serial port BT module is on. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_storage_8cpp_abe774366dbdfb2de4e34e4f07843db38}\label{_storage_8cpp_abe774366dbdfb2de4e34e4f07843db38}} 
+\#define \hyperlink{_storage_8cpp_abe774366dbdfb2de4e34e4f07843db38}{U\+S\+D\+\_\+\+CS}~10
+\begin{DoxyCompactList}\small\item\em Chip select pin for Micro\+SD card (S\+PI) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_storage_8cpp_a777ac288f17a847a5ce37bf9a89a0037}\label{_storage_8cpp_a777ac288f17a847a5ce37bf9a89a0037}} 
+\#define \hyperlink{_storage_8cpp_a777ac288f17a847a5ce37bf9a89a0037}{M\+A\+X\+\_\+\+L\+O\+G\+\_\+\+F\+I\+L\+ES}~5000
+\begin{DoxyCompactList}\small\item\em Maximum amount of log files that can be stored on the device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_storage_8cpp_abbd544044b4167ca397bfb6e3073aa50}\label{_storage_8cpp_abbd544044b4167ca397bfb6e3073aa50}} 
+\#define \hyperlink{_storage_8cpp_abbd544044b4167ca397bfb6e3073aa50}{L\+O\+G\+\_\+\+N\+A\+ME}~\char`\"{}T\+R\+I\+P\+\_\+\char`\"{}
+\begin{DoxyCompactList}\small\item\em The prefix of the name for logs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_storage_8cpp_a907e440e32d31fd828188004703e3178}\label{_storage_8cpp_a907e440e32d31fd828188004703e3178}} 
+\#define \hyperlink{_storage_8cpp_a907e440e32d31fd828188004703e3178}{L\+O\+G\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON}~\char`\"{}T\+XT\char`\"{}
+\begin{DoxyCompactList}\small\item\em The suffix of the name for logs (file extension) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Module created to handle all storage related functionality. 
+
+\begin{DoxyAuthor}{Author}
+Jack Allister -\/ 23042098 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/2017 Handles saving, listing \& loading of trips. Uses Micro\+SD available on the Sparkfun G\+PS logging shield. 
+\end{DoxyDate}

@@ -12,6 +12,7 @@ class Orientation
 {
 private:
   /* ------ Private Variables ------ */
+  /** @brief Madgwick filter object uses to steady orientation readings */
   Madgwick IMUfilter;
 
   /* ------ Private Prototypes ------ */
