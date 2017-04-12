@@ -20,7 +20,7 @@ private:
 
 public:
   /* ------ Public Prototypes ------ */
-  Orientation();
+  void init();
   bool pollIMU();
   float getYaw();
   float getPitch();

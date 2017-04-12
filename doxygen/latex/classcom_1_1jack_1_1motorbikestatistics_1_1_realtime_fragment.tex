@@ -17,12 +17,58 @@ View {\bfseries on\+Create\+View} (Layout\+Inflater inflater, View\+Group contai
 \item 
 final Handler {\bfseries R\+X\+Handler}
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a675832561a8d63214b8f2cd59e901de5}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a675832561a8d63214b8f2cd59e901de5}} 
+final void {\bfseries new\+Data} (J\+S\+O\+N\+Object json\+Data)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a934eb88d5412c4a06635e8b2dcdde397}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a934eb88d5412c4a06635e8b2dcdde397}} 
+Text\+View {\bfseries text\+Status}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_aeaf4c36f29c56ec961bda017de9cc671}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_aeaf4c36f29c56ec961bda017de9cc671}} 
+Array\+List$<$ String $>$ {\bfseries json\+List}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_adde56e8b4f0e954a9a1167e50fb80420}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_adde56e8b4f0e954a9a1167e50fb80420}} 
+\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items}{Set\+Of\+Data\+Items} {\bfseries data\+List}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_ae5e621d6d5f22ddb72ace3ca227f3760}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_ae5e621d6d5f22ddb72ace3ca227f3760}} 
+Array\+Adapter$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_data_item}{Data\+Item} $>$ {\bfseries lv\+Adapter}
+\item 
+final Button.\+On\+Click\+Listener {\bfseries map\+Button\+Listener}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a6a531a688878f758b89c7f30d0798d07}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a6a531a688878f758b89c7f30d0798d07}} 
+static final String {\bfseries N\+E\+W\+\_\+\+L\+I\+NE} = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Created by Jack on 23-\/\+Jan-\/17. 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_accfabf3451fd458e5cf8dcee2f16a88c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_accfabf3451fd458e5cf8dcee2f16a88c}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}!map\+Button\+Listener@{map\+Button\+Listener}}
+\index{map\+Button\+Listener@{map\+Button\+Listener}!com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}}
+\subsubsection{\texorpdfstring{map\+Button\+Listener}{mapButtonListener}}
+{\footnotesize\ttfamily final Button.\+On\+Click\+Listener com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment.\+map\+Button\+Listener\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Button.OnClickListener() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(View v) \{
+            Intent intent = \textcolor{keyword}{new} Intent(getActivity(), MapsActivity.class);
+            intent.putExtra(\textcolor{stringliteral}{"JSONList"}, jsonList);
+            startActivity(intent);
+        \}
+    \}
+\end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a7b39a40287200b7530c2d935e6717fa6}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a7b39a40287200b7530c2d935e6717fa6}} 
 \index{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}!R\+X\+Handler@{R\+X\+Handler}}
 \index{R\+X\+Handler@{R\+X\+Handler}!com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Realtime\+Fragment}}

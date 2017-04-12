@@ -3,21 +3,252 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_orientation_aad568a473f999c181abac46a4d832387}\label{class_orientation_aad568a473f999c181abac46a4d832387}} 
-bool {\bfseries poll\+I\+MU} ()
+void \hyperlink{class_orientation_a317461c5c8afa8c3abf56847d4544728}{init} ()
+\begin{DoxyCompactList}\small\item\em Initialisation function for orientation module. \end{DoxyCompactList}\item 
+bool \hyperlink{class_orientation_aad568a473f999c181abac46a4d832387}{poll\+I\+MU} ()
+\begin{DoxyCompactList}\small\item\em Updates the I\+MU with newest values at 25\+Hz frequency. \end{DoxyCompactList}\item 
+float \hyperlink{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}{get\+Yaw} ()
+\begin{DoxyCompactList}\small\item\em Returns the Yaw orientation of the device. \end{DoxyCompactList}\item 
+float \hyperlink{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}{get\+Pitch} ()
+\begin{DoxyCompactList}\small\item\em Returns the Pitch orientation of the device. \end{DoxyCompactList}\item 
+float \hyperlink{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}{get\+Roll} ()
+\begin{DoxyCompactList}\small\item\em Returns the Roll orientation of the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}\label{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}} 
-float {\bfseries get\+Yaw} ()
+float \hyperlink{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}{convert\+Raw\+Accel} (int a\+Raw)
+\begin{DoxyCompactList}\small\item\em Converts a raw reading from accelerometer to a value in G. \end{DoxyCompactList}\item 
+float \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convert\+Raw\+Gyro} (int a\+Raw)
+\begin{DoxyCompactList}\small\item\em Converts a raw reading from gyro to a value in deg/sec. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}\label{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}} 
-float {\bfseries get\+Pitch} ()
-\item 
-\mbox{\Hypertarget{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}\label{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}} 
-float {\bfseries get\+Roll} ()
+\mbox{\Hypertarget{class_orientation_a3b0d70328334e69797438ccc408806c1}\label{class_orientation_a3b0d70328334e69797438ccc408806c1}} 
+Madgwick {\bfseries I\+M\+Ufilter}
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}\label{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}} 
+\index{Orientation@{Orientation}!convert\+Raw\+Accel@{convert\+Raw\+Accel}}
+\index{convert\+Raw\+Accel@{convert\+Raw\+Accel}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{convert\+Raw\+Accel()}{convertRawAccel()}}
+{\footnotesize\ttfamily float Orientation\+::convert\+Raw\+Accel (\begin{DoxyParamCaption}\item[{int}]{a\+Raw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts a raw reading from accelerometer to a value in G. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+Raw} & -\/ Raw accelerometer axis value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float -\/ Processed acceleration axis in G. 
+\end{DoxyReturn}
+
+
+References A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE.
+
+
+\begin{DoxyCode}
+116 \{
+117   \textcolor{comment}{/*}
+118 \textcolor{comment}{   * Since using 2G range.}
+119 \textcolor{comment}{   * -2G maps to raw value of -32768}
+120 \textcolor{comment}{   * +2G maps to raw value of +32767}
+121 \textcolor{comment}{   */}
+122    \textcolor{keywordtype}{float} a = (aRaw * (float)\hyperlink{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}{ACCEL\_RANGE}) / 32768.0;
+123    \textcolor{keywordflow}{return} a;
+124 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}\label{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}} 
+\index{Orientation@{Orientation}!convert\+Raw\+Gyro@{convert\+Raw\+Gyro}}
+\index{convert\+Raw\+Gyro@{convert\+Raw\+Gyro}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{convert\+Raw\+Gyro()}{convertRawGyro()}}
+{\footnotesize\ttfamily float Orientation\+::convert\+Raw\+Gyro (\begin{DoxyParamCaption}\item[{int}]{g\+Raw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Converts a raw reading from gyro to a value in deg/sec. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g\+Raw} & -\/ Raw gyroscope axis value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float -\/ Processed rotation axis in deg/sec. 
+\end{DoxyReturn}
+
+
+References G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE.
+
+
+\begin{DoxyCode}
+133 \{
+134   \textcolor{comment}{/*}
+135 \textcolor{comment}{   * since we are using 250 degrees/seconds range}
+136 \textcolor{comment}{   * -250 maps to a raw value of -32768}
+137 \textcolor{comment}{   * +250 maps to a raw value of 32767}
+138 \textcolor{comment}{   */}
+139   \textcolor{keywordtype}{float} g = (gRaw * (float)\hyperlink{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}{GYRO\_RANGE}) / 32768.0;
+140   \textcolor{keywordflow}{return} g;
+141 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_a317461c5c8afa8c3abf56847d4544728}\label{class_orientation_a317461c5c8afa8c3abf56847d4544728}} 
+\index{Orientation@{Orientation}!init@{init}}
+\index{init@{init}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Orientation\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation function for orientation module. 
+
+Initialises the Curie\+I\+MU module with set ranges and rates, our Madgwick filter is also initialised with this information. 
+
+References A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE, G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE, and I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY.
+
+
+\begin{DoxyCode}
+44 \{
+45   \textcolor{comment}{/* Set up the Gyroscope + Accelerometer */}
+46   CurieIMU.begin();
+47   CurieIMU.setGyroRate(\hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY});
+48   CurieIMU.setAccelerometerRate(\hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY});
+49   CurieIMU.setAccelerometerRange(\hyperlink{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}{ACCEL\_RANGE});
+50   CurieIMU.setGyroRange(\hyperlink{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}{GYRO\_RANGE});
+51 
+52   IMUfilter.begin(\hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY});
+53 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_aad568a473f999c181abac46a4d832387}\label{class_orientation_aad568a473f999c181abac46a4d832387}} 
+\index{Orientation@{Orientation}!poll\+I\+MU@{poll\+I\+MU}}
+\index{poll\+I\+MU@{poll\+I\+MU}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{poll\+I\+M\+U()}{pollIMU()}}
+{\footnotesize\ttfamily bool Orientation\+::poll\+I\+MU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the I\+MU with newest values at 25\+Hz frequency. 
+
+Function reads raw values from accelerometer and gyroscope and sends them to our Madgwick filter (I\+M\+Ufilter). ~\newline
+This function needs to be called by the system as often as possible. ~\newline
+To ensure correct frequency of 25\+Hz if kept to a micros counter is in place. ~\newline
+Function will return true or false as of whether that call actually updated the I\+MU (depending on micros count check).
+
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether the I\+MU was actually updated. 
+\end{DoxyReturn}
+
+
+References A\+X\+I\+S\+\_\+X, A\+X\+I\+S\+\_\+Y, A\+X\+I\+S\+\_\+Z, convert\+Raw\+Accel(), convert\+Raw\+Gyro(), I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY, and N\+U\+M\+B\+E\+R\+\_\+\+A\+X\+IS.
+
+
+\begin{DoxyCode}
+69 \{
+70   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} US\_PER\_READING = 1000000 / \hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{IMU\_FREQUENCY};
+71   \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} usPrevious = micros();
+72 
+73   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};
+74   \textcolor{keywordtype}{int} accel\_raw[\hyperlink{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}{NUMBER\_AXIS}];
+75   \textcolor{keywordtype}{int} gyro\_raw[\hyperlink{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}{NUMBER\_AXIS}];
+76   \textcolor{keywordtype}{float} accel\_g[\hyperlink{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}{NUMBER\_AXIS}];
+77   \textcolor{keywordtype}{float} gyro\_ds[\hyperlink{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}{NUMBER\_AXIS}];
+78   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} usNow;
+79 
+80   \textcolor{comment}{/* Ensures we stick to the sample rate (by not sampling too early) */}
+81   usNow = micros();
+82   \textcolor{keywordflow}{if} ((usNow - usPrevious) >= US\_PER\_READING)
+83   \{
+84     \textcolor{comment}{/* Read raw data from the IMU */}
+85     CurieIMU.readMotionSensor(accel\_raw[\hyperlink{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}{AXIS\_X}], accel\_raw[\hyperlink{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}{AXIS\_Y}], accel\_raw[
+      \hyperlink{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}{AXIS\_Z}],
+86                               gyro\_raw[AXIS\_X], gyro\_raw[AXIS\_Y], gyro\_raw[AXIS\_Z]);
+87 
+88     \textcolor{comment}{/* Convert raw readings from IMU to accel (G) and rotation vel (deg/s) */}
+89     accel\_g[\hyperlink{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}{AXIS\_X}] = \hyperlink{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}{convertRawAccel}(accel\_raw[AXIS\_X]);
+90     accel\_g[\hyperlink{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}{AXIS\_Y}] = \hyperlink{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}{convertRawAccel}(accel\_raw[AXIS\_Y]);
+91     accel\_g[\hyperlink{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}{AXIS\_Z}] = \hyperlink{class_orientation_ab8a6f65b7f2b43ec5dd09c47fe93fa0b}{convertRawAccel}(accel\_raw[AXIS\_Z]);
+92     gyro\_ds[\hyperlink{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}{AXIS\_X}] = \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convertRawGyro}(gyro\_raw[AXIS\_X]);
+93     gyro\_ds[\hyperlink{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}{AXIS\_Y}] = \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convertRawGyro}(gyro\_raw[AXIS\_Y]);
+94     gyro\_ds[\hyperlink{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}{AXIS\_Z}] = \hyperlink{class_orientation_a99bb5ed3c3226c5d636fa48f26f491dd}{convertRawGyro}(gyro\_raw[AXIS\_Z]);
+95 
+96     \textcolor{comment}{/* Update the filter. Orientation is calculated here */}
+97     IMUfilter.updateIMU(gyro\_ds[AXIS\_X], gyro\_ds[AXIS\_Y], gyro\_ds[AXIS\_Z],
+98                         accel\_g[AXIS\_X], accel\_g[AXIS\_Y], accel\_g[AXIS\_Z]);
+99 
+100     \textcolor{comment}{/* Increment previous counter */}
+101     usPrevious += US\_PER\_READING;
+102 
+103     result = \textcolor{keyword}{true};
+104   \}
+105 
+106   \textcolor{keywordflow}{return} result;
+107 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}\label{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}} 
+\index{Orientation@{Orientation}!get\+Yaw@{get\+Yaw}}
+\index{get\+Yaw@{get\+Yaw}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{get\+Yaw()}{getYaw()}}
+{\footnotesize\ttfamily float Orientation\+::get\+Yaw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the Yaw orientation of the device. 
+
+\begin{DoxyReturn}{Returns}
+float -\/ Yaw orientation. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+148 \{
+149   \textcolor{keywordflow}{return} IMUfilter.getYaw();
+150 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}\label{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}} 
+\index{Orientation@{Orientation}!get\+Pitch@{get\+Pitch}}
+\index{get\+Pitch@{get\+Pitch}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{get\+Pitch()}{getPitch()}}
+{\footnotesize\ttfamily float Orientation\+::get\+Pitch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the Pitch orientation of the device. 
+
+\begin{DoxyReturn}{Returns}
+float -\/ Pitch orientation. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+157 \{
+158   \textcolor{keywordflow}{return} IMUfilter.getPitch();
+159 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}\label{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}} 
+\index{Orientation@{Orientation}!get\+Roll@{get\+Roll}}
+\index{get\+Roll@{get\+Roll}!Orientation@{Orientation}}
+\subsubsection{\texorpdfstring{get\+Roll()}{getRoll()}}
+{\footnotesize\ttfamily float Orientation\+::get\+Roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the Roll orientation of the device. 
+
+\begin{DoxyReturn}{Returns}
+float -\/ Roll orientation. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+166 \{
+167   \textcolor{keywordflow}{return} IMUfilter.getRoll();
+168 \}
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 logging-\/device/Orientation.\+h\item 
-logging-\/device/Orientation.\+cpp\end{DoxyCompactItemize}
+logging-\/device/\hyperlink{_orientation_8cpp}{Orientation.\+cpp}\end{DoxyCompactItemize}

@@ -98,13 +98,14 @@ void setup()
 {
   pinMode(LED_PIN, OUTPUT);
 
-  /* Initialise our storage module */
+  /* Initialise our created modules */
   storage.init();
+  orientation.init();
 
-  /* Set up serial for data transmission */
+  /* Set up serial for wireless data transmission */
   BT_SERIAL.begin(BT_BAUD);
 
-  /* Set up GPS */
+  /* Set up serial for GPS module */
   serGPS.begin(GPS_BAUD);
 }
 

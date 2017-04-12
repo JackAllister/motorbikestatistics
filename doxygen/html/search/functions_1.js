@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loop',['loop',['../logging-device_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'logging-device.ino']]]
+  ['convertrawaccel',['convertRawAccel',['../class_orientation.html#ab8a6f65b7f2b43ec5dd09c47fe93fa0b',1,'Orientation']]],
+  ['convertrawgyro',['convertRawGyro',['../class_orientation.html#a99bb5ed3c3226c5d636fa48f26f491dd',1,'Orientation']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parsenewmode',['parseNewMode',['../logging-device_8ino.html#aec1eb39e3cfde6331c4d29938c952c84',1,'logging-device.ino']]]
+  ['init',['init',['../class_orientation.html#a317461c5c8afa8c3abf56847d4544728',1,'Orientation']]]
 ];

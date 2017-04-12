@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['onmapready',['onMapReady',['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#aefa35b548b2f39bb46b2cb5024be383c',1,'com::jack::motorbikestatistics::MapsActivity']]]
+  ['getpitch',['getPitch',['../class_orientation.html#a7ec1a2964fc858bbd5da22a505b087c8',1,'Orientation']]],
+  ['getroll',['getRoll',['../class_orientation.html#ab8923432cb8c18822b0a9ae95a5ac505',1,'Orientation']]],
+  ['getyaw',['getYaw',['../class_orientation.html#a3dbaa1ee014811c40d5b9f39b544c19b',1,'Orientation']]]
 ];

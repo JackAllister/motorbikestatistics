@@ -66,6 +66,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">com.jack.motorbikestatistics.PairDeviceFragment Class Reference</div>  </div>
@@ -98,6 +101,48 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a4ec3a304c1da2bc4e4d2ca16da764e23"><td class="memItemLeft" align="right" valign="top"><a id="a4ec3a304c1da2bc4e4d2ca16da764e23"></a>
 final ListView.OnItemClickListener&#160;</td><td class="memItemRight" valign="bottom"><b>listItemListener</b></td></tr>
 <tr class="separator:a4ec3a304c1da2bc4e4d2ca16da764e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5be2be0c93319e38e39cf23943ab1c8c"><td class="memItemLeft" align="right" valign="top"><a id="a5be2be0c93319e38e39cf23943ab1c8c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getNeededPrivileges</b> ()</td></tr>
+<tr class="separator:a5be2be0c93319e38e39cf23943ab1c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a11d29b376fa4676ab5852bba1369c0d0"><td class="memItemLeft" align="right" valign="top"><a id="a11d29b376fa4676ab5852bba1369c0d0"></a>
+boolean&#160;</td><td class="memItemRight" valign="bottom"><b>firstRun</b> = true</td></tr>
+<tr class="separator:a11d29b376fa4676ab5852bba1369c0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bf1c9b623a1b9891e0d574006cf8d5f"><td class="memItemLeft" align="right" valign="top"><a id="a1bf1c9b623a1b9891e0d574006cf8d5f"></a>
+ToggleButton&#160;</td><td class="memItemRight" valign="bottom"><b>btnScan</b></td></tr>
+<tr class="separator:a1bf1c9b623a1b9891e0d574006cf8d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21b65a91245ae03ebba675e41166ace"><td class="memItemLeft" align="right" valign="top"><a id="ac21b65a91245ae03ebba675e41166ace"></a>
+BluetoothAdapter&#160;</td><td class="memItemRight" valign="bottom"><b>btAdapter</b> = null</td></tr>
+<tr class="separator:ac21b65a91245ae03ebba675e41166ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422043a997fbe99ca9391440ce8b1180"><td class="memItemLeft" align="right" valign="top"><a id="a422043a997fbe99ca9391440ce8b1180"></a>
+ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>btDeviceList</b></td></tr>
+<tr class="separator:a422043a997fbe99ca9391440ce8b1180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace08948a2a397e9f724cfbf12256cfa"><td class="memItemLeft" align="right" valign="top"><a id="aace08948a2a397e9f724cfbf12256cfa"></a>
+ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>btPairedList</b></td></tr>
+<tr class="separator:aace08948a2a397e9f724cfbf12256cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab5efcda2c2fe8db4420ec28ea2840f"><td class="memItemLeft" align="right" valign="top"><a id="a5ab5efcda2c2fe8db4420ec28ea2840f"></a>
+ArrayAdapter&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lvAdapter</b></td></tr>
+<tr class="separator:a5ab5efcda2c2fe8db4420ec28ea2840f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb95960b8365f4696444ea7683ebbf93"><td class="memItemLeft" align="right" valign="top"><a id="afb95960b8365f4696444ea7683ebbf93"></a>
+<a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>btConnectedDevice</b> = null</td></tr>
+<tr class="separator:afb95960b8365f4696444ea7683ebbf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:ad6297326ae50ec30b7936e190beba44b"><td class="memItemLeft" align="right" valign="top"><a id="ad6297326ae50ec30b7936e190beba44b"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>REQUEST_BLUETOOTH</b> = 1</td></tr>
+<tr class="separator:ad6297326ae50ec30b7936e190beba44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e2ea55ac395622e937982582b2a6bf"><td class="memItemLeft" align="right" valign="top"><a id="a99e2ea55ac395622e937982582b2a6bf"></a>
+static final String&#160;</td><td class="memItemRight" valign="bottom"><b>CONNECTED_STATUS</b> = &quot;connected&quot;</td></tr>
+<tr class="separator:a99e2ea55ac395622e937982582b2a6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b366d93919d4f48ab58834ce40b117"><td class="memItemLeft" align="right" valign="top"><a id="a27b366d93919d4f48ab58834ce40b117"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>BT_DISABLED_ICON</b> = R.drawable.ic_bluetooth_disabled_black_24px</td></tr>
+<tr class="separator:a27b366d93919d4f48ab58834ce40b117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Created by Jack on 25-Jan-17. </p>

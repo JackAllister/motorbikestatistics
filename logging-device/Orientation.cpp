@@ -1,5 +1,11 @@
-/*
- * Module created to deal with all orientation related functionality.
+/**
+ * @file Orientation.cpp
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ * @brief Module created to deal with all orientation related functionality.
+ *
+ * Uses the built in Gyroscope & Accelerometer of the Arduino 101
+ * to create an Inertial Measurement Unit (IMU).
  */
 
 /* ------ Module Includes ------ */
@@ -9,18 +15,32 @@
 #include "Orientation.h"
 
 /* ------ Module Constants ------ */
+
+/** @brief Frequency of update rate for IMU (25Hz) */
 #define IMU_FREQUENCY 25
+/** @brief Range of acelerometer +-2G */
 #define ACCEL_RANGE 2
+/** @brief Range of gyroscope +-250 deg/sec */
 #define GYRO_RANGE 250
 
+/** @brief Number of axis for our IMU */
 #define NUMBER_AXIS 3
+/** @brief Reference to X axis in array */
 #define AXIS_X 0
+/** @brief Reference to Y axis in array */
 #define AXIS_Y 1
+/** @brief Reference to Z axis in array */
 #define AXIS_Z 2
 
 /* ------ Module Code ------ */
 
-Orientation::Orientation()
+/**
+ * @brief Initialisation function for orientation module.
+ *
+ * Initialises the CurieIMU module with set ranges and rates,
+ * our Madgwick filter is also initialised with this information.
+ */
+void Orientation::init()
 {
   /* Set up the Gyroscope + Accelerometer */
   CurieIMU.begin();
@@ -32,6 +52,19 @@ Orientation::Orientation()
   IMUfilter.begin(IMU_FREQUENCY);
 }
 
+/**
+ * @brief Updates the IMU with newest values at 25Hz frequency.
+ *
+ * Function reads raw values from accelerometer and gyroscope and sends
+ * them to our Madgwick filter (IMUfilter). \n
+ * This function needs to be called by the system as often as possible. \n
+ * To ensure correct frequency of 25Hz if kept to a micros counter is
+ * in place. \n
+ * Function will return true or false as of whether that call actually updated
+ * the IMU (depending on micros count check).
+ *
+ * @return bool - Whether the IMU was actually updated.
+ */
 bool Orientation::pollIMU()
 {
   static const unsigned long US_PER_READING = 1000000 / IMU_FREQUENCY;
@@ -73,6 +106,12 @@ bool Orientation::pollIMU()
   return result;
 }
 
+/**
+ * @brief Converts a raw reading from accelerometer to a value in G.
+ *
+ * @param aRaw - Raw accelerometer axis value.
+ * @return float - Processed acceleration axis in G.
+ */
 float Orientation::convertRawAccel(int aRaw)
 {
   /*
@@ -84,6 +123,12 @@ float Orientation::convertRawAccel(int aRaw)
    return a;
 }
 
+/**
+ * @brief Converts a raw reading from gyro to a value in deg/sec.
+ *
+ * @param gRaw - Raw gyroscope axis value.
+ * @return float - Processed rotation axis in deg/sec.
+ */
 float Orientation::convertRawGyro(int gRaw)
 {
   /*
@@ -95,16 +140,28 @@ float Orientation::convertRawGyro(int gRaw)
   return g;
 }
 
+/**
+ * @brief Returns the Yaw orientation of the device.
+ * @return float - Yaw orientation.
+ */
 float Orientation::getYaw()
 {
   return IMUfilter.getYaw();
 }
 
+/**
+ * @brief Returns the Pitch orientation of the device.
+ * @return float - Pitch orientation.
+ */
 float Orientation::getPitch()
 {
   return IMUfilter.getPitch();
 }
 
+/**
+ * @brief Returns the Roll orientation of the device.
+ * @return float - Roll orientation.
+ */
 float Orientation::getRoll()
 {
   return IMUfilter.getRoll();

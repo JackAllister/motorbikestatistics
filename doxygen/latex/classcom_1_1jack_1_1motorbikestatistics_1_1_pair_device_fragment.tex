@@ -25,6 +25,48 @@ final Toggle\+Button.\+On\+Checked\+Change\+Listener {\bfseries toggle\+Scan\+Li
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a4ec3a304c1da2bc4e4d2ca16da764e23}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a4ec3a304c1da2bc4e4d2ca16da764e23}} 
 final List\+View.\+On\+Item\+Click\+Listener {\bfseries list\+Item\+Listener}
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5be2be0c93319e38e39cf23943ab1c8c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5be2be0c93319e38e39cf23943ab1c8c}} 
+void {\bfseries get\+Needed\+Privileges} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a11d29b376fa4676ab5852bba1369c0d0}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a11d29b376fa4676ab5852bba1369c0d0}} 
+boolean {\bfseries first\+Run} = true
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a1bf1c9b623a1b9891e0d574006cf8d5f}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a1bf1c9b623a1b9891e0d574006cf8d5f}} 
+Toggle\+Button {\bfseries btn\+Scan}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ac21b65a91245ae03ebba675e41166ace}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ac21b65a91245ae03ebba675e41166ace}} 
+Bluetooth\+Adapter {\bfseries bt\+Adapter} = null
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a422043a997fbe99ca9391440ce8b1180}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a422043a997fbe99ca9391440ce8b1180}} 
+Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ {\bfseries bt\+Device\+List}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_aace08948a2a397e9f724cfbf12256cfa}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_aace08948a2a397e9f724cfbf12256cfa}} 
+Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ {\bfseries bt\+Paired\+List}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5ab5efcda2c2fe8db4420ec28ea2840f}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5ab5efcda2c2fe8db4420ec28ea2840f}} 
+Array\+Adapter$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ {\bfseries lv\+Adapter}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_afb95960b8365f4696444ea7683ebbf93}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_afb95960b8365f4696444ea7683ebbf93}} 
+\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} {\bfseries bt\+Connected\+Device} = null
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ad6297326ae50ec30b7936e190beba44b}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_ad6297326ae50ec30b7936e190beba44b}} 
+static final int {\bfseries R\+E\+Q\+U\+E\+S\+T\+\_\+\+B\+L\+U\+E\+T\+O\+O\+TH} = 1
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a99e2ea55ac395622e937982582b2a6bf}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a99e2ea55ac395622e937982582b2a6bf}} 
+static final String {\bfseries C\+O\+N\+N\+E\+C\+T\+E\+D\+\_\+\+S\+T\+A\+T\+US} = \char`\"{}connected\char`\"{}
+\item 
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a27b366d93919d4f48ab58834ce40b117}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a27b366d93919d4f48ab58834ce40b117}} 
+static final int {\bfseries B\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+D\+\_\+\+I\+C\+ON} = R.\+drawable.\+ic\+\_\+bluetooth\+\_\+disabled\+\_\+black\+\_\+24px
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

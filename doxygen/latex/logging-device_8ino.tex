@@ -134,22 +134,23 @@ Runs once at boot of arduino.
 Responsible for setting up the peripherals. ~\newline
 Initialises modules such as storage, bluetooth \& gps. 
 
-References B\+T\+\_\+\+B\+A\+UD, B\+T\+\_\+\+S\+E\+R\+I\+AL, G\+P\+S\+\_\+\+B\+A\+UD, L\+E\+D\+\_\+\+P\+IN, and ser\+G\+P\+S().
+References B\+T\+\_\+\+B\+A\+UD, B\+T\+\_\+\+S\+E\+R\+I\+AL, G\+P\+S\+\_\+\+B\+A\+UD, Orientation\+::init(), L\+E\+D\+\_\+\+P\+IN, and ser\+G\+P\+S().
 
 
 \begin{DoxyCode}
 98 \{
 99   pinMode(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, OUTPUT);
 100 
-101   \textcolor{comment}{/* Initialise our storage module */}
+101   \textcolor{comment}{/* Initialise our created modules */}
 102   \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.init();
-103 
-104   \textcolor{comment}{/* Set up serial for data transmission */}
-105   \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.begin(\hyperlink{logging-device_8ino_a6882992121626898bccaa43be51ba4c2}{BT\_BAUD});
-106 
-107   \textcolor{comment}{/* Set up GPS */}
-108   \hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.begin(\hyperlink{logging-device_8ino_af0875ffe69dbe45df3f85c1f720c3eee}{GPS\_BAUD});
-109 \}
+103   \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_a317461c5c8afa8c3abf56847d4544728}{init}();
+104 
+105   \textcolor{comment}{/* Set up serial for wireless data transmission */}
+106   \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.begin(\hyperlink{logging-device_8ino_a6882992121626898bccaa43be51ba4c2}{BT\_BAUD});
+107 
+108   \textcolor{comment}{/* Set up serial for GPS module */}
+109   \hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.begin(\hyperlink{logging-device_8ino_af0875ffe69dbe45df3f85c1f720c3eee}{GPS\_BAUD});
+110 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_afe461d27b9c48d5921c00d521181f12f}\label{logging-device_8ino_afe461d27b9c48d5921c00d521181f12f}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!loop@{loop}}
@@ -171,41 +172,41 @@ References B\+T\+\_\+\+S\+E\+R\+I\+AL, parse\+New\+Mode(), and system\+Mode.
 
 
 \begin{DoxyCode}
-120 \{
-121 
-122   \textcolor{comment}{/* Check if mode change character received from front-end */}
-123   \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.available() > 0)
-124   \{
-125     \textcolor{keywordtype}{char} modeChar = \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.read();
-126 
-127     \hyperlink{logging-device_8ino_a980e950615d86dadef54f3cfaefb5fb4}{OPERATING\_MODE} newMode;
-128 
-129     \textcolor{comment}{/* If valid new mode character found change system state */}
-130     \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_aec1eb39e3cfde6331c4d29938c952c84}{parseNewMode}(modeChar, newMode) == \textcolor{keyword}{true})
-131     \{
-132       \hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode} = newMode;
-133     \}
-134   \}
-135 
-136   \textcolor{comment}{/* State machine for choosing what option takes place */}
-137   \textcolor{keywordflow}{switch} (\hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode})
-138   \{
-139     \textcolor{keywordflow}{case} IDLE:
-140     \{
-141       \textcolor{comment}{/*}
-142 \textcolor{comment}{       * In IDLE mode MCU does nothing.}
-143 \textcolor{comment}{       * System waits and still parses incoming commands.}
-144 \textcolor{comment}{       */}
-145       \textcolor{keywordflow}{break};
-146     \}
-147 
-148     \textcolor{keywordflow}{case} REALTIME:
-149     \{
-150       \hyperlink{logging-device_8ino_ab4c1c4c0fa047e336f9f4176406a54f1}{realTimeMode}();
-151       \textcolor{keywordflow}{break};
-152     \}
-153   \}
-154 \}
+121 \{
+122 
+123   \textcolor{comment}{/* Check if mode change character received from front-end */}
+124   \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.available() > 0)
+125   \{
+126     \textcolor{keywordtype}{char} modeChar = \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.read();
+127 
+128     \hyperlink{logging-device_8ino_a980e950615d86dadef54f3cfaefb5fb4}{OPERATING\_MODE} newMode;
+129 
+130     \textcolor{comment}{/* If valid new mode character found change system state */}
+131     \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_aec1eb39e3cfde6331c4d29938c952c84}{parseNewMode}(modeChar, newMode) == \textcolor{keyword}{true})
+132     \{
+133       \hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode} = newMode;
+134     \}
+135   \}
+136 
+137   \textcolor{comment}{/* State machine for choosing what option takes place */}
+138   \textcolor{keywordflow}{switch} (\hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode})
+139   \{
+140     \textcolor{keywordflow}{case} IDLE:
+141     \{
+142       \textcolor{comment}{/*}
+143 \textcolor{comment}{       * In IDLE mode MCU does nothing.}
+144 \textcolor{comment}{       * System waits and still parses incoming commands.}
+145 \textcolor{comment}{       */}
+146       \textcolor{keywordflow}{break};
+147     \}
+148 
+149     \textcolor{keywordflow}{case} REALTIME:
+150     \{
+151       \hyperlink{logging-device_8ino_ab4c1c4c0fa047e336f9f4176406a54f1}{realTimeMode}();
+152       \textcolor{keywordflow}{break};
+153     \}
+154   \}
+155 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_aec1eb39e3cfde6331c4d29938c952c84}\label{logging-device_8ino_aec1eb39e3cfde6331c4d29938c952c84}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!parse\+New\+Mode@{parse\+New\+Mode}}
@@ -233,61 +234,61 @@ References I\+D\+L\+E\+\_\+\+C\+H\+AR.
 
 
 \begin{DoxyCode}
-164 \{
-165   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{true};
-166 
-167   \textcolor{keywordflow}{switch} (modeChar)
-168   \{
-169     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_ad7f0721d7856c100a69be7fa82e2865b}{IDLE\_CHAR}:
-170     \{
-171       newMode = IDLE;
-172       \textcolor{keywordflow}{break};
-173     \}
-174 
-175     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_a911a5839eebf5e3d5927f4f77e9bfb62}{REALTIME\_CHAR}:
-176     \{
-177       \textcolor{comment}{/* Change mode and then generate new file name for new log */}
-178       \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode} != REALTIME)
-179       \{
-180         \textcolor{comment}{/* Generate new name if not already in this mode */}
-181         \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.generateFileName();
-182       \}
-183 
-184       newMode = REALTIME;
-185       \textcolor{keywordflow}{break};
-186     \}
-187 
-188     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_a4ffb22b7b0017657087830d24f68a323}{LIST\_SAVED\_CHAR}:
-189     \{
-190       \textcolor{comment}{/*}
-191 \textcolor{comment}{       * Load all trips and send to application.}
-192 \textcolor{comment}{       * Once we have finished sending trips we can go back to idle mode.}
-193 \textcolor{comment}{       */}
-194       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadTripNames();
-195       newMode = IDLE;
-196       \textcolor{keywordflow}{break};
-197     \}
-198 
-199     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_aa72e33a6bcfedf9118f573741b4e137b}{LOAD\_TRIP\_CHAR}:
-200     \{
-201       \textcolor{comment}{/* Load a specific trip by file name */}
-202       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadSavedTrip();
-203       newMode = IDLE;
-204       \textcolor{keywordflow}{break};
-205     \}
-206 
-207     \textcolor{keywordflow}{default}:
-208     \{
-209       \textcolor{comment}{/*}
-210 \textcolor{comment}{       * If not a valid operating mode character}
-211 \textcolor{comment}{       * then return that parsing failed.}
-212 \textcolor{comment}{       */}
-213       result = \textcolor{keyword}{false};
-214     \}
-215   \}
-216 
-217   \textcolor{keywordflow}{return} result;
-218 \}
+165 \{
+166   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{true};
+167 
+168   \textcolor{keywordflow}{switch} (modeChar)
+169   \{
+170     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_ad7f0721d7856c100a69be7fa82e2865b}{IDLE\_CHAR}:
+171     \{
+172       newMode = IDLE;
+173       \textcolor{keywordflow}{break};
+174     \}
+175 
+176     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_a911a5839eebf5e3d5927f4f77e9bfb62}{REALTIME\_CHAR}:
+177     \{
+178       \textcolor{comment}{/* Change mode and then generate new file name for new log */}
+179       \textcolor{keywordflow}{if} (\hyperlink{logging-device_8ino_a13a2ecbcf455940dd240e54e9e39cf7a}{systemMode} != REALTIME)
+180       \{
+181         \textcolor{comment}{/* Generate new name if not already in this mode */}
+182         \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.generateFileName();
+183       \}
+184 
+185       newMode = REALTIME;
+186       \textcolor{keywordflow}{break};
+187     \}
+188 
+189     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_a4ffb22b7b0017657087830d24f68a323}{LIST\_SAVED\_CHAR}:
+190     \{
+191       \textcolor{comment}{/*}
+192 \textcolor{comment}{       * Load all trips and send to application.}
+193 \textcolor{comment}{       * Once we have finished sending trips we can go back to idle mode.}
+194 \textcolor{comment}{       */}
+195       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadTripNames();
+196       newMode = IDLE;
+197       \textcolor{keywordflow}{break};
+198     \}
+199 
+200     \textcolor{keywordflow}{case} \hyperlink{logging-device_8ino_aa72e33a6bcfedf9118f573741b4e137b}{LOAD\_TRIP\_CHAR}:
+201     \{
+202       \textcolor{comment}{/* Load a specific trip by file name */}
+203       \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.loadSavedTrip();
+204       newMode = IDLE;
+205       \textcolor{keywordflow}{break};
+206     \}
+207 
+208     \textcolor{keywordflow}{default}:
+209     \{
+210       \textcolor{comment}{/*}
+211 \textcolor{comment}{       * If not a valid operating mode character}
+212 \textcolor{comment}{       * then return that parsing failed.}
+213 \textcolor{comment}{       */}
+214       result = \textcolor{keyword}{false};
+215     \}
+216   \}
+217 
+218   \textcolor{keywordflow}{return} result;
+219 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_ab4c1c4c0fa047e336f9f4176406a54f1}\label{logging-device_8ino_ab4c1c4c0fa047e336f9f4176406a54f1}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!real\+Time\+Mode@{real\+Time\+Mode}}
@@ -303,47 +304,47 @@ Every time called this procedure will poll the I\+MU to update our orientation c
 If available N\+M\+EA sentences received from G\+PS serial are sent to our G\+PS parsing object. ~\newline
  Every 1000ms all current information is transmitted via bluetooth, this information is also stored to the u\+SD so it can be retrieved at a later point. 
 
-References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), add\+Time\+To\+J\+S\+O\+N(), B\+T\+\_\+\+S\+E\+R\+I\+AL, gps, L\+E\+D\+\_\+\+P\+IN, main\+J\+S\+ON, and ser\+G\+P\+S().
+References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), add\+Time\+To\+J\+S\+O\+N(), B\+T\+\_\+\+S\+E\+R\+I\+AL, gps, L\+E\+D\+\_\+\+P\+IN, main\+J\+S\+ON, Orientation\+::poll\+I\+M\+U(), and ser\+G\+P\+S().
 
 
 \begin{DoxyCode}
-233 \{
-234   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MAX\_STRING\_SIZE = 512;
-235   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} PRINT\_DELAY = 1000;
-236   \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} lastMillis = 0;
-237   \textcolor{keywordtype}{char} jsonString[MAX\_STRING\_SIZE];
-238 
-239   \textcolor{comment}{/* Poll our IMU to update XYZ */}
-240   \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.pollIMU();
-241 
-242   \textcolor{comment}{/* Parse NMEA codes into GPS object */}
-243   \textcolor{keywordflow}{while} (\hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.available() > 0)
-244   \{
-245     \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.encode(\hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.read());
-246   \}
-247 
-248   \textcolor{comment}{/* Print orientation and location information */}
-249   \textcolor{keywordflow}{if} ((millis() - lastMillis) > PRINT\_DELAY)
-250   \{
-251     digitalWrite(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, HIGH);
-252 
-253     \hyperlink{logging-device_8ino_a8d3614b16b26b9734d79e9f8f6695af3}{addOrientationToJSON}();
-254     \hyperlink{logging-device_8ino_af1705fad6a6282b24379a174e18d4fe4}{addGPSToJSON}();
-255     \hyperlink{logging-device_8ino_a9e4931f452cd25dfff67d41e7c9c0efb}{addTimeToJSON}();
-256 
-257     \textcolor{comment}{/* Print our json object into a string */}
-258     \hyperlink{logging-device_8ino_a5eebfb3b76a83174d0f5d032d1f6bfb7}{mainJSON}.printTo(jsonString, MAX\_STRING\_SIZE);
-259 
-260     \textcolor{comment}{/* Log JSON to the microSD */}
-261     \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.saveToFile(jsonString, \textcolor{keyword}{true});
-262 
-263     \textcolor{comment}{/* Print to our bluetooth module */}
-264     \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.println(jsonString);
-265 
-266     lastMillis = millis();
-267     digitalWrite(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, LOW);
-268   \}
-269 \}
+234 \{
+235   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} MAX\_STRING\_SIZE = 512;
+236   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} PRINT\_DELAY = 1000;
+237   \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} lastMillis = 0;
+238   \textcolor{keywordtype}{char} jsonString[MAX\_STRING\_SIZE];
+239 
+240   \textcolor{comment}{/* Poll our IMU to update XYZ */}
+241   \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_aad568a473f999c181abac46a4d832387}{pollIMU}();
+242 
+243   \textcolor{comment}{/* Parse NMEA codes into GPS object */}
+244   \textcolor{keywordflow}{while} (\hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.available() > 0)
+245   \{
+246     \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.encode(\hyperlink{logging-device_8ino_aa2475f51bdc0f31d16d2916991d618d9}{serGPS}.read());
+247   \}
+248 
+249   \textcolor{comment}{/* Print orientation and location information */}
+250   \textcolor{keywordflow}{if} ((millis() - lastMillis) > PRINT\_DELAY)
+251   \{
+252     digitalWrite(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, HIGH);
+253 
+254     \hyperlink{logging-device_8ino_a8d3614b16b26b9734d79e9f8f6695af3}{addOrientationToJSON}();
+255     \hyperlink{logging-device_8ino_af1705fad6a6282b24379a174e18d4fe4}{addGPSToJSON}();
+256     \hyperlink{logging-device_8ino_a9e4931f452cd25dfff67d41e7c9c0efb}{addTimeToJSON}();
+257 
+258     \textcolor{comment}{/* Print our json object into a string */}
+259     \hyperlink{logging-device_8ino_a5eebfb3b76a83174d0f5d032d1f6bfb7}{mainJSON}.printTo(jsonString, MAX\_STRING\_SIZE);
+260 
+261     \textcolor{comment}{/* Log JSON to the microSD */}
+262     \hyperlink{logging-device_8ino_a40059244119c00baa1b841119cfd1b2e}{storage}.saveToFile(jsonString, \textcolor{keyword}{true});
+263 
+264     \textcolor{comment}{/* Print to our bluetooth module */}
+265     \hyperlink{logging-device_8ino_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.println(jsonString);
+266 
+267     lastMillis = millis();
+268     digitalWrite(\hyperlink{logging-device_8ino_ab4553be4db9860d940f81d7447173b2f}{LED\_PIN}, LOW);
+269   \}
+270 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_a8d3614b16b26b9734d79e9f8f6695af3}\label{logging-device_8ino_a8d3614b16b26b9734d79e9f8f6695af3}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!add\+Orientation\+To\+J\+S\+ON@{add\+Orientation\+To\+J\+S\+ON}}
@@ -356,12 +357,16 @@ References add\+G\+P\+S\+To\+J\+S\+O\+N(), add\+Orientation\+To\+J\+S\+O\+N(), a
 Responsible for updating orientation J\+S\+ON object with newest information. 
 
 Interacts with devices \hyperlink{class_orientation}{Orientation} object to get Yaw, Pitch \& Roll. 
+
+References Orientation\+::get\+Pitch(), Orientation\+::get\+Roll(), and Orientation\+::get\+Yaw().
+
+
 \begin{DoxyCode}
-279 \{
-280   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"yaw"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.getYaw();
-281   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"pitch"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.getPitch();
-282   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"roll"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.getRoll();
-283 \}
+280 \{
+281   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"yaw"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_a3dbaa1ee014811c40d5b9f39b544c19b}{getYaw}();
+282   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"pitch"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_a7ec1a2964fc858bbd5da22a505b087c8}{getPitch}();
+283   \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON}[\textcolor{stringliteral}{"roll"}] = \hyperlink{logging-device_8ino_a47be0262307aa023a1bda3d98986a16d}{orientation}.\hyperlink{class_orientation_ab8923432cb8c18822b0a9ae95a5ac505}{getRoll}();
+284 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_af1705fad6a6282b24379a174e18d4fe4}\label{logging-device_8ino_af1705fad6a6282b24379a174e18d4fe4}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!add\+G\+P\+S\+To\+J\+S\+ON@{add\+G\+P\+S\+To\+J\+S\+ON}}
@@ -379,17 +384,17 @@ References gps.
 
 
 \begin{DoxyCode}
-294 \{
-295   \textcolor{comment}{/* Add location information */}
-296   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"gps\_valid"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.isUpdated();
-297   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"lat"}] = double\_with\_n\_digits(\hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.lat(), 6);
-298   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"lng"}] = double\_with\_n\_digits(\hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.lng(), 6);
-299 
-300   \textcolor{comment}{/* Other crucial GPS information */}
-301   gpsJSON[\textcolor{stringliteral}{"available"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.satellites.value();
-302   gpsJSON[\textcolor{stringliteral}{"vel\_mph"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.speed.mph();
-303   gpsJSON[\textcolor{stringliteral}{"alt\_ft"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.altitude.feet();
-304 \}
+295 \{
+296   \textcolor{comment}{/* Add location information */}
+297   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"gps\_valid"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.isUpdated();
+298   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"lat"}] = double\_with\_n\_digits(\hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.lat(), 6);
+299   \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON}[\textcolor{stringliteral}{"lng"}] = double\_with\_n\_digits(\hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.location.lng(), 6);
+300 
+301   \textcolor{comment}{/* Other crucial GPS information */}
+302   gpsJSON[\textcolor{stringliteral}{"available"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.satellites.value();
+303   gpsJSON[\textcolor{stringliteral}{"vel\_mph"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.speed.mph();
+304   gpsJSON[\textcolor{stringliteral}{"alt\_ft"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.altitude.feet();
+305 \}
 \end{DoxyCode}
 \mbox{\Hypertarget{logging-device_8ino_a9e4931f452cd25dfff67d41e7c9c0efb}\label{logging-device_8ino_a9e4931f452cd25dfff67d41e7c9c0efb}} 
 \index{logging-\/device.\+ino@{logging-\/device.\+ino}!add\+Time\+To\+J\+S\+ON@{add\+Time\+To\+J\+S\+ON}}
@@ -407,16 +412,16 @@ References gps.
 
 
 \begin{DoxyCode}
-316 \{
-317   \textcolor{comment}{/* Add time information to JSON */}
-318   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"time\_valid"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.isValid() && \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.isValid();
-319   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"day"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.day();
-320   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"month"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.month();
-321   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"year"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.year();
-322 
-323   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"hour"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.hour();
-324   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"minute"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.minute();
-325   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"second"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.second();
-326   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"centiseconds"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.centisecond();
-327 \}
+317 \{
+318   \textcolor{comment}{/* Add time information to JSON */}
+319   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"time\_valid"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.isValid() && \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.isValid();
+320   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"day"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.day();
+321   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"month"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.month();
+322   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"year"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.date.year();
+323 
+324   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"hour"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.hour();
+325   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"minute"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.minute();
+326   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"second"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.second();
+327   \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON}[\textcolor{stringliteral}{"centiseconds"}] = \hyperlink{logging-device_8ino_a169c53997a7da1d0fb99aec1b4675ce8}{gps}.time.centisecond();
+328 \}
 \end{DoxyCode}

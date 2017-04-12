@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['timejson',['timeJSON',['../logging-device_8ino.html#acc172a29cb5ff709b48b650d9fb6503c',1,'logging-device.ino']]],
-  ['tripitem',['TripItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.html',1,'com::jack::motorbikestatistics']]],
-  ['triplistadapter',['TripListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html',1,'com::jack::motorbikestatistics']]]
+  ['realtime_5fchar',['REALTIME_CHAR',['../logging-device_8ino.html#a911a5839eebf5e3d5927f4f77e9bfb62',1,'logging-device.ino']]],
+  ['realtimefragment',['RealtimeFragment',['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html',1,'com::jack::motorbikestatistics']]],
+  ['realtimemode',['realTimeMode',['../logging-device_8ino.html#ab4c1c4c0fa047e336f9f4176406a54f1',1,'logging-device.ino']]]
 ];

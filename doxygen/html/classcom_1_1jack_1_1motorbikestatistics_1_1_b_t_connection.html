@@ -66,6 +66,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">com.jack.motorbikestatistics.BTConnection Class Reference</div>  </div>
@@ -105,6 +108,42 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><b>isConnected</b> ()
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7a88b2007af6a9a5c8667a9f1df980cc"><td class="memItemLeft" align="right" valign="top">final Handler&#160;</td><td class="memItemRight" valign="bottom"><b>txHandler</b></td></tr>
 <tr class="separator:a7a88b2007af6a9a5c8667a9f1df980cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4c1b8ebff8a40a9cddd77a55b59b45af"><td class="memItemLeft" align="right" valign="top"><a id="a4c1b8ebff8a40a9cddd77a55b59b45af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> ()  throws IOException </td></tr>
+<tr class="separator:a4c1b8ebff8a40a9cddd77a55b59b45af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1cd0e85a758db424a57010ac9bb87f0"><td class="memItemLeft" align="right" valign="top"><a id="ac1cd0e85a758db424a57010ac9bb87f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()  throws IOException </td></tr>
+<tr class="separator:ac1cd0e85a758db424a57010ac9bb87f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af49e78cef4253d96f009a9a1473e038d"><td class="memItemLeft" align="right" valign="top"><a id="af49e78cef4253d96f009a9a1473e038d"></a>
+BluetoothDevice&#160;</td><td class="memItemRight" valign="bottom"><b>btDevice</b></td></tr>
+<tr class="separator:af49e78cef4253d96f009a9a1473e038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64fc7b02a2b9f052c6b05842b79b3cdc"><td class="memItemLeft" align="right" valign="top"><a id="a64fc7b02a2b9f052c6b05842b79b3cdc"></a>
+Handler&#160;</td><td class="memItemRight" valign="bottom"><b>RXHandler</b> = null</td></tr>
+<tr class="separator:a64fc7b02a2b9f052c6b05842b79b3cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d47f94a35f7c8a07429975446e7b33b"><td class="memItemLeft" align="right" valign="top"><a id="a0d47f94a35f7c8a07429975446e7b33b"></a>
+BluetoothSocket&#160;</td><td class="memItemRight" valign="bottom"><b>btSocket</b> = null</td></tr>
+<tr class="separator:a0d47f94a35f7c8a07429975446e7b33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6193b7b92b7f2905a3a43d63db40aba8"><td class="memItemLeft" align="right" valign="top"><a id="a6193b7b92b7f2905a3a43d63db40aba8"></a>
+volatile boolean&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</td></tr>
+<tr class="separator:a6193b7b92b7f2905a3a43d63db40aba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:af9455991fec4de29ffc875eae117a761"><td class="memItemLeft" align="right" valign="top"><a id="af9455991fec4de29ffc875eae117a761"></a>
+static final String&#160;</td><td class="memItemRight" valign="bottom"><b>TAG</b> = &quot;BTConnection&quot;</td></tr>
+<tr class="separator:af9455991fec4de29ffc875eae117a761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6551312055376866c73f11721a45e26c"><td class="memItemLeft" align="right" valign="top"><a id="a6551312055376866c73f11721a45e26c"></a>
+static final UUID&#160;</td><td class="memItemRight" valign="bottom"><b>uuid</b> = UUID.fromString(&quot;00001101-0000-1000-8000-00805f9b34fb&quot;)</td></tr>
+<tr class="separator:a6551312055376866c73f11721a45e26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacec2fadb24352fd7fdeae731e3ed412"><td class="memItemLeft" align="right" valign="top"><a id="aacec2fadb24352fd7fdeae731e3ed412"></a>
+static final String&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_LINE</b> = &quot;\r\n&quot;</td></tr>
+<tr class="separator:aacec2fadb24352fd7fdeae731e3ed412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Created by Jack on 26-Jan-17. </p>
