@@ -26,6 +26,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
+/**
+ * @brief Thread class for a new bluetooth connection to a device.
+ */
 public class BTConnection implements Runnable {
 
     /** @brief Tag using for debugging */

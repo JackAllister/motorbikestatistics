@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_5fline',['NEW_LINE',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#aacec2fadb24352fd7fdeae731e3ed412',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]]
 ];

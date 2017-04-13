@@ -12,6 +12,9 @@ package com.jack.motorbikestatistics;
 
 import android.bluetooth.BluetoothDevice;
 
+/**
+ * @brief Class used for holding core UI information of a bluetooth devices.
+ */
 public class BTDeviceItem {
 
     /** @brief Variable for BTConnection if device is already connected. */

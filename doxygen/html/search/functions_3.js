@@ -7,5 +7,6 @@ var searchData=
   ['getpitch',['getPitch',['../class_orientation.html#a7ec1a2964fc858bbd5da22a505b087c8',1,'Orientation']]],
   ['getroll',['getRoll',['../class_orientation.html#ab8923432cb8c18822b0a9ae95a5ac505',1,'Orientation']]],
   ['getstatus',['getStatus',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#aee33189f94c2a428ac67301b536dd004',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
+  ['getview',['getView',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#ab9e3230f609c8a8195c3e4e9c2b26b2e',1,'com::jack::motorbikestatistics::BTDeviceListAdapter']]],
   ['getyaw',['getYaw',['../class_orientation.html#a3dbaa1ee014811c40d5b9f39b544c19b',1,'Orientation']]]
 ];

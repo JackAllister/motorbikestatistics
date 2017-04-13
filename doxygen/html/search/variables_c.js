@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tag',['TAG',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#af9455991fec4de29ffc875eae117a761',1,'com::jack::motorbikestatistics::BTConnection']]],
-  ['timejson',['timeJSON',['../logging-device_8ino.html#acc172a29cb5ff709b48b650d9fb6503c',1,'logging-device.ino']]],
-  ['txhandler',['txHandler',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a7a88b2007af6a9a5c8667a9f1df980cc',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['status',['status',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ae7a8756973644c5719d5faddf3fa7946',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
+  ['storage',['storage',['../logging-device_8ino.html#a40059244119c00baa1b841119cfd1b2e',1,'logging-device.ino']]],
+  ['systemmode',['systemMode',['../logging-device_8ino.html#a13a2ecbcf455940dd240e54e9e39cf7a',1,'logging-device.ino']]]
 ];

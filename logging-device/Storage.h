@@ -4,7 +4,9 @@
  #ifndef STORAGE_H
  #define STORAGE_H
 
-/* ------ Module Class ------ */
+/**
+ * @brief Class for storing & retrieving data on the logging device.
+ */
 class Storage
 {
 private:

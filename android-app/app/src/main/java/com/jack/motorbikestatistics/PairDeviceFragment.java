@@ -77,7 +77,7 @@ public class PairDeviceFragment extends Fragment {
         ListView lvDevices = (ListView)myView.findViewById(R.id.pairdevice_deviceList);
         lvDevices.setOnItemClickListener(listItemListener);
 
-        lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceList, btAdapter);
+        lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceList);
         lvDevices.setAdapter(lvAdapter);
 
         /* Check and set up bluetooth adapter */

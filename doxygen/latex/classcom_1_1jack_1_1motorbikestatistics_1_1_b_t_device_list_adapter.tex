@@ -1,5 +1,10 @@
 \hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter}{}\section{com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter Class Reference}
 \label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter}\index{com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter@{com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter}}
+
+
+Adapter class used for displaying bluetooth devices.  
+
+
 Inheritance diagram for com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,36 +15,136 @@ Inheritance diagram for com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+A
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_1_1_view_holder}{View\+Holder}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Class that holds all data displayed for each List\+Item. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a103bf9deb20f6a547537da994f66b92f}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a103bf9deb20f6a547537da994f66b92f}} 
-{\bfseries B\+T\+Device\+List\+Adapter} (Context cnt, int layout\+Resource\+Id, Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ data, Bluetooth\+Adapter adapter)
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab9e3230f609c8a8195c3e4e9c2b26b2e}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab9e3230f609c8a8195c3e4e9c2b26b2e}} 
-View {\bfseries get\+View} (int position, View convert\+View, View\+Group parent)
-\end{DoxyCompactItemize}
+\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a83121f881d0af42a12c50979f641c77d}{B\+T\+Device\+List\+Adapter} (Context cnt, int \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layout\+Resource\+Id}, Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}{data})
+\begin{DoxyCompactList}\small\item\em Constructor for the List\+View adapter. \end{DoxyCompactList}\item 
+View \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab9e3230f609c8a8195c3e4e9c2b26b2e}{get\+View} (int position, View convert\+View, View\+Group parent)
+\begin{DoxyCompactList}\small\item\em Function for returning the view of each list item (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item}). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}} 
-int {\bfseries layout\+Resource\+Id}
-\item 
+int \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layout\+Resource\+Id}
+\begin{DoxyCompactList}\small\item\em Resource ID for current layout. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a6e42efbb29008651704bef82263ae838}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a6e42efbb29008651704bef82263ae838}} 
-Context {\bfseries context}
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab57217b9f64d8520346101362d0ebca1}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab57217b9f64d8520346101362d0ebca1}} 
-Bluetooth\+Adapter {\bfseries bt\+Adapter}
-\item 
+Context \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a6e42efbb29008651704bef82263ae838}{context}
+\begin{DoxyCompactList}\small\item\em Context that the List\+View is operating in. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}} 
-Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ {\bfseries data}
-\end{DoxyCompactItemize}
+Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}{data}
+\begin{DoxyCompactList}\small\item\em Array\+List of all bluetooth device items to display. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Created by Jack on 25-\/\+Jan-\/17. 
+Adapter class used for displaying bluetooth devices. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a83121f881d0af42a12c50979f641c77d}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a83121f881d0af42a12c50979f641c77d}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter}!B\+T\+Device\+List\+Adapter@{B\+T\+Device\+List\+Adapter}}
+\index{B\+T\+Device\+List\+Adapter@{B\+T\+Device\+List\+Adapter}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter}}
+\subsubsection{\texorpdfstring{B\+T\+Device\+List\+Adapter()}{BTDeviceListAdapter()}}
+{\footnotesize\ttfamily com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter.\+B\+T\+Device\+List\+Adapter (\begin{DoxyParamCaption}\item[{Context}]{cnt,  }\item[{int}]{layout\+Resource\+Id,  }\item[{Array\+List$<$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the List\+View adapter. 
+
+Calls the constructor of the superclass as well as setting other relevant information needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & -\/ Context of the adapter to be operating in. \\
+\hline
+{\em layout\+Resource\+Id} & -\/ Resource ID for current layout. \\
+\hline
+{\em data} & -\/ Array\+List of devices to display in List\+View. \\
+\hline
+\end{DoxyParams}
+
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter.\+data, and com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter.\+layout\+Resource\+Id.
+
+
+\begin{DoxyCode}
+51                                                                                                 \{
+52         super(cnt, \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layoutResourceId}, \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}{data});
+53         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a6e42efbb29008651704bef82263ae838}{context} = cnt;
+54         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layoutResourceId} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layoutResourceId};
+55         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}{data} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a7e0dfcd0a703aaecf0c0457515b6984f}{data};
+56     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab9e3230f609c8a8195c3e4e9c2b26b2e}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_ab9e3230f609c8a8195c3e4e9c2b26b2e}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Device\+List\+Adapter}}
+\subsubsection{\texorpdfstring{get\+View()}{getView()}}
+{\footnotesize\ttfamily View com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+List\+Adapter.\+get\+View (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{View}]{convert\+View,  }\item[{View\+Group}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for returning the view of each list item (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item}{B\+T\+Device\+Item}). 
+
+If a view for selected item has not been created inflater initialises it. A holder is then used to hold all the information that will be displayed on the UI to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ Index of item in array to use/reference to. \\
+\hline
+{\em convert\+View} & -\/ View to be used for specified item. \\
+\hline
+{\em parent} & -\/ Object where the created view will be placed on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ The result view of item with updated/current information. 
+\end{DoxyReturn}
+
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+Item.\+get\+Device(), com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+Item.\+get\+Icon\+I\+D(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Device\+Item.\+get\+Status().
+
+
+\begin{DoxyCode}
+82                                                                           \{
+83 
+84         ViewHolder holder;
+85 
+86         \textcolor{keywordflow}{if} (convertView == null)
+87         \{
+88             \textcolor{comment}{/* Create new view via inflater as it does not exist. */}
+89             LayoutInflater inflater = (LayoutInflater)\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a6e42efbb29008651704bef82263ae838}{context}.getSystemService(Context.
+      LAYOUT\_INFLATER\_SERVICE);
+90             convertView = inflater.inflate(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_a3f7a9f653fb6a0fcda0a0a61e29d0f06}{layoutResourceId}, parent, \textcolor{keyword}{false});
+91 
+92             \textcolor{comment}{/* Create holder that will contain information to display. */}
+93             holder = \textcolor{keyword}{new} ViewHolder();
+94             holder.imageStatus = (ImageView)convertView.findViewById(R.id.imageListStatus);
+95             holder.name = (TextView)convertView.findViewById(R.id.textListName);
+96             holder.address = (TextView)convertView.findViewById(R.id.textListAddress);
+97             holder.status = (TextView)convertView.findViewById(R.id.textListStatus);
+98             convertView.setTag(holder);
+99         \}
+100         \textcolor{keywordflow}{else}
+101         \{
+102             \textcolor{comment}{/* Get current holder to use instead of creating new one. */}
+103             holder = (ViewHolder)convertView.getTag();
+104         \}
+105 
+106         \textcolor{comment}{/* Get BTDeviceItem for specified item and update holder info. */}
+107         BTDeviceItem btItem = getItem(position);
+108         holder.imageStatus.setImageResource(btItem.getIconID());
+109         holder.name.setText(btItem.getDevice().getName());
+110         holder.address.setText(btItem.getDevice().getAddress());
+111         holder.status.setText(btItem.getStatus());
+112 
+113         \textcolor{keywordflow}{return} convertView;
+114     \}
+\end{DoxyCode}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-android-\/app/app/src/main/java/com/jack/motorbikestatistics/B\+T\+Device\+List\+Adapter.\+java\end{DoxyCompactItemize}
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_b_t_device_list_adapter_8java}{B\+T\+Device\+List\+Adapter.\+java}\end{DoxyCompactItemize}

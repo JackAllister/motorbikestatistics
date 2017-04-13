@@ -68,6 +68,11 @@ $(function() {
 <div class="title">Orientation Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for dealing with <a class="el" href="class_orientation.html" title="Class for dealing with Orientation functionality on logging device. ">Orientation</a> functionality on logging device.  
+ <a href="class_orientation.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_orientation_8h_source.html">Orientation.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,7 +108,9 @@ Madgwick&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memdesc:a3b0d70328334e69797438ccc408806c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Madgwick filter object uses to steady orientation readings. <br /></td></tr>
 <tr class="separator:a3b0d70328334e69797438ccc408806c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for dealing with <a class="el" href="class_orientation.html" title="Class for dealing with Orientation functionality on logging device. ">Orientation</a> functionality on logging device. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab8a6f65b7f2b43ec5dd09c47fe93fa0b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8a6f65b7f2b43ec5dd09c47fe93fa0b">&#9670;&nbsp;</a></span>convertRawAccel()</h2>
 
@@ -202,7 +209,7 @@ Madgwick&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">/* Set up the Gyroscope + Accelerometer */</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  CurieIMU.begin();</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  CurieIMU.setGyroRate(<a class="code" href="_orientation_8cpp.html#aacb21c2e16f8c38c985b8f02787a7baf">IMU_FREQUENCY</a>);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  CurieIMU.setAccelerometerRate(<a class="code" href="_orientation_8cpp.html#aacb21c2e16f8c38c985b8f02787a7baf">IMU_FREQUENCY</a>);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  CurieIMU.setAccelerometerRange(<a class="code" href="_orientation_8cpp.html#a16ec7011dea5773b504e875852f35fc1">ACCEL_RANGE</a>);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  CurieIMU.setGyroRange(<a class="code" href="_orientation_8cpp.html#af9a0775d43604d7410e3da3dbc90925a">GYRO_RANGE</a>);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.begin(<a class="code" href="_orientation_8cpp.html#aacb21c2e16f8c38c985b8f02787a7baf">IMU_FREQUENCY</a>);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div><div class="ttc" id="_orientation_8cpp_html_a16ec7011dea5773b504e875852f35fc1"><div class="ttname"><a href="_orientation_8cpp.html#a16ec7011dea5773b504e875852f35fc1">ACCEL_RANGE</a></div><div class="ttdeci">#define ACCEL_RANGE</div><div class="ttdoc">Range of acelerometer +-2G. </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:22</div></div>
 <div class="ttc" id="_orientation_8cpp_html_af9a0775d43604d7410e3da3dbc90925a"><div class="ttname"><a href="_orientation_8cpp.html#af9a0775d43604d7410e3da3dbc90925a">GYRO_RANGE</a></div><div class="ttdeci">#define GYRO_RANGE</div><div class="ttdoc">Range of gyroscope +-250 deg/sec. </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:24</div></div>
 <div class="ttc" id="_orientation_8cpp_html_aacb21c2e16f8c38c985b8f02787a7baf"><div class="ttname"><a href="_orientation_8cpp.html#aacb21c2e16f8c38c985b8f02787a7baf">IMU_FREQUENCY</a></div><div class="ttdeci">#define IMU_FREQUENCY</div><div class="ttdoc">Frequency of update rate for IMU (25Hz) </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:20</div></div>
-<div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:16</div></div>
+<div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -236,7 +243,7 @@ Function will return true or false as of whether that call actually updated the 
 <div class="ttc" id="_orientation_8cpp_html_a08f3e26d90cf66bf2840d476e5d4711f"><div class="ttname"><a href="_orientation_8cpp.html#a08f3e26d90cf66bf2840d476e5d4711f">AXIS_Y</a></div><div class="ttdeci">#define AXIS_Y</div><div class="ttdoc">Reference to Y axis in array. </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:31</div></div>
 <div class="ttc" id="_orientation_8cpp_html_a203c415ee0716aeaf05afca2a736a9dc"><div class="ttname"><a href="_orientation_8cpp.html#a203c415ee0716aeaf05afca2a736a9dc">NUMBER_AXIS</a></div><div class="ttdeci">#define NUMBER_AXIS</div><div class="ttdoc">Number of axis for our IMU. </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:27</div></div>
 <div class="ttc" id="_orientation_8cpp_html_aacb21c2e16f8c38c985b8f02787a7baf"><div class="ttname"><a href="_orientation_8cpp.html#aacb21c2e16f8c38c985b8f02787a7baf">IMU_FREQUENCY</a></div><div class="ttdeci">#define IMU_FREQUENCY</div><div class="ttdoc">Frequency of update rate for IMU (25Hz) </div><div class="ttdef"><b>Definition:</b> Orientation.cpp:20</div></div>
-<div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:16</div></div>
+<div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -259,7 +266,7 @@ Function will return true or false as of whether that call actually updated the 
 <dl class="section return"><dt>Returns</dt><dd>float - Yaw orientation. </dd></dl>
 
 <p class="reference">References <a class="el" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.</p>
-<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getYaw();</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:16</div></div>
+<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getYaw();</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -282,7 +289,7 @@ Function will return true or false as of whether that call actually updated the 
 <dl class="section return"><dt>Returns</dt><dd>float - Pitch orientation. </dd></dl>
 
 <p class="reference">References <a class="el" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.</p>
-<div class="fragment"><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;{</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getPitch();</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:16</div></div>
+<div class="fragment"><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;{</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getPitch();</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,7 +312,7 @@ Function will return true or false as of whether that call actually updated the 
 <dl class="section return"><dt>Returns</dt><dd>float - Roll orientation. </dd></dl>
 
 <p class="reference">References <a class="el" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.</p>
-<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getRoll();</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:16</div></div>
+<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">IMUfilter</a>.getRoll();</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div><div class="ttc" id="class_orientation_html_a3b0d70328334e69797438ccc408806c1"><div class="ttname"><a href="class_orientation.html#a3b0d70328334e69797438ccc408806c1">Orientation::IMUfilter</a></div><div class="ttdeci">Madgwick IMUfilter</div><div class="ttdoc">Madgwick filter object uses to steady orientation readings. </div><div class="ttdef"><b>Definition:</b> Orientation.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>

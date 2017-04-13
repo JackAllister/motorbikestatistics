@@ -7,7 +7,9 @@
 /* ------ Module Includes ------ */
  #include <MadgwickAHRS.h>
 
-/* ------ Module Class ------ */
+ /**
+  * @brief Class for dealing with Orientation functionality on logging device.
+  */
 class Orientation
 {
 private:

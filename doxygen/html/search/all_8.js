@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['layoutresourceid',['layoutResourceId',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#a3f7a9f653fb6a0fcda0a0a61e29d0f06',1,'com::jack::motorbikestatistics::BTDeviceListAdapter']]],
   ['led_5fpin',['LED_PIN',['../logging-device_8ino.html#ab4553be4db9860d940f81d7447173b2f',1,'logging-device.ino']]],
   ['list_5fsaved_5fchar',['LIST_SAVED_CHAR',['../logging-device_8ino.html#a4ffb22b7b0017657087830d24f68a323',1,'logging-device.ino']]],
   ['load_5ftrip_5fchar',['LOAD_TRIP_CHAR',['../logging-device_8ino.html#aa72e33a6bcfedf9118f573741b4e137b',1,'logging-device.ino']]],
