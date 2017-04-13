@@ -88,12 +88,12 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+bt\+Device, and
 
 
 \begin{DoxyCode}
-57                                \{
-58         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice};
-59 
-60         \textcolor{comment}{/* Connect the device so ready to use run */}
-61         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}{connect}();
-62     \}
+56                                \{
+57         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice};
+58 
+59         \textcolor{comment}{/* Connect the device so ready to use run */}
+60         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}{connect}();
+61     \}
 \end{DoxyCode}
 
 
@@ -115,9 +115,9 @@ Setter function for R\+X\+Handler.
 \end{DoxyParams}
 
 \begin{DoxyCode}
-106                                                  \{
-107         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} = newHandler;
-108     \}
+105                                                  \{
+106         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} = newHandler;
+107     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}} 
 \index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!run@{run}}
@@ -135,82 +135,82 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+close(), com.\+
 
 
 \begin{DoxyCode}
-119                       \{
-120         InputStream RXStream;
-121 
-122         \textcolor{comment}{/* Indicate that we are now running main thread */}
-123         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{true};
-124 
-125         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
-126             \textcolor{comment}{/* Get our input stream for receiving bytes */}
-127             \textcolor{keywordflow}{try} \{
-128                 RXStream = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.getInputStream();
-129             \} \textcolor{keywordflow}{catch} (IOException e) \{
-130                 Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
-131                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
-132                 \textcolor{keywordflow}{return};
-133             \}
-134 
-135             \textcolor{comment}{/*}
-136 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
-137 \textcolor{comment}{             * and then send it to the handler}
-138 \textcolor{comment}{             */}
-139             String recvBuff = \textcolor{stringliteral}{""};
-140             \textcolor{keywordflow}{while} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}{isRunning}() && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
-141                 \textcolor{keywordflow}{try} \{
-142                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
-143 
-144                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
-145                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
-146                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
-147 
-148                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
-149                     \}
-150 
-151                     \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} != null) \{
-152 
-153                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}) > 0) \{
-154 
-155                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
+118                       \{
+119         InputStream RXStream;
+120 
+121         \textcolor{comment}{/* Indicate that we are now running main thread */}
+122         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{true};
+123 
+124         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
+125             \textcolor{comment}{/* Get our input stream for receiving bytes */}
+126             \textcolor{keywordflow}{try} \{
+127                 RXStream = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.getInputStream();
+128             \} \textcolor{keywordflow}{catch} (IOException e) \{
+129                 Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
+130                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+131                 \textcolor{keywordflow}{return};
+132             \}
+133 
+134             \textcolor{comment}{/*}
+135 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
+136 \textcolor{comment}{             * and then send it to the handler}
+137 \textcolor{comment}{             */}
+138             String recvBuff = \textcolor{stringliteral}{""};
+139             \textcolor{keywordflow}{while} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}{isRunning}() && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
+140                 \textcolor{keywordflow}{try} \{
+141                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
+142 
+143                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
+144                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
+145                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
+146 
+147                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
+148                     \}
+149 
+150                     \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} != null) \{
+151 
+152                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}) > 0) \{
+153 
+154                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
       \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}));
-156 
-157                             \textcolor{comment}{/*}
-158 \textcolor{comment}{                             * Having to send data to main thread using messages}
-159 \textcolor{comment}{                             * as we are multithreading.}
-160 \textcolor{comment}{                             * If we try and use a standard call to function}
-161 \textcolor{comment}{                             * will cause a crash.}
-162 \textcolor{comment}{                             */}
-163                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
-164                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
-165 
-166                             Message message = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler}.obtainMessage();
-167                             message.setData(dataBundle);
-168                             message.sendToTarget();
-169 
-170                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}, \textcolor{stringliteral}{""});
-171                         \}
-172                     \}
-173 
-174                 \} \textcolor{keywordflow}{catch} (IOException e) \{
-175                     Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
-176                     \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
-177                     \textcolor{keywordflow}{return};
-178                 \}
-179             \}
-180 
-181         \}
-182 
-183         \textcolor{comment}{/* Close bluetooth socket */}
-184         \textcolor{keywordflow}{try} \{
-185             this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
-186         \} \textcolor{keywordflow}{catch} (IOException e) \{
-187             \textcolor{comment}{/* Do nothing */}
-188         \}
-189 
-190         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
-191         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = null;
-192         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
-193     \}
+155 
+156                             \textcolor{comment}{/*}
+157 \textcolor{comment}{                             * Having to send data to main thread using messages}
+158 \textcolor{comment}{                             * as we are multithreading.}
+159 \textcolor{comment}{                             * If we try and use a standard call to function}
+160 \textcolor{comment}{                             * will cause a crash.}
+161 \textcolor{comment}{                             */}
+162                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
+163                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
+164 
+165                             Message message = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler}.obtainMessage();
+166                             message.setData(dataBundle);
+167                             message.sendToTarget();
+168 
+169                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}, \textcolor{stringliteral}{""});
+170                         \}
+171                     \}
+172 
+173                 \} \textcolor{keywordflow}{catch} (IOException e) \{
+174                     Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
+175                     \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+176                     \textcolor{keywordflow}{return};
+177                 \}
+178             \}
+179 
+180         \}
+181 
+182         \textcolor{comment}{/* Close bluetooth socket */}
+183         \textcolor{keywordflow}{try} \{
+184             this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
+185         \} \textcolor{keywordflow}{catch} (IOException e) \{
+186             \textcolor{comment}{/* Do nothing */}
+187         \}
+188 
+189         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
+190         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = null;
+191         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+192     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}} 
 \index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!is\+Running@{is\+Running}}
@@ -231,9 +231,9 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+running.
 
 
 \begin{DoxyCode}
-206                                \{
-207         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running};
-208     \}
+205                                \{
+206         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running};
+207     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}} 
 \index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!is\+Connected@{is\+Connected}}
@@ -250,15 +250,15 @@ boolean -\/ Whether connection is still available.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-214                                  \{
-215         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
-216 
-217         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} != null) \{
-218             \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.isConnected())
-219                 result = \textcolor{keyword}{true};
-220         \}
-221         \textcolor{keywordflow}{return} result;
-222     \}
+213                                  \{
+214         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
+215 
+216         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} != null) \{
+217             \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.isConnected())
+218                 result = \textcolor{keyword}{true};
+219         \}
+220         \textcolor{keywordflow}{return} result;
+221     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}} 
 \index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!connect@{connect}}
@@ -276,31 +276,31 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+close().
 
 
 \begin{DoxyCode}
-230                                               \{
-231 
-232         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
-233         \textcolor{keywordflow}{try} \{
-234             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice}.createRfcommSocketToServiceRecord(
+229                                               \{
+230 
+231         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
+232         \textcolor{keywordflow}{try} \{
+233             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice}.createRfcommSocketToServiceRecord(
       \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6551312055376866c73f11721a45e26c}{uuid});
-235         \} \textcolor{keywordflow}{catch} (IOException e) \{
-236             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
-237             \textcolor{keywordflow}{throw} e;
-238         \}
-239 
-240         \textcolor{keywordflow}{try} \{
-241             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.connect();
-242         \} \textcolor{keywordflow}{catch} (IOException e) \{
-243             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
-244 
-245             \textcolor{comment}{/* Close our socket as unable to connect */}
-246             \textcolor{keywordflow}{try} \{
-247                 this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
-248             \} \textcolor{keywordflow}{catch} (IOException e2) \{
-249                 \textcolor{keywordflow}{throw} e2;
-250             \}
-251             \textcolor{keywordflow}{throw} e;
-252         \}
-253     \}
+234         \} \textcolor{keywordflow}{catch} (IOException e) \{
+235             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
+236             \textcolor{keywordflow}{throw} e;
+237         \}
+238 
+239         \textcolor{keywordflow}{try} \{
+240             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.connect();
+241         \} \textcolor{keywordflow}{catch} (IOException e) \{
+242             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
+243 
+244             \textcolor{comment}{/* Close our socket as unable to connect */}
+245             \textcolor{keywordflow}{try} \{
+246                 this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
+247             \} \textcolor{keywordflow}{catch} (IOException e2) \{
+248                 \textcolor{keywordflow}{throw} e2;
+249             \}
+250             \textcolor{keywordflow}{throw} e;
+251         \}
+252     \}
 \end{DoxyCode}
 
 

@@ -1,14 +1,13 @@
 /**
  * @file BTConnection.java
- * @author Jack Allister - 23042098
- * @date 2016-2017
  * @brief Class for holding containing bluetooth connection on app.
  *
  * Class runs in a seperate thread to main UI allowing for concurrent
  * transmission and receiving of data to/from the logging device.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
  */
-
-
 package com.jack.motorbikestatistics;
 
 import android.bluetooth.BluetoothDevice;
