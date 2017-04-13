@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]]
+  ['jsonbuffer',['jsonBuffer',['../logging-device_8ino.html#ae3799d2cbf8f13e21cbaef64b75c6833',1,'logging-device.ino']]],
+  ['jsonfilebuffer',['jsonFileBuffer',['../class_storage.html#a14a7ad7e46c7cd5983344b81fed4265f',1,'Storage']]]
 ];

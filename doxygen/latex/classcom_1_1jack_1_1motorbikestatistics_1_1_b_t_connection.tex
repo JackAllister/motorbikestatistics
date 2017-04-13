@@ -9,69 +9,300 @@ Inheritance diagram for com.\+jack.\+motorbikestatistics.\+B\+T\+Connection\+:\b
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}} 
-{\bfseries B\+T\+Connection} (Bluetooth\+Device bt\+Device)  throws I\+O\+Exception 
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}} 
-void {\bfseries set\+R\+X\+Handler} (Handler new\+Handler)
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}} 
-void {\bfseries run} ()
-\item 
+\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}{B\+T\+Connection} (Bluetooth\+Device \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{bt\+Device})  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}{B\+T\+Connection} class. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{set\+R\+X\+Handler} (Handler new\+Handler)
+\begin{DoxyCompactList}\small\item\em Setter function for R\+X\+Handler. \end{DoxyCompactList}\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}{run} ()
+\begin{DoxyCompactList}\small\item\em Main run procedure for new Runnable thread created. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a229363b085c81e1a42037075b675677d}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a229363b085c81e1a42037075b675677d}} 
-void {\bfseries stop} ()
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}} 
-boolean {\bfseries is\+Running} ()
-\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}} 
-boolean {\bfseries is\+Connected} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a229363b085c81e1a42037075b675677d}{stop} ()
+\begin{DoxyCompactList}\small\item\em Procedure to stop the bluetooth connection thread from running. \end{DoxyCompactList}\item 
+boolean \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}{is\+Running} ()
+\begin{DoxyCompactList}\small\item\em Function to check whether main connection thread is running. \end{DoxyCompactList}\item 
+boolean \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{is\+Connected} ()
+\begin{DoxyCompactList}\small\item\em Function to check whether BT connection is still valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-final Handler {\bfseries tx\+Handler}
-\end{DoxyCompactItemize}
+final Handler \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}{tx\+Handler}
+\begin{DoxyCompactList}\small\item\em Handler class for transmission of data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}} 
-void {\bfseries connect} ()  throws I\+O\+Exception 
-\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}{connect} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Procedure to create a connection to logging device. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}} 
-void {\bfseries close} ()  throws I\+O\+Exception 
-\end{DoxyCompactItemize}
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Closes the BT connection socket, exceptions thrown on failure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}} 
-Bluetooth\+Device {\bfseries bt\+Device}
-\item 
+Bluetooth\+Device \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{bt\+Device}
+\begin{DoxyCompactList}\small\item\em Bluetooth Device object, holds information for chosen slave. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}} 
-Handler {\bfseries R\+X\+Handler} = null
-\item 
+Handler \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{R\+X\+Handler} = null
+\begin{DoxyCompactList}\small\item\em Handler function where received data is sent to. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}} 
-Bluetooth\+Socket {\bfseries bt\+Socket} = null
-\item 
+Bluetooth\+Socket \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{bt\+Socket} = null
+\begin{DoxyCompactList}\small\item\em Socket created for bluetooth connection, used for T\+X/\+RX. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}} 
-volatile boolean {\bfseries running} = false
-\end{DoxyCompactItemize}
+volatile boolean \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = false
+\begin{DoxyCompactList}\small\item\em Indicates whether main run thread is in progress. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}} 
-static final String {\bfseries T\+AG} = \char`\"{}B\+T\+Connection\char`\"{}
-\item 
+static final String \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{T\+AG} = \char`\"{}B\+T\+Connection\char`\"{}
+\begin{DoxyCompactList}\small\item\em Tag using for debugging. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6551312055376866c73f11721a45e26c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6551312055376866c73f11721a45e26c}} 
-static final U\+U\+ID {\bfseries uuid} = U\+U\+I\+D.\+from\+String(\char`\"{}00001101-\/0000-\/1000-\/8000-\/00805f9b34fb\char`\"{})
-\item 
+static final U\+U\+ID \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6551312055376866c73f11721a45e26c}{uuid} = U\+U\+I\+D.\+from\+String(\char`\"{}00001101-\/0000-\/1000-\/8000-\/00805f9b34fb\char`\"{})
+\begin{DoxyCompactList}\small\item\em U\+U\+ID to allow Serial connection via BT. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}} 
-static final String {\bfseries N\+E\+W\+\_\+\+L\+I\+NE} = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
-\end{DoxyCompactItemize}
+static final String \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{N\+E\+W\+\_\+\+L\+I\+NE} = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em New line string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-Created by Jack on 26-\/\+Jan-\/17. 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a55a1c23b7bcf9dc097b10b62ce7828ba}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!B\+T\+Connection@{B\+T\+Connection}}
+\index{B\+T\+Connection@{B\+T\+Connection}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{B\+T\+Connection()}{BTConnection()}}
+{\footnotesize\ttfamily com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+B\+T\+Connection (\begin{DoxyParamCaption}\item[{Bluetooth\+Device}]{bt\+Device }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection}{B\+T\+Connection} class. 
+
+Sets the BT device interface used for this class and attempts a connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bt\+Device} & -\/ Device used for creating connection. \\
+\hline
+\end{DoxyParams}
+
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+bt\+Device, and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+connect().
+
+
+\begin{DoxyCode}
+57                                \{
+58         this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice};
+59 
+60         \textcolor{comment}{/* Connect the device so ready to use run */}
+61         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}{connect}();
+62     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!set\+R\+X\+Handler@{set\+R\+X\+Handler}}
+\index{set\+R\+X\+Handler@{set\+R\+X\+Handler}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{set\+R\+X\+Handler()}{setRXHandler()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler (\begin{DoxyParamCaption}\item[{Handler}]{new\+Handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter function for R\+X\+Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Handler} & -\/ The new Handler where RX\textquotesingle{}d data will be sent to. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+106                                                  \{
+107         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} = newHandler;
+108     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ae4c6a0897742c6a7ccfb0b43d0d987da}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!run@{run}}
+\index{run@{run}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Main run procedure for new Runnable thread created. 
+
+If connected procedure waits for data to be received. Parsing this received into lines and then splitting each line into a J\+S\+O\+N\+Object. If a valid J\+S\+O\+N\+Object is found it is then sends to the receive handler in a seperate thread (using messages). 
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+close(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Running().
+
+
+\begin{DoxyCode}
+119                       \{
+120         InputStream RXStream;
+121 
+122         \textcolor{comment}{/* Indicate that we are now running main thread */}
+123         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{true};
+124 
+125         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
+126             \textcolor{comment}{/* Get our input stream for receiving bytes */}
+127             \textcolor{keywordflow}{try} \{
+128                 RXStream = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.getInputStream();
+129             \} \textcolor{keywordflow}{catch} (IOException e) \{
+130                 Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
+131                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+132                 \textcolor{keywordflow}{return};
+133             \}
+134 
+135             \textcolor{comment}{/*}
+136 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
+137 \textcolor{comment}{             * and then send it to the handler}
+138 \textcolor{comment}{             */}
+139             String recvBuff = \textcolor{stringliteral}{""};
+140             \textcolor{keywordflow}{while} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}{isRunning}() && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
+141                 \textcolor{keywordflow}{try} \{
+142                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
+143 
+144                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
+145                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
+146                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
+147 
+148                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
+149                     \}
+150 
+151                     \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler} != null) \{
+152 
+153                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}) > 0) \{
+154 
+155                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
+      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}));
+156 
+157                             \textcolor{comment}{/*}
+158 \textcolor{comment}{                             * Having to send data to main thread using messages}
+159 \textcolor{comment}{                             * as we are multithreading.}
+160 \textcolor{comment}{                             * If we try and use a standard call to function}
+161 \textcolor{comment}{                             * will cause a crash.}
+162 \textcolor{comment}{                             */}
+163                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
+164                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
+165 
+166                             Message message = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a64fc7b02a2b9f052c6b05842b79b3cdc}{RXHandler}.obtainMessage();
+167                             message.setData(dataBundle);
+168                             message.sendToTarget();
+169 
+170                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aacec2fadb24352fd7fdeae731e3ed412}{NEW\_LINE}, \textcolor{stringliteral}{""});
+171                         \}
+172                     \}
+173 
+174                 \} \textcolor{keywordflow}{catch} (IOException e) \{
+175                     Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
+176                     \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+177                     \textcolor{keywordflow}{return};
+178                 \}
+179             \}
+180 
+181         \}
+182 
+183         \textcolor{comment}{/* Close bluetooth socket */}
+184         \textcolor{keywordflow}{try} \{
+185             this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
+186         \} \textcolor{keywordflow}{catch} (IOException e) \{
+187             \textcolor{comment}{/* Do nothing */}
+188         \}
+189 
+190         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
+191         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = null;
+192         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running} = \textcolor{keyword}{false};
+193     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{is\+Running()}{isRunning()}}
+{\footnotesize\ttfamily boolean com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check whether main connection thread is running. 
+
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether thread is running. 
+\end{DoxyReturn}
+
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+running.
+
+
+\begin{DoxyCode}
+206                                \{
+207         \textcolor{keywordflow}{return} \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6193b7b92b7f2905a3a43d63db40aba8}{running};
+208     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!is\+Connected@{is\+Connected}}
+\index{is\+Connected@{is\+Connected}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{is\+Connected()}{isConnected()}}
+{\footnotesize\ttfamily boolean com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check whether BT connection is still valid. 
+
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether connection is still available. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+214                                  \{
+215         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
+216 
+217         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} != null) \{
+218             \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.isConnected())
+219                 result = \textcolor{keyword}{true};
+220         \}
+221         \textcolor{keywordflow}{return} result;
+222     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a4c1b8ebff8a40a9cddd77a55b59b45af}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}!connect@{connect}}
+\index{connect@{connect}!com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection@{com\+::jack\+::motorbikestatistics\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Procedure to create a connection to logging device. 
+
+Creates a raw Serial socket via U\+U\+ID and then attempts to connect. Exceptions thrown on failure. 
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+close().
+
+
+\begin{DoxyCode}
+230                                               \{
+231 
+232         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
+233         \textcolor{keywordflow}{try} \{
+234             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket} = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af49e78cef4253d96f009a9a1473e038d}{btDevice}.createRfcommSocketToServiceRecord(
+      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a6551312055376866c73f11721a45e26c}{uuid});
+235         \} \textcolor{keywordflow}{catch} (IOException e) \{
+236             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
+237             \textcolor{keywordflow}{throw} e;
+238         \}
+239 
+240         \textcolor{keywordflow}{try} \{
+241             \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.connect();
+242         \} \textcolor{keywordflow}{catch} (IOException e) \{
+243             Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
+244 
+245             \textcolor{comment}{/* Close our socket as unable to connect */}
+246             \textcolor{keywordflow}{try} \{
+247                 this.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_ac1cd0e85a758db424a57010ac9bb87f0}{close}();
+248             \} \textcolor{keywordflow}{catch} (IOException e2) \{
+249                 \textcolor{keywordflow}{throw} e2;
+250             \}
+251             \textcolor{keywordflow}{throw} e;
+252         \}
+253     \}
+\end{DoxyCode}
+
 
 \subsection{Member Data Documentation}
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}} 
@@ -84,21 +315,22 @@ Created by Jack on 26-\/\+Jan-\/17.
 \begin{DoxyCode}
 = \textcolor{keyword}{new} Handler(Looper.getMainLooper()) \{
 
+        
         @Override
         \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg) \{
 
             
-            \textcolor{keywordflow}{if} (isConnected() && isRunning()) \{
+            \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}() && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a17b07494b0e7cba2e550054d7b47e309}{isRunning}()) \{
                 OutputStream TXStream;
 
                 
                 \textcolor{keywordflow}{try} \{
-                    TXStream = btSocket.getOutputStream();
+                    TXStream = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a0d47f94a35f7c8a07429975446e7b33b}{btSocket}.getOutputStream();
 
                     String txString = (String)msg.obj;
                     TXStream.write(txString.getBytes());
                 \} \textcolor{keywordflow}{catch} (IOException e) \{
-                    Log.e(TAG, \textcolor{stringliteral}{"Unable to use TXStream"}, e);
+                    Log.e(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_af9455991fec4de29ffc875eae117a761}{TAG}, \textcolor{stringliteral}{"Unable to use TXStream"}, e);
                     \textcolor{keywordflow}{return};
                 \}
             \}
@@ -107,6 +339,10 @@ Created by Jack on 26-\/\+Jan-\/17.
 \end{DoxyCode}
 
 
+Handler class for transmission of data. 
+
+Messages containing data to be transmitted are sent from main UI thread. 
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-android-\/app/app/src/main/java/com/jack/motorbikestatistics/B\+T\+Connection.\+java\end{DoxyCompactItemize}
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_b_t_connection_8java}{B\+T\+Connection.\+java}\end{DoxyCompactItemize}

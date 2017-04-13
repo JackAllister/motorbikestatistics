@@ -2,7 +2,10 @@ var searchData=
 [
   ['bt_5fbaud',['BT_BAUD',['../logging-device_8ino.html#a6882992121626898bccaa43be51ba4c2',1,'logging-device.ino']]],
   ['bt_5fserial',['BT_SERIAL',['../logging-device_8ino.html#ad1e6e6f6fc813b305067b9e1b0777ea6',1,'BT_SERIAL():&#160;logging-device.ino'],['../_storage_8cpp.html#ad1e6e6f6fc813b305067b9e1b0777ea6',1,'BT_SERIAL():&#160;Storage.cpp']]],
-  ['btconnection',['BTConnection',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html',1,'com::jack::motorbikestatistics']]],
+  ['btconnection',['BTConnection',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html',1,'com.jack.motorbikestatistics.BTConnection'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a55a1c23b7bcf9dc097b10b62ce7828ba',1,'com.jack.motorbikestatistics.BTConnection.BTConnection()']]],
+  ['btconnection_2ejava',['BTConnection.java',['../_b_t_connection_8java.html',1,'']]],
+  ['btdevice',['btDevice',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#af49e78cef4253d96f009a9a1473e038d',1,'com::jack::motorbikestatistics::BTConnection']]],
   ['btdeviceitem',['BTDeviceItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html',1,'com::jack::motorbikestatistics']]],
-  ['btdevicelistadapter',['BTDeviceListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html',1,'com::jack::motorbikestatistics']]]
+  ['btdevicelistadapter',['BTDeviceListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html',1,'com::jack::motorbikestatistics']]],
+  ['btsocket',['btSocket',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a0d47f94a35f7c8a07429975446e7b33b',1,'com::jack::motorbikestatistics::BTConnection']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['realtimemode',['realTimeMode',['../logging-device_8ino.html#ab4c1c4c0fa047e336f9f4176406a54f1',1,'logging-device.ino']]]
+  ['parsenewmode',['parseNewMode',['../logging-device_8ino.html#aec1eb39e3cfde6331c4d29938c952c84',1,'logging-device.ino']]],
+  ['pollimu',['pollIMU',['../class_orientation.html#aad568a473f999c181abac46a4d832387',1,'Orientation']]]
 ];

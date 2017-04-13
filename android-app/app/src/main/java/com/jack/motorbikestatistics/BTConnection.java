@@ -1,3 +1,14 @@
+/**
+ * @file BTConnection.java
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ * @brief Class for holding containing bluetooth connection on app.
+ *
+ * Class runs in a seperate thread to main UI allowing for concurrent
+ * transmission and receiving of data to/from the logging device.
+ */
+
+
 package com.jack.motorbikestatistics;
 
 import android.bluetooth.BluetoothDevice;
@@ -16,23 +27,32 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-/**
- * Created by Jack on 26-Jan-17.
- */
-
 public class BTConnection implements Runnable {
 
+    /** @brief Tag using for debugging */
     private static final String TAG = "BTConnection";
+    /** @brief UUID to allow Serial connection via BT */
     private static final UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+    /** @brief New line string */
     private static final String NEW_LINE = "\r\n";
 
+    /** @brief Bluetooth Device object, holds information for chosen slave */
     private BluetoothDevice btDevice;
+    /** @brief Handler function where received data is sent to */
     private Handler RXHandler = null;
-
+    /** @brief Socket created for bluetooth connection, used for TX/RX */
     private BluetoothSocket btSocket = null;
-
+    /** @brief Indicates whether main run thread is in progress */
     private volatile boolean running = false;
 
+    /**
+     * @brief Constructor for BTConnection class.
+     *
+     * Sets the BT device interface used for this class
+     * and attempts a connection.
+     *
+     * @param btDevice - Device used for creating connection.
+     */
     public BTConnection(BluetoothDevice btDevice)
             throws IOException {
         this.btDevice = btDevice;
@@ -41,8 +61,22 @@ public class BTConnection implements Runnable {
         connect();
     }
 
+    /**
+     * @brief Handler class for transmission of data.
+     *
+     * Messages containing data to be transmitted are sent from
+     * main UI thread.
+     */
     public final Handler txHandler = new Handler(Looper.getMainLooper()) {
 
+        /**
+         * @brief Handler function for transmission of data.
+         *
+         * Receives data from main UI thread that is then transmitted
+         * via BT serial to the logging device.
+         *
+         * @param msg - Message object containing data to be transmitted.
+         */
         @Override
         public void handleMessage(Message msg) {
 
@@ -64,10 +98,23 @@ public class BTConnection implements Runnable {
         }
     };
 
+    /**
+     * @brief Setter function for RXHandler.
+     *
+     * @param newHandler - The new Handler where RX'd data will be sent to.
+     */
     public void setRXHandler(Handler newHandler) {
         RXHandler = newHandler;
     }
 
+    /**
+     * @brief Main run procedure for new Runnable thread created.
+     *
+     * If connected procedure waits for data to be received.
+     * Parsing this received into lines and then splitting each line
+     * into a JSONObject. If a valid JSONObject is found it is then sends
+     * to the receive handler in a seperate thread (using messages).
+     */
     @Override
     public void run() {
         InputStream RXStream;
@@ -145,14 +192,25 @@ public class BTConnection implements Runnable {
         running = false;
     }
 
+    /**
+     * @brief Procedure to stop the bluetooth connection thread from running.
+     */
     public void stop() {
         running = false;
     }
 
+    /**
+     * @brief Function to check whether main connection thread is running.
+     * @return boolean - Whether thread is running.
+     */
     public boolean isRunning() {
         return running;
     }
 
+    /**
+     * @brief Function to check whether BT connection is still valid.
+     * @return boolean - Whether connection is still available.
+     */
     public boolean isConnected() {
         boolean result = false;
 
@@ -163,6 +221,12 @@ public class BTConnection implements Runnable {
         return result;
     }
 
+    /**
+     * @brief Procedure to create a connection to logging device.
+     *
+     * Creates a raw Serial socket via UUID and then attempts
+     * to connect. Exceptions thrown on failure.
+     */
     private void connect() throws IOException {
 
         /* Attempt to make connection to remote device, throw exception if not */
@@ -188,6 +252,9 @@ public class BTConnection implements Runnable {
         }
     }
 
+    /**
+     * @brief Closes the BT connection socket, exceptions thrown on failure.
+     */
     private void close() throws IOException {
         if (btSocket != null) {
             try {

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logging_2ddevice_2eino',['logging-device.ino',['../logging-device_8ino.html',1,'']]]
+  ['btconnection_2ejava',['BTConnection.java',['../_b_t_connection_8java.html',1,'']]]
 ];

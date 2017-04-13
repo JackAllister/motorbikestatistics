@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gps',['gps',['../logging-device_8ino.html#a169c53997a7da1d0fb99aec1b4675ce8',1,'logging-device.ino']]],
-  ['gpsjson',['gpsJSON',['../logging-device_8ino.html#a548727e041a5cd3db91bdbd0ccd71e30',1,'logging-device.ino']]]
+  ['filejson',['fileJSON',['../class_storage.html#ac503241aaa812f9b8ee36dd10cbd915a',1,'Storage']]],
+  ['filename',['fileName',['../class_storage.html#a7c3e886a0b8395c2045ab4f7e04481e1',1,'Storage']]]
 ];

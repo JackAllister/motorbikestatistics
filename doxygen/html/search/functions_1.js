@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['convertrawaccel',['convertRawAccel',['../class_orientation.html#ab8a6f65b7f2b43ec5dd09c47fe93fa0b',1,'Orientation']]],
-  ['convertrawgyro',['convertRawGyro',['../class_orientation.html#a99bb5ed3c3226c5d636fa48f26f491dd',1,'Orientation']]]
+  ['btconnection',['BTConnection',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a55a1c23b7bcf9dc097b10b62ce7828ba',1,'com::jack::motorbikestatistics::BTConnection']]]
 ];

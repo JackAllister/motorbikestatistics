@@ -97,17 +97,17 @@ Created by Jack on 23-\/\+Jan-\/17.
         @Override
         \textcolor{keyword}{public} \textcolor{keywordtype}{void} onItemClick(AdapterView<?> parent, View view, \textcolor{keywordtype}{int} position, \textcolor{keywordtype}{long} \textcolor{keywordtype}{id}) \{
 
-            \textcolor{keywordflow}{if} (btConnection != null && btConnection.isConnected()) \{
+            \textcolor{keywordflow}{if} (btConnection != null && btConnection.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
                 TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
 
                 
                 RealtimeFragment statFragment = \textcolor{keyword}{new} RealtimeFragment();
-                btConnection.setRXHandler(statFragment.RXHandler);
+                btConnection.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{setRXHandler}(statFragment.RXHandler);
 
                 
                 Message message = \textcolor{keyword}{new} Message();
                 message.obj = (String) LOAD\_TRIP\_CHAR + tripItem.getTripName();
-                message.setTarget(btConnection.txHandler);
+                message.setTarget(btConnection.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}{txHandler});
                 message.sendToTarget();
 
                 FragmentManager fragmentManager = getFragmentManager();

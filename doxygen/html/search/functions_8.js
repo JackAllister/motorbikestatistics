@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['savetofile',['saveToFile',['../class_storage.html#a044a17325b2917afca49aa19ddb488f6',1,'Storage']]],
-  ['sergps',['serGPS',['../logging-device_8ino.html#aa2475f51bdc0f31d16d2916991d618d9',1,'logging-device.ino']]],
-  ['setup',['setup',['../logging-device_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'logging-device.ino']]]
+  ['realtimemode',['realTimeMode',['../logging-device_8ino.html#ab4c1c4c0fa047e336f9f4176406a54f1',1,'logging-device.ino']]],
+  ['run',['run',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#ae4c6a0897742c6a7ccfb0b43d0d987da',1,'com::jack::motorbikestatistics::BTConnection']]]
 ];
