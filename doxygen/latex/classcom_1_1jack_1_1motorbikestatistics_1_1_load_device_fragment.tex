@@ -11,6 +11,11 @@ Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragmen
 \includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener}{Trip\+Item\+Listener}
+\begin{DoxyCompactList}\small\item\em Listener used to identify when a trip has been pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,9 +29,7 @@ void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment
 \begin{DoxyCompactItemize}
 \item 
 final Handler \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7c26c8686c290d8766b051f31473d716}{R\+X\+Handler}
-\begin{DoxyCompactList}\small\item\em Handler used for receiving trip names. \end{DoxyCompactList}\item 
-final List\+View.\+On\+Item\+Click\+Listener \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}{trip\+Click\+Listener}
-\begin{DoxyCompactList}\small\item\em Listener used to identify when a trip has been pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handler used for receiving trip names. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -96,16 +99,12 @@ Sets up the List\+View on the screen using our custom Array\+Adapter specificed.
 \hline
 {\em container} & -\/ Container where fragment will be shown. \\
 \hline
-{\em saved\+Instance} & -\/ Information holding past state. \\
+{\em saved\+Instance\+State} & -\/ Information holding past state. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 View -\/ Modified view to display on the UI. 
 \end{DoxyReturn}
-
-
-References com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+trip\+Click\+Listener.
-
 
 \begin{DoxyCode}
 72                                                                                                       \{
@@ -113,7 +112,7 @@ References com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+trip\+Cli
 74 
 75         \textcolor{comment}{/* Get our ListView via ID, set headers and create our ArrayAdapter for it */}
 76         ListView lvTripList = (ListView)myView.findViewById(R.id.loaddevice\_triplist);
-77         lvTripList.setOnItemClickListener(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}{tripClickListener});
+77         lvTripList.setOnItemClickListener(\textcolor{keyword}{new} TripItemListener());
 78 
 79         ViewGroup headerView = (ViewGroup)inflater.inflate(R.layout.trip\_list\_header, lvTripList, \textcolor{keyword}{false});
 80         lvTripList.addHeaderView(headerView);
@@ -227,47 +226,7 @@ Adds a trip to the List\+View specifying name and filesize.
 
 Handler used for receiving trip names. 
 
-Receives trip information from the bluetooth connection thread. Handler has to be used as system is multithreaded. \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a06ac1ecf82b1709e25421b1b77eb768c}} 
-\index{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}!trip\+Click\+Listener@{trip\+Click\+Listener}}
-\index{trip\+Click\+Listener@{trip\+Click\+Listener}!com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment}}
-\subsubsection{\texorpdfstring{trip\+Click\+Listener}{tripClickListener}}
-{\footnotesize\ttfamily final List\+View.\+On\+Item\+Click\+Listener com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+trip\+Click\+Listener}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}
-= \textcolor{keyword}{new} ListView.OnItemClickListener() \{
-
-        
-        @Override
-        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onItemClick(AdapterView<?> parent, View view, \textcolor{keywordtype}{int} position, \textcolor{keywordtype}{long} \textcolor{keywordtype}{id}) \{
-
-            \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection} != null && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.
-      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
-                TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
-
-                
-                RealtimeFragment statFragment = \textcolor{keyword}{new} RealtimeFragment();
-                \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{setRXHandler}(statFragment.RXHandler);
-
-                
-                Message message = \textcolor{keyword}{new} Message();
-                message.obj = (String) \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a484328e2963103665fae8801557bef73}{LOAD\_TRIP\_CHAR} + tripItem.getTripName();
-                message.setTarget(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}{txHandler});
-                message.sendToTarget();
-
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content\_frame, statFragment)
-                        .commit();
-            \}
-        \}
-    \}
-\end{DoxyCode}
-
-
-Listener used to identify when a trip has been pressed. 
-
-
+Receives trip information from the bluetooth connection thread. Handler has to be used as system is multithreaded. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

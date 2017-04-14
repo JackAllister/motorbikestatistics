@@ -1,0 +1,71 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener}{}\section{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener}\index{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener@{com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener}}
+
+
+Listener used to identify when a trip has been pressed.  
+
+
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener_a35dc92993831e354573218d4300a2f2a}{on\+Item\+Click} (Adapter\+View$<$?$>$ parent, View view, int position, long id)
+\begin{DoxyCompactList}\small\item\em Loads a trip the user has specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener used to identify when a trip has been pressed. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener_a35dc92993831e354573218d4300a2f2a}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener_a35dc92993831e354573218d4300a2f2a}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}!on\+Item\+Click@{on\+Item\+Click}}
+\index{on\+Item\+Click@{on\+Item\+Click}!com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener@{com\+::jack\+::motorbikestatistics\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}}
+\subsubsection{\texorpdfstring{on\+Item\+Click()}{onItemClick()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener.\+on\+Item\+Click (\begin{DoxyParamCaption}\item[{Adapter\+View$<$?$>$}]{parent,  }\item[{View}]{view,  }\item[{int}]{position,  }\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a trip the user has specified. 
+
+User has selected a trip via the List\+View, method switches to the statistic fragment and sends a message to logging device to load the specified trip (via name). 
+
+References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler.
+
+
+\begin{DoxyCode}
+138                                                                                          \{
+139 
+140             \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection} != null && \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.
+      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a22f33e46d9f460d78865d4c63b645357}{isConnected}()) \{
+141                 TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+142 
+143                 \textcolor{comment}{/*}
+144 \textcolor{comment}{                 * Create a new statistics fragment.}
+145 \textcolor{comment}{                 * This will receive the stored data from the logging device.}
+146 \textcolor{comment}{                 */}
+147                 RealtimeFragment statFragment = \textcolor{keyword}{new} RealtimeFragment();
+148                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{setRXHandler}(statFragment.RXHandler);
+149 
+150                 \textcolor{comment}{/* Transmit over the name of the trip we want to load */}
+151                 Message message = \textcolor{keyword}{new} Message();
+152                 message.obj = (String) \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a484328e2963103665fae8801557bef73}{LOAD\_TRIP\_CHAR} + tripItem.getTripName();
+153                 message.setTarget(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_a7a446c4528638e9d169481c3ff1471b0}{btConnection}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_a7a88b2007af6a9a5c8667a9f1df980cc}{txHandler});
+154                 message.sendToTarget();
+155 
+156                 FragmentManager fragmentManager = getFragmentManager();
+157                 fragmentManager.beginTransaction()
+158                         .replace(R.id.content\_frame, statFragment)
+159                         .commit();
+160             \}
+161         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_load_device_fragment_8java}{Load\+Device\+Fragment.\+java}\end{DoxyCompactItemize}

@@ -64,8 +64,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
@@ -74,6 +74,9 @@ $(function() {
 <div class="title">com.jack.motorbikestatistics.PairDeviceFragment Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>UI Class for discovering, pairing and connecting to the logging device.  
+ <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for com.jack.motorbikestatistics.PairDeviceFragment:</div>
 <div class="dyncontent">
@@ -83,100 +86,253 @@ Inheritance diagram for com.jack.motorbikestatistics.PairDeviceFragment:</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_item_listener.html">DeviceItemListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listener for when a ListView item is pressed (to connect).  <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_item_listener.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_button_listener.html">DiscoverButtonListener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listener for when discovery button is pressed.  <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_button_listener.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver.html">DiscoverReceiver</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receiver for when a new device is discovered.  <a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afc7756a10d0798aa2493b9c7f6b010ad"><td class="memItemLeft" align="right" valign="top"><a id="afc7756a10d0798aa2493b9c7f6b010ad"></a>
-View&#160;</td><td class="memItemRight" valign="bottom"><b>onCreateView</b> (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</td></tr>
+<tr class="memitem:a623b0f81d3d818bd816741bdccad6bd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a623b0f81d3d818bd816741bdccad6bd0">PairDeviceFragment</a> ()</td></tr>
+<tr class="memdesc:a623b0f81d3d818bd816741bdccad6bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for UI fragment.  <a href="#a623b0f81d3d818bd816741bdccad6bd0">More...</a><br /></td></tr>
+<tr class="separator:a623b0f81d3d818bd816741bdccad6bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7756a10d0798aa2493b9c7f6b010ad"><td class="memItemLeft" align="right" valign="top">View&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afc7756a10d0798aa2493b9c7f6b010ad">onCreateView</a> (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</td></tr>
+<tr class="memdesc:afc7756a10d0798aa2493b9c7f6b010ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function called when fragment is shown on UI.  <a href="#afc7756a10d0798aa2493b9c7f6b010ad">More...</a><br /></td></tr>
 <tr class="separator:afc7756a10d0798aa2493b9c7f6b010ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32debe1358d94bb1c972137f60d1aa36"><td class="memItemLeft" align="right" valign="top"><a id="a32debe1358d94bb1c972137f60d1aa36"></a>
-<a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html">BTConnection</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getBTConnection</b> ()</td></tr>
+<tr class="memitem:a32debe1358d94bb1c972137f60d1aa36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html">BTConnection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a32debe1358d94bb1c972137f60d1aa36">getBTConnection</a> ()</td></tr>
+<tr class="memdesc:a32debe1358d94bb1c972137f60d1aa36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for getting current connected device.  <a href="#a32debe1358d94bb1c972137f60d1aa36">More...</a><br /></td></tr>
 <tr class="separator:a32debe1358d94bb1c972137f60d1aa36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a73a8c234c66657d94a4382925aa91517"><td class="memItemLeft" align="right" valign="top">final BroadcastReceiver&#160;</td><td class="memItemRight" valign="bottom"><b>btReceiver</b></td></tr>
-<tr class="separator:a73a8c234c66657d94a4382925aa91517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61a96414649df9171ae051c3a2d4487"><td class="memItemLeft" align="right" valign="top">final ToggleButton.OnCheckedChangeListener&#160;</td><td class="memItemRight" valign="bottom"><b>toggleScanListener</b></td></tr>
-<tr class="separator:ad61a96414649df9171ae051c3a2d4487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ec3a304c1da2bc4e4d2ca16da764e23"><td class="memItemLeft" align="right" valign="top"><a id="a4ec3a304c1da2bc4e4d2ca16da764e23"></a>
-final ListView.OnItemClickListener&#160;</td><td class="memItemRight" valign="bottom"><b>listItemListener</b></td></tr>
-<tr class="separator:a4ec3a304c1da2bc4e4d2ca16da764e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a5be2be0c93319e38e39cf23943ab1c8c"><td class="memItemLeft" align="right" valign="top"><a id="a5be2be0c93319e38e39cf23943ab1c8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getNeededPrivileges</b> ()</td></tr>
+<tr class="memitem:a5be2be0c93319e38e39cf23943ab1c8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5be2be0c93319e38e39cf23943ab1c8c">getNeededPrivileges</a> ()</td></tr>
+<tr class="memdesc:a5be2be0c93319e38e39cf23943ab1c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prompts user for needed permissions of this application.  <a href="#a5be2be0c93319e38e39cf23943ab1c8c">More...</a><br /></td></tr>
 <tr class="separator:a5be2be0c93319e38e39cf23943ab1c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a11d29b376fa4676ab5852bba1369c0d0"><td class="memItemLeft" align="right" valign="top"><a id="a11d29b376fa4676ab5852bba1369c0d0"></a>
-boolean&#160;</td><td class="memItemRight" valign="bottom"><b>firstRun</b> = true</td></tr>
+boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a11d29b376fa4676ab5852bba1369c0d0">firstRun</a> = true</td></tr>
+<tr class="memdesc:a11d29b376fa4676ab5852bba1369c0d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check variable used to stop ListView from being re-populated. <br /></td></tr>
 <tr class="separator:a11d29b376fa4676ab5852bba1369c0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bf1c9b623a1b9891e0d574006cf8d5f"><td class="memItemLeft" align="right" valign="top"><a id="a1bf1c9b623a1b9891e0d574006cf8d5f"></a>
-ToggleButton&#160;</td><td class="memItemRight" valign="bottom"><b>btnScan</b></td></tr>
+ToggleButton&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a1bf1c9b623a1b9891e0d574006cf8d5f">btnScan</a></td></tr>
+<tr class="memdesc:a1bf1c9b623a1b9891e0d574006cf8d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan button, used for toggling discovery. <br /></td></tr>
 <tr class="separator:a1bf1c9b623a1b9891e0d574006cf8d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac21b65a91245ae03ebba675e41166ace"><td class="memItemLeft" align="right" valign="top"><a id="ac21b65a91245ae03ebba675e41166ace"></a>
-BluetoothAdapter&#160;</td><td class="memItemRight" valign="bottom"><b>btAdapter</b> = null</td></tr>
+BluetoothAdapter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a> = null</td></tr>
+<tr class="memdesc:ac21b65a91245ae03ebba675e41166ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mobile's bluetooth adapter. <br /></td></tr>
 <tr class="separator:ac21b65a91245ae03ebba675e41166ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a422043a997fbe99ca9391440ce8b1180"><td class="memItemLeft" align="right" valign="top"><a id="a422043a997fbe99ca9391440ce8b1180"></a>
-ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>btDeviceList</b></td></tr>
+ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">btDeviceList</a></td></tr>
+<tr class="memdesc:a422043a997fbe99ca9391440ce8b1180"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all devices, unpaired, paired &amp; connected. <br /></td></tr>
 <tr class="separator:a422043a997fbe99ca9391440ce8b1180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aace08948a2a397e9f724cfbf12256cfa"><td class="memItemLeft" align="right" valign="top"><a id="aace08948a2a397e9f724cfbf12256cfa"></a>
-ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>btPairedList</b></td></tr>
+ArrayList&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">btPairedList</a></td></tr>
+<tr class="memdesc:aace08948a2a397e9f724cfbf12256cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of only paired devices. <br /></td></tr>
 <tr class="separator:aace08948a2a397e9f724cfbf12256cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab5efcda2c2fe8db4420ec28ea2840f"><td class="memItemLeft" align="right" valign="top"><a id="a5ab5efcda2c2fe8db4420ec28ea2840f"></a>
-ArrayAdapter&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lvAdapter</b></td></tr>
+ArrayAdapter&lt; <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f">lvAdapter</a></td></tr>
+<tr class="memdesc:a5ab5efcda2c2fe8db4420ec28ea2840f"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI adapter for ListView that displays bluetooth devices. <br /></td></tr>
 <tr class="separator:a5ab5efcda2c2fe8db4420ec28ea2840f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb95960b8365f4696444ea7683ebbf93"><td class="memItemLeft" align="right" valign="top"><a id="afb95960b8365f4696444ea7683ebbf93"></a>
-<a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>btConnectedDevice</b> = null</td></tr>
+<a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html">BTDeviceItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a> = null</td></tr>
+<tr class="memdesc:afb95960b8365f4696444ea7683ebbf93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applications connected logging device. <br /></td></tr>
 <tr class="separator:afb95960b8365f4696444ea7683ebbf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6403005fa23383ae6a44576b83bd6681"><td class="memItemLeft" align="right" valign="top"><a id="a6403005fa23383ae6a44576b83bd6681"></a>
+<a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver.html">DiscoverReceiver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a6403005fa23383ae6a44576b83bd6681">btReceiver</a> = null</td></tr>
+<tr class="memdesc:a6403005fa23383ae6a44576b83bd6681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receiver class for when new device discovered. <br /></td></tr>
+<tr class="separator:a6403005fa23383ae6a44576b83bd6681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ad6297326ae50ec30b7936e190beba44b"><td class="memItemLeft" align="right" valign="top"><a id="ad6297326ae50ec30b7936e190beba44b"></a>
-static final int&#160;</td><td class="memItemRight" valign="bottom"><b>REQUEST_BLUETOOTH</b> = 1</td></tr>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ad6297326ae50ec30b7936e190beba44b">REQUEST_BLUETOOTH</a> = 1</td></tr>
+<tr class="memdesc:ad6297326ae50ec30b7936e190beba44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request code for activating bluetooth. <br /></td></tr>
 <tr class="separator:ad6297326ae50ec30b7936e190beba44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99e2ea55ac395622e937982582b2a6bf"><td class="memItemLeft" align="right" valign="top"><a id="a99e2ea55ac395622e937982582b2a6bf"></a>
-static final String&#160;</td><td class="memItemRight" valign="bottom"><b>CONNECTED_STATUS</b> = &quot;connected&quot;</td></tr>
+static final String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a99e2ea55ac395622e937982582b2a6bf">CONNECTED_STATUS</a> = &quot;connected&quot;</td></tr>
+<tr class="memdesc:a99e2ea55ac395622e937982582b2a6bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status to change <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html" title="Class used for holding core UI information of a bluetooth devices. ">BTDeviceItem</a> to when connected. <br /></td></tr>
 <tr class="separator:a99e2ea55ac395622e937982582b2a6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27b366d93919d4f48ab58834ce40b117"><td class="memItemLeft" align="right" valign="top"><a id="a27b366d93919d4f48ab58834ce40b117"></a>
-static final int&#160;</td><td class="memItemRight" valign="bottom"><b>BT_DISABLED_ICON</b> = R.drawable.ic_bluetooth_disabled_black_24px</td></tr>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a27b366d93919d4f48ab58834ce40b117">BT_DISABLED_ICON</a> = R.drawable.ic_bluetooth_disabled_black_24px</td></tr>
+<tr class="memdesc:a27b366d93919d4f48ab58834ce40b117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Icon ID to use when device is not connected. <br /></td></tr>
 <tr class="separator:a27b366d93919d4f48ab58834ce40b117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Created by Jack on 25-Jan-17. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a73a8c234c66657d94a4382925aa91517"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73a8c234c66657d94a4382925aa91517">&#9670;&nbsp;</a></span>btReceiver</h2>
+<div class="textblock"><p>UI Class for discovering, pairing and connecting to the logging device. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a623b0f81d3d818bd816741bdccad6bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623b0f81d3d818bd816741bdccad6bd0">&#9670;&nbsp;</a></span>PairDeviceFragment()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">final BroadcastReceiver com.jack.motorbikestatistics.PairDeviceFragment.btReceiver</td>
+          <td class="memname">com.jack.motorbikestatistics.PairDeviceFragment.PairDeviceFragment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> BroadcastReceiver() {</div><div class="line">        @Override</div><div class="line">        <span class="keyword">public</span> <span class="keywordtype">void</span> onReceive(Context context, Intent intent) {</div><div class="line">            String action = intent.getAction();</div><div class="line"></div><div class="line">            </div><div class="line">            <span class="keywordflow">if</span> (BluetoothDevice.ACTION_FOUND.equals(action))</div><div class="line">            {</div><div class="line">                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);</div><div class="line"></div><div class="line">                </div><div class="line">                BTDeviceItem newDevice = <span class="keyword">new</span> BTDeviceItem(device, <span class="stringliteral">&quot;unpaired&quot;</span>, BT_DISABLED_ICON);</div><div class="line">                lvAdapter.add(newDevice);</div><div class="line">                lvAdapter.notifyDataSetChanged();</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div></div><!-- fragment -->
+
+<p>Constructor for UI fragment. </p>
+<p>Get's the mobile's bluetooth adapter and sets up our lists of used for holding devices. </p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">/* Get bluetooth adapter for device &amp; create device arrays */</span></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a> = BluetoothAdapter.getDefaultAdapter();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">btDeviceList</a> = <span class="keyword">new</span> ArrayList&lt;BTDeviceItem&gt;();</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">btPairedList</a> = <span class="keyword">new</span> ArrayList&lt;BTDeviceItem&gt;();</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a6403005fa23383ae6a44576b83bd6681">btReceiver</a> = <span class="keyword">new</span> DiscoverReceiver();</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div><div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a6403005fa23383ae6a44576b83bd6681"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a6403005fa23383ae6a44576b83bd6681">com.jack.motorbikestatistics.PairDeviceFragment.btReceiver</a></div><div class="ttdeci">DiscoverReceiver btReceiver</div><div class="ttdoc">Receiver class for when new device discovered. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:75</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_ac21b65a91245ae03ebba675e41166ace"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">com.jack.motorbikestatistics.PairDeviceFragment.btAdapter</a></div><div class="ttdeci">BluetoothAdapter btAdapter</div><div class="ttdoc">Mobile&amp;#39;s bluetooth adapter. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:64</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a422043a997fbe99ca9391440ce8b1180"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">com.jack.motorbikestatistics.PairDeviceFragment.btDeviceList</a></div><div class="ttdeci">ArrayList&lt; BTDeviceItem &gt; btDeviceList</div><div class="ttdoc">List of all devices, unpaired, paired &amp; connected. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:67</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_aace08948a2a397e9f724cfbf12256cfa"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">com.jack.motorbikestatistics.PairDeviceFragment.btPairedList</a></div><div class="ttdeci">ArrayList&lt; BTDeviceItem &gt; btPairedList</div><div class="ttdoc">List of only paired devices. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:69</div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="ad61a96414649df9171ae051c3a2d4487"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad61a96414649df9171ae051c3a2d4487">&#9670;&nbsp;</a></span>toggleScanListener</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc7756a10d0798aa2493b9c7f6b010ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7756a10d0798aa2493b9c7f6b010ad">&#9670;&nbsp;</a></span>onCreateView()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">final ToggleButton.OnCheckedChangeListener com.jack.motorbikestatistics.PairDeviceFragment.toggleScanListener</td>
+          <td class="memname">View com.jack.motorbikestatistics.PairDeviceFragment.onCreateView </td>
+          <td>(</td>
+          <td class="paramtype">LayoutInflater&#160;</td>
+          <td class="paramname"><em>inflater</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ViewGroup&#160;</td>
+          <td class="paramname"><em>container</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Bundle&#160;</td>
+          <td class="paramname"><em>savedInstanceState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> ToggleButton.OnCheckedChangeListener() {</div><div class="line">        @Override</div><div class="line">        <span class="keyword">public</span> <span class="keywordtype">void</span> onCheckedChanged(CompoundButton buttonView, <span class="keywordtype">boolean</span> isChecked) {</div><div class="line"></div><div class="line">            IntentFilter filter = <span class="keyword">new</span> IntentFilter(BluetoothDevice.ACTION_FOUND);</div><div class="line">            <span class="keywordflow">if</span> (isChecked)</div><div class="line">            {</div><div class="line">                </div><div class="line">                lvAdapter.clear();</div><div class="line">                lvAdapter.addAll(btPairedList);</div><div class="line"></div><div class="line">                <span class="keywordflow">if</span> (btConnectedDevice != null)</div><div class="line">                    lvAdapter.add(btConnectedDevice);</div><div class="line"></div><div class="line">                getActivity().registerReceiver(btReceiver, filter);</div><div class="line">                btAdapter.startDiscovery();</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span></div><div class="line">            {</div><div class="line">                </div><div class="line">                getActivity().unregisterReceiver(btReceiver);</div><div class="line">                btAdapter.cancelDiscovery();</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div></div><!-- fragment -->
+
+<p>Function called when fragment is shown on UI. </p>
+<p>Sets up the UI ListView and Buttons. Add all paired devices for the bluetooth adapter to the ListView.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inflater</td><td>- Inflater used for displaying view. </td></tr>
+    <tr><td class="paramname">container</td><td>- Container that the view will be displayed on. </td></tr>
+    <tr><td class="paramname">savedInstanceState</td><td>- Last known state of this fragment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View - The UI view of this fragment. </dd></dl>
+
+<p class="reference">References <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">com.jack.motorbikestatistics.BTDeviceItem.getConnection()</a>, <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5be2be0c93319e38e39cf23943ab1c8c">com.jack.motorbikestatistics.PairDeviceFragment.getNeededPrivileges()</a>, <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a22f33e46d9f460d78865d4c63b645357">com.jack.motorbikestatistics.BTConnection.isConnected()</a>, and <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a17b07494b0e7cba2e550054d7b47e309">com.jack.motorbikestatistics.BTConnection.isRunning()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                                                                                      {</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        View myView = inflater.inflate(R.layout.pairdevice_layout, container, <span class="keyword">false</span>);</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment">/* Request needed privileges for bluetooth to work */</span></div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5be2be0c93319e38e39cf23943ab1c8c">getNeededPrivileges</a>();</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">/* Set our variables for UI buttons */</span></div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a1bf1c9b623a1b9891e0d574006cf8d5f">btnScan</a> = (ToggleButton)myView.findViewById(R.id.pairdevice_search);</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a1bf1c9b623a1b9891e0d574006cf8d5f">btnScan</a>.setOnCheckedChangeListener(<span class="keyword">new</span> DiscoverButtonListener());</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        ListView lvDevices = (ListView)myView.findViewById(R.id.pairdevice_deviceList);</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        lvDevices.setOnItemClickListener(<span class="keyword">new</span> DeviceItemListener());</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f">lvAdapter</a> = <span class="keyword">new</span> BTDeviceListAdapter(getActivity(), R.layout.device_list_item, <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">btDeviceList</a>);</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        lvDevices.setAdapter(<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f">lvAdapter</a>);</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="comment">/* Check and set up bluetooth adapter */</span></div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a> == null)</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            Toast.makeText(getActivity().getApplicationContext(),</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    <span class="stringliteral">&quot;This device has no bluetooth adapter&quot;</span>, Toast.LENGTH_LONG).show();</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="comment">/* Check to see if connected device still is connected */</span></div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a> != null)</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            {</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a>.<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">getConnection</a>().<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a22f33e46d9f460d78865d4c63b645357">isConnected</a>() ||</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                        !<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a>.<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">getConnection</a>().<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a17b07494b0e7cba2e550054d7b47e309">isRunning</a>())</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                {</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a> = null;</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            }</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="comment">/* firstRun check to list from being re-populated */</span></div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a11d29b376fa4676ab5852bba1369c0d0">firstRun</a>)</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            {</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a11d29b376fa4676ab5852bba1369c0d0">firstRun</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="comment">/* Enable bluetooth adapter if disabled */</span></div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a>.isEnabled())</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                {</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    Intent enableBT = <span class="keyword">new</span> Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    startActivityForResult(enableBT, <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ad6297326ae50ec30b7936e190beba44b">REQUEST_BLUETOOTH</a>);</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                }</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">while</span> (!<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a>.isEnabled())</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                {</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="comment">/* Wait for BT to be enabled */</span></div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                }</div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="comment">/* Add all paired devices to list */</span></div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                Set&lt;BluetoothDevice&gt; pairedDevices = <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">btAdapter</a>.getBondedDevices();</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">if</span> (pairedDevices.size() &gt; 0)</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                {</div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    <span class="keywordflow">for</span> (BluetoothDevice device : pairedDevices)</div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    {</div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                        BTDeviceItem newDevice =</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                            <span class="keyword">new</span> BTDeviceItem(device, <span class="stringliteral">&quot;paired&quot;</span>, <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a27b366d93919d4f48ab58834ce40b117">BT_DISABLED_ICON</a>);</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">btPairedList</a>.add(newDevice);</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    }</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                }</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">btDeviceList</a>.addAll(<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">btPairedList</a>);</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            }</div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">return</span> myView;</div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div><div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a11d29b376fa4676ab5852bba1369c0d0"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a11d29b376fa4676ab5852bba1369c0d0">com.jack.motorbikestatistics.PairDeviceFragment.firstRun</a></div><div class="ttdeci">boolean firstRun</div><div class="ttdoc">Check variable used to stop ListView from being re-populated. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:58</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a5ab5efcda2c2fe8db4420ec28ea2840f"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f">com.jack.motorbikestatistics.PairDeviceFragment.lvAdapter</a></div><div class="ttdeci">ArrayAdapter&lt; BTDeviceItem &gt; lvAdapter</div><div class="ttdoc">UI adapter for ListView that displays bluetooth devices. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:71</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a27b366d93919d4f48ab58834ce40b117"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a27b366d93919d4f48ab58834ce40b117">com.jack.motorbikestatistics.PairDeviceFragment.BT_DISABLED_ICON</a></div><div class="ttdeci">static final int BT_DISABLED_ICON</div><div class="ttdoc">Icon ID to use when device is not connected. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:55</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item_html_ac3fbff10e5a5b3142ef648bf186b9be0"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">com.jack.motorbikestatistics.BTDeviceItem.getConnection</a></div><div class="ttdeci">BTConnection getConnection()</div><div class="ttdoc">Getter for the bluetooth connection of specified device. </div><div class="ttdef"><b>Definition:</b> BTDeviceItem.java:33</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_ac21b65a91245ae03ebba675e41166ace"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ac21b65a91245ae03ebba675e41166ace">com.jack.motorbikestatistics.PairDeviceFragment.btAdapter</a></div><div class="ttdeci">BluetoothAdapter btAdapter</div><div class="ttdoc">Mobile&amp;#39;s bluetooth adapter. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:64</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a422043a997fbe99ca9391440ce8b1180"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a422043a997fbe99ca9391440ce8b1180">com.jack.motorbikestatistics.PairDeviceFragment.btDeviceList</a></div><div class="ttdeci">ArrayList&lt; BTDeviceItem &gt; btDeviceList</div><div class="ttdoc">List of all devices, unpaired, paired &amp; connected. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:67</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_afb95960b8365f4696444ea7683ebbf93"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">com.jack.motorbikestatistics.PairDeviceFragment.btConnectedDevice</a></div><div class="ttdeci">BTDeviceItem btConnectedDevice</div><div class="ttdoc">Applications connected logging device. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:73</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a5be2be0c93319e38e39cf23943ab1c8c"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5be2be0c93319e38e39cf23943ab1c8c">com.jack.motorbikestatistics.PairDeviceFragment.getNeededPrivileges</a></div><div class="ttdeci">void getNeededPrivileges()</div><div class="ttdoc">Prompts user for needed permissions of this application. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:196</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_ad6297326ae50ec30b7936e190beba44b"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#ad6297326ae50ec30b7936e190beba44b">com.jack.motorbikestatistics.PairDeviceFragment.REQUEST_BLUETOOTH</a></div><div class="ttdeci">static final int REQUEST_BLUETOOTH</div><div class="ttdoc">Request code for activating bluetooth. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:51</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_html_a17b07494b0e7cba2e550054d7b47e309"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a17b07494b0e7cba2e550054d7b47e309">com.jack.motorbikestatistics.BTConnection.isRunning</a></div><div class="ttdeci">boolean isRunning()</div><div class="ttdoc">Function to check whether main connection thread is running. </div><div class="ttdef"><b>Definition:</b> BTConnection.java:208</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_a1bf1c9b623a1b9891e0d574006cf8d5f"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a1bf1c9b623a1b9891e0d574006cf8d5f">com.jack.motorbikestatistics.PairDeviceFragment.btnScan</a></div><div class="ttdeci">ToggleButton btnScan</div><div class="ttdoc">Scan button, used for toggling discovery. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:60</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_aace08948a2a397e9f724cfbf12256cfa"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#aace08948a2a397e9f724cfbf12256cfa">com.jack.motorbikestatistics.PairDeviceFragment.btPairedList</a></div><div class="ttdeci">ArrayList&lt; BTDeviceItem &gt; btPairedList</div><div class="ttdoc">List of only paired devices. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:69</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_html_a22f33e46d9f460d78865d4c63b645357"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a22f33e46d9f460d78865d4c63b645357">com.jack.motorbikestatistics.BTConnection.isConnected</a></div><div class="ttdeci">boolean isConnected()</div><div class="ttdoc">Function to check whether BT connection is still valid. </div><div class="ttdef"><b>Definition:</b> BTConnection.java:216</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a32debe1358d94bb1c972137f60d1aa36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32debe1358d94bb1c972137f60d1aa36">&#9670;&nbsp;</a></span>getBTConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html">BTConnection</a> com.jack.motorbikestatistics.PairDeviceFragment.getBTConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for getting current connected device. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html" title="Thread class for a new bluetooth connection to a device. ">BTConnection</a> - Bluetooth device (logging device). </dd></dl>
+
+<p class="reference">References <a class="el" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">com.jack.motorbikestatistics.BTDeviceItem.getConnection()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    {</div><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a> != null) {</div><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">btConnectedDevice</a>.<a class="code" href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">getConnection</a>();</div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        } <span class="keywordflow">else</span> {</div><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">return</span> null;</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div><div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item_html_ac3fbff10e5a5b3142ef648bf186b9be0"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#ac3fbff10e5a5b3142ef648bf186b9be0">com.jack.motorbikestatistics.BTDeviceItem.getConnection</a></div><div class="ttdeci">BTConnection getConnection()</div><div class="ttdoc">Getter for the bluetooth connection of specified device. </div><div class="ttdef"><b>Definition:</b> BTDeviceItem.java:33</div></div>
+<div class="ttc" id="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_html_afb95960b8365f4696444ea7683ebbf93"><div class="ttname"><a href="classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afb95960b8365f4696444ea7683ebbf93">com.jack.motorbikestatistics.PairDeviceFragment.btConnectedDevice</a></div><div class="ttdeci">BTDeviceItem btConnectedDevice</div><div class="ttdoc">Applications connected logging device. </div><div class="ttdef"><b>Definition:</b> PairDeviceFragment.java:73</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5be2be0c93319e38e39cf23943ab1c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5be2be0c93319e38e39cf23943ab1c8c">&#9670;&nbsp;</a></span>getNeededPrivileges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void com.jack.motorbikestatistics.PairDeviceFragment.getNeededPrivileges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prompts user for needed permissions of this application. </p>
+<p>Due to android using a permissions/access method this method parses through each permission needed and prompts the user to accept. </p>
+<div class="fragment"><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keyword">final</span> <span class="keywordtype">int</span> REQUEST_CODE = 5;</div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordtype">boolean</span> permsGranted = <span class="keyword">true</span>;</div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        String[] permsToRequest =</div><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                {</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                        Manifest.permission.BLUETOOTH_ADMIN,</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                        Manifest.permission.BLUETOOTH,</div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                        Manifest.permission.ACCESS_FINE_LOCATION,</div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                        Manifest.permission.ACCESS_COARSE_LOCATION</div><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                };</div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">for</span> (String permission: permsToRequest)</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        {</div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            permsGranted &amp;= (ContextCompat.checkSelfPermission(getActivity(), permission) == PackageManager.PERMISSION_GRANTED);</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        }</div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">if</span> (!permsGranted)</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        {</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            ActivityCompat.requestPermissions(getActivity(), permsToRequest, REQUEST_CODE);</div><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        }</div><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>android-app/app/src/main/java/com/jack/motorbikestatistics/PairDeviceFragment.java</li>
+<li>android-app/app/src/main/java/com/jack/motorbikestatistics/<a class="el" href="_pair_device_fragment_8java.html">PairDeviceFragment.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

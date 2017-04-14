@@ -168,7 +168,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         /* Set our info window adapter class that is shown when marker clicked */
-        mMap.setInfoWindowAdapter(infoWindowAdapter);
+        mMap.setInfoWindowAdapter(new StatisticWindowAdapter());
 
         /* If we have no data don't bother plotting points */
         if (jsonList.size() != 0)
@@ -233,7 +233,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * @brief Adapter used for displaying statistics at a certain marker
      * that user has clicked on.
      */
-    private final GoogleMap.InfoWindowAdapter infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
+    private class StatisticWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
         /**
          * @brief We don't want to use default information window.
@@ -312,6 +312,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             return v;
         }
-    };
+    }
 
 }

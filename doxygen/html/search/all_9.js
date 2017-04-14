@@ -14,5 +14,5 @@ var searchData=
   ['log_5fname',['LOG_NAME',['../_storage_8cpp.html#abbd544044b4167ca397bfb6e3073aa50',1,'Storage.cpp']]],
   ['logging_2ddevice_2eino',['logging-device.ino',['../logging-device_8ino.html',1,'']]],
   ['loop',['loop',['../logging-device_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'logging-device.ino']]],
-  ['lvadapter',['lvAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a3ccc43db37a3b6d9a7dc345e9ab78d6b',1,'com::jack::motorbikestatistics::LoadDeviceFragment']]]
+  ['lvadapter',['lvAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a3ccc43db37a3b6d9a7dc345e9ab78d6b',1,'com.jack.motorbikestatistics.LoadDeviceFragment.lvAdapter()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f',1,'com.jack.motorbikestatistics.PairDeviceFragment.lvAdapter()']]]
 ];

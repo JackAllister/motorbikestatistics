@@ -11,6 +11,11 @@ Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Maps\+Activity\+:\beg
 \includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic_window_adapter}{Statistic\+Window\+Adapter}
+\begin{DoxyCompactList}\small\item\em Adapter used for displaying statistics at a certain marker that user has clicked on. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,10 +43,7 @@ Google\+Map \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity
 \begin{DoxyCompactList}\small\item\em Google maps object for plotting. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaed26c36e08dad942830ab52d9d75d2e}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaed26c36e08dad942830ab52d9d75d2e}} 
 Array\+List$<$ J\+S\+O\+N\+Object $>$ \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaed26c36e08dad942830ab52d9d75d2e}{json\+List} = new Array\+List$<$J\+S\+O\+N\+Object$>$()
-\begin{DoxyCompactList}\small\item\em Array\+List holding all trip data. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_ae1d8944364b8deb189ee2c40471616b5}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_ae1d8944364b8deb189ee2c40471616b5}} 
-final Google\+Map.\+Info\+Window\+Adapter \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_ae1d8944364b8deb189ee2c40471616b5}{info\+Window\+Adapter}
-\begin{DoxyCompactList}\small\item\em Adapter used for displaying statistics at a certain marker that user has clicked on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Array\+List holding all trip data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -224,7 +226,7 @@ If Google Play services is not installed on the device, the user will be prompte
 \end{DoxyParams}
 
 
-References com.\+jack.\+motorbikestatistics.\+Maps\+Activity.\+calc\+Distance(), gps\+J\+S\+ON, and com.\+jack.\+motorbikestatistics.\+Maps\+Activity.\+info\+Window\+Adapter.
+References com.\+jack.\+motorbikestatistics.\+Maps\+Activity.\+calc\+Distance(), and gps\+J\+S\+ON.
 
 
 \begin{DoxyCode}
@@ -234,7 +236,7 @@ References com.\+jack.\+motorbikestatistics.\+Maps\+Activity.\+calc\+Distance(),
 168         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaace5219464acf3df9ac5e9ce913eef5}{mMap}.setMapType(GoogleMap.MAP\_TYPE\_HYBRID);
 169 
 170         \textcolor{comment}{/* Set our info window adapter class that is shown when marker clicked */}
-171         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaace5219464acf3df9ac5e9ce913eef5}{mMap}.setInfoWindowAdapter(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_ae1d8944364b8deb189ee2c40471616b5}{infoWindowAdapter});
+171         \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaace5219464acf3df9ac5e9ce913eef5}{mMap}.setInfoWindowAdapter(\textcolor{keyword}{new} StatisticWindowAdapter());
 172 
 173         \textcolor{comment}{/* If we have no data don't bother plotting points */}
 174         \textcolor{keywordflow}{if} (\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_aaed26c36e08dad942830ab52d9d75d2e}{jsonList}.size() != 0)

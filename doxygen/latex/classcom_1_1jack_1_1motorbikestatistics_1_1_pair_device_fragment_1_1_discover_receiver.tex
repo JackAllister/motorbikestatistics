@@ -1,0 +1,64 @@
+\hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver}{}\section{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+Discover\+Receiver Class Reference}
+\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver}\index{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+Discover\+Receiver@{com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+Discover\+Receiver}}
+
+
+Receiver for when a new device is discovered.  
+
+
+Inheritance diagram for com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+Discover\+Receiver\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver_a2581f3c35ac5161b0ee10dfa4a94d05b}{on\+Receive} (Context context, Intent intent)
+\begin{DoxyCompactList}\small\item\em When a BT device is found, adds the device to the List\+View. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Receiver for when a new device is discovered. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver_a2581f3c35ac5161b0ee10dfa4a94d05b}\label{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver_a2581f3c35ac5161b0ee10dfa4a94d05b}} 
+\index{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}!on\+Receive@{on\+Receive}}
+\index{on\+Receive@{on\+Receive}!com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver@{com\+::jack\+::motorbikestatistics\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}}
+\subsubsection{\texorpdfstring{on\+Receive()}{onReceive()}}
+{\footnotesize\ttfamily void com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+Discover\+Receiver.\+on\+Receive (\begin{DoxyParamCaption}\item[{Context}]{context,  }\item[{Intent}]{intent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+When a BT device is found, adds the device to the List\+View. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & -\/ Context that the application is running in. \\
+\hline
+{\em intent} & -\/ Intent holding the device object. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+231                                                               \{
+232             String action = intent.getAction();
+233 
+234             \textcolor{comment}{/* Check to see if found device */}
+235             \textcolor{keywordflow}{if} (BluetoothDevice.ACTION\_FOUND.equals(action))
+236             \{
+237                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA\_DEVICE);
+238 
+239                 \textcolor{comment}{/* Create new device item and add to list */}
+240                 BTDeviceItem newDevice = \textcolor{keyword}{new} BTDeviceItem(device, \textcolor{stringliteral}{"unpaired"}, 
+      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a27b366d93919d4f48ab58834ce40b117}{BT\_DISABLED\_ICON});
+241                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5ab5efcda2c2fe8db4420ec28ea2840f}{lvAdapter}.add(newDevice);
+242                 \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a5ab5efcda2c2fe8db4420ec28ea2840f}{lvAdapter}.notifyDataSetChanged();
+243             \}
+244         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_pair_device_fragment_8java}{Pair\+Device\+Fragment.\+java}\end{DoxyCompactItemize}

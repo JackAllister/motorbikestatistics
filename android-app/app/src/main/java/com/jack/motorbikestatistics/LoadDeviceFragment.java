@@ -64,7 +64,7 @@ public class LoadDeviceFragment extends Fragment {
      *
      * @param inflater - Inflater used to load fragment on UI.
      * @param container - Container where fragment will be shown.
-     * @param savedInstance - Information holding past state.
+     * @param savedInstanceState - Information holding past state.
      * @return View - Modified view to display on the UI.
      */
     @Nullable
@@ -74,7 +74,7 @@ public class LoadDeviceFragment extends Fragment {
 
         /* Get our ListView via ID, set headers and create our ArrayAdapter for it */
         ListView lvTripList = (ListView)myView.findViewById(R.id.loaddevice_triplist);
-        lvTripList.setOnItemClickListener(tripClickListener);
+        lvTripList.setOnItemClickListener(new TripItemListener());
 
         ViewGroup headerView = (ViewGroup)inflater.inflate(R.layout.trip_list_header, lvTripList, false);
         lvTripList.addHeaderView(headerView);
@@ -123,6 +123,45 @@ public class LoadDeviceFragment extends Fragment {
     }
 
     /**
+     * @brief Listener used to identify when a trip has been pressed.
+     */
+    private class TripItemListener implements ListView.OnItemClickListener {
+
+        /**
+         * @brief Loads a trip the user has specified.
+         *
+         * User has selected a trip via the ListView, method switches
+         * to the statistic fragment and sends a message to logging device
+         * to load the specified trip (via name).
+         */
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            if (btConnection != null && btConnection.isConnected()) {
+                TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+
+                /*
+                 * Create a new statistics fragment.
+                 * This will receive the stored data from the logging device.
+                 */
+                RealtimeFragment statFragment = new RealtimeFragment();
+                btConnection.setRXHandler(statFragment.RXHandler);
+
+                /* Transmit over the name of the trip we want to load */
+                Message message = new Message();
+                message.obj = (String) LOAD_TRIP_CHAR + tripItem.getTripName();
+                message.setTarget(btConnection.txHandler);
+                message.sendToTarget();
+
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, statFragment)
+                        .commit();
+            }
+        }
+    }
+
+    /**
      * @brief Handler used for receiving trip names.
      *
      * Receives trip information from the bluetooth connection thread.
@@ -156,45 +195,6 @@ public class LoadDeviceFragment extends Fragment {
                 } catch (JSONException e) {
                     /* Ignore line if exception */
                 }
-            }
-        }
-    };
-
-    /**
-     * @brief Listener used to identify when a trip has been pressed.
-     */
-    public final ListView.OnItemClickListener tripClickListener = new ListView.OnItemClickListener() {
-
-        /**
-         * @brief Loads a trip the user has specified.
-         *
-         * User has selected a trip via the ListView, method switches
-         * to the statistic fragment and sends a message to logging device
-         * to load the specified trip (via name).
-         */
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            if (btConnection != null && btConnection.isConnected()) {
-                TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
-
-                /*
-                 * Create a new statistics fragment.
-                 * This will receive the stored data from the logging device.
-                 */
-                RealtimeFragment statFragment = new RealtimeFragment();
-                btConnection.setRXHandler(statFragment.RXHandler);
-
-                /* Transmit over the name of the trip we want to load */
-                Message message = new Message();
-                message.obj = (String) LOAD_TRIP_CHAR + tripItem.getTripName();
-                message.setTarget(btConnection.txHandler);
-                message.sendToTarget();
-
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, statFragment)
-                        .commit();
             }
         }
     };

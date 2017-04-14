@@ -110,7 +110,7 @@ Method also responsible for change system state machine on the logging device, t
 \end{DoxyParams}
 
 
-References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+ld\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+pd\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+rt\+Fragment, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+R\+X\+Handler, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+set\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler.
+References com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+get\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+ld\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+pd\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+rt\+Fragment, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+R\+X\+Handler, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+set\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler.
 
 
 \begin{DoxyCode}
@@ -125,7 +125,7 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected()
 113         \textcolor{keywordflow}{switch} (\textcolor{keywordtype}{id}) \{
 114             \textcolor{keywordflow}{case} R.id.nav\_realtime: \{
 115                 \textcolor{comment}{/* Get our bluetooth connection from pairing fragment */}
-116                 BTConnection btConn = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a2802ad16b5fdba42834d1b31e255dd96}{pdFragment}.getBTConnection();
+116                 BTConnection btConn = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a2802ad16b5fdba42834d1b31e255dd96}{pdFragment}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a32debe1358d94bb1c972137f60d1aa36}{getBTConnection}();
 117 
 118                 \textcolor{keywordflow}{if} (btConn != null && btConn.isConnected()) \{
 119                     \textcolor{comment}{/* We set our RX handler and also send our command to indicate mode change */}
@@ -148,7 +148,7 @@ References com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected()
 136 
 137             \textcolor{keywordflow}{case} R.id.nav\_loaddevice: \{
 138                 \textcolor{comment}{/* Get our bluetooth connection from pairing fragment */}
-139                 BTConnection btConn = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a2802ad16b5fdba42834d1b31e255dd96}{pdFragment}.getBTConnection();
+139                 BTConnection btConn = \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a2802ad16b5fdba42834d1b31e255dd96}{pdFragment}.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_a32debe1358d94bb1c972137f60d1aa36}{getBTConnection}();
 140 
 141                 \textcolor{keywordflow}{if} (btConn != null && btConn.isConnected()) \{
 142                     \textcolor{comment}{/* We set our RX handler and also send our command to indicate mode change */}

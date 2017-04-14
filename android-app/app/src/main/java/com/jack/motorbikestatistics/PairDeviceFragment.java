@@ -1,3 +1,16 @@
+/**
+ * @file PairDeviceFragment.java
+ * @brief Fragment/Tab for connecting to the logging device.
+ *
+ * Implements Android's bluetooth API to discover, pair and connecting
+ * to the logging device.
+ *
+ * Communication to the logging device is done via using Serial
+ * data mode.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.Manifest;
@@ -30,37 +43,64 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 
 /**
- * Created by Jack on 25-Jan-17.
+ * @brief UI Class for discovering, pairing and connecting to
+ * the logging device.
  */
-
 public class PairDeviceFragment extends Fragment {
+    /** @brief Request code for activating bluetooth. */
     private final static int REQUEST_BLUETOOTH = 1;
+    /** @brief Status to change BTDeviceItem to when connected. */
     private final static String CONNECTED_STATUS = "connected";
+    /** @brief Icon ID to use when device is not connected. */
     private final static int BT_DISABLED_ICON = R.drawable.ic_bluetooth_disabled_black_24px;
 
+    /** @brief Check variable used to stop ListView from being re-populated. */
     private boolean firstRun = true;
-
+    /** @brief Scan button, used for toggling discovery. */
     private ToggleButton btnScan;
 
     /* Bluetooth variables */
+    /** @brief Mobile's bluetooth adapter. */
     private BluetoothAdapter btAdapter = null;
 
+    /** @brief List of all devices, unpaired, paired & connected. */
     private ArrayList<BTDeviceItem> btDeviceList;
+    /** @brief List of only paired devices. */
     private ArrayList<BTDeviceItem> btPairedList;
+    /** @brief UI adapter for ListView that displays bluetooth devices. */
     private ArrayAdapter<BTDeviceItem> lvAdapter;
-
+    /** @brief Applications connected logging device. */
     private BTDeviceItem btConnectedDevice = null;
+    /** @brief Receiver class for when new device discovered. */
+    private DiscoverReceiver btReceiver = null;
 
 
-
+    /**
+     * @brief Constructor for UI fragment.
+     *
+     * Get's the mobile's bluetooth adapter and sets
+     * up our lists of used for holding devices.
+     */
     public PairDeviceFragment()
     {
         /* Get bluetooth adapter for device & create device arrays */
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         btDeviceList = new ArrayList<BTDeviceItem>();
         btPairedList = new ArrayList<BTDeviceItem>();
+        btReceiver = new DiscoverReceiver();
     }
 
+    /**
+     * @brief Function called when fragment is shown on UI.
+     *
+     * Sets up the UI ListView and Buttons.
+     * Add all paired devices for the bluetooth adapter to the ListView.
+     *
+     * @param inflater - Inflater used for displaying view.
+     * @param container - Container that the view will be displayed on.
+     * @param savedInstanceState - Last known state of this fragment.
+     * @return View - The UI view of this fragment.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,10 +112,10 @@ public class PairDeviceFragment extends Fragment {
 
         /* Set our variables for UI buttons */
         btnScan = (ToggleButton)myView.findViewById(R.id.pairdevice_search);
-        btnScan.setOnCheckedChangeListener(toggleScanListener);
+        btnScan.setOnCheckedChangeListener(new DiscoverButtonListener());
 
         ListView lvDevices = (ListView)myView.findViewById(R.id.pairdevice_deviceList);
-        lvDevices.setOnItemClickListener(listItemListener);
+        lvDevices.setOnItemClickListener(new DeviceItemListener());
 
         lvAdapter = new BTDeviceListAdapter(getActivity(), R.layout.device_list_item, btDeviceList);
         lvDevices.setAdapter(lvAdapter);
@@ -134,6 +174,10 @@ public class PairDeviceFragment extends Fragment {
         return myView;
     }
 
+    /**
+     * @brief Getter for getting current connected device.
+     * @return BTConnection - Bluetooth device (logging device).
+     */
     public BTConnection getBTConnection()
     {
         if (btConnectedDevice != null) {
@@ -143,6 +187,12 @@ public class PairDeviceFragment extends Fragment {
         }
     }
 
+    /**
+     * @brief Prompts user for needed permissions of this application.
+     *
+     * Due to android using a permissions/access method this method
+     * parses through each permission needed and prompts the user to accept.
+     */
     private void getNeededPrivileges()
     {
         final int REQUEST_CODE = 5;
@@ -167,7 +217,16 @@ public class PairDeviceFragment extends Fragment {
         }
     }
 
-    public final BroadcastReceiver btReceiver = new BroadcastReceiver() {
+    /**
+     * @brief Receiver for when a new device is discovered.
+     */
+    private class DiscoverReceiver extends BroadcastReceiver {
+        /**
+         * @brief When a BT device is found, adds the device to the ListView.
+         *
+         * @param context - Context that the application is running in.
+         * @param intent - Intent holding the device object.
+         */
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
@@ -183,9 +242,22 @@ public class PairDeviceFragment extends Fragment {
                 lvAdapter.notifyDataSetChanged();
             }
         }
-    };
+    }
 
-    public final ToggleButton.OnCheckedChangeListener toggleScanListener = new ToggleButton.OnCheckedChangeListener() {
+    /**
+     * @brief Listener for when discovery button is pressed.
+     */
+    private class DiscoverButtonListener implements ToggleButton.OnCheckedChangeListener {
+
+        /**
+         * @brief Function for handling when discover toggle button pressed.
+         *
+         * If toggled on it bluetooth adapter is turned to discover mode.
+         * If toggled off bluetooth adapter is turn off of disover mode.
+         *
+         * @param buttonView - Current view of the toggle button.
+         * @param isChecked - The new state of the toggle button.
+         */
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -209,9 +281,26 @@ public class PairDeviceFragment extends Fragment {
                 btAdapter.cancelDiscovery();
             }
         }
-    };
+    }
 
-    public final ListView.OnItemClickListener listItemListener  = new ListView.OnItemClickListener() {
+    /**
+     * @brief Listener for when a ListView item is pressed (to connect).
+     */
+    private class DeviceItemListener implements ListView.OnItemClickListener {
+
+        /**
+         * @brief Function called when user wants to connect to a device.
+         *
+         * Discovery is turned off to stop power wastage.
+         * A new connection thread is then created which is responsible
+         * for parsing receive, and transmission requests from other
+         * fragments.
+         *
+         * @param parent - The parent ListView.
+         * @param view - Current view of the ListItem.
+         * @param position - Index of item pressed in ListView.
+         * @param id - ID of the ListItem.
+         */
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -256,6 +345,6 @@ public class PairDeviceFragment extends Fragment {
                 }
             }
         }
-    };
+    }
 
 }
