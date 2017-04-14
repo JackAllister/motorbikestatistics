@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['savetofile',['saveToFile',['../class_storage.html#a044a17325b2917afca49aa19ddb488f6',1,'Storage']]],
-  ['sergps',['serGPS',['../logging-device_8ino.html#aa2475f51bdc0f31d16d2916991d618d9',1,'logging-device.ino']]],
-  ['setconnection',['setConnection',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#a96f7261d9eab97d74569fbc3b0da4f28',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
-  ['seticonid',['setIconID',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#a40eb2a1f46700690d2327bf37bc5ed0e',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
-  ['setrxhandler',['setRXHandler',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#aae8ee75e78f5beff98572bf3b13a60b8',1,'com::jack::motorbikestatistics::BTConnection']]],
-  ['setstatus',['setStatus',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#a4e3d0774e91c5261963b03d6dcb08561',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
-  ['setup',['setup',['../logging-device_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'logging-device.ino']]],
-  ['stop',['stop',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a229363b085c81e1a42037075b675677d',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['realtimemode',['realTimeMode',['../logging-device_8ino.html#ab4c1c4c0fa047e336f9f4176406a54f1',1,'logging-device.ino']]],
+  ['run',['run',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#ae4c6a0897742c6a7ccfb0b43d0d987da',1,'com::jack::motorbikestatistics::BTConnection']]]
 ];

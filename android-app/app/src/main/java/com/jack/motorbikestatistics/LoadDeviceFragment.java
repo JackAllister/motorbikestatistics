@@ -1,3 +1,13 @@
+/**
+ * @file LoadDeviceFragment.java
+ * @brief Fragment/Tab for providing UI for loading from device.
+ *
+ * UI to allow the user to load saved trips stored on the uSD of
+ * the logging device.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
@@ -20,23 +30,43 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by Jack on 23-Jan-17.
+ * @brief UI Class for loading saved trips from device.
  */
-
 public class LoadDeviceFragment extends Fragment {
 
+    /** @brief New line string. */
     private final static String NEW_LINE = "\r\n";
+    /** @brief Command string to be sent to device to load a specific trip. */
     private final static String LOAD_TRIP_CHAR = "3";
 
+    /** @brief Current connectected logging device (via bluetooth). */
     private BTConnection btConnection = null;
+    /** @brief List of all trips saved on the logging device */
     private ArrayList<TripItem> tripList;
+    /** @brief Array adapter for displaying trips in ListView */
     private ArrayAdapter<TripItem> lvAdapter;
 
+    /**
+     * @brief Constructor for UI fragment.
+     *
+     * Creates a new arraylist of trips that is empty and
+     * ready to be filled from the logging device.
+     */
     public LoadDeviceFragment() {
-
         tripList = new ArrayList<TripItem>();
     }
 
+    /**
+     * @brief Function called when fragment is shown on UI.
+     *
+     * Sets up the ListView on the screen using our custom ArrayAdapter
+     * specificed.
+     *
+     * @param inflater - Inflater used to load fragment on UI.
+     * @param container - Container where fragment will be shown.
+     * @param savedInstance - Information holding past state.
+     * @return View - Modified view to display on the UI.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,10 +88,23 @@ public class LoadDeviceFragment extends Fragment {
         return myView;
     }
 
+    /**
+     * @brief Setter for current BT connection.
+     *
+     * Set from main UI activity, allows cross tab communication with
+     * the logging device.
+     *
+     * @param btConnection - Logging device bluetooth connection.
+     */
     public void setBTConnection(BTConnection btConnection) {
         this.btConnection = btConnection;
     }
 
+    /**
+     * @brief Adds a trip to the ListView specifying name and filesize.
+     *
+     * @param jsonData - JSON object holding trip name and size.
+     */
     private final void addTrip(JSONObject jsonData) {
         try {
 
@@ -79,8 +122,24 @@ public class LoadDeviceFragment extends Fragment {
         }
     }
 
+    /**
+     * @brief Handler used for receiving trip names.
+     *
+     * Receives trip information from the bluetooth connection thread.
+     * Handler has to be used as system is multithreaded.
+     */
     public final Handler RXHandler = new Handler(Looper.getMainLooper()) {
 
+        /**
+         * @brief Handler for receiving messages from bluetooth thread.
+         *
+         * Receives data in a bundle, the string is then extracted and
+         * an attempt to parse the line into a JSONObject takes places. \n
+         * If successful it is then sent to the addTrip function to display
+         * on the ListView.
+         *
+         * @param msg - Message holding the JSON string.
+         */
         @Override
         public void handleMessage(Message msg) {
 
@@ -101,7 +160,18 @@ public class LoadDeviceFragment extends Fragment {
         }
     };
 
+    /**
+     * @brief Listener used to identify when a trip has been pressed.
+     */
     public final ListView.OnItemClickListener tripClickListener = new ListView.OnItemClickListener() {
+
+        /**
+         * @brief Loads a trip the user has specified.
+         *
+         * User has selected a trip via the ListView, method switches
+         * to the statistic fragment and sends a message to logging device
+         * to load the specified trip (via name).
+         */
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

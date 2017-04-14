@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['btdevice',['btDevice',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#af49e78cef4253d96f009a9a1473e038d',1,'com::jack::motorbikestatistics::BTConnection']]],
-  ['btsocket',['btSocket',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a0d47f94a35f7c8a07429975446e7b33b',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['average',['average',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a720fe4f7fa02578cc8e0a59ef784746d',1,'com::jack::motorbikestatistics::DataItem']]],
+  ['averagecount',['averageCount',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#aaa50027610a16f6a373f0cd3f5a96333',1,'com::jack::motorbikestatistics::DataItem']]],
+  ['averagesum',['averageSum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ab1d6f0c800def7c32486e31e8195349e',1,'com::jack::motorbikestatistics::DataItem']]]
 ];

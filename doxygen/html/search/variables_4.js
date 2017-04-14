@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['gps',['gps',['../logging-device_8ino.html#a169c53997a7da1d0fb99aec1b4675ce8',1,'logging-device.ino']]],
-  ['gpsjson',['gpsJSON',['../logging-device_8ino.html#a548727e041a5cd3db91bdbd0ccd71e30',1,'logging-device.ino']]]
+  ['enableavgminmax',['enableAvgMinMax',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a7cfeefe9064017755f8462421693d2a9',1,'com::jack::motorbikestatistics::DataItem']]]
 ];

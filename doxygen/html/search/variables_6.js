@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['jsonbuffer',['jsonBuffer',['../logging-device_8ino.html#ae3799d2cbf8f13e21cbaef64b75c6833',1,'logging-device.ino']]],
-  ['jsonfilebuffer',['jsonFileBuffer',['../class_storage.html#a14a7ad7e46c7cd5983344b81fed4265f',1,'Storage']]]
+  ['gps',['gps',['../logging-device_8ino.html#a169c53997a7da1d0fb99aec1b4675ce8',1,'logging-device.ino']]],
+  ['gpsjson',['gpsJSON',['../logging-device_8ino.html#a548727e041a5cd3db91bdbd0ccd71e30',1,'logging-device.ino']]]
 ];

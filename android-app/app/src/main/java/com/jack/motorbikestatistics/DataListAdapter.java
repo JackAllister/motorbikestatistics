@@ -1,3 +1,13 @@
+/**
+ * @file DataListAdapter.java
+ * @brief UI ListView adapter to display statistics.
+ *
+ * Implemented so that the statistics ListView can display relevant information
+ * relating to the statistic such as name, value, average, min & max.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.content.Context;
@@ -13,15 +23,27 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * Created by Jack on 05-Mar-17.
+ * @brief Adapter class used for displaying statistics.
  */
-
 public class DataListAdapter extends ArrayAdapter<DataItem> {
 
+    /** @brief Context that the ListView is operating in. */
     private Context context;
+    /** @brief Resource ID for current layout. */
     private int layoutResourceId;
+    /** @brief ArrayList of all statistic items to display. */
     private ArrayList<DataItem> data;
 
+    /**
+     * @brief Constructor for the ListView adapter.
+     *
+     * Calls the constructor of the superclass as well as setting
+     * other relevant information needed.
+     *
+     * @param cnt - Context of the adapter to be operating in.
+     * @param layoutResourceId - Resource ID for current layout.
+     * @param data - ArrayList of statistics to display in ListView.
+     */
     public DataListAdapter(Context cnt, int layoutResourceId, ArrayList<DataItem> data) {
         super(cnt, layoutResourceId, data);
 
@@ -30,6 +52,9 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
         this.data = data;
     }
 
+    /**
+     * @brief Class that holds all data displayed for each ListItem.
+     */
     private class ViewHolder {
         TextView name;
         TextView current;
@@ -38,6 +63,18 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
         TextView maximum;
     }
 
+    /**
+     * @brief Function for returning the view of each list item (DataItem).
+     *
+     * If a view for selected item has not been created inflater initialises
+     * it. A holder is then used to hold all the information that will be
+     * displayed on the UI to the user.
+     *
+     * @param position - Index of item in array to use/reference to.
+     * @param convertView - View to be used for specified item.
+     * @param parent - Object where the created view will be placed on.
+     * @return View - The result view of item with updated/current information.
+     */
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -72,12 +109,17 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
             DecimalFormat df = new DecimalFormat("#.####");
             df.setRoundingMode(RoundingMode.CEILING);
 
+            /* To aid aesthetics rounding is used. */
             if (current instanceof Double) {
                 holder.current.setText(df.format(current));
             } else {
                 holder.current.setText(current.toString());
             }
 
+            /*
+             * Displays added functionality if available.
+             * Not all statistics need it, for example averaging of LAT/LNG.
+             */
             if (dataItem.getEnabledAvgMinMax()) {
                 holder.average.setText(df.format(dataItem.getAverage()));
                 holder.minimum.setText(df.format(dataItem.getMinimum()));
