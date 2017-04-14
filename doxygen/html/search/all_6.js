@@ -7,6 +7,7 @@ var searchData=
   ['getdevice',['getDevice',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#aab406fd517db729f7803d48546fd1a95',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
   ['getenabledavgminmax',['getEnabledAvgMinMax',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#af9fd13d6997dbf73dfacaaa33f6f3d9e',1,'com::jack::motorbikestatistics::DataItem']]],
   ['geticonid',['getIconID',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#a9e16b980dbddfdb9347ffa6237b78de5',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
+  ['getjsonobjects',['getJSONObjects',['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#a0c72fcb79424420c3477add9ba6ab447',1,'com::jack::motorbikestatistics::MapsActivity']]],
   ['getmaximum',['getMaximum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a5d58df64d90e56c7bb7e8aa8bf49aa0f',1,'com::jack::motorbikestatistics::DataItem']]],
   ['getminimum',['getMinimum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a45cdf3ef773c9c1e69d12861deaccec0',1,'com::jack::motorbikestatistics::DataItem']]],
   ['getname',['getName',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ae0beb1548c3ca85be62eb2e94e9def65',1,'com::jack::motorbikestatistics::DataItem']]],

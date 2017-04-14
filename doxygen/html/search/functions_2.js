@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calcdistance',['calcDistance',['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#af4feb7617c02a59c62d6e9257914e997',1,'com::jack::motorbikestatistics::MapsActivity']]],
   ['close',['close',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#ac1cd0e85a758db424a57010ac9bb87f0',1,'com::jack::motorbikestatistics::BTConnection']]],
   ['connect',['connect',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a4c1b8ebff8a40a9cddd77a55b59b45af',1,'com::jack::motorbikestatistics::BTConnection']]],
   ['convertrawaccel',['convertRawAccel',['../class_orientation.html#ab8a6f65b7f2b43ec5dd09c47fe93fa0b',1,'Orientation']]],

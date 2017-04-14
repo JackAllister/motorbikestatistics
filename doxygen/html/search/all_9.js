@@ -1,9 +1,10 @@
 var searchData=
 [
   ['layoutresourceid',['layoutResourceId',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#a3f7a9f653fb6a0fcda0a0a61e29d0f06',1,'com.jack.motorbikestatistics.BTDeviceListAdapter.layoutResourceId()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#a03f68396c0f1b8b03feed8d6e3cf115d',1,'com.jack.motorbikestatistics.DataListAdapter.layoutResourceId()']]],
+  ['ldfragment',['ldFragment',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#ac2ac0c852d3352efd6368ee550ef3c3c',1,'com::jack::motorbikestatistics::MainActivity']]],
   ['led_5fpin',['LED_PIN',['../logging-device_8ino.html#ab4553be4db9860d940f81d7447173b2f',1,'logging-device.ino']]],
   ['lessthan',['lessThan',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#af8d81a7e3c07f7c3a02035c872159388',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['list_5fsaved_5fchar',['LIST_SAVED_CHAR',['../logging-device_8ino.html#a4ffb22b7b0017657087830d24f68a323',1,'logging-device.ino']]],
+  ['list_5fsaved_5fchar',['LIST_SAVED_CHAR',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#a853e8df63cac245f60ef82edaaa7ee31',1,'com.jack.motorbikestatistics.MainActivity.LIST_SAVED_CHAR()'],['../logging-device_8ino.html#a4ffb22b7b0017657087830d24f68a323',1,'LIST_SAVED_CHAR():&#160;logging-device.ino']]],
   ['load_5ftrip_5fchar',['LOAD_TRIP_CHAR',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a484328e2963103665fae8801557bef73',1,'com.jack.motorbikestatistics.LoadDeviceFragment.LOAD_TRIP_CHAR()'],['../logging-device_8ino.html#aa72e33a6bcfedf9118f573741b4e137b',1,'LOAD_TRIP_CHAR():&#160;logging-device.ino']]],
   ['loaddevicefragment',['LoadDeviceFragment',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html',1,'com.jack.motorbikestatistics.LoadDeviceFragment'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#aaa7330cd6556cd8a87e8b226d796d508',1,'com.jack.motorbikestatistics.LoadDeviceFragment.LoadDeviceFragment()']]],
   ['loaddevicefragment_2ejava',['LoadDeviceFragment.java',['../_load_device_fragment_8java.html',1,'']]],

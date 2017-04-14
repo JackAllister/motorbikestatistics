@@ -1,3 +1,14 @@
+/**
+ * @file MainActivity.java
+ * @brief Main activity class responsible for tabbing.
+ *
+ * Responsible for navigation between each fragment/tab.
+ * Sends relevant commands to switch system modes on the logging device
+ * as well.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
@@ -14,16 +25,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+/**
+ * @brief Main activity class for fragment navigation.
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    /** @brief Command for switching to realtime logging. */
     private static final String REALTIME_CHAR = "1";
+    /** @brief Command for loading all saved trip details. */
     private static final String LIST_SAVED_CHAR = "2";
 
+    /** @brief UI fragment for realtime statistic display. */
     private static RealtimeFragment rtFragment = null;
+    /** @brief UI fragment for loading previous trips. */
     private static LoadDeviceFragment ldFragment = null;
+    /** @brief UI fragment for pairing to a logging device. */
     private static PairDeviceFragment pdFragment = null;
 
+    /**
+     * @brief Function called when main activity is loaded.
+     *
+     * Procedure is called when application is first started,
+     * sets up UI and creates relevant fragments.
+     *
+     * @param savedInstanceState - Information holding last previous state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +74,10 @@ public class MainActivity extends AppCompatActivity
         pdFragment = new PairDeviceFragment();
     }
 
+    /**
+     * @brief Responsible for closing navigation drawer when
+     * back button pressed.
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -57,6 +88,18 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * @brief Changes active fragment when a tab has been pressed.
+     *
+     * Responsible for changing to the new chosen fragment on the UI.
+     * Opening of realtime and loaddevice fragments not possible when
+     * not connected to the logging device.
+     *
+     * Method also responsible for change system state machine on the logging
+     * device, this is done by transmitting command code.
+     *
+     * @param item - New selected fragment/tab to display.
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -97,10 +140,8 @@ public class MainActivity extends AppCompatActivity
 
                 if (btConn != null && btConn.isConnected()) {
                     /* We set our RX handler and also send our command to indicate mode change */
-
                     ldFragment.setBTConnection(btConn);
 
-                    //TODO: Implement inheritance for the handlers etc. since rt and ld share same functionality
                     btConn.setRXHandler(ldFragment.RXHandler);
                     Message message = new Message();
                     message.obj = (String) LIST_SAVED_CHAR;

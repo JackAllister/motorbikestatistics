@@ -1,3 +1,13 @@
+/**
+ * @file MapsActivity.java
+ * @brief Maps activity class reponsible for showing data on Google Maps.
+ *
+ * Responsible for showing trip data on google maps.
+ * Places clickable points 5m away from each other showing stats at that point.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.graphics.Color;
@@ -24,11 +34,24 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * @brief Maps activity class for displaying map data.
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    /** @brief Google maps object for plotting. */
     private GoogleMap mMap;
+    /** @brief ArrayList holding all trip data. */
     private ArrayList<JSONObject> jsonList = new ArrayList<JSONObject>();
 
+    /**
+     * @brief Fills our maps array with points to plot on the map.
+     *
+     * Called when maps activity is first started.
+     * Responsible for making sure we have points to plot.
+     *
+     * @param savedInstanceState - Information holding last previous state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +65,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
+    /**
+     * @brief Gets point data and convert to array of JSON objects.
+     *
+     * Gets an arraylist of strings passed via a bundle to this activity.
+     * These strings are there converted back to JSON objects which
+     * will be used for plotting.
+     * The reason for not passing straight JSON objects is because
+     * they are not serializable and passable between activities.
+     *
+     * @return boolean - Whether all objects were able to be created.
+     */
     private boolean getJSONObjects()
     {
         boolean result = true;
@@ -67,6 +101,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return result;
     }
 
+    /**
+     * @brief Finds JSONObject from ArrayList via LAT/LNG coordinates.
+     *
+     * @param position - Latitude and Longitude position.
+     * @return JSONObject - The found JSON object.
+     */
     private JSONObject findJSONByLatLng(LatLng position) {
         JSONObject result = null;
 
@@ -93,6 +133,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return result;
     }
 
+    /**
+     * @brief Calculates the absolute distance between two points.
+     *
+     * Distance is as the crow flys and not via streets etc.
+     * @param start - Start position.
+     * @param end - End position.
+     * @return flaot - Distance between points in metres.
+     */
     private float calcDistance(LatLng start, LatLng end)
     {
         float[] results = new float[1];
@@ -102,13 +150,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
-     * Manipulates the map once available.
+     * @brief Manipulates the map once available.
+     *
      * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
+     * This is where we can add markers or lines.
+     *
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     *
+     * @param googleMap - Our map object ready to manipulate.
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -116,78 +167,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        /* Create our info window adapter class that is shown when marker clicked */
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-            @Override
-            public View getInfoWindow(Marker marker) {
-                return null;
-            }
+        /* Set our info window adapter class that is shown when marker clicked */
+        mMap.setInfoWindowAdapter(infoWindowAdapter);
 
-            @Override
-            public View getInfoContents(Marker marker) {
-
-                View v =  getLayoutInflater().inflate(R.layout.map_marker_info, null);
-
-                /* Get latitude and longitude from marker */
-                LatLng latlng = marker.getPosition();
-
-                /* Find the JSONObject relating to this location */
-                JSONObject rootJSON = findJSONByLatLng(latlng);
-                if (rootJSON != null) {
-                    try {
-                        JSONObject gpsJSON = rootJSON.getJSONObject("gps");
-                        JSONObject orientJSON = rootJSON.getJSONObject("orientation");
-                        JSONObject timeJSON = rootJSON.getJSONObject("time");
-
-                        /* Set latitude and longitude in info window */
-                        TextView tvLatLng = (TextView)v.findViewById(R.id.map_latlng);
-                        tvLatLng.setText("Lat/Lng: " + Double.toString(latlng.latitude) + "/"
-                                + Double.toString(latlng.longitude));
-
-                        /* Set time */
-                        TextView tvTime = (TextView)v.findViewById(R.id.map_time);
-                        Calendar cal = Calendar.getInstance();
-                        cal.clear();
-                        cal.set(Calendar.YEAR, timeJSON.getInt("year"));
-                        cal.set(Calendar.MONTH, timeJSON.getInt("month"));
-                        cal.set(Calendar.DATE, timeJSON.getInt("day"));
-
-                        cal.set(Calendar.HOUR, timeJSON.getInt("hour"));
-                        cal.set(Calendar.MINUTE, timeJSON.getInt("minute"));
-                        cal.set(Calendar.SECOND, timeJSON.getInt("second"));
-                        cal.set(Calendar.MILLISECOND, timeJSON.getInt("centiseconds") * 10);
-
-                        /* Create format for date and times then add to view */
-                        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
-                        tvTime.setText("Time: " + dateFormat.format(cal.getTime()));
-
-                        /* Velocity & Altitude */
-                        TextView tvVelocity = (TextView)v.findViewById(R.id.map_velocity);
-                        tvVelocity.setText("Velocity: " + gpsJSON.getDouble("vel_mph") + "mph");
-
-                        TextView tvAltitude = (TextView)v.findViewById(R.id.map_altitude);
-                        tvAltitude.setText("Altitude: " + gpsJSON.getDouble("alt_ft") + "ft");
-
-                        /* Orientation */
-                        TextView tvPitch = (TextView)v.findViewById(R.id.map_pitch);
-                        tvPitch.setText("Pitch Angle: " + orientJSON.getDouble("pitch") + "\u00b0");
-
-                        TextView tvRoll = (TextView)v.findViewById(R.id.map_roll);
-                        tvRoll.setText("Roll/Lean Angle: " + orientJSON.getDouble("roll") + "\u00b0");
-
-                    } catch (JSONException e) {
-                        marker.hideInfoWindow();
-                    }
-                } else {
-                    /* If unable to find relating we hide the info window */
-                    marker.hideInfoWindow();
-                }
-
-                return v;
-            }
-        });
-
-
+        /* If we have no data don't bother plotting points */
         if (jsonList.size() != 0)
         {
             /* lineOpts will store our route */
@@ -200,6 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 LatLng lastMarker = null;
 
+                /* Plot every point in the our JSONObject array */
                 for (int i = 0; i < jsonList.size(); i++)
                 {
                     JSONObject rootJSON = jsonList.get(i);
@@ -244,5 +228,90 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
+
+    /**
+     * @brief Adapter used for displaying statistics at a certain marker
+     * that user has clicked on.
+     */
+    private final GoogleMap.InfoWindowAdapter infoWindowAdapter = new GoogleMap.InfoWindowAdapter() {
+
+        /**
+         * @brief We don't want to use default information window.
+         */
+        @Override
+        public View getInfoWindow(Marker marker) {
+            return null;
+        }
+
+        /**
+         * @brief Displays statistics at a marker that
+         * the user has clicked on.
+         *
+         * @param marker - The marker the user has clicked on.
+         * @return View - Updated view showing information.
+         */
+        @Override
+        public View getInfoContents(Marker marker) {
+
+            View v =  getLayoutInflater().inflate(R.layout.map_marker_info, null);
+
+            /* Get latitude and longitude from marker */
+            LatLng latlng = marker.getPosition();
+
+            /* Find the JSONObject relating to this location */
+            JSONObject rootJSON = findJSONByLatLng(latlng);
+            if (rootJSON != null) {
+                try {
+                    JSONObject gpsJSON = rootJSON.getJSONObject("gps");
+                    JSONObject orientJSON = rootJSON.getJSONObject("orientation");
+                    JSONObject timeJSON = rootJSON.getJSONObject("time");
+
+                    /* Set latitude and longitude in info window */
+                    TextView tvLatLng = (TextView)v.findViewById(R.id.map_latlng);
+                    tvLatLng.setText("Lat/Lng: " + Double.toString(latlng.latitude) + "/"
+                            + Double.toString(latlng.longitude));
+
+                    /* Set time */
+                    TextView tvTime = (TextView)v.findViewById(R.id.map_time);
+                    Calendar cal = Calendar.getInstance();
+                    cal.clear();
+                    cal.set(Calendar.YEAR, timeJSON.getInt("year"));
+                    cal.set(Calendar.MONTH, timeJSON.getInt("month"));
+                    cal.set(Calendar.DATE, timeJSON.getInt("day"));
+
+                    cal.set(Calendar.HOUR, timeJSON.getInt("hour"));
+                    cal.set(Calendar.MINUTE, timeJSON.getInt("minute"));
+                    cal.set(Calendar.SECOND, timeJSON.getInt("second"));
+                    cal.set(Calendar.MILLISECOND, timeJSON.getInt("centiseconds") * 10);
+
+                    /* Create format for date and times then add to view */
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss.SS");
+                    tvTime.setText("Time: " + dateFormat.format(cal.getTime()));
+
+                    /* Velocity & Altitude */
+                    TextView tvVelocity = (TextView)v.findViewById(R.id.map_velocity);
+                    tvVelocity.setText("Velocity: " + gpsJSON.getDouble("vel_mph") + "mph");
+
+                    TextView tvAltitude = (TextView)v.findViewById(R.id.map_altitude);
+                    tvAltitude.setText("Altitude: " + gpsJSON.getDouble("alt_ft") + "ft");
+
+                    /* Orientation */
+                    TextView tvPitch = (TextView)v.findViewById(R.id.map_pitch);
+                    tvPitch.setText("Pitch Angle: " + orientJSON.getDouble("pitch") + "\u00b0");
+
+                    TextView tvRoll = (TextView)v.findViewById(R.id.map_roll);
+                    tvRoll.setText("Roll/Lean Angle: " + orientJSON.getDouble("roll") + "\u00b0");
+
+                } catch (JSONException e) {
+                    marker.hideInfoWindow();
+                }
+            } else {
+                /* If unable to find relating we hide the info window */
+                marker.hideInfoWindow();
+            }
+
+            return v;
+        }
+    };
 
 }

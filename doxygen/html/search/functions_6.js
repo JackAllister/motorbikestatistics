@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['lessthan',['lessThan',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#af8d81a7e3c07f7c3a02035c872159388',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['loaddevicefragment',['LoadDeviceFragment',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#aaa7330cd6556cd8a87e8b226d796d508',1,'com::jack::motorbikestatistics::LoadDeviceFragment']]],
-  ['loadsavedtrip',['loadSavedTrip',['../class_storage.html#af56ca8289ed925300e3385114c561eec',1,'Storage']]],
-  ['loadtripnames',['loadTripNames',['../class_storage.html#a4831b2e8ecfa22da6971f5a8690cc4e3',1,'Storage']]],
-  ['loop',['loop',['../logging-device_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'logging-device.ino']]]
+  ['init',['init',['../class_orientation.html#a317461c5c8afa8c3abf56847d4544728',1,'Orientation::init()'],['../class_storage.html#a98b01eb20a64a4bf4127685147f7f6f1',1,'Storage::init()']]],
+  ['isconnected',['isConnected',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a22f33e46d9f460d78865d4c63b645357',1,'com::jack::motorbikestatistics::BTConnection']]],
+  ['isrunning',['isRunning',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a17b07494b0e7cba2e550054d7b47e309',1,'com::jack::motorbikestatistics::BTConnection']]]
 ];
