@@ -1,0 +1,340 @@
+\hypertarget{class_android_app_1_1_b_t_connection}{}\section{Android\+App.\+B\+T\+Connection Class Reference}
+\label{class_android_app_1_1_b_t_connection}\index{Android\+App.\+B\+T\+Connection@{Android\+App.\+B\+T\+Connection}}
+
+
+Thread class for a new bluetooth connection to a device.  
+
+
+Inheritance diagram for Android\+App.\+B\+T\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_b_t_connection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_b_t_connection_a9211856a493caa2423f07e36c2fd12b6}{B\+T\+Connection} (Bluetooth\+Device \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{bt\+Device})  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}{set\+R\+X\+Handler} (Handler new\+Handler)
+\begin{DoxyCompactList}\small\item\em Setter function for R\+X\+Handler. \end{DoxyCompactList}\item 
+void \hyperlink{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}{run} ()
+\begin{DoxyCompactList}\small\item\em Main run procedure for new Runnable thread created. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a4f542434c59f541d47b68a0e225cfea9}\label{class_android_app_1_1_b_t_connection_a4f542434c59f541d47b68a0e225cfea9}} 
+void \hyperlink{class_android_app_1_1_b_t_connection_a4f542434c59f541d47b68a0e225cfea9}{stop} ()
+\begin{DoxyCompactList}\small\item\em Procedure to stop the bluetooth connection thread from running. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{is\+Running} ()
+\begin{DoxyCompactList}\small\item\em Function to check whether main connection thread is running. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{is\+Connected} ()
+\begin{DoxyCompactList}\small\item\em Function to check whether BT connection is still valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Handler \hyperlink{class_android_app_1_1_b_t_connection_a3236a74297d91f15dd63efc66f03a821}{tx\+Handler}
+\begin{DoxyCompactList}\small\item\em Handler class for transmission of data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}{connect} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Procedure to create a connection to logging device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}\label{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}} 
+void \hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Closes the BT connection socket, exceptions thrown on failure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}\label{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}} 
+Bluetooth\+Device \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{bt\+Device}
+\begin{DoxyCompactList}\small\item\em Bluetooth Device object, holds information for chosen slave. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}\label{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}} 
+Handler \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{R\+X\+Handler} = null
+\begin{DoxyCompactList}\small\item\em Handler function where received data is sent to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}\label{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}} 
+Bluetooth\+Socket \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{bt\+Socket} = null
+\begin{DoxyCompactList}\small\item\em Socket created for bluetooth connection, used for T\+X/\+RX. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}\label{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}} 
+volatile boolean \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = false
+\begin{DoxyCompactList}\small\item\em Indicates whether main run thread is in progress. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}\label{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}} 
+static final String \hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{T\+AG} = \char`\"{}B\+T\+Connection\char`\"{}
+\begin{DoxyCompactList}\small\item\em Tag using for debugging. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a0e531d4cad0e5cca1e5b4446551b5c63}\label{class_android_app_1_1_b_t_connection_a0e531d4cad0e5cca1e5b4446551b5c63}} 
+static final U\+U\+ID \hyperlink{class_android_app_1_1_b_t_connection_a0e531d4cad0e5cca1e5b4446551b5c63}{uuid} = U\+U\+I\+D.\+from\+String(\char`\"{}00001101-\/0000-\/1000-\/8000-\/00805f9b34fb\char`\"{})
+\begin{DoxyCompactList}\small\item\em U\+U\+ID to allow Serial connection via BT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}\label{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}} 
+static final String \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{N\+E\+W\+\_\+\+L\+I\+NE} = \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em New line string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Thread class for a new bluetooth connection to a device. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a9211856a493caa2423f07e36c2fd12b6}\label{class_android_app_1_1_b_t_connection_a9211856a493caa2423f07e36c2fd12b6}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!B\+T\+Connection@{B\+T\+Connection}}
+\index{B\+T\+Connection@{B\+T\+Connection}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{B\+T\+Connection()}{BTConnection()}}
+{\footnotesize\ttfamily Android\+App.\+B\+T\+Connection.\+B\+T\+Connection (\begin{DoxyParamCaption}\item[{Bluetooth\+Device}]{bt\+Device }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} class. 
+
+Sets the BT device interface used for this class and attempts a connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bt\+Device} & -\/ Device used for creating connection. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+59                                \{
+60         this.\hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{btDevice} = \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{btDevice};
+61 
+62         \textcolor{comment}{/* Connect the device so ready to use run */}
+63         \hyperlink{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}{connect}();
+64     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}\label{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!set\+R\+X\+Handler@{set\+R\+X\+Handler}}
+\index{set\+R\+X\+Handler@{set\+R\+X\+Handler}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{set\+R\+X\+Handler()}{setRXHandler()}}
+{\footnotesize\ttfamily void Android\+App.\+B\+T\+Connection.\+set\+R\+X\+Handler (\begin{DoxyParamCaption}\item[{Handler}]{new\+Handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter function for R\+X\+Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Handler} & -\/ The new Handler where RX\textquotesingle{}d data will be sent to. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+108                                                  \{
+109         \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler} = newHandler;
+110     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}\label{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!run@{run}}
+\index{run@{run}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Android\+App.\+B\+T\+Connection.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Main run procedure for new Runnable thread created. 
+
+If connected procedure waits for data to be received. Parsing this received into lines and then splitting each line into a J\+S\+O\+N\+Object. If a valid J\+S\+O\+N\+Object is found it is then sends to the receive handler in a seperate thread (using messages). 
+\begin{DoxyCode}
+121                       \{
+122         InputStream RXStream;
+123 
+124         \textcolor{comment}{/* Indicate that we are now running main thread */}
+125         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{true};
+126 
+127         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
+128             \textcolor{comment}{/* Get our input stream for receiving bytes */}
+129             \textcolor{keywordflow}{try} \{
+130                 RXStream = \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.getInputStream();
+131             \} \textcolor{keywordflow}{catch} (IOException e) \{
+132                 Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
+133                 \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+134                 \textcolor{keywordflow}{return};
+135             \}
+136 
+137             \textcolor{comment}{/*}
+138 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
+139 \textcolor{comment}{             * and then send it to the handler}
+140 \textcolor{comment}{             */}
+141             String recvBuff = \textcolor{stringliteral}{""};
+142             \textcolor{keywordflow}{while} (\hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{isRunning}() && \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
+143                 \textcolor{keywordflow}{try} \{
+144                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
+145 
+146                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
+147                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
+148                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
+149 
+150                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
+151                     \}
+152 
+153                     \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler} != null) \{
+154 
+155                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}) > 0) \{
+156 
+157                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
+      \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}));
+158 
+159                             \textcolor{comment}{/*}
+160 \textcolor{comment}{                             * Having to send data to main thread using messages}
+161 \textcolor{comment}{                             * as we are multithreading.}
+162 \textcolor{comment}{                             * If we try and use a standard call to function}
+163 \textcolor{comment}{                             * will cause a crash.}
+164 \textcolor{comment}{                             */}
+165                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
+166                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
+167 
+168                             Message message = \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler}.obtainMessage();
+169                             message.setData(dataBundle);
+170                             message.sendToTarget();
+171 
+172                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}, \textcolor{stringliteral}{""});
+173                         \}
+174                     \}
+175 
+176                 \} \textcolor{keywordflow}{catch} (IOException e) \{
+177                     Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
+178                     \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+179                     \textcolor{keywordflow}{return};
+180                 \}
+181             \}
+182 
+183         \}
+184 
+185         \textcolor{comment}{/* Close bluetooth socket */}
+186         \textcolor{keywordflow}{try} \{
+187             this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
+188         \} \textcolor{keywordflow}{catch} (IOException e) \{
+189             \textcolor{comment}{/* Do nothing */}
+190         \}
+191 
+192         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
+193         \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = null;
+194         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+195     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}\label{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{is\+Running()}{isRunning()}}
+{\footnotesize\ttfamily boolean Android\+App.\+B\+T\+Connection.\+is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check whether main connection thread is running. 
+
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether thread is running. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+208                                \{
+209         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running};
+210     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}\label{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!is\+Connected@{is\+Connected}}
+\index{is\+Connected@{is\+Connected}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{is\+Connected()}{isConnected()}}
+{\footnotesize\ttfamily boolean Android\+App.\+B\+T\+Connection.\+is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check whether BT connection is still valid. 
+
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether connection is still available. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+216                                  \{
+217         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
+218 
+219         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} != null) \{
+220             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.isConnected())
+221                 result = \textcolor{keyword}{true};
+222         \}
+223         \textcolor{keywordflow}{return} result;
+224     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}\label{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!connect@{connect}}
+\index{connect@{connect}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Android\+App.\+B\+T\+Connection.\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Procedure to create a connection to logging device. 
+
+Creates a raw Serial socket via U\+U\+ID and then attempts to connect. Exceptions thrown on failure. 
+\begin{DoxyCode}
+232                                               \{
+233 
+234         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
+235         \textcolor{keywordflow}{try} \{
+236             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{btDevice}.createRfcommSocketToServiceRecord(
+      \hyperlink{class_android_app_1_1_b_t_connection_a0e531d4cad0e5cca1e5b4446551b5c63}{uuid});
+237         \} \textcolor{keywordflow}{catch} (IOException e) \{
+238             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
+239             \textcolor{keywordflow}{throw} e;
+240         \}
+241 
+242         \textcolor{keywordflow}{try} \{
+243             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.connect();
+244         \} \textcolor{keywordflow}{catch} (IOException e) \{
+245             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
+246 
+247             \textcolor{comment}{/* Close our socket as unable to connect */}
+248             \textcolor{keywordflow}{try} \{
+249                 this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
+250             \} \textcolor{keywordflow}{catch} (IOException e2) \{
+251                 \textcolor{keywordflow}{throw} e2;
+252             \}
+253             \textcolor{keywordflow}{throw} e;
+254         \}
+255     \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a3236a74297d91f15dd63efc66f03a821}\label{class_android_app_1_1_b_t_connection_a3236a74297d91f15dd63efc66f03a821}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!tx\+Handler@{tx\+Handler}}
+\index{tx\+Handler@{tx\+Handler}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{tx\+Handler}{txHandler}}
+{\footnotesize\ttfamily final Handler Android\+App.\+B\+T\+Connection.\+tx\+Handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Handler(Looper.getMainLooper()) \{
+
+        
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} handleMessage(Message msg) \{
+
+            
+            \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}() && \hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{isRunning}()) \{
+                OutputStream TXStream;
+
+                
+                \textcolor{keywordflow}{try} \{
+                    TXStream = \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.getOutputStream();
+
+                    String txString = (String)msg.obj;
+                    TXStream.write(txString.getBytes());
+                \} \textcolor{keywordflow}{catch} (IOException e) \{
+                    Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to use TXStream"}, e);
+                    \textcolor{keywordflow}{return};
+                \}
+            \}
+        \}
+    \}
+\end{DoxyCode}
+
+
+Handler class for transmission of data. 
+
+Messages containing data to be transmitted are sent from main UI thread. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_b_t_connection_8java}{B\+T\+Connection.\+java}\end{DoxyCompactItemize}

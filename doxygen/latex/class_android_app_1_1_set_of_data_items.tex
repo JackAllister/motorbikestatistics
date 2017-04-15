@@ -1,0 +1,71 @@
+\hypertarget{class_android_app_1_1_set_of_data_items}{}\section{Android\+App.\+Set\+Of\+Data\+Items Class Reference}
+\label{class_android_app_1_1_set_of_data_items}\index{Android\+App.\+Set\+Of\+Data\+Items@{Android\+App.\+Set\+Of\+Data\+Items}}
+
+
+Array\+List extension to allow searching via item name.  
+
+
+Inheritance diagram for Android\+App.\+Set\+Of\+Data\+Items\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_set_of_data_items}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_set_of_data_items_a719c4dffae070925492a8cca986a8337}\label{class_android_app_1_1_set_of_data_items_a719c4dffae070925492a8cca986a8337}} 
+\hyperlink{class_android_app_1_1_set_of_data_items_a719c4dffae070925492a8cca986a8337}{Set\+Of\+Data\+Items} ()
+\begin{DoxyCompactList}\small\item\em Constructor, just calls inhereted constructor method. \end{DoxyCompactList}\item 
+\hyperlink{class_android_app_1_1_data_item}{Data\+Item} \hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{get\+Item\+By\+Name} (String name)
+\begin{DoxyCompactList}\small\item\em Function to allow searching of Array\+List$<$\+Data\+Item$>$ via name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Array\+List extension to allow searching via item name. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}\label{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}} 
+\index{Android\+App\+::\+Set\+Of\+Data\+Items@{Android\+App\+::\+Set\+Of\+Data\+Items}!get\+Item\+By\+Name@{get\+Item\+By\+Name}}
+\index{get\+Item\+By\+Name@{get\+Item\+By\+Name}!Android\+App\+::\+Set\+Of\+Data\+Items@{Android\+App\+::\+Set\+Of\+Data\+Items}}
+\subsubsection{\texorpdfstring{get\+Item\+By\+Name()}{getItemByName()}}
+{\footnotesize\ttfamily \hyperlink{class_android_app_1_1_data_item}{Data\+Item} Android\+App.\+Set\+Of\+Data\+Items.\+get\+Item\+By\+Name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to allow searching of Array\+List$<$\+Data\+Item$>$ via name. 
+
+Loops through all items in array until one item with matching name is found. This is then returned by the function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ Name to match. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_android_app_1_1_data_item}{Data\+Item} -\/ The item with matching name. 
+\end{DoxyReturn}
+
+
+References Android\+App.\+Data\+Item$<$ T $>$.\+get\+Name().
+
+
+\begin{DoxyCode}
+36                                                \{
+37         DataItem result = null;
+38 
+39         \textcolor{keywordflow}{for} (DataItem item: \textcolor{keyword}{this}) \{
+40             \textcolor{keywordflow}{if} (item.getName().equals(name)) \{
+41                 result = item;
+42                 \textcolor{keywordflow}{break};
+43             \}
+44         \}
+45 
+46         \textcolor{keywordflow}{return} result;
+47     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_set_of_data_items_8java}{Set\+Of\+Data\+Items.\+java}\end{DoxyCompactItemize}

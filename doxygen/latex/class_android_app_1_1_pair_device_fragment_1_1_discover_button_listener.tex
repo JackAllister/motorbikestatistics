@@ -1,0 +1,73 @@
+\hypertarget{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener}{}\section{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener Class Reference}
+\label{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener}\index{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener@{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener}}
+
+
+Listener for when discovery button is pressed.  
+
+
+Inheritance diagram for Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener_acda5197960ecaeaa1f98603e97a36bce}{on\+Checked\+Changed} (Compound\+Button button\+View, boolean is\+Checked)
+\begin{DoxyCompactList}\small\item\em Function for handling when discover toggle button pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener for when discovery button is pressed. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener_acda5197960ecaeaa1f98603e97a36bce}\label{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener_acda5197960ecaeaa1f98603e97a36bce}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener}!on\+Checked\+Changed@{on\+Checked\+Changed}}
+\index{on\+Checked\+Changed@{on\+Checked\+Changed}!Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener}}
+\subsubsection{\texorpdfstring{on\+Checked\+Changed()}{onCheckedChanged()}}
+{\footnotesize\ttfamily void Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener.\+on\+Checked\+Changed (\begin{DoxyParamCaption}\item[{Compound\+Button}]{button\+View,  }\item[{boolean}]{is\+Checked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for handling when discover toggle button pressed. 
+
+If toggled on it bluetooth adapter is turned to discover mode. If toggled off bluetooth adapter is turn off of disover mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button\+View} & -\/ Current view of the toggle button. \\
+\hline
+{\em is\+Checked} & -\/ The new state of the toggle button. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+262                                                                                    \{
+263 
+264             IntentFilter filter = \textcolor{keyword}{new} IntentFilter(BluetoothDevice.ACTION\_FOUND);
+265             \textcolor{keywordflow}{if} (isChecked)
+266             \{
+267                 \textcolor{comment}{/* Clear listview, add previous paired items, start discovery */}
+268                 \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.clear();
+269                 \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.addAll(\hyperlink{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}{btPairedList});
+270 
+271                 \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice} != null)
+272                     \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.add(\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice});
+273 
+274                 getActivity().registerReceiver(\hyperlink{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}{btReceiver}, filter);
+275                 \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.startDiscovery();
+276             \}
+277             \textcolor{keywordflow}{else}
+278             \{
+279                 \textcolor{comment}{/* Stop searching for new devices */}
+280                 getActivity().unregisterReceiver(\hyperlink{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}{btReceiver});
+281                 \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.cancelDiscovery();
+282             \}
+283         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_pair_device_fragment_8java}{Pair\+Device\+Fragment.\+java}\end{DoxyCompactItemize}

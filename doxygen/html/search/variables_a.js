@@ -1,7 +1,7 @@
 var searchData=
 [
   ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]],
-  ['maximum',['maximum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ac1edb9c63224cebf789b7a2ffd45598f',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['minimum',['minimum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a770342aaa7248e9687517864d73f0009',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['mmap',['mMap',['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#aaace5219464acf3df9ac5e9ce913eef5',1,'com::jack::motorbikestatistics::MapsActivity']]]
+  ['maximum',['maximum',['../class_android_app_1_1_data_item.html#a6e53719b27d08f889c4d6460254583dc',1,'AndroidApp::DataItem']]],
+  ['minimum',['minimum',['../class_android_app_1_1_data_item.html#a23e9e2f0dbcfe5e163cd57888ed3dbd7',1,'AndroidApp::DataItem']]],
+  ['mmap',['mMap',['../class_android_app_1_1_maps_activity.html#a373d4c770d2ab34538f9288d7c0e83ea',1,'AndroidApp::MapsActivity']]]
 ];

@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['data',['data',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#a7e0dfcd0a703aaecf0c0457515b6984f',1,'com.jack.motorbikestatistics.BTDeviceListAdapter.data()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#a1e45ca05e79075976732ea14de9fbc5d',1,'com.jack.motorbikestatistics.DataListAdapter.data()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html#af0219927cf42917085d1e43abf62374d',1,'com.jack.motorbikestatistics.TripListAdapter.data()']]],
-  ['dataitem',['DataItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html',1,'com.jack.motorbikestatistics.DataItem&lt; T &gt;'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ae7367bc22bb0d8dc831944c7ce4f39f9',1,'com.jack.motorbikestatistics.DataItem.DataItem(String name, boolean avgMinMax)'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a5bb494fbf02f8157b859694d3c2671d6',1,'com.jack.motorbikestatistics.DataItem.DataItem(String name, boolean avgMinMax, T value)']]],
+  ['data',['data',['../class_android_app_1_1_b_t_device_list_adapter.html#a210dbb300083d9029aa960841c8aa505',1,'AndroidApp.BTDeviceListAdapter.data()'],['../class_android_app_1_1_data_list_adapter.html#a733766e9ddd9f1cc3943dd83fc734c59',1,'AndroidApp.DataListAdapter.data()'],['../class_android_app_1_1_trip_list_adapter.html#a8cea45e06b19821352bce2de9b3e3941',1,'AndroidApp.TripListAdapter.data()']]],
+  ['dataitem',['DataItem',['../class_android_app_1_1_data_item.html',1,'AndroidApp.DataItem&lt; T &gt;'],['../class_android_app_1_1_data_item.html#a11dd3418028a213466ac1c075120de57',1,'AndroidApp.DataItem.DataItem(String name, boolean avgMinMax)'],['../class_android_app_1_1_data_item.html#a46a1d40afefec40e043301faefab4670',1,'AndroidApp.DataItem.DataItem(String name, boolean avgMinMax, T value)']]],
   ['dataitem_2ejava',['DataItem.java',['../_data_item_8java.html',1,'']]],
-  ['datalist',['dataList',['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html#adde56e8b4f0e954a9a1167e50fb80420',1,'com::jack::motorbikestatistics::RealtimeFragment']]],
-  ['datalistadapter',['DataListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html',1,'com.jack.motorbikestatistics.DataListAdapter'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#aa9aad25299a2df8a357569b6eb3c28b5',1,'com.jack.motorbikestatistics.DataListAdapter.DataListAdapter()']]],
+  ['datalist',['dataList',['../class_android_app_1_1_realtime_fragment.html#ab1c4983b61e50b501ed22842253bf849',1,'AndroidApp::RealtimeFragment']]],
+  ['datalistadapter',['DataListAdapter',['../class_android_app_1_1_data_list_adapter.html',1,'AndroidApp.DataListAdapter'],['../class_android_app_1_1_data_list_adapter.html#a654a6659bcdfdd08be0d7684269c1750',1,'AndroidApp.DataListAdapter.DataListAdapter()']]],
   ['datalistadapter_2ejava',['DataListAdapter.java',['../_data_list_adapter_8java.html',1,'']]],
-  ['device',['device',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#acd943b008d77dcb5d72f8a65fa4986b9',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
-  ['deviceitemlistener',['DeviceItemListener',['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_item_listener.html',1,'com::jack::motorbikestatistics::PairDeviceFragment']]],
-  ['discoverbuttonlistener',['DiscoverButtonListener',['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_button_listener.html',1,'com::jack::motorbikestatistics::PairDeviceFragment']]],
-  ['discoverreceiver',['DiscoverReceiver',['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver.html',1,'com::jack::motorbikestatistics::PairDeviceFragment']]],
-  ['divide',['divide',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#aab2f3e4b1cfbceb79b6477020798c417',1,'com::jack::motorbikestatistics::DataItem']]]
+  ['device',['device',['../class_android_app_1_1_b_t_device_item.html#a3f62f8de1d815f2e4f59030565ba29a1',1,'AndroidApp::BTDeviceItem']]],
+  ['deviceitemlistener',['DeviceItemListener',['../class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.html',1,'AndroidApp::PairDeviceFragment']]],
+  ['discoverbuttonlistener',['DiscoverButtonListener',['../class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.html',1,'AndroidApp::PairDeviceFragment']]],
+  ['discoverreceiver',['DiscoverReceiver',['../class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.html',1,'AndroidApp::PairDeviceFragment']]],
+  ['divide',['divide',['../class_android_app_1_1_data_item.html#a3c4b68091e69bed9af18df05d6ea26a5',1,'AndroidApp::DataItem']]]
 ];

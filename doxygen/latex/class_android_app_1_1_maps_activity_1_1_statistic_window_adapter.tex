@@ -1,0 +1,118 @@
+\hypertarget{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter}{}\section{Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter Class Reference}
+\label{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter}\index{Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter@{Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter}}
+
+
+Adapter used for displaying statistics at a certain marker that user has clicked on.  
+
+
+Inheritance diagram for Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a14860d57c39c0b2a3d2202aa9c416a59}\label{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a14860d57c39c0b2a3d2202aa9c416a59}} 
+View \hyperlink{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a14860d57c39c0b2a3d2202aa9c416a59}{get\+Info\+Window} (Marker marker)
+\begin{DoxyCompactList}\small\item\em We don\textquotesingle{}t want to use default information window. \end{DoxyCompactList}\item 
+View \hyperlink{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a19ae40ea5994ac2550ec599e3f20268b}{get\+Info\+Contents} (Marker marker)
+\begin{DoxyCompactList}\small\item\em Displays statistics at a marker that the user has clicked on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adapter used for displaying statistics at a certain marker that user has clicked on. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a19ae40ea5994ac2550ec599e3f20268b}\label{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter_a19ae40ea5994ac2550ec599e3f20268b}} 
+\index{Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter@{Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter}!get\+Info\+Contents@{get\+Info\+Contents}}
+\index{get\+Info\+Contents@{get\+Info\+Contents}!Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter@{Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter}}
+\subsubsection{\texorpdfstring{get\+Info\+Contents()}{getInfoContents()}}
+{\footnotesize\ttfamily View Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter.\+get\+Info\+Contents (\begin{DoxyParamCaption}\item[{Marker}]{marker }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays statistics at a marker that the user has clicked on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em marker} & -\/ The marker the user has clicked on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ Updated view showing information. 
+\end{DoxyReturn}
+
+
+References gps\+J\+S\+ON, orient\+J\+S\+ON, and time\+J\+S\+ON.
+
+
+\begin{DoxyCode}
+254                                                    \{
+255 
+256             View v =  getLayoutInflater().inflate(R.layout.map\_marker\_info, null);
+257 
+258             \textcolor{comment}{/* Get latitude and longitude from marker */}
+259             LatLng latlng = marker.getPosition();
+260 
+261             \textcolor{comment}{/* Find the JSONObject relating to this location */}
+262             JSONObject rootJSON = \hyperlink{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}{findJSONByLatLng}(latlng);
+263             \textcolor{keywordflow}{if} (rootJSON != null) \{
+264                 \textcolor{keywordflow}{try} \{
+265                     JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+266                     JSONObject \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"orientation"});
+267                     JSONObject \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"time"});
+268 
+269                     \textcolor{comment}{/* Set latitude and longitude in info window */}
+270                     TextView tvLatLng = (TextView)v.findViewById(R.id.map\_latlng);
+271                     tvLatLng.setText(\textcolor{stringliteral}{"Lat/Lng: "} + Double.toString(latlng.latitude) + \textcolor{stringliteral}{"/"}
+272                             + Double.toString(latlng.longitude));
+273 
+274                     \textcolor{comment}{/* Set time */}
+275                     TextView tvTime = (TextView)v.findViewById(R.id.map\_time);
+276                     Calendar cal = Calendar.getInstance();
+277                     cal.clear();
+278                     cal.set(Calendar.YEAR, timeJSON.getInt(\textcolor{stringliteral}{"year"}));
+279                     cal.set(Calendar.MONTH, timeJSON.getInt(\textcolor{stringliteral}{"month"}));
+280                     cal.set(Calendar.DATE, timeJSON.getInt(\textcolor{stringliteral}{"day"}));
+281 
+282                     cal.set(Calendar.HOUR, timeJSON.getInt(\textcolor{stringliteral}{"hour"}));
+283                     cal.set(Calendar.MINUTE, timeJSON.getInt(\textcolor{stringliteral}{"minute"}));
+284                     cal.set(Calendar.SECOND, timeJSON.getInt(\textcolor{stringliteral}{"second"}));
+285                     cal.set(Calendar.MILLISECOND, timeJSON.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
+286 
+287                     \textcolor{comment}{/* Create format for date and times then add to view */}
+288                     DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy HH:mm:ss.SS"});
+289                     tvTime.setText(\textcolor{stringliteral}{"Time: "} + dateFormat.format(cal.getTime()));
+290 
+291                     \textcolor{comment}{/* Velocity & Altitude */}
+292                     TextView tvVelocity = (TextView)v.findViewById(R.id.map\_velocity);
+293                     tvVelocity.setText(\textcolor{stringliteral}{"Velocity: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"vel\_mph"}) + \textcolor{stringliteral}{"mph"});
+294 
+295                     TextView tvAltitude = (TextView)v.findViewById(R.id.map\_altitude);
+296                     tvAltitude.setText(\textcolor{stringliteral}{"Altitude: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"alt\_ft"}) + \textcolor{stringliteral}{"ft"});
+297 
+298                     \textcolor{comment}{/* Orientation */}
+299                     TextView tvPitch = (TextView)v.findViewById(R.id.map\_pitch);
+300                     tvPitch.setText(\textcolor{stringliteral}{"Pitch Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"pitch"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+301 
+302                     TextView tvRoll = (TextView)v.findViewById(R.id.map\_roll);
+303                     tvRoll.setText(\textcolor{stringliteral}{"Roll/Lean Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"roll"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+304 
+305                 \} \textcolor{keywordflow}{catch} (JSONException e) \{
+306                     marker.hideInfoWindow();
+307                 \}
+308             \} \textcolor{keywordflow}{else} \{
+309                 \textcolor{comment}{/* If unable to find relating we hide the info window */}
+310                 marker.hideInfoWindow();
+311             \}
+312 
+313             \textcolor{keywordflow}{return} v;
+314         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_maps_activity_8java}{Maps\+Activity.\+java}\end{DoxyCompactItemize}

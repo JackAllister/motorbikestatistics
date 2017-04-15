@@ -1,0 +1,54 @@
+\hypertarget{class_android_app_1_1_realtime_fragment_1_1_map_button_listener}{}\section{Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener Class Reference}
+\label{class_android_app_1_1_realtime_fragment_1_1_map_button_listener}\index{Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener@{Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener}}
+
+
+Listener for starting a map activity when button pressed.  
+
+
+Inheritance diagram for Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_realtime_fragment_1_1_map_button_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_realtime_fragment_1_1_map_button_listener_ad7242a00f24a6ed739742d0fdcb80676}{on\+Click} (View v)
+\begin{DoxyCompactList}\small\item\em Function for handling when map button pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener for starting a map activity when button pressed. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_realtime_fragment_1_1_map_button_listener_ad7242a00f24a6ed739742d0fdcb80676}\label{class_android_app_1_1_realtime_fragment_1_1_map_button_listener_ad7242a00f24a6ed739742d0fdcb80676}} 
+\index{Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener@{Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener}!on\+Click@{on\+Click}}
+\index{on\+Click@{on\+Click}!Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener@{Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener}}
+\subsubsection{\texorpdfstring{on\+Click()}{onClick()}}
+{\footnotesize\ttfamily void Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener.\+on\+Click (\begin{DoxyParamCaption}\item[{View}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for handling when map button pressed. 
+
+Created a new intent to start our map activity. Serialised statistics are then added as a bundle in the intent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & -\/ Current view of the button. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+193                                   \{
+194           Intent intent = \textcolor{keyword}{new} Intent(getActivity(), MapsActivity.class);
+195           intent.putExtra(\textcolor{stringliteral}{"JSONList"}, \hyperlink{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}{jsonList});
+196           startActivity(intent);
+197       \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_realtime_fragment_8java}{Realtime\+Fragment.\+java}\end{DoxyCompactItemize}

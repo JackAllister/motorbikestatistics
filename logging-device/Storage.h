@@ -4,6 +4,8 @@
  #ifndef STORAGE_H
  #define STORAGE_H
 
+namespace LoggingDevice {
+
 /**
  * @brief Class for storing & retrieving data on the logging device.
  */
@@ -28,5 +30,7 @@ public:
   void loadSavedTrip();
 
 };
+
+}
 
  #endif

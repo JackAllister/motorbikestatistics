@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uuid',['uuid',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a6551312055376866c73f11721a45e26c',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['uuid',['uuid',['../class_android_app_1_1_b_t_connection.html#a0e531d4cad0e5cca1e5b4446551b5c63',1,'AndroidApp::BTConnection']]]
 ];

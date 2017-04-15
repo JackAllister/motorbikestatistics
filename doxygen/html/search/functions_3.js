@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['dataitem',['DataItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ae7367bc22bb0d8dc831944c7ce4f39f9',1,'com.jack.motorbikestatistics.DataItem.DataItem(String name, boolean avgMinMax)'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a5bb494fbf02f8157b859694d3c2671d6',1,'com.jack.motorbikestatistics.DataItem.DataItem(String name, boolean avgMinMax, T value)']]],
-  ['datalistadapter',['DataListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#aa9aad25299a2df8a357569b6eb3c28b5',1,'com::jack::motorbikestatistics::DataListAdapter']]],
-  ['divide',['divide',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#aab2f3e4b1cfbceb79b6477020798c417',1,'com::jack::motorbikestatistics::DataItem']]]
+  ['dataitem',['DataItem',['../class_android_app_1_1_data_item.html#a11dd3418028a213466ac1c075120de57',1,'AndroidApp.DataItem.DataItem(String name, boolean avgMinMax)'],['../class_android_app_1_1_data_item.html#a46a1d40afefec40e043301faefab4670',1,'AndroidApp.DataItem.DataItem(String name, boolean avgMinMax, T value)']]],
+  ['datalistadapter',['DataListAdapter',['../class_android_app_1_1_data_list_adapter.html#a654a6659bcdfdd08be0d7684269c1750',1,'AndroidApp::DataListAdapter']]],
+  ['divide',['divide',['../class_android_app_1_1_data_item.html#a3c4b68091e69bed9af18df05d6ea26a5',1,'AndroidApp::DataItem']]]
 ];

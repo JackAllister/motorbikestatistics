@@ -18,6 +18,8 @@
 #include "Orientation.h"
 #include "Storage.h"
 
+using namespace LoggingDevice;
+
 /* ------ Module Constants ------ */
 
 /** @brief Command to set system to idle mode */

@@ -7,6 +7,7 @@
 /* ------ Module Includes ------ */
  #include <MadgwickAHRS.h>
 
+namespace LoggingDevice {
  /**
   * @brief Class for dealing with Orientation functionality on logging device.
   */
@@ -29,5 +30,7 @@ public:
   float getPitch();
   float getRoll();
 };
+
+}
 
 #endif

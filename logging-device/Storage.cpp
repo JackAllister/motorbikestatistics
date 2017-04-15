@@ -14,6 +14,8 @@
 
 #include "Storage.h"
 
+using namespace LoggingDevice;
+
 /* ------ Module Constants ------ */
 
 /** @brief Mapping for which HW-Serial port BT module is on */

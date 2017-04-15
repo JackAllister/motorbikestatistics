@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['average',['average',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#a720fe4f7fa02578cc8e0a59ef784746d',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['averagecount',['averageCount',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#aaa50027610a16f6a373f0cd3f5a96333',1,'com::jack::motorbikestatistics::DataItem']]],
-  ['averagesum',['averageSum',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#ab1d6f0c800def7c32486e31e8195349e',1,'com::jack::motorbikestatistics::DataItem']]]
+  ['average',['average',['../class_android_app_1_1_data_item.html#a231634a35289bb35c46f7fa3111cd472',1,'AndroidApp::DataItem']]],
+  ['averagecount',['averageCount',['../class_android_app_1_1_data_item.html#ae8ac0338f533843c475fac5e6510ce5c',1,'AndroidApp::DataItem']]],
+  ['averagesum',['averageSum',['../class_android_app_1_1_data_item.html#aa146ca811e2838ef5c5621c99c712cda',1,'AndroidApp::DataItem']]]
 ];

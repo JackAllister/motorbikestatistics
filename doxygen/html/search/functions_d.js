@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tripitem',['TripItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.html#a17a6df81af0062b7bf03babb4c7433b0',1,'com::jack::motorbikestatistics::TripItem']]],
-  ['triplistadapter',['TripListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html#ace5ca232bac9a2a6e0d1b61e88b35546',1,'com::jack::motorbikestatistics::TripListAdapter']]]
+  ['tripitem',['TripItem',['../class_android_app_1_1_trip_item.html#a3ef9684be0d75a972fc373db43aa0efd',1,'AndroidApp::TripItem']]],
+  ['triplistadapter',['TripListAdapter',['../class_android_app_1_1_trip_list_adapter.html#ad8d8c6f5a394a8d7e6e97d5bf239af76',1,'AndroidApp::TripListAdapter']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['iconid',['iconID',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.html#a77f7a3c228f87fa5e946fe77b310f805',1,'com::jack::motorbikestatistics::BTDeviceItem']]],
-  ['imufilter',['IMUfilter',['../class_orientation.html#a3b0d70328334e69797438ccc408806c1',1,'Orientation']]]
+  ['iconid',['iconID',['../class_android_app_1_1_b_t_device_item.html#aa008dfacbd2f948952a14bed413d5969',1,'AndroidApp::BTDeviceItem']]],
+  ['imufilter',['IMUfilter',['../class_logging_device_1_1_orientation.html#a517282a58a498881d97d57f4829a38d9',1,'LoggingDevice::Orientation']]]
 ];

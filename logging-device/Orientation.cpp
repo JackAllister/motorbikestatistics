@@ -14,6 +14,8 @@
 
 #include "Orientation.h"
 
+using namespace LoggingDevice;
+
 /* ------ Module Constants ------ */
 
 /** @brief Frequency of update rate for IMU (25Hz) */

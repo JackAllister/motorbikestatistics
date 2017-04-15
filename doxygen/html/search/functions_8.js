@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newdata',['newData',['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html#a675832561a8d63214b8f2cd59e901de5',1,'com::jack::motorbikestatistics::RealtimeFragment']]]
+  ['newdata',['newData',['../class_android_app_1_1_realtime_fragment.html#a61735e07c8f7b382b176d7cd7443de3f',1,'AndroidApp::RealtimeFragment']]]
 ];

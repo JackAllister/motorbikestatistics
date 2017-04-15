@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['tag',['TAG',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#af9455991fec4de29ffc875eae117a761',1,'com::jack::motorbikestatistics::BTConnection']]],
-  ['textstatus',['textStatus',['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html#a934eb88d5412c4a06635e8b2dcdde397',1,'com::jack::motorbikestatistics::RealtimeFragment']]],
+  ['tag',['TAG',['../class_android_app_1_1_b_t_connection.html#ad838024d59c68be866b5db329d6f6230',1,'AndroidApp::BTConnection']]],
+  ['textstatus',['textStatus',['../class_android_app_1_1_realtime_fragment.html#a8aa6530bcc9c6ef17627f1395ff7910d',1,'AndroidApp::RealtimeFragment']]],
   ['timejson',['timeJSON',['../logging-device_8ino.html#acc172a29cb5ff709b48b650d9fb6503c',1,'logging-device.ino']]],
-  ['tripitem',['TripItem',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.html',1,'com.jack.motorbikestatistics.TripItem'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.html#a17a6df81af0062b7bf03babb4c7433b0',1,'com.jack.motorbikestatistics.TripItem.TripItem()']]],
+  ['tripitem',['TripItem',['../class_android_app_1_1_trip_item.html',1,'AndroidApp.TripItem'],['../class_android_app_1_1_trip_item.html#a3ef9684be0d75a972fc373db43aa0efd',1,'AndroidApp.TripItem.TripItem()']]],
   ['tripitem_2ejava',['TripItem.java',['../_trip_item_8java.html',1,'']]],
-  ['tripitemlistener',['TripItemListener',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener.html',1,'com::jack::motorbikestatistics::LoadDeviceFragment']]],
-  ['triplist',['tripList',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a92be11df86dfe159ecbdaff59e526464',1,'com::jack::motorbikestatistics::LoadDeviceFragment']]],
-  ['triplistadapter',['TripListAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html',1,'com.jack.motorbikestatistics.TripListAdapter'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html#ace5ca232bac9a2a6e0d1b61e88b35546',1,'com.jack.motorbikestatistics.TripListAdapter.TripListAdapter()']]],
+  ['tripitemlistener',['TripItemListener',['../class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.html',1,'AndroidApp::LoadDeviceFragment']]],
+  ['triplist',['tripList',['../class_android_app_1_1_load_device_fragment.html#a23e4856334c9782e15f7f7a08b544f4c',1,'AndroidApp::LoadDeviceFragment']]],
+  ['triplistadapter',['TripListAdapter',['../class_android_app_1_1_trip_list_adapter.html',1,'AndroidApp.TripListAdapter'],['../class_android_app_1_1_trip_list_adapter.html#ad8d8c6f5a394a8d7e6e97d5bf239af76',1,'AndroidApp.TripListAdapter.TripListAdapter()']]],
   ['triplistadapter_2ejava',['TripListAdapter.java',['../_trip_list_adapter_8java.html',1,'']]],
-  ['tripname',['tripName',['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.html#a2e678c328ae2972516c2da9d21826359',1,'com::jack::motorbikestatistics::TripItem']]],
-  ['txhandler',['txHandler',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.html#a7a88b2007af6a9a5c8667a9f1df980cc',1,'com::jack::motorbikestatistics::BTConnection']]]
+  ['tripname',['tripName',['../class_android_app_1_1_trip_item.html#ae5137b0b6077e3fcf293430bc9c488e3',1,'AndroidApp::TripItem']]],
+  ['txhandler',['txHandler',['../class_android_app_1_1_b_t_connection.html#a3236a74297d91f15dd63efc66f03a821',1,'AndroidApp::BTConnection']]]
 ];

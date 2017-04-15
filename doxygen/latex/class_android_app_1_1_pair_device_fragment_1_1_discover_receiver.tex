@@ -1,0 +1,64 @@
+\hypertarget{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver}{}\section{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver Class Reference}
+\label{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver}\index{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver@{Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver}}
+
+
+Receiver for when a new device is discovered.  
+
+
+Inheritance diagram for Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver_aed29343e83655c50dee0eb9253eb0b85}{on\+Receive} (Context context, Intent intent)
+\begin{DoxyCompactList}\small\item\em When a BT device is found, adds the device to the List\+View. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Receiver for when a new device is discovered. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver_aed29343e83655c50dee0eb9253eb0b85}\label{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver_aed29343e83655c50dee0eb9253eb0b85}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}!on\+Receive@{on\+Receive}}
+\index{on\+Receive@{on\+Receive}!Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}}
+\subsubsection{\texorpdfstring{on\+Receive()}{onReceive()}}
+{\footnotesize\ttfamily void Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver.\+on\+Receive (\begin{DoxyParamCaption}\item[{Context}]{context,  }\item[{Intent}]{intent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+When a BT device is found, adds the device to the List\+View. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & -\/ Context that the application is running in. \\
+\hline
+{\em intent} & -\/ Intent holding the device object. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+231                                                               \{
+232             String action = intent.getAction();
+233 
+234             \textcolor{comment}{/* Check to see if found device */}
+235             \textcolor{keywordflow}{if} (BluetoothDevice.ACTION\_FOUND.equals(action))
+236             \{
+237                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA\_DEVICE);
+238 
+239                 \textcolor{comment}{/* Create new device item and add to list */}
+240                 BTDeviceItem newDevice = \textcolor{keyword}{new} BTDeviceItem(device, \textcolor{stringliteral}{"unpaired"}, 
+      \hyperlink{class_android_app_1_1_pair_device_fragment_a68e4843e20a0d81574ba3d9e78a67be5}{BT\_DISABLED\_ICON});
+241                 \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.add(newDevice);
+242                 \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.notifyDataSetChanged();
+243             \}
+244         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_pair_device_fragment_8java}{Pair\+Device\+Fragment.\+java}\end{DoxyCompactItemize}

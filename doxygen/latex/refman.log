@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  15 APR 2017 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  15 APR 2017 18:34
 entering extended mode
 **./refman.tex
 (refman.tex
@@ -1196,8 +1196,8 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 42.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 42.
+(Font)              scaled to size 7.19995pt on input line 44.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 44.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1258,19 +1258,17 @@ LaTeX Warning: Reference `_storage_8h' on page 7 undefined on input line 20.
 
 ]
 Chapter 5.
-(classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.tex
+(class_android_app_1_1_b_t_connection.tex
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 6.29996pt on input line 1.
 
-<classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.pdf, id=1267, 501.8
-75pt x 156.585pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.pdf Graphic fi
-le (type pdf)
+<class_android_app_1_1_b_t_connection.pdf, id=1272, 501.875pt x 234.8775pt>
+File: class_android_app_1_1_b_t_connection.pdf Graphic file (type pdf)
 
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connec
-tion.pdf used on input line 11.
-(pdftex.def)             Requested size: 182.39024pt x 56.9055pt.
+<use class_android_app_1_1_b_t_connection.pdf>
+Package pdftex.def Info: class_android_app_1_1_b_t_connection.pdf used on input
+ line 11.
+(pdftex.def)             Requested size: 121.59349pt x 56.9055pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
@@ -1294,7 +1292,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 18.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 6.29996pt on input line 18.
- [9 <./classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection.pdf>]
+ [9 <./class_android_app_1_1_b_t_connection.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 8.99994pt on input line 79.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
@@ -1305,66 +1303,57 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 Overfull \vbox (8.2925pt too high) has occurred while \output is active []
 
 
-[10]
-Underfull \hbox (badness 5022) in paragraph at lines 142--143
-[]\T1/phv/m/n/10 References com.[]jack.[]motorbikestatistics.[]B[]T[]Connection
-.[]close(), com.[]jack.[]motorbikestatistics.[]B[]T[]Connection.[]is[]
- []
-
-[11]
-Underfull \hbox (badness 10000) detected at line 233
+[10] [11]
+Underfull \hbox (badness 10000) detected at line 225
 [][][]
  []
 
 [12]
-Underfull \hbox (badness 10000) detected at line 256
+Underfull \hbox (badness 10000) detected at line 244
 [][][]
  []
 
-[13]) (classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_item.tex
+[13]) (class_android_app_1_1_b_t_device_item.tex
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 14.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 14.
- [14]
-[15]
-Underfull \hbox (badness 10000) detected at line 94
+ [14] [15]
+Underfull \hbox (badness 10000) detected at line 90
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 138
+Underfull \hbox (badness 10000) detected at line 130
 [][][]
  []
 
 [16]
-Underfull \hbox (badness 10000) detected at line 161
+Underfull \hbox (badness 10000) detected at line 149
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 205
+Underfull \hbox (badness 10000) detected at line 189
 [][][]
  []
 
-[17]) (classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.pdf, id=14
-51, 501.875pt x 135.50626pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.pdf G
-raphic file (type pdf)
+[17]) (class_android_app_1_1_b_t_device_list_adapter.tex
+<class_android_app_1_1_b_t_device_list_adapter.pdf, id=1454, 501.875pt x 138.51
+75pt>
+File: class_android_app_1_1_b_t_device_list_adapter.pdf Graphic file (type pdf)
 
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device
-_list_adapter.pdf used on input line 11.
-(pdftex.def)             Requested size: 210.76308pt x 56.9055pt.
-
-[18 <./classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.pdf>
-] [19]
-Underfull \hbox (badness 10000) detected at line 102
+ <use class_android_app_1_1_b_t_device_list_adapter.pdf>
+Package pdftex.def Info: class_android_app_1_1_b_t_device_list_adapter.pdf used
+ on input line 11.
+(pdftex.def)             Requested size: 206.17595pt x 56.9055pt.
+ [18 <./class_android_app_1_1_b_t_device_list_adapter.pdf>] [19]
+Underfull \hbox (badness 10000) detected at line 98
 [][][]
  []
 
-) (classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.tex
+) (class_android_app_1_1_b_t_device_list_adapter_1_1_view_holder.tex)
+(class_android_app_1_1_data_item.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1389,276 +1378,299 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
 (Font)              using `T1/pcr/m/n' instead on input line 76.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-Underfull \hbox (badness 10000) detected at line 158
+[22]
+Underfull \hbox (badness 10000) detected at line 150
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 181
+Underfull \hbox (badness 10000) detected at line 169
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 204
+Underfull \hbox (badness 10000) detected at line 188
 [][][]
  []
 
 [23]
-Underfull \hbox (badness 10000) detected at line 227
+Underfull \hbox (badness 10000) detected at line 207
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 250
+Underfull \hbox (badness 10000) detected at line 226
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 273
+Underfull \hbox (badness 10000) detected at line 245
 [][][]
  []
 
-[24]
-Underfull \hbox (badness 945) in paragraph at lines 305--306
-\T1/phv/m/n/10 current, com.[]jack.[]motorbikestatistics.[]Data[]Item$\OML/cmm/
-m/it/10 <$ \T1/phv/m/n/10 T $\OML/cmm/m/it/10 >$\T1/phv/m/n/10 .[]divide(), com
-.[]jack.[]motorbikestatistics.[]Data[]Item$\OML/cmm/m/it/10 <$ \T1/phv/m/n/10 T
- $\OML/cmm/m/it/10 >$\T1/phv/m/n/10 .[]
- []
-
-[25]
-Underfull \hbox (badness 10000) detected at line 348
+[24] [25] [26]
+Underfull \hbox (badness 10000) detected at line 312
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 374
-[][][]
- []
-
-[26]
-Underfull \hbox (badness 10000) detected at line 400
+Underfull \hbox (badness 10000) detected at line 338
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 426
-[][][]
- []
-
-) (classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.pdf, id=1641, 50
-1.875pt x 149.55875pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.pdf Graphic
- file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_
-adapter.pdf used on input line 11.
-(pdftex.def)             Requested size: 190.95953pt x 56.9055pt.
-
-[27 <./classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-[]\T1/phv/m/n/10 References com.[]jack.[]motorbikestatistics.[]Data[]List[]Adap
-ter.[]data, and com.[]jack.[]motorbikestatistics.[]Data[]List[]
- []
+Overfull \vbox (2.46574pt too high) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Underfull \hbox (badness 10000) detected at line 103
+[27]
+Underfull \hbox (badness 10000) detected at line 364
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
-[]\T1/phv/m/n/10 References com.[]jack.[]motorbikestatistics.[]Data[]Item$\OML/
-cmm/m/it/10 <$ \T1/phv/m/n/10 T $\OML/cmm/m/it/10 >$\T1/phv/m/n/10 .[]get[]Aver
-age(), com.[]jack.[]motorbikestatistics.[]Data[]
+Underfull \hbox (badness 10000) detected at line 390
+[][][]
  []
 
+) (class_android_app_1_1_data_list_adapter.tex
+<class_android_app_1_1_data_list_adapter.pdf, id=1653, 501.875pt x 154.5775pt>
+File: class_android_app_1_1_data_list_adapter.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 2088) in paragraph at lines 108--109
-\T1/phv/m/n/10 Item$\OML/cmm/m/it/10 <$ \T1/phv/m/n/10 T $\OML/cmm/m/it/10 >$\T
-1/phv/m/n/10 .[]get[]Current(), com.[]jack.[]motorbikestatistics.[]Data[]Item$\
-OML/cmm/m/it/10 <$ \T1/phv/m/n/10 T $\OML/cmm/m/it/10 >$\T1/phv/m/n/10 .[]get[]
-Enabled[]Avg[]Min[]Max(), com.[]jack.[]
+<use class_android_app_1_1_data_list_adapter.pdf>
+Package pdftex.def Info: class_android_app_1_1_data_list_adapter.pdf used on in
+put line 11.
+(pdftex.def)             Requested size: 184.75656pt x 56.9055pt.
+ [28 <./class_android_app_1_1_data_list_adapter.pdf>] [29]
+Underfull \hbox (badness 10000) detected at line 99
+[][][]
  []
 
-[29])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_it
-em_listener.tex
-Underfull \hbox (badness 3635) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 com.[]jack.[]motorbikestatistics.[]Pair[]Device[]Fragment.[
-]Device[]Item[]Listener Class Ref-er-
- []
-
-
-<classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_it
-em_listener.pdf, id=1694, 501.875pt x 99.37125pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_devi
-ce_item_listener.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_devic
-e_item_listener.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_devic
-e_fragment_1_1_device_item_listener.pdf used on input line 11.
-(pdftex.def)             Requested size: 287.41187pt x 56.9055pt.
- [30 <./classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_de
-vice_item_listener.pdf>]
-Underfull \hbox (badness 7012) in paragraph at lines 50--51
-\T1/phv/m/n/10 Item.[]get[]Device(), com.[]jack.[]motorbikestatistics.[]B[]T[]C
-onnection.[]is[]Connected(), com.[]jack.[]motorbikestatistics.[]B[]T[]
- []
-
-
-Overfull \hbox (21.28264pt too wide) in paragraph at lines 50--51
-\T1/phv/m/n/10 Device[]Item.[]set[]Connection(), com.[]jack.[]motorbikestatisti
-cs.[]B[]T[]Device[]Item.[]set[]Icon[]I[]D(), and com.[]jack.[]motorbikestatisti
-cs.[]
- []
-
-[31])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_
-button_listener.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 com.[]jack.[]motorbikestatistics.[]Pair[]Device[]Fragment.[
-]Discover[]Button[]Listener Class
- []
-
-
-<classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_
-button_listener.pdf, id=1721, 501.875pt x 94.3525pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_disc
-over_button_listener.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_disco
-ver_button_listener.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_devic
-e_fragment_1_1_discover_button_listener.pdf used on input line 11.
-(pdftex.def)             Requested size: 302.68954pt x 56.9055pt.
- [32 <./classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_di
-scover_button_listener.pdf>])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_
-receiver.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_
-receiver.pdf, id=1747, 501.875pt x 100.375pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_disc
-over_receiver.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_disco
-ver_receiver.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_devic
-e_fragment_1_1_discover_receiver.pdf used on input line 11.
-(pdftex.def)             Requested size: 284.53246pt x 56.9055pt.
- [33 <./classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_di
-scover_receiver.pdf>])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.pdf, id=1767,
- 501.875pt x 134.5025pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.pdf Grap
-hic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_load_devic
-e_fragment.pdf used on input line 11.
-(pdftex.def)             Requested size: 212.33296pt x 56.9055pt.
-
-[34 <./classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.pdf>]
-[35]
+[30]) (class_android_app_1_1_data_list_adapter_1_1_view_holder.tex)
+(class_android_app_1_1_load_device_fragment.tex
+<class_android_app_1_1_load_device_fragment.pdf, id=1705, 501.875pt x 188.705pt
+>
+File: class_android_app_1_1_load_device_fragment.pdf Graphic file (type pdf)
+ <use class_android_app_1_1_load_device_fragment.pdf>
+Package pdftex.def Info: class_android_app_1_1_load_device_fragment.pdf used on
+ input line 11.
+(pdftex.def)             Requested size: 151.34477pt x 56.9055pt.
+ [31 <./class_android_app_1_1_load_device_fragment.pdf>] [32]
 Underfull \hbox (badness 10000) detected at line 105
 [][][]
  []
 
-[36] [37]) (classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.pdf, id=1838, 501.87
-5pt x 81.30376pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.pdf Graphic fil
-e (type pdf)
+[33] [34])
+(class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.tex
+<class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf, id=1775
+, 501.875pt x 131.49126pt>
+File: class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf Gra
+phic file (type pdf)
 
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_main_activ
-ity.pdf used on input line 11.
-(pdftex.def)             Requested size: 351.27946pt x 56.9055pt.
- [38 <./classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.pdf>] [39]
+<use class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf>
+Package pdftex.def Info: class_android_app_1_1_load_device_fragment_1_1_trip_it
+em_listener.pdf used on input line 11.
+(pdftex.def)             Requested size: 217.19579pt x 56.9055pt.
+
+[35 <./class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+[]\T1/phv/m/n/10 References Android[]App.[]Trip[]Item.[]get[]Trip[]Name(), Andr
+oid[]App.[]B[]T[]Connection.[]is[]Connected(), Android[]App.[]
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 37--38
+\T1/phv/m/n/10 Realtime[]Fragment.[]R[]X[]Handler, Android[]App.[]B[]T[]Connect
+ion.[]set[]R[]X[]Handler(), and Android[]App.[]B[]T[]Connection.[]tx[]
+ []
+
+) (class_android_app_1_1_main_activity.tex
+<class_android_app_1_1_main_activity.pdf, id=1796, 501.875pt x 94.3525pt>
+File: class_android_app_1_1_main_activity.pdf Graphic file (type pdf)
+
+<use class_android_app_1_1_main_activity.pdf>
+Package pdftex.def Info: class_android_app_1_1_main_activity.pdf used on input 
+line 11.
+(pdftex.def)             Requested size: 302.68954pt x 56.9055pt.
+ [36] [37 <./class_android_app_1_1_main_activity.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 113--114
-\T1/phv/m/n/10 Main[]Activity.[]pd[]Fragment, com.[]jack.[]motorbikestatistics.
-[]Main[]Activity.[]rt[]Fragment, com.[]jack.[]motorbikestatistics.[]
+[]\T1/phv/m/n/10 References Android[]App.[]Pair[]Device[]Fragment.[]get[]B[]T[]
+Connection(), Android[]App.[]B[]T[]Connection.[]is[]Connected(),
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 113--114
-\T1/phv/m/n/10 Load[]Device[]Fragment.[]R[]X[]Handler, com.[]jack.[]motorbikest
-atistics.[]Realtime[]Fragment.[]R[]X[]Handler, com.[]jack.[]
+\T1/phv/m/n/10 Android[]App.[]Load[]Device[]Fragment.[]R[]X[]Handler, Android[]
+App.[]Realtime[]Fragment.[]R[]X[]Handler, Android[]App.[]Load[]
  []
 
+[38]) (class_android_app_1_1_maps_activity.tex
+<class_android_app_1_1_maps_activity.pdf, id=1858, 501.875pt x 122.4575pt>
+File: class_android_app_1_1_maps_activity.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
-\T1/phv/m/n/10 motorbikestatistics.[]Load[]Device[]Fragment.[]set[]B[]T[]Connec
-tion(), com.[]jack.[]motorbikestatistics.[]B[]T[]Connection.[]set[]R[]
- []
-
-[40])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_1_1_map_button_l
-istener.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 com.[]jack.[]motorbikestatistics.[]Realtime[]Fragment.[]Map
-[]Button[]Listener Class Ref-er-
- []
-
-
-<classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_1_1_map_button_l
-istener.pdf, id=1902, 501.875pt x 104.39pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_1_1_map_but
-ton_listener.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_1_1_map_butt
-on_listener.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_f
-ragment_1_1_map_button_listener.pdf used on input line 11.
-(pdftex.def)             Requested size: 273.5892pt x 56.9055pt.
- [41 <./classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_1_1_map_b
-utton_listener.pdf>])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.pdf, id=1916, 501.87
-5pt x 80.3pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.pdf Graphic fil
-e (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activ
-ity.pdf used on input line 11.
-(pdftex.def)             Requested size: 355.6675pt x 56.9055pt.
- [42 <./classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.pdf>]
-Overfull \vbox (6.52512pt too high) has occurred while \output is active []
-
-
-[43]
-Underfull \hbox (badness 10000) detected at line 100
+<use class_android_app_1_1_maps_activity.pdf>
+Package pdftex.def Info: class_android_app_1_1_maps_activity.pdf used on input 
+line 11.
+(pdftex.def)             Requested size: 233.2163pt x 56.9055pt.
+ [39] [40 <./class_android_app_1_1_maps_activity.pdf>]
+Underfull \hbox (badness 10000) detected at line 96
 [][][]
  []
 
-[44]
-Underfull \hbox (badness 10000) detected at line 144
+[41]
+Underfull \hbox (badness 10000) detected at line 140
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 196
+Underfull \hbox (badness 10000) detected at line 192
 [][][]
  []
 
-[45] [46]) (class_orientation.tex [47]
-Underfull \hbox (badness 10000) detected at line 59
+[42] [43])
+(class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.tex
+<class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf, id=1927,
+ 501.875pt x 133.49875pt>
+File: class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf Grap
+hic file (type pdf)
+
+<use class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf>
+Package pdftex.def Info: class_android_app_1_1_maps_activity_1_1_statistic_wind
+ow_adapter.pdf used on input line 11.
+(pdftex.def)             Requested size: 213.93349pt x 56.9055pt.
+
+[44 <./class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf>]
+Underfull \hbox (badness 10000) detected at line 43
+[][][]
+ []
+
+) (class_android_app_1_1_pair_device_fragment.tex [45]
+<class_android_app_1_1_pair_device_fragment.pdf, id=1954, 501.875pt x 193.72375
+pt>
+File: class_android_app_1_1_pair_device_fragment.pdf Graphic file (type pdf)
+ <use class_android_app_1_1_pair_device_fragment.pdf>
+Package pdftex.def Info: class_android_app_1_1_pair_device_fragment.pdf used on
+ input line 11.
+(pdftex.def)             Requested size: 147.42387pt x 56.9055pt.
+ [46 <./class_android_app_1_1_pair_device_fragment.pdf>] [47]
+Underfull \hbox (badness 10000) detected at line 126
 [][][]
  []
 
 [48]
+Underfull \hbox (badness 10000) detected at line 219
+[][][]
+ []
+
+) (class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.tex
+[49]
+<class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf, id=20
+55, 501.875pt x 126.4725pt>
+File: class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf G
+raphic file (type pdf)
+
+<use class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf>
+Package pdftex.def Info: class_android_app_1_1_pair_device_fragment_1_1_device_
+item_listener.pdf used on input line 11.
+(pdftex.def)             Requested size: 225.81868pt x 56.9055pt.
+
+Underfull \hbox (badness 1783) in paragraph at lines 50--51
+\T1/phv/m/n/10 T[]Connection.[]is[]Connected(), Android[]App.[]B[]T[]Device[]It
+em.[]set[]Connection(), Android[]App.[]B[]T[]Device[]Item.[]set[]Icon[]I[]D(),
+ []
+
+[50 <./class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf>
+]) (class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.tex
+
+<class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.pdf, i
+d=2076, 501.875pt x 117.43875pt>
+File: class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.p
+df Graphic file (type pdf)
+
+<use class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.pd
+f>
+Package pdftex.def Info: class_android_app_1_1_pair_device_fragment_1_1_discove
+r_button_listener.pdf used on input line 11.
+(pdftex.def)             Requested size: 243.187pt x 56.9055pt.
+ [51 <./class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener
+.pdf>]) (class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.tex
+<class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf, id=2100,
+ 501.875pt x 128.48pt>
+File: class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf Grap
+hic file (type pdf)
+
+<use class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf>
+Package pdftex.def Info: class_android_app_1_1_pair_device_fragment_1_1_discove
+r_receiver.pdf used on input line 11.
+(pdftex.def)             Requested size: 222.28835pt x 56.9055pt.
+
+[52]) (class_android_app_1_1_realtime_fragment.tex [53 <./class_android_app_1_1
+_pair_device_fragment_1_1_discover_receiver.pdf>]
+<class_android_app_1_1_realtime_fragment.pdf, id=2122, 501.875pt x 209.78375pt>
+File: class_android_app_1_1_realtime_fragment.pdf Graphic file (type pdf)
+<use class_android_app_1_1_realtime_fragment.pdf>
+Package pdftex.def Info: class_android_app_1_1_realtime_fragment.pdf used on in
+put line 11.
+(pdftex.def)             Requested size: 136.136pt x 56.9055pt.
+ [54 <./class_android_app_1_1_realtime_fragment.pdf>] [55]
+Underfull \hbox (badness 10000) detected at line 119
+[][][]
+ []
+
+[56] [57]) (class_android_app_1_1_realtime_fragment_1_1_map_button_listener.tex
+
+<class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf, id=2221, 
+501.875pt x 133.49875pt>
+File: class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf Graph
+ic file (type pdf)
+
+<use class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf>
+Package pdftex.def Info: class_android_app_1_1_realtime_fragment_1_1_map_button
+_listener.pdf used on input line 11.
+(pdftex.def)             Requested size: 213.93349pt x 56.9055pt.
+
+[58 <./class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf>])
+(class_android_app_1_1_set_of_data_items.tex
+<class_android_app_1_1_set_of_data_items.pdf, id=2235, 501.875pt x 205.76875pt>
+File: class_android_app_1_1_set_of_data_items.pdf Graphic file (type pdf)
+<use class_android_app_1_1_set_of_data_items.pdf>
+Package pdftex.def Info: class_android_app_1_1_set_of_data_items.pdf used on in
+put line 11.
+(pdftex.def)             Requested size: 138.79333pt x 56.9055pt.
+ [59 <./class_android_app_1_1_set_of_data_items.pdf>]
+Underfull \hbox (badness 10000) detected at line 45
+[][][]
+ []
+
+) (class_android_app_1_1_trip_item.tex [60]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+[61]
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+) (class_android_app_1_1_trip_list_adapter.tex
+<class_android_app_1_1_trip_list_adapter.pdf, id=2293, 501.875pt x 156.585pt>
+File: class_android_app_1_1_trip_list_adapter.pdf Graphic file (type pdf)
+
+<use class_android_app_1_1_trip_list_adapter.pdf>
+Package pdftex.def Info: class_android_app_1_1_trip_list_adapter.pdf used on in
+put line 11.
+(pdftex.def)             Requested size: 182.39024pt x 56.9055pt.
+ [62] [63 <./class_android_app_1_1_trip_list_adapter.pdf>]
+Underfull \hbox (badness 10000) detected at line 99
+[][][]
+ []
+
+[64]) (class_android_app_1_1_trip_list_adapter_1_1_view_holder.tex)
+(class_logging_device_1_1_orientation.tex [65]
+Underfull \hbox (badness 10000) detected at line 59
+[][][]
+ []
+
+[66]
 Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
@@ -1668,12 +1680,12 @@ Underfull \hbox (badness 10000) detected at line 154
 [][][]
  []
 
-[49]
+[67]
 Underfull \hbox (badness 10000) detected at line 214
 [][][]
  []
 
-[50]
+[68]
 Underfull \hbox (badness 10000) detected at line 237
 [][][]
  []
@@ -1683,175 +1695,19 @@ Underfull \hbox (badness 10000) detected at line 260
 [][][]
  []
 
-) (classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.pdf, id=2065,
- 501.875pt x 136.51pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.pdf Grap
-hic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_pair_devic
-e_fragment.pdf used on input line 11.
-(pdftex.def)             Requested size: 209.20851pt x 56.9055pt.
-
-[51 <./classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.pdf>]
-[52]
-Underfull \hbox (badness 10000) detected at line 126
-[][][]
- []
-
-
-Underfull \hbox (badness 7099) in paragraph at lines 131--132
-\T1/phv/m/n/10 Fragment.[]get[]Needed[]Privileges(), com.[]jack.[]motorbikestat
-istics.[]B[]T[]Connection.[]is[]Connected(), and com.[]jack.[]
- []
-
-[53] [54]
-Underfull \hbox (badness 10000) detected at line 219
-[][][]
- []
-
-) (classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.pdf, id=2159, 50
-1.875pt x 144.54pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.pdf Graphic
- file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_f
-ragment.pdf used on input line 11.
-(pdftex.def)             Requested size: 197.58368pt x 56.9055pt.
-
-[55] [56 <./classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.pdf>]
-[57]
-Underfull \hbox (badness 10000) detected at line 119
-[][][]
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 168--169
-[]\T1/phv/m/n/10 References com.[]jack.[]motorbikestatistics.[]Set[]Of[]Data[]I
-tems.[]get[]Item[]By[]Name(), and com.[]jack.[]motorbikestatistics.[]
- []
-
-[58] [59]) (classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items.pdf, id=2261, 50
-1.875pt x 151.56625pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items.pdf Graphic
- file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_dat
-a_items.pdf used on input line 11.
-(pdftex.def)             Requested size: 188.43239pt x 56.9055pt.
-
-[60 <./classcom_1_1jack_1_1motorbikestatistics_1_1_set_of_data_items.pdf>]
-Underfull \hbox (badness 10000) detected at line 45
-[][][]
- []
-
-)
-(classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic_window
-_adapter.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 com.[]jack.[]motorbikestatistics.[]Maps[]Activity.[]Statist
-ic[]Window[]Adapter Class Ref-er-
- []
-
-
-<classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic_window
-_adapter.pdf, id=2279, 501.875pt x 104.39pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic_w
-indow_adapter.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic_wi
-ndow_adapter.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activ
-ity_1_1_statistic_window_adapter.pdf used on input line 11.
-(pdftex.def)             Requested size: 273.5892pt x 56.9055pt.
- [61 <./classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity_1_1_statistic
-_window_adapter.pdf>]
-Underfull \hbox (badness 10000) detected at line 43
-[][][]
- []
-
-[62]) (class_storage.tex [63]
+) (class_logging_device_1_1_storage.tex [69] [70]
 Underfull \hbox (badness 10000) detected at line 82
 [][][]
  []
 
-[64]
+
 Underfull \hbox (badness 10000) detected at line 127
 [][][]
  []
 
-[65] [66]) (classcom_1_1jack_1_1motorbikestatistics_1_1_trip_item.tex [67]
-Underfull \hbox (badness 10000) detected at line 75
-[][][]
- []
+[71] [72]) [73] [74
 
-[68]
-Underfull \hbox (badness 10000) detected at line 123
-[][][]
- []
-
-)
-(classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item
-_listener.tex
-Underfull \hbox (badness 7777) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 com.[]jack.[]motorbikestatistics.[]Load[]Device[]Fragment.[
-]Trip[]Item[]Listener Class Ref-er-
- []
-
-[69]
-<classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item
-_listener.pdf, id=2411, 501.875pt x 102.3825pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip
-_item_listener.pdf Graphic file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_
-item_listener.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_load_devic
-e_fragment_1_1_trip_item_listener.pdf used on input line 11.
-(pdftex.def)             Requested size: 278.95744pt x 56.9055pt.
-
-Underfull \hbox (badness 6927) in paragraph at lines 37--38
-[]\T1/phv/m/n/10 References com.[]jack.[]motorbikestatistics.[]Trip[]Item.[]get
-[]Trip[]Name(), com.[]jack.[]motorbikestatistics.[]B[]T[]Connection.[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-\T1/phv/m/n/10 is[]Connected(), com.[]jack.[]motorbikestatistics.[]Realtime[]Fr
-agment.[]R[]X[]Handler, com.[]jack.[]motorbikestatistics.[]B[]T[]
- []
-
-[70 <./classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_tri
-p_item_listener.pdf>])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.tex
-<classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.pdf, id=2432, 50
-1.875pt x 151.56625pt>
-File: classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.pdf Graphic
- file (type pdf)
-
-<use classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.pdf>
-Package pdftex.def Info: classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_
-adapter.pdf used on input line 11.
-(pdftex.def)             Requested size: 188.43239pt x 56.9055pt.
-
-[71 <./classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.pdf>]
-[72]
-Underfull \hbox (badness 10000) detected at line 103
-[][][]
- []
-
-)
-(classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter_1_1_view_holder.
-tex [73])
-(classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter_1_1_view_holder.
-tex)
-(classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter_1_1_view_h
-older.tex) [74]
+]
 Chapter 6.
 (_b_t_connection_8java.tex
 Underfull \hbox (badness 3735) in paragraph at lines 1--1
@@ -1875,9 +1731,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []B[]T[]Device[]Item.java File
  []
 
-[75
-
-]
+[75]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -2094,15 +1948,133 @@ Underfull \hbox (badness 10000) detected at line 37
 [][][]
  []
 
-) [90]
-No file refman.ind.
+) [90] (refman.ind
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 13--15
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 15--17
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 17--19
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 19--21
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 21--23
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 23--25
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 25--27
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 27--29
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 29--31
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 31--33
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 33--35
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 35--37
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 37--39
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+[]\T1/phv/m/n/10 Android[]App.[]Pair[]Device[]Fragment.[]Device[]Item[]Listener
+,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+[]\T1/phv/m/n/10 Android[]App.[]Pair[]Device[]Fragment.[]Discover[]Button[]
+ []
+
+[91
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+[]\T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]Button
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+[]| \T1/phv/m/n/10 Android[]App[]::[]Maps[]Activity[]::[]Statistic[]Window[]
+ []
+
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 299--301
+[]| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
+[]| \T1/phv/m/n/10 Android[]App[]::[]Realtime[]Fragment[]::[]Map[]Button[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
+[]| \T1/phv/m/n/10 Android[]App[]::[]Load[]Device[]Fragment[]::[]Trip[]Item[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+[]| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Device[]Item[]
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
+[]| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]
+ []
+
+[93] [94
+
+])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
-(refman.aux)
+ (refman.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 0B2F41F957919B68DF51A156EFA04170;52748.
+(rerunfilecheck)             Checksum: 000F11C406357D4C35D9D521EB3F0122;51019.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2113,13 +2085,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
  ) 
 Here is how much of TeX's memory you used:
- 16182 strings out of 493333
- 266325 string characters out of 3139197
- 332332 words of memory out of 3000000
+ 16189 strings out of 493333
+ 258135 string characters out of 3139197
+ 336954 words of memory out of 3000000
  18678 multiletter control sequences out of 15000+200000
  71523 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,1208b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,16n,92p,1075b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{logging\\unhbox\040\\voidb@x\040\\kern\040\\z@\04
 0\\char\040`\\discretionary\040{-}{}{}device_8ino_a5eebfb3b76a83174d0f5d032d1f6
 bfb7} has been referenced but does not exist, replaced by a fixed one
@@ -2224,9 +2196,9 @@ m Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX
 e1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvet
 ic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb
 >
-Output written on refman.pdf (100 pages, 773559 bytes).
+Output written on refman.pdf (104 pages, 796020 bytes).
 PDF statistics:
- 2956 PDF objects out of 2984 (max. 8388607)
- 687 named destinations out of 1000 (max. 500000)
- 1753 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3184 PDF objects out of 3580 (max. 8388607)
+ 692 named destinations out of 1000 (max. 500000)
+ 1761 words of extra memory for PDF output out of 10000 (max. 10000000)
 

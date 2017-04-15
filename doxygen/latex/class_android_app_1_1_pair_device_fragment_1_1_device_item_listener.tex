@@ -1,0 +1,102 @@
+\hypertarget{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener}{}\section{Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener Class Reference}
+\label{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener}\index{Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener@{Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener}}
+
+
+Listener for when a List\+View item is pressed (to connect).  
+
+
+Inheritance diagram for Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener_a6a396ee11bf3af843829045ccb7ffd5c}{on\+Item\+Click} (Adapter\+View$<$?$>$ parent, View view, int position, long id)
+\begin{DoxyCompactList}\small\item\em Function called when user wants to connect to a device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener for when a List\+View item is pressed (to connect). 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener_a6a396ee11bf3af843829045ccb7ffd5c}\label{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener_a6a396ee11bf3af843829045ccb7ffd5c}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener}!on\+Item\+Click@{on\+Item\+Click}}
+\index{on\+Item\+Click@{on\+Item\+Click}!Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener@{Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener}}
+\subsubsection{\texorpdfstring{on\+Item\+Click()}{onItemClick()}}
+{\footnotesize\ttfamily void Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener.\+on\+Item\+Click (\begin{DoxyParamCaption}\item[{Adapter\+View$<$?$>$}]{parent,  }\item[{View}]{view,  }\item[{int}]{position,  }\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function called when user wants to connect to a device. 
+
+Discovery is turned off to stop power wastage. A new connection thread is then created which is responsible for parsing receive, and transmission requests from other fragments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & -\/ The parent List\+View. \\
+\hline
+{\em view} & -\/ Current view of the List\+Item. \\
+\hline
+{\em position} & -\/ Index of item pressed in List\+View. \\
+\hline
+{\em id} & -\/ ID of the List\+Item. \\
+\hline
+\end{DoxyParams}
+
+
+References Android\+App.\+B\+T\+Device\+Item.\+get\+Connection(), Android\+App.\+B\+T\+Device\+Item.\+get\+Device(), Android\+App.\+B\+T\+Connection.\+is\+Connected(), Android\+App.\+B\+T\+Device\+Item.\+set\+Connection(), Android\+App.\+B\+T\+Device\+Item.\+set\+Icon\+I\+D(), and Android\+App.\+B\+T\+Device\+Item.\+set\+Status().
+
+
+\begin{DoxyCode}
+305                                                                                          \{
+306 
+307             BTDeviceItem deviceItem = (BTDeviceItem)parent.getItemAtPosition(position);
+308 
+309             \textcolor{comment}{/* Check if there is already a connection between devices */}
+310             \textcolor{keywordflow}{if} ((deviceItem.getConnection() == null) ||
+311                     (!deviceItem.getConnection().isConnected()))
+312             \{
+313                 \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.isDiscovering())
+314                 \{
+315                     \textcolor{comment}{/* Cancel discovery is still enabled */}
+316                     \hyperlink{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}{btnScan}.setChecked(\textcolor{keyword}{false});
+317                     \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.cancelDiscovery();
+318                 \}
+319 
+320                 \textcolor{keywordflow}{try}
+321                 \{
+322                     Toast.makeText(parent.getContext(), \textcolor{stringliteral}{"Connecting to: "} +
+323                             deviceItem.getDevice().getName(), Toast.LENGTH\_SHORT).show();
+324 
+325                     \textcolor{comment}{/* Create a new BTConnection item with no RX handler */}
+326                     BTConnection newConn = \textcolor{keyword}{new} BTConnection(deviceItem.getDevice());
+327 
+328                     \textcolor{comment}{/* Execute the 'run' procedure in object in new thread */}
+329                     Thread tmpThread = \textcolor{keyword}{new} Thread(newConn);
+330                     tmpThread.start();
+331 
+332                     \textcolor{comment}{/* Add set connection and add item to listview */}
+333                     deviceItem.setConnection(newConn);
+334                     \hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice} = deviceItem;
+335 
+336                     \textcolor{comment}{/* Update status and icon in list view */}
+337                     deviceItem.\hyperlink{class_android_app_1_1_b_t_device_item_a893140b78c17184a199ac419f0fc7be7}{setIconID}(R.drawable.ic\_bluetooth\_connected\_black\_24px);
+338                     deviceItem.setStatus(\hyperlink{class_android_app_1_1_pair_device_fragment_a199a2a30c45008ec5a7360d11854f02f}{CONNECTED\_STATUS});
+339                     \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter}.notifyDataSetChanged();
+340                 \}
+341                 \textcolor{keywordflow}{catch} (IOException e)
+342                 \{
+343                     Toast.makeText(parent.getContext(), \textcolor{stringliteral}{"Unable to connect: "} +
+344                             e.toString(), Toast.LENGTH\_SHORT).show();
+345                 \}
+346             \}
+347         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_pair_device_fragment_8java}{Pair\+Device\+Fragment.\+java}\end{DoxyCompactItemize}

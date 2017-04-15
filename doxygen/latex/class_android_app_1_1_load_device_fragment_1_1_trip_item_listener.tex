@@ -1,0 +1,71 @@
+\hypertarget{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener}{}\section{Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener Class Reference}
+\label{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener}\index{Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener@{Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener}}
+
+
+Listener used to identify when a trip has been pressed.  
+
+
+Inheritance diagram for Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener_aa1eb00603eba3dbff13f1fa15bb9b958}{on\+Item\+Click} (Adapter\+View$<$?$>$ parent, View view, int position, long id)
+\begin{DoxyCompactList}\small\item\em Loads a trip the user has specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener used to identify when a trip has been pressed. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener_aa1eb00603eba3dbff13f1fa15bb9b958}\label{class_android_app_1_1_load_device_fragment_1_1_trip_item_listener_aa1eb00603eba3dbff13f1fa15bb9b958}} 
+\index{Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener@{Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}!on\+Item\+Click@{on\+Item\+Click}}
+\index{on\+Item\+Click@{on\+Item\+Click}!Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener@{Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}}
+\subsubsection{\texorpdfstring{on\+Item\+Click()}{onItemClick()}}
+{\footnotesize\ttfamily void Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener.\+on\+Item\+Click (\begin{DoxyParamCaption}\item[{Adapter\+View$<$?$>$}]{parent,  }\item[{View}]{view,  }\item[{int}]{position,  }\item[{long}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a trip the user has specified. 
+
+User has selected a trip via the List\+View, method switches to the statistic fragment and sends a message to logging device to load the specified trip (via name). 
+
+References Android\+App.\+Trip\+Item.\+get\+Trip\+Name(), Android\+App.\+B\+T\+Connection.\+is\+Connected(), Android\+App.\+Realtime\+Fragment.\+R\+X\+Handler, Android\+App.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and Android\+App.\+B\+T\+Connection.\+tx\+Handler.
+
+
+\begin{DoxyCode}
+138                                                                                          \{
+139 
+140             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_load_device_fragment_a245147c7d3683cf1556680a382f328a9}{btConnection} != null && \hyperlink{class_android_app_1_1_load_device_fragment_a245147c7d3683cf1556680a382f328a9}{btConnection}.
+      \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
+141                 TripItem tripItem = (TripItem) parent.getItemAtPosition(position);
+142 
+143                 \textcolor{comment}{/*}
+144 \textcolor{comment}{                 * Create a new statistics fragment.}
+145 \textcolor{comment}{                 * This will receive the stored data from the logging device.}
+146 \textcolor{comment}{                 */}
+147                 RealtimeFragment statFragment = \textcolor{keyword}{new} RealtimeFragment();
+148                 \hyperlink{class_android_app_1_1_load_device_fragment_a245147c7d3683cf1556680a382f328a9}{btConnection}.\hyperlink{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}{setRXHandler}(statFragment.RXHandler);
+149 
+150                 \textcolor{comment}{/* Transmit over the name of the trip we want to load */}
+151                 Message message = \textcolor{keyword}{new} Message();
+152                 message.obj = (String) \hyperlink{class_android_app_1_1_load_device_fragment_afdfe423809d2267938f21eb4c5501653}{LOAD\_TRIP\_CHAR} + tripItem.getTripName();
+153                 message.setTarget(\hyperlink{class_android_app_1_1_load_device_fragment_a245147c7d3683cf1556680a382f328a9}{btConnection}.\hyperlink{class_android_app_1_1_b_t_connection_a3236a74297d91f15dd63efc66f03a821}{txHandler});
+154                 message.sendToTarget();
+155 
+156                 FragmentManager fragmentManager = getFragmentManager();
+157                 fragmentManager.beginTransaction()
+158                         .replace(R.id.content\_frame, statFragment)
+159                         .commit();
+160             \}
+161         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_load_device_fragment_8java}{Load\+Device\+Fragment.\+java}\end{DoxyCompactItemize}
