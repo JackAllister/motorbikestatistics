@@ -115,57 +115,59 @@ References com.\+jack.\+motorbikestatistics.\+Data\+Item$<$ T $>$.\+get\+Average
 83 
 84         \textcolor{keywordflow}{if} (convertView == null)
 85         \{
-86             LayoutInflater inflater = (LayoutInflater)\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter_a2d3041a39701b01f4075cdc8c0bf4463}{context}.getSystemService(Context.
+86             \textcolor{comment}{/* If view does not already exist. */}
+87             LayoutInflater inflater = (LayoutInflater)\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter_a2d3041a39701b01f4075cdc8c0bf4463}{context}.getSystemService(Context.
       LAYOUT\_INFLATER\_SERVICE);
-87             convertView = inflater.inflate(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter_a03f68396c0f1b8b03feed8d6e3cf115d}{layoutResourceId}, parent, \textcolor{keyword}{false});
-88 
-89             holder = \textcolor{keyword}{new} ViewHolder();
-90             holder.name = (TextView)convertView.findViewById(R.id.datalist\_name);
-91             holder.current = (TextView)convertView.findViewById(R.id.datalist\_current);
-92             holder.average = (TextView)convertView.findViewById(R.id.datalist\_average);
-93             holder.minimum = (TextView)convertView.findViewById(R.id.datalist\_minimum);
-94             holder.maximum = (TextView)convertView.findViewById(R.id.datalist\_maximum);
-95             convertView.setTag(holder);
-96         \}
-97         \textcolor{keywordflow}{else}
-98         \{
-99             holder = (ViewHolder)convertView.getTag();
-100         \}
-101 
-102         DataItem dataItem = getItem(position);
+88             convertView = inflater.inflate(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter_a03f68396c0f1b8b03feed8d6e3cf115d}{layoutResourceId}, parent, \textcolor{keyword}{false});
+89 
+90             holder = \textcolor{keyword}{new} ViewHolder();
+91             holder.name = (TextView)convertView.findViewById(R.id.datalist\_name);
+92             holder.current = (TextView)convertView.findViewById(R.id.datalist\_current);
+93             holder.average = (TextView)convertView.findViewById(R.id.datalist\_average);
+94             holder.minimum = (TextView)convertView.findViewById(R.id.datalist\_minimum);
+95             holder.maximum = (TextView)convertView.findViewById(R.id.datalist\_maximum);
+96             convertView.setTag(holder);
+97         \}
+98         \textcolor{keywordflow}{else}
+99         \{
+100             \textcolor{comment}{/* If view already exists. */}
+101             holder = (ViewHolder)convertView.getTag();
+102         \}
 103 
-104         \textcolor{comment}{/* Set our holder with current data of item */}
-105         holder.name.setText(dataItem.getName());
-106 
-107         Object current = dataItem.getCurrent();
-108         \textcolor{keywordflow}{if} (current != null) \{
-109             DecimalFormat df = \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"#.####"});
-110             df.setRoundingMode(RoundingMode.CEILING);
-111 
-112             \textcolor{comment}{/* To aid aesthetics rounding is used. */}
-113             \textcolor{keywordflow}{if} (current instanceof Double) \{
-114                 holder.current.setText(df.format(current));
-115             \} \textcolor{keywordflow}{else} \{
-116                 holder.current.setText(current.toString());
-117             \}
-118 
-119             \textcolor{comment}{/*}
-120 \textcolor{comment}{             * Displays added functionality if available.}
-121 \textcolor{comment}{             * Not all statistics need it, for example averaging of LAT/LNG.}
-122 \textcolor{comment}{             */}
-123             \textcolor{keywordflow}{if} (dataItem.getEnabledAvgMinMax()) \{
-124                 holder.average.setText(df.format(dataItem.getAverage()));
-125                 holder.minimum.setText(df.format(dataItem.getMinimum()));
-126                 holder.maximum.setText(df.format(dataItem.getMaximum()));
-127             \} \textcolor{keywordflow}{else} \{
-128                 holder.average.setText(\textcolor{stringliteral}{"N/A"});
-129                 holder.minimum.setText(\textcolor{stringliteral}{"N/A"});
-130                 holder.maximum.setText(\textcolor{stringliteral}{"N/A"});
-131             \}
-132         \}
-133 
-134         \textcolor{keywordflow}{return} convertView;
-135     \}
+104         DataItem dataItem = getItem(position);
+105 
+106         \textcolor{comment}{/* Set our holder with current data of item */}
+107         holder.name.setText(dataItem.getName());
+108 
+109         Object current = dataItem.getCurrent();
+110         \textcolor{keywordflow}{if} (current != null) \{
+111             DecimalFormat df = \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"#.####"});
+112             df.setRoundingMode(RoundingMode.CEILING);
+113 
+114             \textcolor{comment}{/* To aid aesthetics rounding is used. */}
+115             \textcolor{keywordflow}{if} (current instanceof Double) \{
+116                 holder.current.setText(df.format(current));
+117             \} \textcolor{keywordflow}{else} \{
+118                 holder.current.setText(current.toString());
+119             \}
+120 
+121             \textcolor{comment}{/*}
+122 \textcolor{comment}{             * Displays added functionality if available.}
+123 \textcolor{comment}{             * Not all statistics need it, for example averaging of LAT/LNG.}
+124 \textcolor{comment}{             */}
+125             \textcolor{keywordflow}{if} (dataItem.getEnabledAvgMinMax()) \{
+126                 holder.average.setText(df.format(dataItem.getAverage()));
+127                 holder.minimum.setText(df.format(dataItem.getMinimum()));
+128                 holder.maximum.setText(df.format(dataItem.getMaximum()));
+129             \} \textcolor{keywordflow}{else} \{
+130                 holder.average.setText(\textcolor{stringliteral}{"N/A"});
+131                 holder.minimum.setText(\textcolor{stringliteral}{"N/A"});
+132                 holder.maximum.setText(\textcolor{stringliteral}{"N/A"});
+133             \}
+134         \}
+135 
+136         \textcolor{keywordflow}{return} convertView;
+137     \}
 \end{DoxyCode}
 
 

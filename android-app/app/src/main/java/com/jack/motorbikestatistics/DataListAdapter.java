@@ -83,6 +83,7 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
 
         if (convertView == null)
         {
+            /* If view does not already exist. */
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(layoutResourceId, parent, false);
 
@@ -96,6 +97,7 @@ public class DataListAdapter extends ArrayAdapter<DataItem> {
         }
         else
         {
+            /* If view already exists. */
             holder = (ViewHolder)convertView.getTag();
         }
 

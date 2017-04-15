@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['layoutresourceid',['layoutResourceId',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#a3f7a9f653fb6a0fcda0a0a61e29d0f06',1,'com.jack.motorbikestatistics.BTDeviceListAdapter.layoutResourceId()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#a03f68396c0f1b8b03feed8d6e3cf115d',1,'com.jack.motorbikestatistics.DataListAdapter.layoutResourceId()']]],
+  ['layoutresourceid',['layoutResourceId',['../classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_device_list_adapter.html#a3f7a9f653fb6a0fcda0a0a61e29d0f06',1,'com.jack.motorbikestatistics.BTDeviceListAdapter.layoutResourceId()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_list_adapter.html#a03f68396c0f1b8b03feed8d6e3cf115d',1,'com.jack.motorbikestatistics.DataListAdapter.layoutResourceId()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_trip_list_adapter.html#a72f8d17ad7f1dc531cbe0015b2f29454',1,'com.jack.motorbikestatistics.TripListAdapter.layoutResourceId()']]],
   ['ldfragment',['ldFragment',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#ac2ac0c852d3352efd6368ee550ef3c3c',1,'com::jack::motorbikestatistics::MainActivity']]],
   ['led_5fpin',['LED_PIN',['../logging-device_8ino.html#ab4553be4db9860d940f81d7447173b2f',1,'logging-device.ino']]],
   ['lessthan',['lessThan',['../classcom_1_1jack_1_1motorbikestatistics_1_1_data_item.html#af8d81a7e3c07f7c3a02035c872159388',1,'com::jack::motorbikestatistics::DataItem']]],
@@ -14,5 +14,5 @@ var searchData=
   ['log_5fname',['LOG_NAME',['../_storage_8cpp.html#abbd544044b4167ca397bfb6e3073aa50',1,'Storage.cpp']]],
   ['logging_2ddevice_2eino',['logging-device.ino',['../logging-device_8ino.html',1,'']]],
   ['loop',['loop',['../logging-device_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'logging-device.ino']]],
-  ['lvadapter',['lvAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a3ccc43db37a3b6d9a7dc345e9ab78d6b',1,'com.jack.motorbikestatistics.LoadDeviceFragment.lvAdapter()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f',1,'com.jack.motorbikestatistics.PairDeviceFragment.lvAdapter()']]]
+  ['lvadapter',['lvAdapter',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a3ccc43db37a3b6d9a7dc345e9ab78d6b',1,'com.jack.motorbikestatistics.LoadDeviceFragment.lvAdapter()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#a5ab5efcda2c2fe8db4420ec28ea2840f',1,'com.jack.motorbikestatistics.PairDeviceFragment.lvAdapter()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html#ae5e621d6d5f22ddb72ace3ca227f3760',1,'com.jack.motorbikestatistics.RealtimeFragment.lvAdapter()']]]
 ];

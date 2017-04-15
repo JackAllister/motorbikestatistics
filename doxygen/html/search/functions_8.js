@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['onbackpressed',['onBackPressed',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#a7cc508edb3037695e1a75eb342124fbc',1,'com::jack::motorbikestatistics::MainActivity']]],
-  ['oncheckedchanged',['onCheckedChanged',['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_button_listener.html#a2bfd9ec10403a45d4d13fb2e035f0cad',1,'com::jack::motorbikestatistics::PairDeviceFragment::DiscoverButtonListener']]],
-  ['oncreate',['onCreate',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#a69fd97053d686c295dc2c58d5c4ffb79',1,'com.jack.motorbikestatistics.MainActivity.onCreate()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#afd23eb0cf651de276a9b85bb5fa609b8',1,'com.jack.motorbikestatistics.MapsActivity.onCreate()']]],
-  ['oncreateview',['onCreateView',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment.html#a9ad9f0d9ef69417e2131613009c02338',1,'com.jack.motorbikestatistics.LoadDeviceFragment.onCreateView()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment.html#afc7756a10d0798aa2493b9c7f6b010ad',1,'com.jack.motorbikestatistics.PairDeviceFragment.onCreateView()']]],
-  ['onitemclick',['onItemClick',['../classcom_1_1jack_1_1motorbikestatistics_1_1_load_device_fragment_1_1_trip_item_listener.html#a35dc92993831e354573218d4300a2f2a',1,'com.jack.motorbikestatistics.LoadDeviceFragment.TripItemListener.onItemClick()'],['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_device_item_listener.html#ac059da38636222d0dc280176c46dfc3e',1,'com.jack.motorbikestatistics.PairDeviceFragment.DeviceItemListener.onItemClick()']]],
-  ['onmapready',['onMapReady',['../classcom_1_1jack_1_1motorbikestatistics_1_1_maps_activity.html#aefa35b548b2f39bb46b2cb5024be383c',1,'com::jack::motorbikestatistics::MapsActivity']]],
-  ['onnavigationitemselected',['onNavigationItemSelected',['../classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity.html#a38f3fc764869f436e53413ae14590872',1,'com::jack::motorbikestatistics::MainActivity']]],
-  ['onreceive',['onReceive',['../classcom_1_1jack_1_1motorbikestatistics_1_1_pair_device_fragment_1_1_discover_receiver.html#a2581f3c35ac5161b0ee10dfa4a94d05b',1,'com::jack::motorbikestatistics::PairDeviceFragment::DiscoverReceiver']]]
+  ['newdata',['newData',['../classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment.html#a675832561a8d63214b8f2cd59e901de5',1,'com::jack::motorbikestatistics::RealtimeFragment']]]
 ];

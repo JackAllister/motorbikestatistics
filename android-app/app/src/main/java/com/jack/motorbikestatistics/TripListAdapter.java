@@ -1,3 +1,13 @@
+/**
+ * @file TripListAdapter.java
+ * @brief UI ListView adapter to display all saved trips.
+ *
+ * Implemented so that the trip list ListView can display relevant information
+ * relating to the statistic such as name and file size.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.content.Context;
@@ -13,16 +23,27 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * Created by Jack on 26-Mar-17.
+ * @brief Adapter class used for displaying all trips.
  */
-
 public class TripListAdapter extends ArrayAdapter<TripItem> {
 
+    /** @brief Context that the ListView is operating in. */
     private Context context;
+    /** @brief Resource ID for current layout. */
     private int layoutResourceId;
+    /** @brief ArrayList of all trip items to display. */
     private ArrayList<TripItem> data;
 
-
+    /**
+     * @brief Constructor for the ListView adapter.
+     *
+     * Calls the constructor of the superclass as well as setting
+     * other relevant information needed.
+     *
+     * @param cnt - Context of the adapter to be operating in.
+     * @param layoutResourceId - Resource ID for current layout.
+     * @param data - ArrayList of statistics to display in ListView.
+     */
     public TripListAdapter(Context cnt, int layoutResourceId, ArrayList<TripItem> data) {
         super(cnt, layoutResourceId, data);
 
@@ -31,11 +52,26 @@ public class TripListAdapter extends ArrayAdapter<TripItem> {
         this.data = data;
     }
 
+    /**
+     * @brief Class that holds all UI data to be displayed for each ListItem.
+     */
     private class ViewHolder {
         TextView name;
         TextView fileSize;
     }
 
+    /**
+     * @brief Function for returning the view of each list item (TripItem).
+     *
+     * If a view for selected item has not been created inflater initialises
+     * it. A holder is then used to hold all the information that will be
+     * displayed on the UI to the user.
+     *
+     * @param position - Index of item in array to use/reference to.
+     * @param convertView - View to be used for specified item.
+     * @param parent - Object where the created view will be placed on.
+     * @return View - The result view of item with updated/current information.
+     */
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -43,6 +79,7 @@ public class TripListAdapter extends ArrayAdapter<TripItem> {
 
         if (convertView == null)
         {
+            /* If view does not already exist. */
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(layoutResourceId, parent, false);
 
@@ -53,6 +90,7 @@ public class TripListAdapter extends ArrayAdapter<TripItem> {
         }
         else
         {
+            /* If view already exists. */
             holder = (ViewHolder)convertView.getTag();
         }
 

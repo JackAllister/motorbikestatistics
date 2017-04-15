@@ -1,3 +1,14 @@
+/**
+ * @file RealtimeFragment.java
+ * @brief Fragment/Tab for viewing streamed statistics.
+ *
+ * Implements RXHandler from bluetooth device to receive statistics.
+ * Data is then displayed in a ListView as well as option to view via
+ * Google Maps.
+ *
+ * @author Jack Allister - 23042098
+ * @date 2016-2017
+ */
 package com.jack.motorbikestatistics;
 
 import android.app.Fragment;
@@ -25,20 +36,29 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
- * Created by Jack on 23-Jan-17.
+ * @brief UI Class for viewing data sent from the logging device.
  */
-
 public class RealtimeFragment extends Fragment {
-
+    /** @brief TextView to show amount of logs received. */
     private TextView textStatus;
-
+    /** @brief Array that holds serialised trip data to pass to map. */
     private ArrayList<String> jsonList;
 
+    /** @brief Array holding each statistic that device is measuring. */
     private SetOfDataItems dataList;
+    /** @brief Adapter used for displaying statistics in the ListView. */
     private ArrayAdapter<DataItem> lvAdapter;
 
+    /** @brief String for new line parsing. */
     private final static String NEW_LINE = "\r\n";
 
+    /**
+     * @brief Constructor for UI fragment.
+     *
+     * Creates our initial data items that we are going to log.
+     * Setting whether extended functionality is needed for each data
+     * item.
+     */
     public RealtimeFragment() {
         jsonList = new ArrayList<String>();
 
@@ -59,6 +79,16 @@ public class RealtimeFragment extends Fragment {
         dataList.add(new DataItem<String>("Time", false));
     }
 
+    /**
+     * @brief Function called when fragment is shown on UI.
+     *
+     * Sets up the UI ListView and Buttons.
+     *
+     * @param inflater - Inflater used for displaying view.
+     * @param container - Container that the view will be displayed on.
+     * @param savedInstanceState - Last known state of this fragment.
+     * @return View - The UI view of this fragment.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,20 +109,19 @@ public class RealtimeFragment extends Fragment {
 
         /* Set our listeners for buttons */
         FloatingActionButton mapButton = (FloatingActionButton) myView.findViewById(R.id.realtime_show_map);
-        mapButton.setOnClickListener(mapButtonListener);
+        mapButton.setOnClickListener(new MapButtonListener());
 
         return myView;
     }
 
-    private final Button.OnClickListener mapButtonListener = new Button.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), MapsActivity.class);
-            intent.putExtra("JSONList", jsonList);
-            startActivity(intent);
-        }
-    };
-
+    /**
+     * @brief Function for adding new statistics when received via bluetooth.
+     *
+     * Attempts to break the initial JSON object into it's child objects
+     * and then retreive the data from these child nodes.
+     *
+     * @param jsonData - Received JSONObject from receive handler.
+     */
     private final void newData(JSONObject jsonData) {
 
         try {
@@ -147,8 +176,46 @@ public class RealtimeFragment extends Fragment {
         }
     }
 
+    /**
+     * @brief Listener for starting a map activity when button pressed.
+     */
+    private class MapButtonListener implements Button.OnClickListener {
+
+      /**
+       * @brief Function for handling when map button pressed.
+       *
+       * Created a new intent to start our map activity.
+       * Serialised statistics are then added as a bundle in the intent.
+       *
+       * @param v - Current view of the button.
+       */
+      @Override
+      public void onClick(View v) {
+          Intent intent = new Intent(getActivity(), MapsActivity.class);
+          intent.putExtra("JSONList", jsonList);
+          startActivity(intent);
+      }
+    }
+
+    /**
+     * @brief Handler used for receiving statistics via bluetooth.
+     *
+     * Receives data in a bundle passed from the bluetooth connection thread.
+     * This is due to multithreading as safe data exchange between threads
+     * has to be done via messages.
+     * Attempts to parse the data into a JSON object, if successful
+     * this data is then passed to our JSON adding procedure.
+     */
     public final Handler RXHandler = new Handler(Looper.getMainLooper()) {
 
+        /**
+         * @brief Method that receives message containing JSON string.
+         *
+         * Attempts to turn into JSONObject and then passes to
+         * procedure that adds to UI.
+         *
+         * @param msg - Message holding JSON string.
+         */
         @Override
         public void handleMessage(Message msg) {
 

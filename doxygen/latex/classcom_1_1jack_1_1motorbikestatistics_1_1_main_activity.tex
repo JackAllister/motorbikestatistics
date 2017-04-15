@@ -110,7 +110,7 @@ Method also responsible for change system state machine on the logging device, t
 \end{DoxyParams}
 
 
-References com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+get\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+ld\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+pd\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+rt\+Fragment, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+R\+X\+Handler, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+set\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler.
+References com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+get\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+is\+Connected(), com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+ld\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+pd\+Fragment, com.\+jack.\+motorbikestatistics.\+Main\+Activity.\+rt\+Fragment, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+R\+X\+Handler, com.\+jack.\+motorbikestatistics.\+Realtime\+Fragment.\+R\+X\+Handler, com.\+jack.\+motorbikestatistics.\+Load\+Device\+Fragment.\+set\+B\+T\+Connection(), com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and com.\+jack.\+motorbikestatistics.\+B\+T\+Connection.\+tx\+Handler.
 
 
 \begin{DoxyCode}
@@ -129,7 +129,8 @@ References com.\+jack.\+motorbikestatistics.\+Pair\+Device\+Fragment.\+get\+B\+T
 117 
 118                 \textcolor{keywordflow}{if} (btConn != null && btConn.isConnected()) \{
 119                     \textcolor{comment}{/* We set our RX handler and also send our command to indicate mode change */}
-120                     btConn.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{setRXHandler}(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a5d506143e7f082edf2078025c00f3715}{rtFragment}.RXHandler);
+120                     btConn.\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_b_t_connection_aae8ee75e78f5beff98572bf3b13a60b8}{setRXHandler}(\hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a5d506143e7f082edf2078025c00f3715}{rtFragment}.
+      \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_realtime_fragment_a7b39a40287200b7530c2d935e6717fa6}{RXHandler});
 121                     Message message = \textcolor{keyword}{new} Message();
 122                     message.obj = (String) \hyperlink{classcom_1_1jack_1_1motorbikestatistics_1_1_main_activity_a6b63eb4aa15fd17f95f5d717e0e63108}{REALTIME\_CHAR};
 123                     message.setTarget(btConn.txHandler);
