@@ -25,7 +25,7 @@ public class DataItem<T> {
     private T current = null;
 
     /** @brief Average reading value */
-    private Double average = 0.0;
+    private Double average = null;
     /** @brief Sum of all readings, used for averaging */
     private Double averageSum = 0.0;
     /** @brief Number of readings, used for averaging */
@@ -66,8 +66,10 @@ public class DataItem<T> {
         this.current = value;
 
         if ((avgMinMax) && (current instanceof Number)) {
-            this.average = (Double)value;
-            this.averageSum = (Double)value;
+
+            Number val = (Number)value;
+            this.average = val.doubleValue();
+            this.averageSum = val.doubleValue();
             this.averageCount++;
 
             this.minimum = value;
@@ -130,7 +132,7 @@ public class DataItem<T> {
      * number then we go ahead and update our min, max & average values
      * as well will the passed in new reading.
      *
-     * @param T - New reading.
+     * @param value - New reading.
      */
     public void setCurrent(T value) {
         this.current = value;

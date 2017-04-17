@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SetOfDataItems extends ArrayList<DataItem> {
 
     /**
-     * @brief Constructor, just calls inhereted constructor method.
+     * @brief Constructor, just calls inherited constructor method.
      */
     public SetOfDataItems() {
         super();
