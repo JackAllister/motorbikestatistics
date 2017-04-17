@@ -14,7 +14,6 @@ public class DataItemUnitTest {
     private static final String ITEM_NAME = "TEST 1";
     private static final boolean AVG_ENABLED = true;
     private static final Double MAX_CURRENT = 50.0;
-    private static final int AVERAGE_COUNT_NUM = 50;
 
     private DataItem<Double> testItem;
 
