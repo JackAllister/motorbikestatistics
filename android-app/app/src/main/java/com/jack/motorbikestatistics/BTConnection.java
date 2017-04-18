@@ -110,6 +110,15 @@ public class BTConnection implements Runnable {
     }
 
     /**
+     * @brief Getter function for RXHandler.
+     *
+     * @return Handler - The RX handler for BT connection.
+     */
+    public Handler getRXHandler() {
+        return RXHandler;
+    }
+
+    /**
      * @brief Main run procedure for new Runnable thread created.
      *
      * If connected procedure waits for data to be received.
