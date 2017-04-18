@@ -62,6 +62,8 @@ public class TripItem {
      * @param fileSize - New trip filesize.
      */
     public void setFileSize(int fileSize) {
-        this.fileSize = fileSize;
+        if (fileSize >= 0) {
+            this.fileSize = fileSize;
+        }
     }
 }

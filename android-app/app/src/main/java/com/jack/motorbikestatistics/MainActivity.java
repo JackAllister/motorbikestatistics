@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity
     private static final String LIST_SAVED_CHAR = "2";
 
     /** @brief UI fragment for realtime statistic display. */
-    private static RealtimeFragment rtFragment = null;
+    private RealtimeFragment rtFragment = null;
     /** @brief UI fragment for loading previous trips. */
-    private static LoadDeviceFragment ldFragment = null;
+    private LoadDeviceFragment ldFragment = null;
     /** @brief UI fragment for pairing to a logging device. */
-    private static PairDeviceFragment pdFragment = null;
+    private PairDeviceFragment pdFragment = null;
 
     /**
      * @brief Function called when main activity is loaded.
