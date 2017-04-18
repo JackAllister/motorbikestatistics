@@ -35,12 +35,15 @@ public class PairDeviceInstrumentationTest {
 
     @Test
     public void pairDeviceInstrumentationTest() {
+
+        /* Open navigation drawer/tab. */
         ViewInteraction appCompatImageButton = onView(
                 allOf(withContentDescription("Open navigation drawer"),
                         withParent(withId(R.id.toolbar)),
                         isDisplayed()));
         appCompatImageButton.perform(click());
 
+        /* Check that Pair Device tab exists. */
         ViewInteraction checkedTextView = onView(
                 allOf(withId(R.id.design_menu_item_text),
                         childAtPosition(
@@ -51,10 +54,12 @@ public class PairDeviceInstrumentationTest {
                         isDisplayed()));
         checkedTextView.check(matches(isDisplayed()));
 
+        /* Click pair device item. */
         ViewInteraction appCompatCheckedTextView = onView(
                 allOf(withId(R.id.design_menu_item_text), withText("Pair Device"), isDisplayed()));
         appCompatCheckedTextView.perform(click());
 
+        /* Check that search for devices button exists. */
         ViewInteraction toggleButton = onView(
                 allOf(withId(R.id.pairdevice_search),
                         childAtPosition(
@@ -65,10 +70,12 @@ public class PairDeviceInstrumentationTest {
                         isDisplayed()));
         toggleButton.check(matches(isDisplayed()));
 
+        /* Check that search button says "Search For Devices" then click it. */
         ViewInteraction toggleButton2 = onView(
                 allOf(withId(R.id.pairdevice_search), withText("Search For Devices"), isDisplayed()));
         toggleButton2.perform(click());
 
+        /* Check that search for devices button still exists. */
         ViewInteraction toggleButton3 = onView(
                 allOf(withId(R.id.pairdevice_search),
                         childAtPosition(
@@ -79,6 +86,7 @@ public class PairDeviceInstrumentationTest {
                         isDisplayed()));
         toggleButton3.check(matches(isDisplayed()));
 
+        /* Check that LOGGING-DEVICE item exists within found devices. */
         ViewInteraction textView = onView(
                 allOf(withId(R.id.textListName), withText("LOGGING-DEVICE"),
                         childAtPosition(
@@ -89,10 +97,12 @@ public class PairDeviceInstrumentationTest {
                         isDisplayed()));
         textView.check(matches(withText("LOGGING-DEVICE")));
 
+        /* Check that search button now says "Stop Device Search" then click it. */
         ViewInteraction toggleButton4 = onView(
                 allOf(withId(R.id.pairdevice_search), withText("Stop Device Search"), isDisplayed()));
         toggleButton4.perform(click());
 
+        /* Check that search for devices button still exists. */
         ViewInteraction toggleButton5 = onView(
                 allOf(withId(R.id.pairdevice_search),
                         childAtPosition(
