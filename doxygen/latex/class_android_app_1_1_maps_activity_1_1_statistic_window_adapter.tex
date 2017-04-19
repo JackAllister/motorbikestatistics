@@ -49,67 +49,67 @@ References gps\+J\+S\+ON, orient\+J\+S\+ON, and time\+J\+S\+ON.
 
 
 \begin{DoxyCode}
-254                                                    \{
-255 
-256             View v =  getLayoutInflater().inflate(R.layout.map\_marker\_info, null);
-257 
-258             \textcolor{comment}{/* Get latitude and longitude from marker */}
-259             LatLng latlng = marker.getPosition();
-260 
-261             \textcolor{comment}{/* Find the JSONObject relating to this location */}
-262             JSONObject rootJSON = \hyperlink{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}{findJSONByLatLng}(latlng);
-263             \textcolor{keywordflow}{if} (rootJSON != null) \{
-264                 \textcolor{keywordflow}{try} \{
-265                     JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
-266                     JSONObject \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"orientation"});
-267                     JSONObject \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"time"});
-268 
-269                     \textcolor{comment}{/* Set latitude and longitude in info window */}
-270                     TextView tvLatLng = (TextView)v.findViewById(R.id.map\_latlng);
-271                     tvLatLng.setText(\textcolor{stringliteral}{"Lat/Lng: "} + Double.toString(latlng.latitude) + \textcolor{stringliteral}{"/"}
-272                             + Double.toString(latlng.longitude));
-273 
-274                     \textcolor{comment}{/* Set time */}
-275                     TextView tvTime = (TextView)v.findViewById(R.id.map\_time);
-276                     Calendar cal = Calendar.getInstance();
-277                     cal.clear();
-278                     cal.set(Calendar.YEAR, timeJSON.getInt(\textcolor{stringliteral}{"year"}));
-279                     cal.set(Calendar.MONTH, timeJSON.getInt(\textcolor{stringliteral}{"month"}));
-280                     cal.set(Calendar.DATE, timeJSON.getInt(\textcolor{stringliteral}{"day"}));
-281 
-282                     cal.set(Calendar.HOUR, timeJSON.getInt(\textcolor{stringliteral}{"hour"}));
-283                     cal.set(Calendar.MINUTE, timeJSON.getInt(\textcolor{stringliteral}{"minute"}));
-284                     cal.set(Calendar.SECOND, timeJSON.getInt(\textcolor{stringliteral}{"second"}));
-285                     cal.set(Calendar.MILLISECOND, timeJSON.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
-286 
-287                     \textcolor{comment}{/* Create format for date and times then add to view */}
-288                     DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy HH:mm:ss.SS"});
-289                     tvTime.setText(\textcolor{stringliteral}{"Time: "} + dateFormat.format(cal.getTime()));
-290 
-291                     \textcolor{comment}{/* Velocity & Altitude */}
-292                     TextView tvVelocity = (TextView)v.findViewById(R.id.map\_velocity);
-293                     tvVelocity.setText(\textcolor{stringliteral}{"Velocity: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"vel\_mph"}) + \textcolor{stringliteral}{"mph"});
-294 
-295                     TextView tvAltitude = (TextView)v.findViewById(R.id.map\_altitude);
-296                     tvAltitude.setText(\textcolor{stringliteral}{"Altitude: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"alt\_ft"}) + \textcolor{stringliteral}{"ft"});
-297 
-298                     \textcolor{comment}{/* Orientation */}
-299                     TextView tvPitch = (TextView)v.findViewById(R.id.map\_pitch);
-300                     tvPitch.setText(\textcolor{stringliteral}{"Pitch Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"pitch"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
-301 
-302                     TextView tvRoll = (TextView)v.findViewById(R.id.map\_roll);
-303                     tvRoll.setText(\textcolor{stringliteral}{"Roll/Lean Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"roll"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
-304 
-305                 \} \textcolor{keywordflow}{catch} (JSONException e) \{
-306                     marker.hideInfoWindow();
-307                 \}
-308             \} \textcolor{keywordflow}{else} \{
-309                 \textcolor{comment}{/* If unable to find relating we hide the info window */}
-310                 marker.hideInfoWindow();
-311             \}
-312 
-313             \textcolor{keywordflow}{return} v;
-314         \}
+319                                                    \{
+320 
+321             View v =  getLayoutInflater().inflate(R.layout.map\_marker\_info, null);
+322 
+323             \textcolor{comment}{/* Get latitude and longitude from marker */}
+324             LatLng latlng = marker.getPosition();
+325 
+326             \textcolor{comment}{/* Find the JSONObject relating to this location */}
+327             JSONObject rootJSON = \hyperlink{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}{findJSONByLatLng}(latlng);
+328             \textcolor{keywordflow}{if} (rootJSON != null) \{
+329                 \textcolor{keywordflow}{try} \{
+330                     JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+331                     JSONObject \hyperlink{logging-device_8ino_ae8e95a76df2aaa373792e5b744a6bb73}{orientJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"orientation"});
+332                     JSONObject \hyperlink{logging-device_8ino_acc172a29cb5ff709b48b650d9fb6503c}{timeJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"time"});
+333 
+334                     \textcolor{comment}{/* Set latitude and longitude in info window */}
+335                     TextView tvLatLng = (TextView)v.findViewById(R.id.map\_latlng);
+336                     tvLatLng.setText(\textcolor{stringliteral}{"Lat/Lng: "} + Double.toString(latlng.latitude) + \textcolor{stringliteral}{"/"}
+337                             + Double.toString(latlng.longitude));
+338 
+339                     \textcolor{comment}{/* Set time */}
+340                     TextView tvTime = (TextView)v.findViewById(R.id.map\_time);
+341                     Calendar cal = Calendar.getInstance();
+342                     cal.clear();
+343                     cal.set(Calendar.YEAR, timeJSON.getInt(\textcolor{stringliteral}{"year"}));
+344                     cal.set(Calendar.MONTH, timeJSON.getInt(\textcolor{stringliteral}{"month"}));
+345                     cal.set(Calendar.DATE, timeJSON.getInt(\textcolor{stringliteral}{"day"}));
+346 
+347                     cal.set(Calendar.HOUR, timeJSON.getInt(\textcolor{stringliteral}{"hour"}));
+348                     cal.set(Calendar.MINUTE, timeJSON.getInt(\textcolor{stringliteral}{"minute"}));
+349                     cal.set(Calendar.SECOND, timeJSON.getInt(\textcolor{stringliteral}{"second"}));
+350                     cal.set(Calendar.MILLISECOND, timeJSON.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
+351 
+352                     \textcolor{comment}{/* Create format for date and times then add to view */}
+353                     DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy HH:mm:ss.SS"});
+354                     tvTime.setText(\textcolor{stringliteral}{"Time: "} + dateFormat.format(cal.getTime()));
+355 
+356                     \textcolor{comment}{/* Velocity & Altitude */}
+357                     TextView tvVelocity = (TextView)v.findViewById(R.id.map\_velocity);
+358                     tvVelocity.setText(\textcolor{stringliteral}{"Velocity: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"vel\_mph"}) + \textcolor{stringliteral}{"mph"});
+359 
+360                     TextView tvAltitude = (TextView)v.findViewById(R.id.map\_altitude);
+361                     tvAltitude.setText(\textcolor{stringliteral}{"Altitude: "} + gpsJSON.getDouble(\textcolor{stringliteral}{"alt\_ft"}) + \textcolor{stringliteral}{"ft"});
+362 
+363                     \textcolor{comment}{/* Orientation */}
+364                     TextView tvPitch = (TextView)v.findViewById(R.id.map\_pitch);
+365                     tvPitch.setText(\textcolor{stringliteral}{"Pitch Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"pitch"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+366 
+367                     TextView tvRoll = (TextView)v.findViewById(R.id.map\_roll);
+368                     tvRoll.setText(\textcolor{stringliteral}{"Roll/Lean Angle: "} + orientJSON.getDouble(\textcolor{stringliteral}{"roll"}) + \textcolor{stringliteral}{"\(\backslash\)u00b0"});
+369 
+370                 \} \textcolor{keywordflow}{catch} (JSONException e) \{
+371                     marker.hideInfoWindow();
+372                 \}
+373             \} \textcolor{keywordflow}{else} \{
+374                 \textcolor{comment}{/* If unable to find relating we hide the info window */}
+375                 marker.hideInfoWindow();
+376             \}
+377 
+378             \textcolor{keywordflow}{return} v;
+379         \}
 \end{DoxyCode}
 
 

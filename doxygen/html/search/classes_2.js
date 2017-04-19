@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loaddevicefragment',['LoadDeviceFragment',['../class_android_app_1_1_load_device_fragment.html',1,'AndroidApp']]]
+  ['jsonhandlersingleton',['JSONHandlerSingleton',['../class_android_app_1_1_j_s_o_n_handler_singleton.html',1,'AndroidApp']]]
 ];

@@ -18,6 +18,8 @@ Inheritance diagram for Android\+App.\+B\+T\+Connection\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} class. \end{DoxyCompactList}\item 
 void \hyperlink{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}{set\+R\+X\+Handler} (Handler new\+Handler)
 \begin{DoxyCompactList}\small\item\em Setter function for R\+X\+Handler. \end{DoxyCompactList}\item 
+Handler \hyperlink{class_android_app_1_1_b_t_connection_a2d2a381cb7cb2bcab1db0c804e85a32d}{get\+R\+X\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Getter function for R\+X\+Handler. \end{DoxyCompactList}\item 
 void \hyperlink{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}{run} ()
 \begin{DoxyCompactList}\small\item\em Main run procedure for new Runnable thread created. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a4f542434c59f541d47b68a0e225cfea9}\label{class_android_app_1_1_b_t_connection_a4f542434c59f541d47b68a0e225cfea9}} 
@@ -123,6 +125,25 @@ Setter function for R\+X\+Handler.
 109         \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler} = newHandler;
 110     \}
 \end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a2d2a381cb7cb2bcab1db0c804e85a32d}\label{class_android_app_1_1_b_t_connection_a2d2a381cb7cb2bcab1db0c804e85a32d}} 
+\index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!get\+R\+X\+Handler@{get\+R\+X\+Handler}}
+\index{get\+R\+X\+Handler@{get\+R\+X\+Handler}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
+\subsubsection{\texorpdfstring{get\+R\+X\+Handler()}{getRXHandler()}}
+{\footnotesize\ttfamily Handler Android\+App.\+B\+T\+Connection.\+get\+R\+X\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter function for R\+X\+Handler. 
+
+\begin{DoxyReturn}{Returns}
+Handler -\/ The RX handler for BT connection. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+117                                   \{
+118         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler};
+119     \}
+\end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}\label{class_android_app_1_1_b_t_connection_a03907fd685748cb0da88a7f17d90885f}} 
 \index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!run@{run}}
 \index{run@{run}!Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}}
@@ -135,82 +156,82 @@ Main run procedure for new Runnable thread created.
 
 If connected procedure waits for data to be received. Parsing this received into lines and then splitting each line into a J\+S\+O\+N\+Object. If a valid J\+S\+O\+N\+Object is found it is then sends to the receive handler in a seperate thread (using messages). 
 \begin{DoxyCode}
-121                       \{
-122         InputStream RXStream;
-123 
-124         \textcolor{comment}{/* Indicate that we are now running main thread */}
-125         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{true};
-126 
-127         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
-128             \textcolor{comment}{/* Get our input stream for receiving bytes */}
-129             \textcolor{keywordflow}{try} \{
-130                 RXStream = \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.getInputStream();
-131             \} \textcolor{keywordflow}{catch} (IOException e) \{
-132                 Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
-133                 \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
-134                 \textcolor{keywordflow}{return};
-135             \}
-136 
-137             \textcolor{comment}{/*}
-138 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
-139 \textcolor{comment}{             * and then send it to the handler}
-140 \textcolor{comment}{             */}
-141             String recvBuff = \textcolor{stringliteral}{""};
-142             \textcolor{keywordflow}{while} (\hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{isRunning}() && \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
-143                 \textcolor{keywordflow}{try} \{
-144                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
+130                       \{
+131         InputStream RXStream;
+132 
+133         \textcolor{comment}{/* Indicate that we are now running main thread */}
+134         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{true};
+135 
+136         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
+137             \textcolor{comment}{/* Get our input stream for receiving bytes */}
+138             \textcolor{keywordflow}{try} \{
+139                 RXStream = \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.getInputStream();
+140             \} \textcolor{keywordflow}{catch} (IOException e) \{
+141                 Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to get RXStream"}, e);
+142                 \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+143                 \textcolor{keywordflow}{return};
+144             \}
 145 
-146                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
-147                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
-148                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
-149 
-150                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
-151                     \}
-152 
-153                     \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler} != null) \{
+146             \textcolor{comment}{/*}
+147 \textcolor{comment}{             * While still connected and not signalled to stop we receive data}
+148 \textcolor{comment}{             * and then send it to the handler}
+149 \textcolor{comment}{             */}
+150             String recvBuff = \textcolor{stringliteral}{""};
+151             \textcolor{keywordflow}{while} (\hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{isRunning}() && \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}()) \{
+152                 \textcolor{keywordflow}{try} \{
+153                     \textcolor{keywordtype}{int} bytesAvailable = RXStream.available();
 154 
-155                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}) > 0) \{
-156 
-157                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
-      \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}));
+155                     \textcolor{keywordflow}{if} (bytesAvailable > 0) \{
+156                         byte[] packetBytes = \textcolor{keyword}{new} byte[bytesAvailable];
+157                         \textcolor{keywordtype}{int} bytesRead = RXStream.read(packetBytes, 0, bytesAvailable);
 158 
-159                             \textcolor{comment}{/*}
-160 \textcolor{comment}{                             * Having to send data to main thread using messages}
-161 \textcolor{comment}{                             * as we are multithreading.}
-162 \textcolor{comment}{                             * If we try and use a standard call to function}
-163 \textcolor{comment}{                             * will cause a crash.}
-164 \textcolor{comment}{                             */}
-165                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
-166                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
+159                         recvBuff += \textcolor{keyword}{new} String(packetBytes);
+160                     \}
+161 
+162                     \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler} != null) \{
+163 
+164                         \textcolor{keywordflow}{if} (recvBuff.indexOf(\hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}) > 0) \{
+165 
+166                             String jsonLine = recvBuff.substring(0, recvBuff.indexOf(
+      \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}));
 167 
-168                             Message message = \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler}.obtainMessage();
-169                             message.setData(dataBundle);
-170                             message.sendToTarget();
-171 
-172                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}, \textcolor{stringliteral}{""});
-173                         \}
-174                     \}
-175 
-176                 \} \textcolor{keywordflow}{catch} (IOException e) \{
-177                     Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
-178                     \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
-179                     \textcolor{keywordflow}{return};
-180                 \}
-181             \}
-182 
-183         \}
+168                             \textcolor{comment}{/*}
+169 \textcolor{comment}{                             * Having to send data to main thread using messages}
+170 \textcolor{comment}{                             * as we are multithreading.}
+171 \textcolor{comment}{                             * If we try and use a standard call to function}
+172 \textcolor{comment}{                             * will cause a crash.}
+173 \textcolor{comment}{                             */}
+174                             Bundle dataBundle =  \textcolor{keyword}{new} Bundle();
+175                             dataBundle.putString(\textcolor{stringliteral}{"JSON"}, jsonLine);
+176 
+177                             Message message = \hyperlink{class_android_app_1_1_b_t_connection_a4e3bfea96a4ddbd2cd2b76bb4ce8b871}{RXHandler}.obtainMessage();
+178                             message.setData(dataBundle);
+179                             message.sendToTarget();
+180 
+181                             recvBuff = recvBuff.replace(jsonLine + \hyperlink{class_android_app_1_1_b_t_connection_afe2f59edec0610e765222e02ab350e84}{NEW\_LINE}, \textcolor{stringliteral}{""});
+182                         \}
+183                     \}
 184 
-185         \textcolor{comment}{/* Close bluetooth socket */}
-186         \textcolor{keywordflow}{try} \{
-187             this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
-188         \} \textcolor{keywordflow}{catch} (IOException e) \{
-189             \textcolor{comment}{/* Do nothing */}
-190         \}
+185                 \} \textcolor{keywordflow}{catch} (IOException e) \{
+186                     Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to read data"}, e);
+187                     \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+188                     \textcolor{keywordflow}{return};
+189                 \}
+190             \}
 191 
-192         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
-193         \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = null;
-194         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
-195     \}
+192         \}
+193 
+194         \textcolor{comment}{/* Close bluetooth socket */}
+195         \textcolor{keywordflow}{try} \{
+196             this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
+197         \} \textcolor{keywordflow}{catch} (IOException e) \{
+198             \textcolor{comment}{/* Do nothing */}
+199         \}
+200 
+201         \textcolor{comment}{/* Null BT socket to show needs to reconnect */}
+202         \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = null;
+203         \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running} = \textcolor{keyword}{false};
+204     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}\label{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}} 
 \index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!is\+Running@{is\+Running}}
@@ -227,9 +248,9 @@ boolean -\/ Whether thread is running.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-208                                \{
-209         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running};
-210     \}
+217                                \{
+218         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_b_t_connection_ace01a7a97f5d1abccb61a5d6c6ad9295}{running};
+219     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}\label{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}} 
 \index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!is\+Connected@{is\+Connected}}
@@ -246,15 +267,15 @@ boolean -\/ Whether connection is still available.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-216                                  \{
-217         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
-218 
-219         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} != null) \{
-220             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.isConnected())
-221                 result = \textcolor{keyword}{true};
-222         \}
-223         \textcolor{keywordflow}{return} result;
-224     \}
+225                                  \{
+226         \textcolor{keywordtype}{boolean} result = \textcolor{keyword}{false};
+227 
+228         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} != null) \{
+229             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.isConnected())
+230                 result = \textcolor{keyword}{true};
+231         \}
+232         \textcolor{keywordflow}{return} result;
+233     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}\label{class_android_app_1_1_b_t_connection_a1dfc9451ba1b40089f17ee081486602e}} 
 \index{Android\+App\+::\+B\+T\+Connection@{Android\+App\+::\+B\+T\+Connection}!connect@{connect}}
@@ -268,31 +289,31 @@ Procedure to create a connection to logging device.
 
 Creates a raw Serial socket via U\+U\+ID and then attempts to connect. Exceptions thrown on failure. 
 \begin{DoxyCode}
-232                                               \{
-233 
-234         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
-235         \textcolor{keywordflow}{try} \{
-236             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{btDevice}.createRfcommSocketToServiceRecord(
+241                                               \{
+242 
+243         \textcolor{comment}{/* Attempt to make connection to remote device, throw exception if not */}
+244         \textcolor{keywordflow}{try} \{
+245             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket} = \hyperlink{class_android_app_1_1_b_t_connection_a3ed1e51b0f24f0b20ca5c27270f2999c}{btDevice}.createRfcommSocketToServiceRecord(
       \hyperlink{class_android_app_1_1_b_t_connection_a0e531d4cad0e5cca1e5b4446551b5c63}{uuid});
-237         \} \textcolor{keywordflow}{catch} (IOException e) \{
-238             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
-239             \textcolor{keywordflow}{throw} e;
-240         \}
-241 
-242         \textcolor{keywordflow}{try} \{
-243             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.connect();
-244         \} \textcolor{keywordflow}{catch} (IOException e) \{
-245             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
-246 
-247             \textcolor{comment}{/* Close our socket as unable to connect */}
-248             \textcolor{keywordflow}{try} \{
-249                 this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
-250             \} \textcolor{keywordflow}{catch} (IOException e2) \{
-251                 \textcolor{keywordflow}{throw} e2;
-252             \}
-253             \textcolor{keywordflow}{throw} e;
-254         \}
-255     \}
+246         \} \textcolor{keywordflow}{catch} (IOException e) \{
+247             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to create RFCOMM"}, e);
+248             \textcolor{keywordflow}{throw} e;
+249         \}
+250 
+251         \textcolor{keywordflow}{try} \{
+252             \hyperlink{class_android_app_1_1_b_t_connection_af3cdc6c880b28361d87d0118ace0e49c}{btSocket}.connect();
+253         \} \textcolor{keywordflow}{catch} (IOException e) \{
+254             Log.e(\hyperlink{class_android_app_1_1_b_t_connection_ad838024d59c68be866b5db329d6f6230}{TAG}, \textcolor{stringliteral}{"Unable to connect"}, e);
+255 
+256             \textcolor{comment}{/* Close our socket as unable to connect */}
+257             \textcolor{keywordflow}{try} \{
+258                 this.\hyperlink{class_android_app_1_1_b_t_connection_a37bb3e5c1dcf6b78a73239f6f62ab6d8}{close}();
+259             \} \textcolor{keywordflow}{catch} (IOException e2) \{
+260                 \textcolor{keywordflow}{throw} e2;
+261             \}
+262             \textcolor{keywordflow}{throw} e;
+263         \}
+264     \}
 \end{DoxyCode}
 
 

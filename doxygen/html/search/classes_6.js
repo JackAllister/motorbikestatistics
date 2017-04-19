@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['realtimefragment',['RealtimeFragment',['../class_android_app_1_1_realtime_fragment.html',1,'AndroidApp']]]
+  ['pairdevicefragment',['PairDeviceFragment',['../class_android_app_1_1_pair_device_fragment.html',1,'AndroidApp']]]
 ];

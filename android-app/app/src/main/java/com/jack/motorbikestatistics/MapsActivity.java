@@ -10,10 +10,18 @@
  */
 package com.jack.motorbikestatistics;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,6 +29,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Marker;
@@ -42,7 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     /** @brief Google maps object for plotting. */
     private GoogleMap mMap;
     /** @brief ArrayList holding all trip data. */
-    private ArrayList<JSONObject> jsonList = new ArrayList<JSONObject>();
+    private ArrayList<JSONObject> tripData;
+    private ArrayList<Marker> markerList;
 
     /**
      * @brief Fills our maps array with points to plot on the map.
@@ -60,45 +71,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
 
-        getJSONObjects();
+        /* Clear our marker list for new instances. */
+        markerList = new ArrayList<Marker>();
+
+        /* Get the tripData from our JSON handler singleton. */
+        tripData = JSONHandlerSingleton.getInstance().tripData;
 
         mapFragment.getMapAsync(this);
-    }
-
-    /**
-     * @brief Gets point data and convert to array of JSON objects.
-     *
-     * Gets an arraylist of strings passed via a bundle to this activity.
-     * These strings are there converted back to JSON objects which
-     * will be used for plotting.
-     * The reason for not passing straight JSON objects is because
-     * they are not serializable and passable between activities.
-     *
-     * @return boolean - Whether all objects were able to be created.
-     */
-    private boolean getJSONObjects()
-    {
-        boolean result = true;
-
-        /*
-         * Get our serialized arrayList of jsonStrings
-         * then convert them back to jsonObjects
-         */
-        ArrayList<String> jsonStrings = (ArrayList<String>)getIntent().getSerializableExtra("JSONList");
-        for (int i = 0; i < jsonStrings.size(); i++)
-        {
-            try
-            {
-                JSONObject jsonObject = new JSONObject(jsonStrings.get(i));
-                jsonList.add(jsonObject);
-            }
-            catch (JSONException e)
-            {
-                result = false;
-            }
-        }
-
-        return result;
     }
 
     /**
@@ -110,8 +89,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private JSONObject findJSONByLatLng(LatLng position) {
         JSONObject result = null;
 
-        for (int i = 0; i < jsonList.size(); i++) {
-            JSONObject tmpJSON = jsonList.get(i);
+        for (int i = 0; i < tripData.size(); i++) {
+            JSONObject tmpJSON = tripData.get(i);
 
             try {
                 JSONObject gpsJSON = tmpJSON.getJSONObject("gps");
@@ -170,13 +149,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         /* Set our info window adapter class that is shown when marker clicked */
         mMap.setInfoWindowAdapter(new StatisticWindowAdapter());
 
+        /* Set our listener class for adjusting visibility when zoomed. */
+        mMap.setOnCameraMoveListener(new ZoomToogleListener());
+
         /* If we have no data don't bother plotting points */
-        if (jsonList.size() != 0)
+        if (tripData.size() != 0)
         {
             /* lineOpts will store our route */
             PolylineOptions lineOpts = new PolylineOptions();
-            lineOpts.color(Color.parseColor( "#CC0000FF"));
-            lineOpts.width(5);
+            lineOpts.color(Color.parseColor( "#CCF44242"));
+            lineOpts.width(18);
             lineOpts.visible(true);
 
             try
@@ -184,38 +166,44 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 LatLng lastMarker = null;
 
                 /* Plot every point in the our JSONObject array */
-                for (int i = 0; i < jsonList.size(); i++)
+                for (int i = 0; i < tripData.size(); i++)
                 {
-                    JSONObject rootJSON = jsonList.get(i);
+                    JSONObject rootJSON = tripData.get(i);
                     JSONObject gpsJSON = rootJSON.getJSONObject("gps");
 
                     Double lat = gpsJSON.getDouble("lat");
                     Double lng = gpsJSON.getDouble("lng");
                     LatLng location = new LatLng(lat, lng);
 
-                    /* Add this location to our trip line */
-                    lineOpts.add(location);
+                    /* Don't add location with invalid lat & lng. */
+                    if (location.latitude != 0.00 && location.longitude != 0.00) {
 
-                    /*
-                     * Check if distance between this point and
-                     * last marker is greater than 5m otherwise don't add marker.
-                     * Adding markers every 5 metres prevents the map being spammed with
-                     * thousands of readings.
-                     */
-                    if ((lastMarker == null) || (calcDistance(location, lastMarker) > 5))
-                    {
-                        /* Only add a marker if the gps data is valid */
-                        if (gpsJSON.getBoolean("gps_valid") == true) {
-                            MarkerOptions markerOptions = new MarkerOptions();
-                            markerOptions.position(location);
-                            markerOptions.title("Reading: " + i);
+                        /* Add this location to our trip line */
+                        lineOpts.add(location);
 
-                            mMap.addMarker(markerOptions);
+                        /*
+                         * Check if distance between this point and
+                         * last marker is greater than 5m otherwise don't add marker.
+                         * Adding markers every 5 metres prevents the map being spammed with
+                         * thousands of readings.
+                         */
+                        if ((lastMarker == null) || (calcDistance(location, lastMarker) > 5)) {
+                            /* Only add a marker if the gps data is valid */
+                            if (gpsJSON.getBoolean("gps_valid") == true) {
+                                MarkerOptions markerOptions = new MarkerOptions();
+                                markerOptions.position(location);
+                                markerOptions.title("Reading: " + i);
+                                markerOptions.icon(getBitmapDescriptor(R.drawable.ic_expand_more_white_24px));
+                                markerOptions.visible(false);
 
-                            lastMarker = location;
+                                /* Add our marker to map and to list. */
+                                markerList.add(mMap.addMarker(markerOptions));
 
-                            /* Changes camera to point to newest marker */
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+                                lastMarker = location;
+
+                                /* Changes camera to point to newest marker */
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
+                            }
                         }
                     }
 
@@ -225,6 +213,83 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             catch (JSONException e)
             {
                 /* Do nothing */
+            }
+        }
+    }
+
+    /**
+     * @brief Function for converting raw DP value to pixels.
+     *
+     * @param dp - DP value.
+     * @param context - Context of application.
+     * @return float - Value in pixels.
+     */
+    private float convertDpToPixel(float dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        return px;
+    }
+
+    /**
+     * @brief Created a valid bitmap descriptor from a drawable resource ID.
+     *
+     * @param id - Drawable resource ID.
+     * @return BitmapDescriptor - Bitmap image converted from VectorAsset.
+     */
+    private BitmapDescriptor getBitmapDescriptor(int id) {
+
+        Context context = getApplicationContext();
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, id);
+        int h = ((int) convertDpToPixel(42, context));
+        int w = ((int) convertDpToPixel(25, context));
+        vectorDrawable.setBounds(0, 0, w, h);
+        Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bm);
+    }
+
+    /**
+     * @brief Listener class for making markers invisible when zoomed out.
+     */
+    private class ZoomToogleListener implements GoogleMap.OnCameraMoveListener {
+
+        private boolean currentVisible = false;
+
+        /**
+         * @brief Listener function that tooggles all markers visibility.
+         */
+        @Override
+        public void onCameraMove() {
+
+            if (mMap != null) {
+                float zoom = mMap.getCameraPosition().zoom;
+
+                /* Check current zoom level on the map. */
+                if (zoom > 18.0) {
+                    /* Make markers visible. */
+                    setMarkersVisible(true);
+                } else {
+                    /* Make markers invisible. */
+                    setMarkersVisible(false);
+                }
+            }
+        }
+
+        /**
+         * @brief Sets all markers either visible or invisible.
+         *
+         * @param visible - Value to set to.
+         */
+        private void setMarkersVisible(boolean visible) {
+            if (currentVisible != visible) {
+                for (int i = 0; i < markerList.size(); i++) {
+
+                    Marker tmp = markerList.get(i);
+                    tmp.setVisible(visible);
+                    currentVisible = visible;
+                }
             }
         }
     }

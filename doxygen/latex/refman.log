@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  15 APR 2017 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  19 APR 2017 23:27
 entering extended mode
 **./refman.tex
 (refman.tex
@@ -1196,8 +1196,8 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 44.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 44.
+(Font)              scaled to size 7.19995pt on input line 45.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1207,13 +1207,11 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 66.
  [2] [3] [4] [5]
-[6])
+[6] [7])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [7] [8
-
-]
+ [8]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
 
 Chapter 1.
@@ -1226,6 +1224,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 18.66588pt on input line 141.
 (index.tex) [1
+
 
 ] [2
 
@@ -1245,12 +1244,19 @@ Chapter 3.
 ]) [6]
 Chapter 4.
 (files.tex
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 8.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1phv.fd"
+File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 8.
 
-LaTeX Warning: Reference `_orientation_8h' on page 7 undefined on input line 18
+
+LaTeX Warning: Reference `_orientation_8h' on page 7 undefined on input line 19
 .
 
 
-LaTeX Warning: Reference `_storage_8h' on page 7 undefined on input line 20.
+LaTeX Warning: Reference `_storage_8h' on page 7 undefined on input line 21.
 
 ) [7
 
@@ -1262,7 +1268,7 @@ Chapter 5.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 6.29996pt on input line 1.
 
-<class_android_app_1_1_b_t_connection.pdf, id=1272, 501.875pt x 234.8775pt>
+<class_android_app_1_1_b_t_connection.pdf, id=1344, 501.875pt x 234.8775pt>
 File: class_android_app_1_1_b_t_connection.pdf Graphic file (type pdf)
 
 <use class_android_app_1_1_b_t_connection.pdf>
@@ -1275,13 +1281,6 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 14.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 14.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 17.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1phv.fd"
-File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-)
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 17.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 18.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
@@ -1294,52 +1293,57 @@ LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 6.29996pt on input line 18.
  [9 <./class_android_app_1_1_b_t_connection.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 79.
+(Font)              scaled to size 8.99994pt on input line 81.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 80.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 80.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 82.
 
 Overfull \vbox (8.2925pt too high) has occurred while \output is active []
 
 
-[10] [11]
-Underfull \hbox (badness 10000) detected at line 225
+[10]
+Underfull \hbox (badness 10000) detected at line 138
 [][][]
  []
 
-[12]
-Underfull \hbox (badness 10000) detected at line 244
+[11] [12]
+Underfull \hbox (badness 10000) detected at line 246
 [][][]
  []
 
-[13]) (class_android_app_1_1_b_t_device_item.tex
+
+Underfull \hbox (badness 10000) detected at line 265
+[][][]
+ []
+
+[13]) (class_android_app_1_1_b_t_device_item.tex [14]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 14.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 14.
- [14] [15]
+ [15]
 Underfull \hbox (badness 10000) detected at line 90
 [][][]
  []
 
-
+[16]
 Underfull \hbox (badness 10000) detected at line 130
 [][][]
  []
 
-[16]
+
 Underfull \hbox (badness 10000) detected at line 149
 [][][]
  []
 
-
+[17]
 Underfull \hbox (badness 10000) detected at line 189
 [][][]
  []
 
-[17]) (class_android_app_1_1_b_t_device_list_adapter.tex
-<class_android_app_1_1_b_t_device_list_adapter.pdf, id=1454, 501.875pt x 138.51
+) (class_android_app_1_1_b_t_device_list_adapter.tex
+<class_android_app_1_1_b_t_device_list_adapter.pdf, id=1529, 501.875pt x 138.51
 75pt>
 File: class_android_app_1_1_b_t_device_list_adapter.pdf Graphic file (type pdf)
 
@@ -1347,12 +1351,15 @@ File: class_android_app_1_1_b_t_device_list_adapter.pdf Graphic file (type pdf)
 Package pdftex.def Info: class_android_app_1_1_b_t_device_list_adapter.pdf used
  on input line 11.
 (pdftex.def)             Requested size: 206.17595pt x 56.9055pt.
- [18 <./class_android_app_1_1_b_t_device_list_adapter.pdf>] [19]
+ [18 <./class_android_app_1_1_b_t_device_list_adapter.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
 Underfull \hbox (badness 10000) detected at line 98
 [][][]
  []
 
-) (class_android_app_1_1_b_t_device_list_adapter_1_1_view_holder.tex)
+[20]) (class_android_app_1_1_b_t_device_list_adapter_1_1_view_holder.tex)
 (class_android_app_1_1_data_item.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1370,7 +1377,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-[20] [21]
+[21]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 7.19995pt on input line 76.
 
@@ -1378,62 +1385,58 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
 (Font)              using `T1/pcr/m/n' instead on input line 76.
 
-[22]
-Underfull \hbox (badness 10000) detected at line 150
+[22] [23]
+Underfull \hbox (badness 10000) detected at line 152
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 169
+Underfull \hbox (badness 10000) detected at line 171
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 188
-[][][]
- []
-
-[23]
-Underfull \hbox (badness 10000) detected at line 207
+Underfull \hbox (badness 10000) detected at line 190
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 226
+Underfull \hbox (badness 10000) detected at line 209
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 245
+Underfull \hbox (badness 10000) detected at line 228
 [][][]
  []
 
-[24] [25] [26]
-Underfull \hbox (badness 10000) detected at line 312
+[24]
+Underfull \hbox (badness 10000) detected at line 247
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 338
+[25]
+Underfull \hbox (badness 10000) detected at line 314
 [][][]
  []
 
-
-Overfull \vbox (2.46574pt too high) has occurred while \output is active []
-
-
-[27]
-Underfull \hbox (badness 10000) detected at line 364
+[26]
+Underfull \hbox (badness 10000) detected at line 340
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 390
+Underfull \hbox (badness 10000) detected at line 366
 [][][]
  []
 
-) (class_android_app_1_1_data_list_adapter.tex
-<class_android_app_1_1_data_list_adapter.pdf, id=1653, 501.875pt x 154.5775pt>
+
+Underfull \hbox (badness 10000) detected at line 392
+[][][]
+ []
+
+[27]) (class_android_app_1_1_data_list_adapter.tex
+<class_android_app_1_1_data_list_adapter.pdf, id=1729, 501.875pt x 154.5775pt>
 File: class_android_app_1_1_data_list_adapter.pdf Graphic file (type pdf)
 
 <use class_android_app_1_1_data_list_adapter.pdf>
@@ -1445,23 +1448,27 @@ Underfull \hbox (badness 10000) detected at line 99
 [][][]
  []
 
-[30]) (class_android_app_1_1_data_list_adapter_1_1_view_holder.tex)
-(class_android_app_1_1_load_device_fragment.tex
-<class_android_app_1_1_load_device_fragment.pdf, id=1705, 501.875pt x 188.705pt
+) (class_android_app_1_1_data_list_adapter_1_1_view_holder.tex [30])
+(class_android_app_1_1_j_s_o_n_handler_singleton.tex
+Underfull \hbox (badness 10000) detected at line 47
+[][][]
+ []
+
+) (class_android_app_1_1_load_device_fragment.tex [31]
+<class_android_app_1_1_load_device_fragment.pdf, id=1799, 501.875pt x 188.705pt
 >
 File: class_android_app_1_1_load_device_fragment.pdf Graphic file (type pdf)
  <use class_android_app_1_1_load_device_fragment.pdf>
 Package pdftex.def Info: class_android_app_1_1_load_device_fragment.pdf used on
  input line 11.
 (pdftex.def)             Requested size: 151.34477pt x 56.9055pt.
- [31 <./class_android_app_1_1_load_device_fragment.pdf>] [32]
+ [32 <./class_android_app_1_1_load_device_fragment.pdf>] [33]
 Underfull \hbox (badness 10000) detected at line 105
 [][][]
  []
 
-[33] [34])
-(class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.tex
-<class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf, id=1775
+[34]) (class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.tex
+<class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf, id=1864
 , 501.875pt x 131.49126pt>
 File: class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf Gra
 phic file (type pdf)
@@ -1471,7 +1478,7 @@ Package pdftex.def Info: class_android_app_1_1_load_device_fragment_1_1_trip_it
 em_listener.pdf used on input line 11.
 (pdftex.def)             Requested size: 217.19579pt x 56.9055pt.
 
-[35 <./class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf>]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 []\T1/phv/m/n/10 References Android[]App.[]Trip[]Item.[]get[]Trip[]Name(), Andr
 oid[]App.[]B[]T[]Connection.[]is[]Connected(), Android[]App.[]
@@ -1483,52 +1490,57 @@ Underfull \hbox (badness 1424) in paragraph at lines 37--38
 ion.[]set[]R[]X[]Handler(), and Android[]App.[]B[]T[]Connection.[]tx[]
  []
 
-) (class_android_app_1_1_main_activity.tex
-<class_android_app_1_1_main_activity.pdf, id=1796, 501.875pt x 94.3525pt>
+[36 <./class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.pdf>])
+(class_android_app_1_1_main_activity.tex
+<class_android_app_1_1_main_activity.pdf, id=1890, 501.875pt x 94.3525pt>
 File: class_android_app_1_1_main_activity.pdf Graphic file (type pdf)
 
 <use class_android_app_1_1_main_activity.pdf>
 Package pdftex.def Info: class_android_app_1_1_main_activity.pdf used on input 
 line 11.
 (pdftex.def)             Requested size: 302.68954pt x 56.9055pt.
- [36] [37 <./class_android_app_1_1_main_activity.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+ [37 <./class_android_app_1_1_main_activity.pdf>] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 []\T1/phv/m/n/10 References Android[]App.[]Pair[]Device[]Fragment.[]get[]B[]T[]
 Connection(), Android[]App.[]B[]T[]Connection.[]is[]Connected(),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 \T1/phv/m/n/10 Android[]App.[]Load[]Device[]Fragment.[]R[]X[]Handler, Android[]
 App.[]Realtime[]Fragment.[]R[]X[]Handler, Android[]App.[]Load[]
  []
 
-[38]) (class_android_app_1_1_maps_activity.tex
-<class_android_app_1_1_maps_activity.pdf, id=1858, 501.875pt x 122.4575pt>
+[39]) (class_android_app_1_1_maps_activity.tex
+<class_android_app_1_1_maps_activity.pdf, id=1955, 501.875pt x 122.4575pt>
 File: class_android_app_1_1_maps_activity.pdf Graphic file (type pdf)
 
 <use class_android_app_1_1_maps_activity.pdf>
 Package pdftex.def Info: class_android_app_1_1_maps_activity.pdf used on input 
 line 11.
 (pdftex.def)             Requested size: 233.2163pt x 56.9055pt.
- [39] [40 <./class_android_app_1_1_maps_activity.pdf>]
-Underfull \hbox (badness 10000) detected at line 96
+ [40 <./class_android_app_1_1_maps_activity.pdf>] [41]
+Underfull \hbox (badness 10000) detected at line 114
 [][][]
  []
 
-[41]
-Underfull \hbox (badness 10000) detected at line 140
+[42]
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+[43] [44]
+Underfull \hbox (badness 10000) detected at line 297
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 192
+Underfull \hbox (badness 10000) detected at line 324
 [][][]
  []
 
-[42] [43])
-(class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.tex
-<class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf, id=1927,
+) (class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.tex
+<class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf, id=2029,
  501.875pt x 133.49875pt>
 File: class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf Grap
 hic file (type pdf)
@@ -1538,33 +1550,45 @@ Package pdftex.def Info: class_android_app_1_1_maps_activity_1_1_statistic_wind
 ow_adapter.pdf used on input line 11.
 (pdftex.def)             Requested size: 213.93349pt x 56.9055pt.
 
-[44 <./class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf>]
+[45]
 Underfull \hbox (badness 10000) detected at line 43
 [][][]
  []
 
-) (class_android_app_1_1_pair_device_fragment.tex [45]
-<class_android_app_1_1_pair_device_fragment.pdf, id=1954, 501.875pt x 193.72375
+[46 <./class_android_app_1_1_maps_activity_1_1_statistic_window_adapter.pdf>])
+(class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.tex
+<class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.pdf, id=2056, 501
+.875pt x 141.52875pt>
+File: class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.pdf Graphic 
+file (type pdf)
+
+<use class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.pdf>
+Package pdftex.def Info: class_android_app_1_1_maps_activity_1_1_zoom_toogle_li
+stener.pdf used on input line 11.
+(pdftex.def)             Requested size: 201.78792pt x 56.9055pt.
+ [47 <./class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.pdf>])
+(class_android_app_1_1_pair_device_fragment.tex [48]
+<class_android_app_1_1_pair_device_fragment.pdf, id=2081, 501.875pt x 193.72375
 pt>
 File: class_android_app_1_1_pair_device_fragment.pdf Graphic file (type pdf)
  <use class_android_app_1_1_pair_device_fragment.pdf>
 Package pdftex.def Info: class_android_app_1_1_pair_device_fragment.pdf used on
  input line 11.
 (pdftex.def)             Requested size: 147.42387pt x 56.9055pt.
- [46 <./class_android_app_1_1_pair_device_fragment.pdf>] [47]
+ [49 <./class_android_app_1_1_pair_device_fragment.pdf>] [50]
 Underfull \hbox (badness 10000) detected at line 126
 [][][]
  []
 
-[48]
+[51]
 Underfull \hbox (badness 10000) detected at line 219
 [][][]
  []
 
 ) (class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.tex
-[49]
-<class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf, id=20
-55, 501.875pt x 126.4725pt>
+[52]
+<class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf, id=21
+83, 501.875pt x 126.4725pt>
 File: class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf G
 raphic file (type pdf)
 
@@ -1578,11 +1602,11 @@ Underfull \hbox (badness 1783) in paragraph at lines 50--51
 em.[]set[]Connection(), Android[]App.[]B[]T[]Device[]Item.[]set[]Icon[]I[]D(),
  []
 
-[50 <./class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf>
+[53 <./class_android_app_1_1_pair_device_fragment_1_1_device_item_listener.pdf>
 ]) (class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.tex
 
 <class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.pdf, i
-d=2076, 501.875pt x 117.43875pt>
+d=2204, 501.875pt x 117.43875pt>
 File: class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener.p
 df Graphic file (type pdf)
 
@@ -1591,9 +1615,9 @@ f>
 Package pdftex.def Info: class_android_app_1_1_pair_device_fragment_1_1_discove
 r_button_listener.pdf used on input line 11.
 (pdftex.def)             Requested size: 243.187pt x 56.9055pt.
- [51 <./class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener
+ [54 <./class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener
 .pdf>]) (class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.tex
-<class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf, id=2100,
+<class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf, id=2227,
  501.875pt x 128.48pt>
 File: class_android_app_1_1_pair_device_fragment_1_1_discover_receiver.pdf Grap
 hic file (type pdf)
@@ -1603,22 +1627,22 @@ Package pdftex.def Info: class_android_app_1_1_pair_device_fragment_1_1_discove
 r_receiver.pdf used on input line 11.
 (pdftex.def)             Requested size: 222.28835pt x 56.9055pt.
 
-[52]) (class_android_app_1_1_realtime_fragment.tex [53 <./class_android_app_1_1
+[55]) (class_android_app_1_1_realtime_fragment.tex [56 <./class_android_app_1_1
 _pair_device_fragment_1_1_discover_receiver.pdf>]
-<class_android_app_1_1_realtime_fragment.pdf, id=2122, 501.875pt x 209.78375pt>
+<class_android_app_1_1_realtime_fragment.pdf, id=2249, 501.875pt x 209.78375pt>
 File: class_android_app_1_1_realtime_fragment.pdf Graphic file (type pdf)
 <use class_android_app_1_1_realtime_fragment.pdf>
 Package pdftex.def Info: class_android_app_1_1_realtime_fragment.pdf used on in
 put line 11.
 (pdftex.def)             Requested size: 136.136pt x 56.9055pt.
- [54 <./class_android_app_1_1_realtime_fragment.pdf>] [55]
-Underfull \hbox (badness 10000) detected at line 119
+ [57 <./class_android_app_1_1_realtime_fragment.pdf>] [58]
+Underfull \hbox (badness 10000) detected at line 123
 [][][]
  []
 
-[56] [57]) (class_android_app_1_1_realtime_fragment_1_1_map_button_listener.tex
+[59] [60]) (class_android_app_1_1_realtime_fragment_1_1_map_button_listener.tex
 
-<class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf, id=2221, 
+<class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf, id=2355, 
 501.875pt x 133.49875pt>
 File: class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf Graph
 ic file (type pdf)
@@ -1628,49 +1652,49 @@ Package pdftex.def Info: class_android_app_1_1_realtime_fragment_1_1_map_button
 _listener.pdf used on input line 11.
 (pdftex.def)             Requested size: 213.93349pt x 56.9055pt.
 
-[58 <./class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf>])
+[61 <./class_android_app_1_1_realtime_fragment_1_1_map_button_listener.pdf>])
 (class_android_app_1_1_set_of_data_items.tex
-<class_android_app_1_1_set_of_data_items.pdf, id=2235, 501.875pt x 205.76875pt>
+<class_android_app_1_1_set_of_data_items.pdf, id=2368, 501.875pt x 205.76875pt>
 File: class_android_app_1_1_set_of_data_items.pdf Graphic file (type pdf)
 <use class_android_app_1_1_set_of_data_items.pdf>
 Package pdftex.def Info: class_android_app_1_1_set_of_data_items.pdf used on in
 put line 11.
 (pdftex.def)             Requested size: 138.79333pt x 56.9055pt.
- [59 <./class_android_app_1_1_set_of_data_items.pdf>]
+ [62 <./class_android_app_1_1_set_of_data_items.pdf>]
 Underfull \hbox (badness 10000) detected at line 45
 [][][]
  []
 
-) (class_android_app_1_1_trip_item.tex [60]
+) (class_android_app_1_1_trip_item.tex [63]
 Underfull \hbox (badness 10000) detected at line 75
 [][][]
  []
 
-[61]
+[64]
 Underfull \hbox (badness 10000) detected at line 115
 [][][]
  []
 
 ) (class_android_app_1_1_trip_list_adapter.tex
-<class_android_app_1_1_trip_list_adapter.pdf, id=2293, 501.875pt x 156.585pt>
+<class_android_app_1_1_trip_list_adapter.pdf, id=2428, 501.875pt x 156.585pt>
 File: class_android_app_1_1_trip_list_adapter.pdf Graphic file (type pdf)
 
 <use class_android_app_1_1_trip_list_adapter.pdf>
 Package pdftex.def Info: class_android_app_1_1_trip_list_adapter.pdf used on in
 put line 11.
 (pdftex.def)             Requested size: 182.39024pt x 56.9055pt.
- [62] [63 <./class_android_app_1_1_trip_list_adapter.pdf>]
+ [65] [66 <./class_android_app_1_1_trip_list_adapter.pdf>]
 Underfull \hbox (badness 10000) detected at line 99
 [][][]
  []
 
-[64]) (class_android_app_1_1_trip_list_adapter_1_1_view_holder.tex)
-(class_logging_device_1_1_orientation.tex [65]
+[67]) (class_android_app_1_1_trip_list_adapter_1_1_view_holder.tex)
+(class_logging_device_1_1_orientation.tex [68]
 Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
 
-[66]
+[69]
 Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
@@ -1680,12 +1704,12 @@ Underfull \hbox (badness 10000) detected at line 154
 [][][]
  []
 
-[67]
+[70]
 Underfull \hbox (badness 10000) detected at line 214
 [][][]
  []
 
-[68]
+[71]
 Underfull \hbox (badness 10000) detected at line 237
 [][][]
  []
@@ -1695,7 +1719,7 @@ Underfull \hbox (badness 10000) detected at line 260
 [][][]
  []
 
-) (class_logging_device_1_1_storage.tex [69] [70]
+) (class_logging_device_1_1_storage.tex [72] [73]
 Underfull \hbox (badness 10000) detected at line 82
 [][][]
  []
@@ -1705,9 +1729,7 @@ Underfull \hbox (badness 10000) detected at line 127
 [][][]
  []
 
-[71] [72]) [73] [74
-
-]
+[74] [75]) [76]
 Chapter 6.
 (_b_t_connection_8java.tex
 Underfull \hbox (badness 3735) in paragraph at lines 1--1
@@ -1731,7 +1753,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []B[]T[]Device[]Item.java File
  []
 
-[75]
+[77
+
+]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1751,7 +1775,7 @@ Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
 
-) (_data_item_8java.tex [76]
+) (_data_item_8java.tex [78]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1777,7 +1801,23 @@ Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
 
-) (_load_device_fragment_8java.tex [77]
+) (_j_s_o_n_handler_singleton_8java.tex
+Overfull \hbox (17.14806pt too wide) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 android-app/app/src/main/java/com/jack/motorbikestatistics/
+[]J[]S[]O[]N[]Handler[]Singleton.java
+ []
+
+[79]
+Underfull \hbox (badness 10000) detected at line 20
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
+) (_load_device_fragment_8java.tex
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
@@ -1793,7 +1833,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []Main[]Activity.java File
  []
 
-
+[80]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1809,22 +1849,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []Maps[]Activity.java File
  []
 
-[78]
-Underfull \hbox (badness 10000) detected at line 22
+
+Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 25
+Underfull \hbox (badness 10000) detected at line 27
 [][][]
  []
 
-) (_pair_device_fragment_8java.tex
+) (_pair_device_fragment_8java.tex [81]
 Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
-[79]
+
 Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
@@ -1840,7 +1880,7 @@ Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
-
+[82]
 Underfull \hbox (badness 10000) detected at line 25
 [][][]
  []
@@ -1851,7 +1891,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []Set[]Of[]Data[]Items.java
  []
 
-[80]
+
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1867,7 +1907,7 @@ Underfull \hbox (badness 1122) in paragraph at lines 1--1
 []Trip[]Item.java File Ref-
  []
 
-
+[83]
 Underfull \hbox (badness 10000) detected at line 20
 [][][]
  []
@@ -1883,7 +1923,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []Trip[]List[]Adapter.java
  []
 
-[81]
+
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
@@ -1898,7 +1938,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--13
 
  []
 
-[82] [83]
+[84] [85]
 Underfull \hbox (badness 10000) detected at line 109
 [][][]
  []
@@ -1908,22 +1948,22 @@ Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
-[84]
+[86]
 Underfull \hbox (badness 10000) in paragraph at lines 165--170
 
  []
 
-[85]
+[87]
 Underfull \hbox (badness 10000) detected at line 228
 [][][]
  []
 
-[86] [87]) (_orientation_8cpp.tex
+[88] [89]) (_orientation_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--11
 
  []
 
-[88]
+[90]
 Underfull \hbox (badness 10000) detected at line 40
 [][][]
  []
@@ -1938,7 +1978,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--11
 
  []
 
-[89]
+[91]
 Underfull \hbox (badness 10000) detected at line 34
 [][][]
  []
@@ -1948,7 +1988,7 @@ Underfull \hbox (badness 10000) detected at line 37
 [][][]
  []
 
-) [90] (refman.ind
+) [92] (refman.ind
 Overfull \hbox (23.66699pt too wide) in paragraph at lines 13--15
 []\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
  []
@@ -2014,67 +2054,78 @@ Overfull \hbox (23.66699pt too wide) in paragraph at lines 37--39
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Overfull \hbox (23.66699pt too wide) in paragraph at lines 39--41
+[]\T1/phv/m/n/10 android-app/app/src/main/java/com/jack/motorbikestatistics/[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
 []\T1/phv/m/n/10 Android[]App.[]Pair[]Device[]Fragment.[]Device[]Item[]Listener
 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 []\T1/phv/m/n/10 Android[]App.[]Pair[]Device[]Fragment.[]Discover[]Button[]
  []
 
-[91
+[93
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 []\T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]Button
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
 []| \T1/phv/m/n/10 Android[]App[]::[]Maps[]Activity[]::[]Statistic[]Window[]
  []
 
-[92]
-Underfull \hbox (badness 10000) in paragraph at lines 299--301
+[94]
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 []| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--304
+Underfull \hbox (badness 10000) in paragraph at lines 320--322
 []| \T1/phv/m/n/10 Android[]App[]::[]Realtime[]Fragment[]::[]Map[]Button[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--314
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
 []| \T1/phv/m/n/10 Android[]App[]::[]Load[]Device[]Fragment[]::[]Trip[]Item[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+Underfull \hbox (badness 10000) in paragraph at lines 332--334
 []| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Device[]Item[]
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--323
+Underfull \hbox (badness 10000) in paragraph at lines 339--341
 []| \T1/phv/m/n/10 Android[]App[]::[]Pair[]Device[]Fragment[]::[]Discover[]
  []
 
-[93] [94
+[95]
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+[]| \T1/phv/m/n/10 Android[]App[]::[]Maps[]Activity[]::[]Zoom[]Toogle[]Listener
+,
+ []
+
+[96
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 204.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 204.
  (refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 204.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 204.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 000F11C406357D4C35D9D521EB3F0122;51019.
+(rerunfilecheck)             Checksum: 8D8027CABE3E39C8AFF488F85DC38155;54305.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2082,13 +2133,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 204.
  ) 
 Here is how much of TeX's memory you used:
- 16189 strings out of 493333
- 258135 string characters out of 3139197
- 336954 words of memory out of 3000000
- 18678 multiletter control sequences out of 15000+200000
+ 16265 strings out of 493333
+ 261128 string characters out of 3139197
+ 338914 words of memory out of 3000000
+ 18709 multiletter control sequences out of 15000+200000
  71523 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  53i,16n,92p,1075b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2196,9 +2247,9 @@ m Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX
 e1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvet
 ic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb
 >
-Output written on refman.pdf (104 pages, 796020 bytes).
+Output written on refman.pdf (106 pages, 827665 bytes).
 PDF statistics:
- 3184 PDF objects out of 3580 (max. 8388607)
- 692 named destinations out of 1000 (max. 500000)
- 1761 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3337 PDF objects out of 3580 (max. 8388607)
+ 731 named destinations out of 1000 (max. 500000)
+ 1862 words of extra memory for PDF output out of 10000 (max. 10000000)
 

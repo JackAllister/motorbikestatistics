@@ -1,0 +1,69 @@
+\hypertarget{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener}{}\section{Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener Class Reference}
+\label{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener}\index{Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener@{Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener}}
+
+
+Listener class for making markers invisible when zoomed out.  
+
+
+Inheritance diagram for Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_ade815d6e8093f5020ac4676085f42669}\label{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_ade815d6e8093f5020ac4676085f42669}} 
+void \hyperlink{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_ade815d6e8093f5020ac4676085f42669}{on\+Camera\+Move} ()
+\begin{DoxyCompactList}\small\item\em Listener function that tooggles all markers visibility. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_a87b5d78c37a7c1494cb84d613420286f}{set\+Markers\+Visible} (boolean visible)
+\begin{DoxyCompactList}\small\item\em Sets all markers either visible or invisible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_a1c1bb0e72be3b6a370322a2b90518ab2}\label{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_a1c1bb0e72be3b6a370322a2b90518ab2}} 
+boolean {\bfseries current\+Visible} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener class for making markers invisible when zoomed out. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_a87b5d78c37a7c1494cb84d613420286f}\label{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener_a87b5d78c37a7c1494cb84d613420286f}} 
+\index{Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener@{Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener}!set\+Markers\+Visible@{set\+Markers\+Visible}}
+\index{set\+Markers\+Visible@{set\+Markers\+Visible}!Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener@{Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener}}
+\subsubsection{\texorpdfstring{set\+Markers\+Visible()}{setMarkersVisible()}}
+{\footnotesize\ttfamily void Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener.\+set\+Markers\+Visible (\begin{DoxyParamCaption}\item[{boolean}]{visible }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Sets all markers either visible or invisible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visible} & -\/ Value to set to. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+285                                                         \{
+286             \textcolor{keywordflow}{if} (currentVisible != visible) \{
+287                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < markerList.size(); i++) \{
+288 
+289                     Marker tmp = markerList.get(i);
+290                     tmp.setVisible(visible);
+291                     currentVisible = visible;
+292                 \}
+293             \}
+294         \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_maps_activity_8java}{Maps\+Activity.\+java}\end{DoxyCompactItemize}

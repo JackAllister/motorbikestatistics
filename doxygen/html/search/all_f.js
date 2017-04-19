@@ -7,6 +7,7 @@ var searchData=
   ['setcurrent',['setCurrent',['../class_android_app_1_1_data_item.html#a6cd8975067d5be2d5eaac137a94c0eac',1,'AndroidApp::DataItem']]],
   ['setfilesize',['setFileSize',['../class_android_app_1_1_trip_item.html#a85d328bdc6fd3d54c5c275aea2e23852',1,'AndroidApp::TripItem']]],
   ['seticonid',['setIconID',['../class_android_app_1_1_b_t_device_item.html#a893140b78c17184a199ac419f0fc7be7',1,'AndroidApp::BTDeviceItem']]],
+  ['setmarkersvisible',['setMarkersVisible',['../class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener.html#a87b5d78c37a7c1494cb84d613420286f',1,'AndroidApp::MapsActivity::ZoomToogleListener']]],
   ['setofdataitems',['SetOfDataItems',['../class_android_app_1_1_set_of_data_items.html',1,'AndroidApp.SetOfDataItems'],['../class_android_app_1_1_set_of_data_items.html#a719c4dffae070925492a8cca986a8337',1,'AndroidApp.SetOfDataItems.SetOfDataItems()']]],
   ['setofdataitems_2ejava',['SetOfDataItems.java',['../_set_of_data_items_8java.html',1,'']]],
   ['setrxhandler',['setRXHandler',['../class_android_app_1_1_b_t_connection.html#a41022747db3c5a8bf0f4ddbc7bf32a3d',1,'AndroidApp::BTConnection']]],

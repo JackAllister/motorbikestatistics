@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['loaddevicefragment_2ejava',['LoadDeviceFragment.java',['../_load_device_fragment_8java.html',1,'']]],
-  ['logging_2ddevice_2eino',['logging-device.ino',['../logging-device_8ino.html',1,'']]]
+  ['jsonhandlersingleton_2ejava',['JSONHandlerSingleton.java',['../_j_s_o_n_handler_singleton_8java.html',1,'']]]
 ];

@@ -50,7 +50,7 @@ boolean \hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b
 T \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = null
 \begin{DoxyCompactList}\small\item\em Current reading value. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}\label{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}} 
-Double \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = 0.\+0
+Double \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = null
 \begin{DoxyCompactList}\small\item\em Average reading value. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}\label{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}} 
 Double \hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{average\+Sum} = 0.\+0
@@ -125,14 +125,16 @@ Similar to other constructor however allows setting of an initial value.
 66         this.\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = value;
 67 
 68         \textcolor{keywordflow}{if} ((avgMinMax) && (\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} instanceof Number)) \{
-69             this.\hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = (Double)value;
-70             this.\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = (Double)value;
-71             this.\hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
-72 
-73             this.\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} = value;
-74             this.\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} = value;
-75         \}
-76     \}
+69 
+70             Number val = (Number)value;
+71             this.\hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = val.doubleValue();
+72             this.\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = val.doubleValue();
+73             this.\hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
+74 
+75             this.\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} = value;
+76             this.\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} = value;
+77         \}
+78     \}
 \end{DoxyCode}
 
 
@@ -152,9 +154,9 @@ String -\/ \hyperlink{class_android_app_1_1_data_item}{Data\+Item} name.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-82                             \{
-83         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name};
-84     \}
+84                             \{
+85         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name};
+86     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a45f09cabd91cc7032357b02bb0498c3e}\label{class_android_app_1_1_data_item_a45f09cabd91cc7032357b02bb0498c3e}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Enabled\+Avg\+Min\+Max@{get\+Enabled\+Avg\+Min\+Max}}
@@ -171,9 +173,9 @@ boolean -\/ Averaging, Minimum \& Maximum enabled.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-90                                          \{
-91         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax};
-92     \}
+92                                          \{
+93         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax};
+94     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_aee0b56933fb8673f7b6e52cde9da157c}\label{class_android_app_1_1_data_item_aee0b56933fb8673f7b6e52cde9da157c}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Current@{get\+Current}}
@@ -190,9 +192,9 @@ T -\/ Current reading value.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-98                           \{
-99         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
-100     \}
+100                           \{
+101         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+102     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_ad3b598a42bc7e38aa46d5091a752a47b}\label{class_android_app_1_1_data_item_ad3b598a42bc7e38aa46d5091a752a47b}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Average@{get\+Average}}
@@ -209,9 +211,9 @@ Double -\/ Average of all readings.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-106                                \{
-107         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average};
-108     \}
+108                                \{
+109         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average};
+110     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a1acf18ed04f82adb18ff73f4ef70b863}\label{class_android_app_1_1_data_item_a1acf18ed04f82adb18ff73f4ef70b863}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Minimum@{get\+Minimum}}
@@ -228,9 +230,9 @@ T -\/ Minimum value.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-114                           \{
-115         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum};
-116     \}
+116                           \{
+117         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum};
+118     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_abc05cb2c7e1c30a018191cb140afc948}\label{class_android_app_1_1_data_item_abc05cb2c7e1c30a018191cb140afc948}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Maximum@{get\+Maximum}}
@@ -247,9 +249,9 @@ T -\/ Maximum value.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-122                           \{
-123         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum};
-124     \}
+124                           \{
+125         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum};
+126     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}\label{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!set\+Current@{set\+Current}}
@@ -265,32 +267,32 @@ If additive functionality enabled and the reading is of types number then we go 
 
 
 \begin{DoxyParams}{Parameters}
-{\em T} & -\/ New reading. \\
+{\em value} & -\/ New reading. \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyCode}
-135                                     \{
-136         this.\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = value;
-137 
-138         \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax}) && (\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} instanceof Number)) \{
+137                                     \{
+138         this.\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = value;
 139 
-140             \textcolor{comment}{/* Sets the average */}
-141             \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
-142             \hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = \hyperlink{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}{add}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, (Number)value);
-143             \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = \hyperlink{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}{divide}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount});
-144 
-145             \textcolor{comment}{/* Sets the new minimum and maximums if true */}
-146             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} == null) || \hyperlink{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}{lessThan}((Number)\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current}, (Number)
+140         \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax}) && (\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} instanceof Number)) \{
+141 
+142             \textcolor{comment}{/* Sets the average */}
+143             \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
+144             \hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = \hyperlink{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}{add}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, (Number)value);
+145             \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = \hyperlink{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}{divide}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount});
+146 
+147             \textcolor{comment}{/* Sets the new minimum and maximums if true */}
+148             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} == null) || \hyperlink{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}{lessThan}((Number)\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current}, (Number)
       \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum})) \{
-147                 minimum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
-148             \}
-149             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} == null) || \hyperlink{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}{greaterThan}((Number)current, (Number)
+149                 minimum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+150             \}
+151             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} == null) || \hyperlink{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}{greaterThan}((Number)current, (Number)
       \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum})) \{
-150                 maximum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
-151             \}
-152         \}
-153     \}
+152                 maximum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+153             \}
+154         \}
+155     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}\label{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!add@{add}}
@@ -314,9 +316,9 @@ Double -\/ Sum.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-161                                            \{
-162         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(a.doubleValue() + b.doubleValue());
-163     \}
+163                                            \{
+164         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(a.doubleValue() + b.doubleValue());
+165     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}\label{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!divide@{divide}}
@@ -340,9 +342,9 @@ Double -\/ Result of division.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-171                                                                 \{
-172         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(numerator.doubleValue() / denominator.doubleValue());
-173     \}
+173                                                                 \{
+174         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(numerator.doubleValue() / denominator.doubleValue());
+175     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}\label{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!greater\+Than@{greater\+Than}}
@@ -366,9 +368,9 @@ boolean -\/ Whether A is greater than B.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-181                                                     \{
-182         \textcolor{keywordflow}{return} a.doubleValue() > b.doubleValue();
-183     \}
+183                                                     \{
+184         \textcolor{keywordflow}{return} a.doubleValue() > b.doubleValue();
+185     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}\label{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}} 
 \index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!less\+Than@{less\+Than}}
@@ -392,9 +394,9 @@ boolean -\/ Whether A is less than B.
 \end{DoxyReturn}
 
 \begin{DoxyCode}
-191                                                  \{
-192         \textcolor{keywordflow}{return} a.doubleValue() < b.doubleValue();
-193     \}
+193                                                  \{
+194         \textcolor{keywordflow}{return} a.doubleValue() < b.doubleValue();
+195     \}
 \end{DoxyCode}
 
 

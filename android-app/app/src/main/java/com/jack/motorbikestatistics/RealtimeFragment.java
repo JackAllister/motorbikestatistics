@@ -39,18 +39,15 @@ import java.util.Calendar;
  * @brief UI Class for viewing data sent from the logging device.
  */
 public class RealtimeFragment extends Fragment {
+    /** @brief String for new line parsing. */
+    private final static String NEW_LINE = "\r\n";
+
     /** @brief TextView to show amount of logs received. */
     private TextView textStatus;
-    /** @brief Array that holds serialised trip data to pass to map. */
-    private ArrayList<String> jsonList;
-
     /** @brief Array holding each statistic that device is measuring. */
     private SetOfDataItems dataList;
     /** @brief Adapter used for displaying statistics in the ListView. */
     private ArrayAdapter<DataItem> lvAdapter;
-
-    /** @brief String for new line parsing. */
-    private final static String NEW_LINE = "\r\n";
 
     /**
      * @brief Constructor for UI fragment.
@@ -60,11 +57,10 @@ public class RealtimeFragment extends Fragment {
      * item.
      */
     public RealtimeFragment() {
-        jsonList = new ArrayList<String>();
 
         dataList = new SetOfDataItems();
 
-        /* Set up our data items that we will want to log */
+        /* Set up our data items that we will want to log & show on ListView */
         dataList.add(new DataItem<Double>("Yaw", true));
         dataList.add(new DataItem<Double>("Pitch", true));
         dataList.add(new DataItem<Double>("Roll", true));
@@ -77,6 +73,10 @@ public class RealtimeFragment extends Fragment {
         dataList.add(new DataItem<Boolean>("Date Valid", false));
         dataList.add(new DataItem<String>("Date", false));
         dataList.add(new DataItem<String>("Time", false));
+
+        /* Clear our tripData handler in singleton class */
+        ArrayList<JSONObject> tripData = JSONHandlerSingleton.getInstance().tripData;
+        tripData.clear();
     }
 
     /**
@@ -125,6 +125,14 @@ public class RealtimeFragment extends Fragment {
     private final void newData(JSONObject jsonData) {
 
         try {
+            /*
+             * Add parent object to our singleton trip data list.
+             * This is so that other activities/fragments can access it.
+             */
+            ArrayList<JSONObject> tripData = JSONHandlerSingleton.getInstance().tripData;
+            tripData.add(jsonData);
+
+            /* Get the child JSON objects from parents. */
             JSONObject orientObject = jsonData.getJSONObject("orientation");
             JSONObject gpsObject = jsonData.getJSONObject("gps");
             JSONObject timeObject = jsonData.getJSONObject("time");
@@ -165,12 +173,7 @@ public class RealtimeFragment extends Fragment {
 
             lvAdapter.notifyDataSetChanged();
 
-            /*
-             * Add json object to our list
-             * so we can send it to other activities/fragments later
-             */
-            jsonList.add(jsonData.toString());
-            textStatus.setText("Reading count: " + Integer.toString(jsonList.size()));
+            textStatus.setText("Reading count: " + Integer.toString(tripData.size()));
         } catch (JSONException e) {
             /* Do nothing */
         }
@@ -192,7 +195,6 @@ public class RealtimeFragment extends Fragment {
       @Override
       public void onClick(View v) {
           Intent intent = new Intent(getActivity(), MapsActivity.class);
-          intent.putExtra("JSONList", jsonList);
           startActivity(intent);
       }
     }

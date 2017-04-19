@@ -139,8 +139,10 @@ Setter for trip filesize.
 
 \begin{DoxyCode}
 64                                           \{
-65         this.\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} = \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize};
-66     \}
+65         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} >= 0) \{
+66             this.\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} = \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize};
+67         \}
+68     \}
 \end{DoxyCode}
 
 

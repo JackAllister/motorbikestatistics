@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['realtimefragment_2ejava',['RealtimeFragment.java',['../_realtime_fragment_8java.html',1,'']]]
+  ['pairdevicefragment_2ejava',['PairDeviceFragment.java',['../_pair_device_fragment_8java.html',1,'']]]
 ];

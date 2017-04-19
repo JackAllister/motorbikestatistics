@@ -3,6 +3,7 @@ var searchData=
   ['tag',['TAG',['../class_android_app_1_1_b_t_connection.html#ad838024d59c68be866b5db329d6f6230',1,'AndroidApp::BTConnection']]],
   ['textstatus',['textStatus',['../class_android_app_1_1_realtime_fragment.html#a8aa6530bcc9c6ef17627f1395ff7910d',1,'AndroidApp::RealtimeFragment']]],
   ['timejson',['timeJSON',['../logging-device_8ino.html#acc172a29cb5ff709b48b650d9fb6503c',1,'logging-device.ino']]],
+  ['tripdata',['tripData',['../class_android_app_1_1_maps_activity.html#ad2fa23bd9f7f5a501e91329413608528',1,'AndroidApp::MapsActivity']]],
   ['tripitem',['TripItem',['../class_android_app_1_1_trip_item.html',1,'AndroidApp.TripItem'],['../class_android_app_1_1_trip_item.html#a3ef9684be0d75a972fc373db43aa0efd',1,'AndroidApp.TripItem.TripItem()']]],
   ['tripitem_2ejava',['TripItem.java',['../_trip_item_8java.html',1,'']]],
   ['tripitemlistener',['TripItemListener',['../class_android_app_1_1_load_device_fragment_1_1_trip_item_listener.html',1,'AndroidApp::LoadDeviceFragment']]],

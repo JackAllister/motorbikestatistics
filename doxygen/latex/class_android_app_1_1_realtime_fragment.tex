@@ -39,9 +39,6 @@ final void \hyperlink{class_android_app_1_1_realtime_fragment_a61735e07c8f7b382b
 \mbox{\Hypertarget{class_android_app_1_1_realtime_fragment_a8aa6530bcc9c6ef17627f1395ff7910d}\label{class_android_app_1_1_realtime_fragment_a8aa6530bcc9c6ef17627f1395ff7910d}} 
 Text\+View \hyperlink{class_android_app_1_1_realtime_fragment_a8aa6530bcc9c6ef17627f1395ff7910d}{text\+Status}
 \begin{DoxyCompactList}\small\item\em Text\+View to show amount of logs received. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}\label{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}} 
-Array\+List$<$ String $>$ \hyperlink{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}{json\+List}
-\begin{DoxyCompactList}\small\item\em Array that holds serialised trip data to pass to map. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}\label{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}} 
 \hyperlink{class_android_app_1_1_set_of_data_items}{Set\+Of\+Data\+Items} \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{data\+List}
 \begin{DoxyCompactList}\small\item\em Array holding each statistic that device is measuring. \end{DoxyCompactList}\item 
@@ -71,25 +68,32 @@ UI Class for viewing data sent from the logging device.
 Constructor for UI fragment. 
 
 Creates our initial data items that we are going to log. Setting whether extended functionality is needed for each data item. 
+
+References Android\+App.\+J\+S\+O\+N\+Handler\+Singleton.\+get\+Instance().
+
+
 \begin{DoxyCode}
-62                               \{
-63         \hyperlink{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}{jsonList} = \textcolor{keyword}{new} ArrayList<String>();
-64 
-65         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList} = \textcolor{keyword}{new} SetOfDataItems();
-66 
-67         \textcolor{comment}{/* Set up our data items that we will want to log */}
-68         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Yaw"}, \textcolor{keyword}{true}));
-69         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Pitch"}, \textcolor{keyword}{true}));
-70         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Roll"}, \textcolor{keyword}{true}));
-71         dataList.add(\textcolor{keyword}{new} DataItem<Boolean>(\textcolor{stringliteral}{"GPS Valid"}, \textcolor{keyword}{false}));
-72         dataList.add(\textcolor{keyword}{new} DataItem<Integer>(\textcolor{stringliteral}{"Satellites"}, \textcolor{keyword}{false}));
-73         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Latitude"}, \textcolor{keyword}{false}));
-74         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Longitude"}, \textcolor{keyword}{false}));
-75         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Velocity (MPH)"}, \textcolor{keyword}{true}));
-76         dataList.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Altitude (FT)"}, \textcolor{keyword}{true}));
-77         dataList.add(\textcolor{keyword}{new} DataItem<Boolean>(\textcolor{stringliteral}{"Date Valid"}, \textcolor{keyword}{false}));
-78         dataList.add(\textcolor{keyword}{new} DataItem<String>(\textcolor{stringliteral}{"Date"}, \textcolor{keyword}{false}));
-79         dataList.add(\textcolor{keyword}{new} DataItem<String>(\textcolor{stringliteral}{"Time"}, \textcolor{keyword}{false}));
+59                               \{
+60 
+61         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList} = \textcolor{keyword}{new} SetOfDataItems();
+62 
+63         \textcolor{comment}{/* Set up our data items that we will want to log & show on ListView */}
+64         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Yaw"}, \textcolor{keyword}{true}));
+65         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Pitch"}, \textcolor{keyword}{true}));
+66         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Roll"}, \textcolor{keyword}{true}));
+67         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Boolean>(\textcolor{stringliteral}{"GPS Valid"}, \textcolor{keyword}{false}));
+68         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Integer>(\textcolor{stringliteral}{"Satellites"}, \textcolor{keyword}{false}));
+69         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Latitude"}, \textcolor{keyword}{false}));
+70         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Longitude"}, \textcolor{keyword}{false}));
+71         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Velocity (MPH)"}, \textcolor{keyword}{true}));
+72         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Double>(\textcolor{stringliteral}{"Altitude (FT)"}, \textcolor{keyword}{true}));
+73         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<Boolean>(\textcolor{stringliteral}{"Date Valid"}, \textcolor{keyword}{false}));
+74         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<String>(\textcolor{stringliteral}{"Date"}, \textcolor{keyword}{false}));
+75         \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.add(\textcolor{keyword}{new} DataItem<String>(\textcolor{stringliteral}{"Time"}, \textcolor{keyword}{false}));
+76 
+77         \textcolor{comment}{/* Clear our tripData handler in singleton class */}
+78         ArrayList<JSONObject> tripData = JSONHandlerSingleton.getInstance().tripData;
+79         tripData.clear();
 80     \}
 \end{DoxyCode}
 
@@ -165,76 +169,78 @@ Attempts to break the initial J\+S\+ON object into it\textquotesingle{}s child o
 \end{DoxyParams}
 
 
-References Android\+App.\+Set\+Of\+Data\+Items.\+get\+Item\+By\+Name(), and Android\+App.\+Data\+Item$<$ T $>$.\+set\+Current().
+References Android\+App.\+J\+S\+O\+N\+Handler\+Singleton.\+get\+Instance(), Android\+App.\+Set\+Of\+Data\+Items.\+get\+Item\+By\+Name(), and Android\+App.\+Data\+Item$<$ T $>$.\+set\+Current().
 
 
 \begin{DoxyCode}
 125                                                     \{
 126 
 127         \textcolor{keywordflow}{try} \{
-128             JSONObject orientObject = jsonData.getJSONObject(\textcolor{stringliteral}{"orientation"});
-129             JSONObject gpsObject = jsonData.getJSONObject(\textcolor{stringliteral}{"gps"});
-130             JSONObject timeObject = jsonData.getJSONObject(\textcolor{stringliteral}{"time"});
-131 
-132             \textcolor{comment}{/* Update our data items */}
-133             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Yaw"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.getDouble(\textcolor{stringliteral}{
+128             \textcolor{comment}{/*}
+129 \textcolor{comment}{             * Add parent object to our singleton trip data list.}
+130 \textcolor{comment}{             * This is so that other activities/fragments can access it.}
+131 \textcolor{comment}{             */}
+132             ArrayList<JSONObject> tripData = JSONHandlerSingleton.getInstance().tripData;
+133             tripData.add(jsonData);
+134 
+135             \textcolor{comment}{/* Get the child JSON objects from parents. */}
+136             JSONObject orientObject = jsonData.getJSONObject(\textcolor{stringliteral}{"orientation"});
+137             JSONObject gpsObject = jsonData.getJSONObject(\textcolor{stringliteral}{"gps"});
+138             JSONObject timeObject = jsonData.getJSONObject(\textcolor{stringliteral}{"time"});
+139 
+140             \textcolor{comment}{/* Update our data items */}
+141             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Yaw"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.getDouble(\textcolor{stringliteral}{
       "yaw"}));
-134             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Pitch"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.
+142             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Pitch"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.
       getDouble(\textcolor{stringliteral}{"pitch"}));
-135             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Roll"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.getDouble
+143             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Roll"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(orientObject.getDouble
       (\textcolor{stringliteral}{"roll"}));
-136 
-137             \textcolor{comment}{/* Add GPS based data to */}
-138             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"GPS Valid"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
-      getBoolean(\textcolor{stringliteral}{"gps\_valid"}));
-139             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Satellites"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getInt
-      (\textcolor{stringliteral}{"available"}));
-140             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Latitude"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
-      getDouble(\textcolor{stringliteral}{"lat"}));
-141             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Longitude"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
-      getDouble(\textcolor{stringliteral}{"lng"}));
-142             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Velocity (MPH)"}).
-      \hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getDouble(\textcolor{stringliteral}{"vel\_mph"}));
-143             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Altitude (FT)"}).
-      \hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getDouble(\textcolor{stringliteral}{"alt\_ft"}));
 144 
-145             \textcolor{comment}{/* DateTime based data */}
-146             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Date Valid"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(timeObject.
+145             \textcolor{comment}{/* Add GPS based data to */}
+146             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"GPS Valid"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
+      getBoolean(\textcolor{stringliteral}{"gps\_valid"}));
+147             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Satellites"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getInt
+      (\textcolor{stringliteral}{"available"}));
+148             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Latitude"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
+      getDouble(\textcolor{stringliteral}{"lat"}));
+149             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Longitude"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.
+      getDouble(\textcolor{stringliteral}{"lng"}));
+150             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Velocity (MPH)"}).
+      \hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getDouble(\textcolor{stringliteral}{"vel\_mph"}));
+151             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Altitude (FT)"}).
+      \hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(gpsObject.getDouble(\textcolor{stringliteral}{"alt\_ft"}));
+152 
+153             \textcolor{comment}{/* DateTime based data */}
+154             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Date Valid"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(timeObject.
       getBoolean(\textcolor{stringliteral}{"time\_valid"}));
-147 
-148             Calendar cal = Calendar.getInstance();
-149             cal.clear();
-150             cal.set(Calendar.YEAR, timeObject.getInt(\textcolor{stringliteral}{"year"}));
-151             cal.set(Calendar.MONTH, timeObject.getInt(\textcolor{stringliteral}{"month"}));
-152             cal.set(Calendar.DATE, timeObject.getInt(\textcolor{stringliteral}{"day"}));
-153 
-154             cal.set(Calendar.HOUR, timeObject.getInt(\textcolor{stringliteral}{"hour"}));
-155             cal.set(Calendar.MINUTE, timeObject.getInt(\textcolor{stringliteral}{"minute"}));
-156             cal.set(Calendar.SECOND, timeObject.getInt(\textcolor{stringliteral}{"second"}));
-157             cal.set(Calendar.MILLISECOND, timeObject.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
-158 
-159             \textcolor{comment}{/* Create format for date and times then add to list */}
-160             DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy"});
-161             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Date"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(dateFormat.format(cal.
+155 
+156             Calendar cal = Calendar.getInstance();
+157             cal.clear();
+158             cal.set(Calendar.YEAR, timeObject.getInt(\textcolor{stringliteral}{"year"}));
+159             cal.set(Calendar.MONTH, timeObject.getInt(\textcolor{stringliteral}{"month"}));
+160             cal.set(Calendar.DATE, timeObject.getInt(\textcolor{stringliteral}{"day"}));
+161 
+162             cal.set(Calendar.HOUR, timeObject.getInt(\textcolor{stringliteral}{"hour"}));
+163             cal.set(Calendar.MINUTE, timeObject.getInt(\textcolor{stringliteral}{"minute"}));
+164             cal.set(Calendar.SECOND, timeObject.getInt(\textcolor{stringliteral}{"second"}));
+165             cal.set(Calendar.MILLISECOND, timeObject.getInt(\textcolor{stringliteral}{"centiseconds"}) * 10);
+166 
+167             \textcolor{comment}{/* Create format for date and times then add to list */}
+168             DateFormat dateFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"dd/MM/yy"});
+169             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Date"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(dateFormat.format(cal.
       getTime()));
-162 
-163             DateFormat timeFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"HH:mm:ss.SS"});
-164             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Time"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(timeFormat.format(cal.
+170 
+171             DateFormat timeFormat = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"HH:mm:ss.SS"});
+172             \hyperlink{class_android_app_1_1_realtime_fragment_ab1c4983b61e50b501ed22842253bf849}{dataList}.\hyperlink{class_android_app_1_1_set_of_data_items_aa559ef3701bb9f59f124ddddc56a2a38}{getItemByName}(\textcolor{stringliteral}{"Time"}).\hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{setCurrent}(timeFormat.format(cal.
       getTime()));
-165 
-166             \hyperlink{class_android_app_1_1_realtime_fragment_afeafb95e85d8ba0b9c50aa36af2f4216}{lvAdapter}.notifyDataSetChanged();
-167 
-168             \textcolor{comment}{/*}
-169 \textcolor{comment}{             * Add json object to our list}
-170 \textcolor{comment}{             * so we can send it to other activities/fragments later}
-171 \textcolor{comment}{             */}
-172             \hyperlink{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}{jsonList}.add(jsonData.toString());
-173             \hyperlink{class_android_app_1_1_realtime_fragment_a8aa6530bcc9c6ef17627f1395ff7910d}{textStatus}.setText(\textcolor{stringliteral}{"Reading count: "} + Integer.toString(
-      \hyperlink{class_android_app_1_1_realtime_fragment_a4c3f12bcaaab715dc512d4cd4a4c11cf}{jsonList}.size()));
-174         \} \textcolor{keywordflow}{catch} (JSONException e) \{
-175             \textcolor{comment}{/* Do nothing */}
-176         \}
-177     \}
+173 
+174             \hyperlink{class_android_app_1_1_realtime_fragment_afeafb95e85d8ba0b9c50aa36af2f4216}{lvAdapter}.notifyDataSetChanged();
+175 
+176             \hyperlink{class_android_app_1_1_realtime_fragment_a8aa6530bcc9c6ef17627f1395ff7910d}{textStatus}.setText(\textcolor{stringliteral}{"Reading count: "} + Integer.toString(tripData.size()));
+177         \} \textcolor{keywordflow}{catch} (JSONException e) \{
+178             \textcolor{comment}{/* Do nothing */}
+179         \}
+180     \}
 \end{DoxyCode}
 
 
