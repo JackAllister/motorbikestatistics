@@ -1,0 +1,275 @@
+\hypertarget{class_logging_device_1_1_storage}{}\section{Logging\+Device\+:\+:Storage Class Reference}
+\label{class_logging_device_1_1_storage}\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+
+
+Class for storing \& retrieving data on the logging device.  
+
+
+
+
+{\ttfamily \#include $<$Storage.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_logging_device_1_1_storage_a98b01eb20a64a4bf4127685147f7f6f1}{init} ()
+\begin{DoxyCompactList}\small\item\em Initialisation function for storage module. \end{DoxyCompactList}\item 
+bool \hyperlink{class_logging_device_1_1_storage_a044a17325b2917afca49aa19ddb488f6}{save\+To\+File} (char data\mbox{[}$\,$\mbox{]}, bool new\+Line)
+\begin{DoxyCompactList}\small\item\em Saves a single line of data to a file. \end{DoxyCompactList}\item 
+bool \hyperlink{class_logging_device_1_1_storage_a571ce9630665d9407ffbaeff55c47b0a}{generate\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Generates a new filename to use for saving. \end{DoxyCompactList}\item 
+void \hyperlink{class_logging_device_1_1_storage_a4831b2e8ecfa22da6971f5a8690cc4e3}{load\+Trip\+Names} ()
+\begin{DoxyCompactList}\small\item\em Loads the information of all trips and sends them over bluetooth. \end{DoxyCompactList}\item 
+void \hyperlink{class_logging_device_1_1_storage_af56ca8289ed925300e3385114c561eec}{load\+Saved\+Trip} ()
+\begin{DoxyCompactList}\small\item\em Loads a saved trip and sends data to client via Serial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}\label{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}} 
+char \hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{file\+Name} \mbox{[}30\mbox{]}
+\begin{DoxyCompactList}\small\item\em File name to use when saving data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_logging_device_1_1_storage_aac1f0bd8bdef03ee34da1ec9eb9a5df8}\label{class_logging_device_1_1_storage_aac1f0bd8bdef03ee34da1ec9eb9a5df8}} 
+Static\+Json\+Buffer$<$ 200 $>$ \hyperlink{class_logging_device_1_1_storage_aac1f0bd8bdef03ee34da1ec9eb9a5df8}{json\+File\+Buffer}
+\begin{DoxyCompactList}\small\item\em Allocated space for holding J\+S\+ON objects within. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}\label{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}} 
+Json\+Object \& \hyperlink{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}{file\+J\+S\+ON} = json\+File\+Buffer.\+create\+Object()
+\begin{DoxyCompactList}\small\item\em J\+S\+ON object that holds file information (size + name) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for storing \& retrieving data on the logging device. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_logging_device_1_1_storage_a98b01eb20a64a4bf4127685147f7f6f1}\label{class_logging_device_1_1_storage_a98b01eb20a64a4bf4127685147f7f6f1}} 
+\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}!init@{init}}
+\index{init@{init}!Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Storage\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation function for storage module. 
+
+Responsible for starting the u\+SD library. 
+
+References U\+S\+D\+\_\+\+CS.
+
+
+\begin{DoxyCode}
+40 \{
+41   SD.begin(\hyperlink{_storage_8cpp_abe774366dbdfb2de4e34e4f07843db38}{USD\_CS});
+42 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logging_device_1_1_storage_a044a17325b2917afca49aa19ddb488f6}\label{class_logging_device_1_1_storage_a044a17325b2917afca49aa19ddb488f6}} 
+\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}!save\+To\+File@{save\+To\+File}}
+\index{save\+To\+File@{save\+To\+File}!Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+\subsubsection{\texorpdfstring{save\+To\+File()}{saveToFile()}}
+{\footnotesize\ttfamily bool Storage\+::save\+To\+File (\begin{DoxyParamCaption}\item[{char}]{data\mbox{[}$\,$\mbox{]},  }\item[{bool}]{new\+Line }\end{DoxyParamCaption})}
+
+
+
+Saves a single line of data to a file. 
+
+Opens a handle to the current file\+Name. If the file exists data is appended, if not the file is created first.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & -\/ Character array of data to save. \\
+\hline
+{\em new\+Line} & -\/ Whether to add new line character at end of line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether saving was a success. 
+\end{DoxyReturn}
+
+
+References file\+Name.
+
+
+\begin{DoxyCode}
+55 \{
+56   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};
+57 
+58   \textcolor{comment}{/* Create handle to log file */}
+59   File logHandle = SD.open(\hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{fileName}, FILE\_WRITE);
+60 
+61   \textcolor{comment}{/* If handle exists print line to file */}
+62   \textcolor{keywordflow}{if} (logHandle)
+63   \{
+64 
+65     \textcolor{comment}{/* Print line, option to add newline characters */}
+66     logHandle.print(data);
+67     \textcolor{keywordflow}{if} (newLine)
+68     \{
+69       logHandle.println();
+70     \}
+71 
+72     logHandle.close();
+73     result = \textcolor{keyword}{true};
+74   \}
+75   \textcolor{keywordflow}{return} result;
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logging_device_1_1_storage_a571ce9630665d9407ffbaeff55c47b0a}\label{class_logging_device_1_1_storage_a571ce9630665d9407ffbaeff55c47b0a}} 
+\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}!generate\+File\+Name@{generate\+File\+Name}}
+\index{generate\+File\+Name@{generate\+File\+Name}!Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+\subsubsection{\texorpdfstring{generate\+File\+Name()}{generateFileName()}}
+{\footnotesize\ttfamily bool Storage\+::generate\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates a new filename to use for saving. 
+
+Searches through existing files using pattern P\+R\+E\+F\+I\+X\+\_\+\+I\+D.\+S\+U\+F\+F\+IX ~\newline
+Existing files are skipped, once non-\/existant is found that is used.
+
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether a valid file name was able to be found. 
+\end{DoxyReturn}
+
+
+References file\+Name, L\+O\+G\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON, L\+O\+G\+\_\+\+N\+A\+ME, and M\+A\+X\+\_\+\+L\+O\+G\+\_\+\+F\+I\+L\+ES.
+
+
+\begin{DoxyCode}
+87 \{
+88   \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};
+89   \textcolor{keywordtype}{int} i = 0;
+90 
+91   \textcolor{keywordflow}{for} (i = 0; i < \hyperlink{_storage_8cpp_a777ac288f17a847a5ce37bf9a89a0037}{MAX\_LOG\_FILES}; i++)
+92   \{
+93     \textcolor{comment}{/* Clear name of log file */}
+94     memset(\hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{fileName}, 0, strlen(\hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{fileName}));
+95 
+96     \textcolor{comment}{/* Set the new log file name to: trip\_XXXXX.json */}
+97     sprintf(\hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{fileName}, \textcolor{stringliteral}{"%s%d.%s"}, \hyperlink{_storage_8cpp_abbd544044b4167ca397bfb6e3073aa50}{LOG\_NAME}, i, \hyperlink{_storage_8cpp_a907e440e32d31fd828188004703e3178}{LOG\_EXTENSION});
+98 
+99     \textcolor{keywordflow}{if} (!SD.exists(\hyperlink{class_logging_device_1_1_storage_ac1054cb167ed5818aea16229ac713da8}{fileName}))
+100     \{
+101       \textcolor{comment}{/* If a file doesn't exist */}
+102       result = \textcolor{keyword}{true};
+103       \textcolor{keywordflow}{break};
+104     \}
+105   \}
+106 
+107   \textcolor{keywordflow}{return} result;
+108 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logging_device_1_1_storage_a4831b2e8ecfa22da6971f5a8690cc4e3}\label{class_logging_device_1_1_storage_a4831b2e8ecfa22da6971f5a8690cc4e3}} 
+\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}!load\+Trip\+Names@{load\+Trip\+Names}}
+\index{load\+Trip\+Names@{load\+Trip\+Names}!Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+\subsubsection{\texorpdfstring{load\+Trip\+Names()}{loadTripNames()}}
+{\footnotesize\ttfamily void Storage\+::load\+Trip\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loads the information of all trips and sends them over bluetooth. 
+
+Searches directory for trips, then sends trip\textquotesingle{}s name \& size over serial. 
+
+References B\+T\+\_\+\+S\+E\+R\+I\+AL, and file\+J\+S\+ON.
+
+
+\begin{DoxyCode}
+116 \{
+117   \textcolor{keywordtype}{bool} filesRemaining = \textcolor{keyword}{true};
+118 
+119   File root = SD.open(\textcolor{stringliteral}{"/"});
+120 
+121   \textcolor{comment}{/* Try to open directory for logs */}
+122   \textcolor{keywordflow}{if} (root)
+123   \{
+124     \textcolor{comment}{/* Ensure starting from start of directory */}
+125     root.rewindDirectory();
+126 
+127     \textcolor{keywordflow}{while} (filesRemaining == \textcolor{keyword}{true})
+128     \{
+129       \textcolor{comment}{/* Try open handle for next file */}
+130       File entry = root.openNextFile();
+131       \textcolor{keywordflow}{if} (entry)
+132       \{
+133         \textcolor{keywordflow}{if} (entry.isDirectory() == \textcolor{keyword}{false})
+134         \{
+135           \textcolor{comment}{/* Print out file name & size */}
+136           \hyperlink{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}{fileJSON}[\textcolor{stringliteral}{"name"}] = entry.name();
+137           \hyperlink{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}{fileJSON}[\textcolor{stringliteral}{"size"}] = entry.size();
+138 
+139           \hyperlink{class_logging_device_1_1_storage_a7427821696719fcd52623ff1ea178eb5}{fileJSON}.printTo(\hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL});
+140           \hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.println();
+141         \}
+142         entry.close();
+143       \}
+144       \textcolor{keywordflow}{else}
+145       \{
+146         \textcolor{comment}{/* No more files remaining in directory */}
+147         filesRemaining = \textcolor{keyword}{false};
+148       \}
+149     \}
+150 
+151     root.close();
+152   \}
+153 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_logging_device_1_1_storage_af56ca8289ed925300e3385114c561eec}\label{class_logging_device_1_1_storage_af56ca8289ed925300e3385114c561eec}} 
+\index{Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}!load\+Saved\+Trip@{load\+Saved\+Trip}}
+\index{load\+Saved\+Trip@{load\+Saved\+Trip}!Logging\+Device\+::\+Storage@{Logging\+Device\+::\+Storage}}
+\subsubsection{\texorpdfstring{load\+Saved\+Trip()}{loadSavedTrip()}}
+{\footnotesize\ttfamily void Storage\+::load\+Saved\+Trip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loads a saved trip and sends data to client via Serial. 
+
+Waits for the filename to be received via serial. Once file name is received, procedure attempts to open the file. If the file exists it then sends all bytes in the file via Serial. 
+
+References B\+T\+\_\+\+S\+E\+R\+I\+AL, and L\+O\+G\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON.
+
+
+\begin{DoxyCode}
+163 \{
+164   \textcolor{keywordtype}{bool} nameComplete = \textcolor{keyword}{false};
+165   String fileToOpen = \textcolor{stringliteral}{""};
+166 
+167   \textcolor{keywordflow}{while} (nameComplete == \textcolor{keyword}{false})
+168   \{
+169     \textcolor{comment}{/* Keep reading input in serial until file name is found */}
+170     \textcolor{keywordflow}{if} (\hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.available() > 0)
+171     \{
+172       \textcolor{keywordtype}{char} recvByte = \hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.read();
+173       fileToOpen += recvByte;
+174 
+175       \textcolor{comment}{/* Wait until extension is found, then we know full file name */}
+176       \textcolor{keywordflow}{if} (fileToOpen.endsWith(\hyperlink{_storage_8cpp_a907e440e32d31fd828188004703e3178}{LOG\_EXTENSION}))
+177       \{
+178         nameComplete = \textcolor{keyword}{true};
+179       \}
+180     \}
+181   \}
+182 
+183   \textcolor{comment}{/* Check if file exists */}
+184   \textcolor{keywordflow}{if} (SD.exists(fileToOpen))
+185   \{
+186     \textcolor{comment}{/* Open file, then read out data byte by byte */}
+187     File handle = SD.open(fileToOpen);
+188     \textcolor{keywordflow}{if} (handle)
+189     \{
+190 
+191       \textcolor{keywordflow}{while} (handle.available())
+192       \{
+193         \textcolor{keywordtype}{char} readByte = handle.read();
+194 
+195         \hyperlink{_storage_8cpp_ad1e6e6f6fc813b305067b9e1b0777ea6}{BT\_SERIAL}.write(readByte);
+196       \}
+197 
+198       handle.close();
+199     \}
+200   \}
+201 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+logging-\/device/Storage.\+h\item 
+logging-\/device/\hyperlink{_storage_8cpp}{Storage.\+cpp}\end{DoxyCompactItemize}

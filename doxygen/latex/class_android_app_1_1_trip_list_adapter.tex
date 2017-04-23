@@ -1,0 +1,142 @@
+\hypertarget{class_android_app_1_1_trip_list_adapter}{}\section{Android\+App.\+Trip\+List\+Adapter Class Reference}
+\label{class_android_app_1_1_trip_list_adapter}\index{Android\+App.\+Trip\+List\+Adapter@{Android\+App.\+Trip\+List\+Adapter}}
+
+
+Adapter class used for displaying all trips.  
+
+
+Inheritance diagram for Android\+App.\+Trip\+List\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_trip_list_adapter}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_android_app_1_1_trip_list_adapter_1_1_view_holder}{View\+Holder}
+\begin{DoxyCompactList}\small\item\em Class that holds all UI data to be displayed for each List\+Item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_trip_list_adapter_ad8d8c6f5a394a8d7e6e97d5bf239af76}{Trip\+List\+Adapter} (Context cnt, int \hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layout\+Resource\+Id}, Array\+List$<$ \hyperlink{class_android_app_1_1_trip_item}{Trip\+Item} $>$ \hyperlink{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}{data})
+\begin{DoxyCompactList}\small\item\em Constructor for the List\+View adapter. \end{DoxyCompactList}\item 
+View \hyperlink{class_android_app_1_1_trip_list_adapter_aecaed2759c3d4753c8472cef9e731b01}{get\+View} (int position, View convert\+View, View\+Group parent)
+\begin{DoxyCompactList}\small\item\em Function for returning the view of each list item (\hyperlink{class_android_app_1_1_trip_item}{Trip\+Item}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_trip_list_adapter_a14fa25bc6de0af86497d0cce3e0bdc1b}\label{class_android_app_1_1_trip_list_adapter_a14fa25bc6de0af86497d0cce3e0bdc1b}} 
+Context \hyperlink{class_android_app_1_1_trip_list_adapter_a14fa25bc6de0af86497d0cce3e0bdc1b}{context}
+\begin{DoxyCompactList}\small\item\em Context that the List\+View is operating in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}\label{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}} 
+int \hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layout\+Resource\+Id}
+\begin{DoxyCompactList}\small\item\em Resource ID for current layout. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}\label{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}} 
+Array\+List$<$ \hyperlink{class_android_app_1_1_trip_item}{Trip\+Item} $>$ \hyperlink{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}{data}
+\begin{DoxyCompactList}\small\item\em Array\+List of all trip items to display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adapter class used for displaying all trips. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_trip_list_adapter_ad8d8c6f5a394a8d7e6e97d5bf239af76}\label{class_android_app_1_1_trip_list_adapter_ad8d8c6f5a394a8d7e6e97d5bf239af76}} 
+\index{Android\+App\+::\+Trip\+List\+Adapter@{Android\+App\+::\+Trip\+List\+Adapter}!Trip\+List\+Adapter@{Trip\+List\+Adapter}}
+\index{Trip\+List\+Adapter@{Trip\+List\+Adapter}!Android\+App\+::\+Trip\+List\+Adapter@{Android\+App\+::\+Trip\+List\+Adapter}}
+\subsubsection{\texorpdfstring{Trip\+List\+Adapter()}{TripListAdapter()}}
+{\footnotesize\ttfamily Android\+App.\+Trip\+List\+Adapter.\+Trip\+List\+Adapter (\begin{DoxyParamCaption}\item[{Context}]{cnt,  }\item[{int}]{layout\+Resource\+Id,  }\item[{Array\+List$<$ \hyperlink{class_android_app_1_1_trip_item}{Trip\+Item} $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the List\+View adapter. 
+
+Calls the constructor of the superclass as well as setting other relevant information needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & -\/ Context of the adapter to be operating in. \\
+\hline
+{\em layout\+Resource\+Id} & -\/ Resource ID for current layout. \\
+\hline
+{\em data} & -\/ Array\+List of statistics to display in List\+View. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+47                                                                                         \{
+48         super(cnt, \hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layoutResourceId}, \hyperlink{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}{data});
+49 
+50         this.\hyperlink{class_android_app_1_1_trip_list_adapter_a14fa25bc6de0af86497d0cce3e0bdc1b}{context} = cnt;
+51         this.\hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layoutResourceId} = \hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layoutResourceId};
+52         this.\hyperlink{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}{data} = \hyperlink{class_android_app_1_1_trip_list_adapter_a8cea45e06b19821352bce2de9b3e3941}{data};
+53     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_trip_list_adapter_aecaed2759c3d4753c8472cef9e731b01}\label{class_android_app_1_1_trip_list_adapter_aecaed2759c3d4753c8472cef9e731b01}} 
+\index{Android\+App\+::\+Trip\+List\+Adapter@{Android\+App\+::\+Trip\+List\+Adapter}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Android\+App\+::\+Trip\+List\+Adapter@{Android\+App\+::\+Trip\+List\+Adapter}}
+\subsubsection{\texorpdfstring{get\+View()}{getView()}}
+{\footnotesize\ttfamily View Android\+App.\+Trip\+List\+Adapter.\+get\+View (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{View}]{convert\+View,  }\item[{View\+Group}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for returning the view of each list item (\hyperlink{class_android_app_1_1_trip_item}{Trip\+Item}). 
+
+If a view for selected item has not been created inflater initialises it. A holder is then used to hold all the information that will be displayed on the UI to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ Index of item in array to use/reference to. \\
+\hline
+{\em convert\+View} & -\/ View to be used for specified item. \\
+\hline
+{\em parent} & -\/ Object where the created view will be placed on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ The result view of item with updated/current information. 
+\end{DoxyReturn}
+
+
+References Android\+App.\+Trip\+Item.\+get\+File\+Size(), and Android\+App.\+Trip\+Item.\+get\+Trip\+Name().
+
+
+\begin{DoxyCode}
+77                                                                           \{
+78         ViewHolder holder;
+79 
+80         \textcolor{keywordflow}{if} (convertView == null)
+81         \{
+82             \textcolor{comment}{/* If view does not already exist. */}
+83             LayoutInflater inflater = (LayoutInflater)\hyperlink{class_android_app_1_1_trip_list_adapter_a14fa25bc6de0af86497d0cce3e0bdc1b}{context}.getSystemService(Context.
+      LAYOUT\_INFLATER\_SERVICE);
+84             convertView = inflater.inflate(\hyperlink{class_android_app_1_1_trip_list_adapter_a57cb58f32f3b9ea25c6330a821cb8455}{layoutResourceId}, parent, \textcolor{keyword}{false});
+85 
+86             holder = \textcolor{keyword}{new} ViewHolder();
+87             holder.name = (TextView)convertView.findViewById(R.id.triplist\_name);
+88             holder.fileSize = (TextView)convertView.findViewById(R.id.triplist\_size);
+89             convertView.setTag(holder);
+90         \}
+91         \textcolor{keywordflow}{else}
+92         \{
+93             \textcolor{comment}{/* If view already exists. */}
+94             holder = (ViewHolder)convertView.getTag();
+95         \}
+96 
+97         TripItem tripItem = getItem(position);
+98 
+99         \textcolor{comment}{/* Set our holder with current data of item */}
+100         holder.name.setText(tripItem.getTripName());
+101         holder.fileSize.setText(Integer.toString(tripItem.getFileSize()));
+102 
+103         \textcolor{keywordflow}{return} convertView;
+104     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_trip_list_adapter_8java}{Trip\+List\+Adapter.\+java}\end{DoxyCompactItemize}

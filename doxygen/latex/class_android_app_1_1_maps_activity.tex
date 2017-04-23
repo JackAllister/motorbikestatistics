@@ -1,0 +1,346 @@
+\hypertarget{class_android_app_1_1_maps_activity}{}\section{Android\+App.\+Maps\+Activity Class Reference}
+\label{class_android_app_1_1_maps_activity}\index{Android\+App.\+Maps\+Activity@{Android\+App.\+Maps\+Activity}}
+
+
+Maps activity class for displaying map data.  
+
+
+Inheritance diagram for Android\+App.\+Maps\+Activity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_maps_activity}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_android_app_1_1_maps_activity_1_1_statistic_window_adapter}{Statistic\+Window\+Adapter}
+\begin{DoxyCompactList}\small\item\em Adapter used for displaying statistics at a certain marker that user has clicked on. \end{DoxyCompactList}\item 
+class \hyperlink{class_android_app_1_1_maps_activity_1_1_zoom_toogle_listener}{Zoom\+Toogle\+Listener}
+\begin{DoxyCompactList}\small\item\em Listener class for making markers invisible when zoomed out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_maps_activity_abee115dd67628da8e1140430428ce112}{on\+Map\+Ready} (Google\+Map google\+Map)
+\begin{DoxyCompactList}\small\item\em Manipulates the map once available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_maps_activity_a179ec8e25e279c4fa33aa74a90019489}{on\+Create} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Fills our maps array with points to plot on the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+J\+S\+O\+N\+Object \hyperlink{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}{find\+J\+S\+O\+N\+By\+Lat\+Lng} (Lat\+Lng position)
+\begin{DoxyCompactList}\small\item\em Finds J\+S\+O\+N\+Object from Array\+List via L\+A\+T/\+L\+NG coordinates. \end{DoxyCompactList}\item 
+float \hyperlink{class_android_app_1_1_maps_activity_aea9b9fe75f1d70e3c902c8348823efd0}{calc\+Distance} (Lat\+Lng start, Lat\+Lng end)
+\begin{DoxyCompactList}\small\item\em Calculates the absolute distance between two points. \end{DoxyCompactList}\item 
+float \hyperlink{class_android_app_1_1_maps_activity_a2f93b1f03094b96020cee7e06ce5fc85}{convert\+Dp\+To\+Pixel} (float dp, Context context)
+\begin{DoxyCompactList}\small\item\em Function for converting raw DP value to pixels. \end{DoxyCompactList}\item 
+Bitmap\+Descriptor \hyperlink{class_android_app_1_1_maps_activity_a77f66c756f18d56bd41f0ee1c889fb62}{get\+Bitmap\+Descriptor} (int id)
+\begin{DoxyCompactList}\small\item\em Created a valid bitmap descriptor from a drawable resource ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}\label{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}} 
+Google\+Map \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{m\+Map}
+\begin{DoxyCompactList}\small\item\em Google maps object for plotting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}\label{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}} 
+Array\+List$<$ J\+S\+O\+N\+Object $>$ \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{trip\+Data}
+\begin{DoxyCompactList}\small\item\em Array\+List holding all trip data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a85c831a59d0468fc03e695aa9beab77e}\label{class_android_app_1_1_maps_activity_a85c831a59d0468fc03e695aa9beab77e}} 
+Array\+List$<$ Marker $>$ {\bfseries marker\+List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Maps activity class for displaying map data. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a179ec8e25e279c4fa33aa74a90019489}\label{class_android_app_1_1_maps_activity_a179ec8e25e279c4fa33aa74a90019489}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{on\+Create()}{onCreate()}}
+{\footnotesize\ttfamily void Android\+App.\+Maps\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Fills our maps array with points to plot on the map. 
+
+Called when maps activity is first started. Responsible for making sure we have points to plot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em saved\+Instance\+State} & -\/ Information holding last previous state. \\
+\hline
+\end{DoxyParams}
+
+
+References Android\+App.\+J\+S\+O\+N\+Handler\+Singleton.\+get\+Instance().
+
+
+\begin{DoxyCode}
+67                                                        \{
+68         super.onCreate(savedInstanceState);
+69         setContentView(R.layout.activity\_maps);
+70         \textcolor{comment}{// Obtain the SupportMapFragment and get notified when the map is ready to be used.}
+71         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+72                 .findFragmentById(R.id.map);
+73 
+74         \textcolor{comment}{/* Clear our marker list for new instances. */}
+75         markerList = \textcolor{keyword}{new} ArrayList<Marker>();
+76 
+77         \textcolor{comment}{/* Get the tripData from our JSON handler singleton. */}
+78         \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData} = JSONHandlerSingleton.getInstance().tripData;
+79 
+80         mapFragment.getMapAsync(\textcolor{keyword}{this});
+81     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}\label{class_android_app_1_1_maps_activity_a18364d9334710362b1e6c39502353927}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!find\+J\+S\+O\+N\+By\+Lat\+Lng@{find\+J\+S\+O\+N\+By\+Lat\+Lng}}
+\index{find\+J\+S\+O\+N\+By\+Lat\+Lng@{find\+J\+S\+O\+N\+By\+Lat\+Lng}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{find\+J\+S\+O\+N\+By\+Lat\+Lng()}{findJSONByLatLng()}}
+{\footnotesize\ttfamily J\+S\+O\+N\+Object Android\+App.\+Maps\+Activity.\+find\+J\+S\+O\+N\+By\+Lat\+Lng (\begin{DoxyParamCaption}\item[{Lat\+Lng}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Finds J\+S\+O\+N\+Object from Array\+List via L\+A\+T/\+L\+NG coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ Latitude and Longitude position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+J\+S\+O\+N\+Object -\/ The found J\+S\+ON object. 
+\end{DoxyReturn}
+
+
+References gps\+J\+S\+ON.
+
+
+\begin{DoxyCode}
+89                                                          \{
+90         JSONObject result = null;
+91 
+92         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData}.size(); i++) \{
+93             JSONObject tmpJSON = \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData}.get(i);
+94 
+95             \textcolor{keywordflow}{try} \{
+96                 JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = tmpJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+97 
+98                 Double latitude = gpsJSON.getDouble(\textcolor{stringliteral}{"lat"});
+99                 Double longitude = gpsJSON.getDouble(\textcolor{stringliteral}{"lng"});
+100 
+101                 \textcolor{comment}{/* Check to see if latitude and logitudes match */}
+102                 \textcolor{keywordflow}{if} ((latitude == position.latitude) && (longitude == position.longitude)) \{
+103                     result = tmpJSON;
+104                     \textcolor{keywordflow}{break};
+105                 \}
+106 
+107             \} \textcolor{keywordflow}{catch} (JSONException e) \{
+108                 \textcolor{comment}{/* Do nothing */}
+109             \}
+110         \}
+111 
+112         \textcolor{keywordflow}{return} result;
+113     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_aea9b9fe75f1d70e3c902c8348823efd0}\label{class_android_app_1_1_maps_activity_aea9b9fe75f1d70e3c902c8348823efd0}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!calc\+Distance@{calc\+Distance}}
+\index{calc\+Distance@{calc\+Distance}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{calc\+Distance()}{calcDistance()}}
+{\footnotesize\ttfamily float Android\+App.\+Maps\+Activity.\+calc\+Distance (\begin{DoxyParamCaption}\item[{Lat\+Lng}]{start,  }\item[{Lat\+Lng}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Calculates the absolute distance between two points. 
+
+Distance is as the crow flys and not via streets etc. 
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ Start position. \\
+\hline
+{\em end} & -\/ End position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flaot -\/ Distance between points in metres. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+124     \{
+125         \textcolor{keywordtype}{float}[] results = \textcolor{keyword}{new} \textcolor{keywordtype}{float}[1];
+126 
+127         Location.distanceBetween(start.latitude, start.longitude, end.latitude, end.longitude, results);
+128         \textcolor{keywordflow}{return} results[0];
+129     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_abee115dd67628da8e1140430428ce112}\label{class_android_app_1_1_maps_activity_abee115dd67628da8e1140430428ce112}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!on\+Map\+Ready@{on\+Map\+Ready}}
+\index{on\+Map\+Ready@{on\+Map\+Ready}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{on\+Map\+Ready()}{onMapReady()}}
+{\footnotesize\ttfamily void Android\+App.\+Maps\+Activity.\+on\+Map\+Ready (\begin{DoxyParamCaption}\item[{Google\+Map}]{google\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Manipulates the map once available. 
+
+This callback is triggered when the map is ready to be used. This is where we can add markers or lines.
+
+If Google Play services is not installed on the device, the user will be prompted to install it inside the Support\+Map\+Fragment. This method will only be triggered once the user has installed Google Play services and returned to the app.
+
+
+\begin{DoxyParams}{Parameters}
+{\em google\+Map} & -\/ Our map object ready to manipulate. \\
+\hline
+\end{DoxyParams}
+
+
+References gps\+J\+S\+ON.
+
+
+\begin{DoxyCode}
+144                                                 \{
+145         \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap} = googleMap;
+146 
+147         \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.setMapType(GoogleMap.MAP\_TYPE\_HYBRID);
+148 
+149         \textcolor{comment}{/* Set our info window adapter class that is shown when marker clicked */}
+150         \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.setInfoWindowAdapter(\textcolor{keyword}{new} StatisticWindowAdapter());
+151 
+152         \textcolor{comment}{/* Set our listener class for adjusting visibility when zoomed. */}
+153         \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.setOnCameraMoveListener(\textcolor{keyword}{new} ZoomToogleListener());
+154 
+155         \textcolor{comment}{/* If we have no data don't bother plotting points */}
+156         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData}.size() != 0)
+157         \{
+158             \textcolor{comment}{/* lineOpts will store our route */}
+159             PolylineOptions lineOpts = \textcolor{keyword}{new} PolylineOptions();
+160             lineOpts.color(Color.parseColor( \textcolor{stringliteral}{"#CCF44242"}));
+161             lineOpts.width(18);
+162             lineOpts.visible(\textcolor{keyword}{true});
+163 
+164             \textcolor{keywordflow}{try}
+165             \{
+166                 LatLng lastMarker = null;
+167 
+168                 \textcolor{comment}{/* Plot every point in the our JSONObject array */}
+169                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData}.size(); i++)
+170                 \{
+171                     JSONObject rootJSON = \hyperlink{class_android_app_1_1_maps_activity_ad2fa23bd9f7f5a501e91329413608528}{tripData}.get(i);
+172                     JSONObject \hyperlink{logging-device_8ino_a548727e041a5cd3db91bdbd0ccd71e30}{gpsJSON} = rootJSON.getJSONObject(\textcolor{stringliteral}{"gps"});
+173 
+174                     Double lat = gpsJSON.getDouble(\textcolor{stringliteral}{"lat"});
+175                     Double lng = gpsJSON.getDouble(\textcolor{stringliteral}{"lng"});
+176                     LatLng location = \textcolor{keyword}{new} LatLng(lat, lng);
+177 
+178                     \textcolor{comment}{/* Don't add location with invalid lat & lng. */}
+179                     \textcolor{keywordflow}{if} (location.latitude != 0.00 && location.longitude != 0.00) \{
+180 
+181                         \textcolor{comment}{/* Add this location to our trip line */}
+182                         lineOpts.add(location);
+183 
+184                         \textcolor{comment}{/*}
+185 \textcolor{comment}{                         * Check if distance between this point and}
+186 \textcolor{comment}{                         * last marker is greater than 5m otherwise don't add marker.}
+187 \textcolor{comment}{                         * Adding markers every 5 metres prevents the map being spammed with}
+188 \textcolor{comment}{                         * thousands of readings.}
+189 \textcolor{comment}{                         */}
+190                         \textcolor{keywordflow}{if} ((lastMarker == null) || (\hyperlink{class_android_app_1_1_maps_activity_aea9b9fe75f1d70e3c902c8348823efd0}{calcDistance}(location, lastMarker) > 5)) \{
+191                             \textcolor{comment}{/* Only add a marker if the gps data is valid */}
+192                             \textcolor{keywordflow}{if} (gpsJSON.getBoolean(\textcolor{stringliteral}{"gps\_valid"}) == \textcolor{keyword}{true}) \{
+193                                 MarkerOptions markerOptions = \textcolor{keyword}{new} MarkerOptions();
+194                                 markerOptions.position(location);
+195                                 markerOptions.title(\textcolor{stringliteral}{"Reading: "} + i);
+196                                 markerOptions.icon(\hyperlink{class_android_app_1_1_maps_activity_a77f66c756f18d56bd41f0ee1c889fb62}{getBitmapDescriptor}(R.drawable.
+      ic\_expand\_more\_white\_24px));
+197                                 markerOptions.visible(\textcolor{keyword}{false});
+198 
+199                                 \textcolor{comment}{/* Add our marker to map and to list. */}
+200                                 markerList.add(\hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.addMarker(markerOptions));
+201 
+202                                 lastMarker = location;
+203 
+204                                 \textcolor{comment}{/* Changes camera to point to newest marker */}
+205                                 \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
+206                             \}
+207                         \}
+208                     \}
+209 
+210                 \}
+211                 \hyperlink{class_android_app_1_1_maps_activity_a373d4c770d2ab34538f9288d7c0e83ea}{mMap}.addPolyline(lineOpts);
+212             \}
+213             \textcolor{keywordflow}{catch} (JSONException e)
+214             \{
+215                 \textcolor{comment}{/* Do nothing */}
+216             \}
+217         \}
+218     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a2f93b1f03094b96020cee7e06ce5fc85}\label{class_android_app_1_1_maps_activity_a2f93b1f03094b96020cee7e06ce5fc85}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!convert\+Dp\+To\+Pixel@{convert\+Dp\+To\+Pixel}}
+\index{convert\+Dp\+To\+Pixel@{convert\+Dp\+To\+Pixel}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{convert\+Dp\+To\+Pixel()}{convertDpToPixel()}}
+{\footnotesize\ttfamily float Android\+App.\+Maps\+Activity.\+convert\+Dp\+To\+Pixel (\begin{DoxyParamCaption}\item[{float}]{dp,  }\item[{Context}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function for converting raw DP value to pixels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dp} & -\/ DP value. \\
+\hline
+{\em context} & -\/ Context of application. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float -\/ Value in pixels. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+227                                                              \{
+228         Resources resources = context.getResources();
+229         DisplayMetrics metrics = resources.getDisplayMetrics();
+230         \textcolor{keywordtype}{float} px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY\_DEFAULT);
+231         \textcolor{keywordflow}{return} px;
+232     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_maps_activity_a77f66c756f18d56bd41f0ee1c889fb62}\label{class_android_app_1_1_maps_activity_a77f66c756f18d56bd41f0ee1c889fb62}} 
+\index{Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}!get\+Bitmap\+Descriptor@{get\+Bitmap\+Descriptor}}
+\index{get\+Bitmap\+Descriptor@{get\+Bitmap\+Descriptor}!Android\+App\+::\+Maps\+Activity@{Android\+App\+::\+Maps\+Activity}}
+\subsubsection{\texorpdfstring{get\+Bitmap\+Descriptor()}{getBitmapDescriptor()}}
+{\footnotesize\ttfamily Bitmap\+Descriptor Android\+App.\+Maps\+Activity.\+get\+Bitmap\+Descriptor (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Created a valid bitmap descriptor from a drawable resource ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ Drawable resource ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bitmap\+Descriptor -\/ Bitmap image converted from Vector\+Asset. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+240                                                          \{
+241 
+242         Context context = getApplicationContext();
+243         Drawable vectorDrawable = ContextCompat.getDrawable(context, \textcolor{keywordtype}{id});
+244         \textcolor{keywordtype}{int} h = ((int) \hyperlink{class_android_app_1_1_maps_activity_a2f93b1f03094b96020cee7e06ce5fc85}{convertDpToPixel}(42, context));
+245         \textcolor{keywordtype}{int} w = ((int) \hyperlink{class_android_app_1_1_maps_activity_a2f93b1f03094b96020cee7e06ce5fc85}{convertDpToPixel}(25, context));
+246         vectorDrawable.setBounds(0, 0, w, h);
+247         Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB\_8888);
+248         Canvas canvas = \textcolor{keyword}{new} Canvas(bm);
+249         vectorDrawable.draw(canvas);
+250         \textcolor{keywordflow}{return} BitmapDescriptorFactory.fromBitmap(bm);
+251     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_maps_activity_8java}{Maps\+Activity.\+java}\end{DoxyCompactItemize}

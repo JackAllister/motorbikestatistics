@@ -1,0 +1,398 @@
+\begin{theindex}
+
+  \item {add}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{26}
+  \item {add\+G\+P\+S\+To\+J\+S\+ON}
+    \subitem {logging-\/device.\+ino}, \hyperpage{89}
+  \item {add\+Orientation\+To\+J\+S\+ON}
+    \subitem {logging-\/device.\+ino}, \hyperpage{89}
+  \item {add\+Time\+To\+J\+S\+ON}
+    \subitem {logging-\/device.\+ino}, \hyperpage{90}
+  \item {add\+Trip}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment}, \hyperpage{34}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+B\+T\+Connection.\+java}, 
+		\hyperpage{77}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+B\+T\+Device\+Item.\+java}, 
+		\hyperpage{77}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+B\+T\+Device\+List\+Adapter.\+java}, 
+		\hyperpage{78}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Data\+Item.\+java}, 
+		\hyperpage{79}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Data\+List\+Adapter.\+java}, 
+		\hyperpage{79}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+J\+S\+O\+N\+Handler\+Singleton.\+java}, 
+		\hyperpage{80}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Load\+Device\+Fragment.\+java}, 
+		\hyperpage{80}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Main\+Activity.\+java}, 
+		\hyperpage{81}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Maps\+Activity.\+java}, 
+		\hyperpage{81}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Pair\+Device\+Fragment.\+java}, 
+		\hyperpage{82}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Realtime\+Fragment.\+java}, 
+		\hyperpage{82}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Set\+Of\+Data\+Items.\+java}, 
+		\hyperpage{83}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Trip\+Item.\+java}, 
+		\hyperpage{83}
+  \item {android-\/app/app/src/main/java/com/jack/motorbikestatistics/\+Trip\+List\+Adapter.\+java}, 
+		\hyperpage{84}
+  \item {Android\+App.\+B\+T\+Connection}, \hyperpage{9}
+  \item {Android\+App.\+B\+T\+Device\+Item}, \hyperpage{15}
+  \item {Android\+App.\+B\+T\+Device\+List\+Adapter}, \hyperpage{18}
+  \item {Android\+App.\+B\+T\+Device\+List\+Adapter.\+View\+Holder}, 
+		\hyperpage{21}
+  \item {Android\+App.\+Data\+Item$<$ T $>$}, \hyperpage{21}
+  \item {Android\+App.\+Data\+List\+Adapter}, \hyperpage{28}
+  \item {Android\+App.\+Data\+List\+Adapter.\+View\+Holder}, 
+		\hyperpage{30}
+  \item {Android\+App.\+J\+S\+O\+N\+Handler\+Singleton}, \hyperpage{31}
+  \item {Android\+App.\+Load\+Device\+Fragment}, \hyperpage{32}
+  \item {Android\+App.\+Load\+Device\+Fragment.\+Trip\+Item\+Listener}, 
+		\hyperpage{36}
+  \item {Android\+App.\+Main\+Activity}, \hyperpage{37}
+  \item {Android\+App.\+Maps\+Activity}, \hyperpage{40}
+  \item {Android\+App.\+Maps\+Activity.\+Statistic\+Window\+Adapter}, 
+		\hyperpage{46}
+  \item {Android\+App.\+Maps\+Activity.\+Zoom\+Toogle\+Listener}, 
+		\hyperpage{47}
+  \item {Android\+App.\+Pair\+Device\+Fragment}, \hyperpage{49}
+  \item {Android\+App.\+Pair\+Device\+Fragment.\+Device\+Item\+Listener}, 
+		\hyperpage{53}
+  \item {Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Button\+Listener}, 
+		\hyperpage{54}
+  \item {Android\+App.\+Pair\+Device\+Fragment.\+Discover\+Receiver}, 
+		\hyperpage{55}
+  \item {Android\+App.\+Realtime\+Fragment}, \hyperpage{57}
+  \item {Android\+App.\+Realtime\+Fragment.\+Map\+Button\+Listener}, 
+		\hyperpage{61}
+  \item {Android\+App.\+Set\+Of\+Data\+Items}, \hyperpage{62}
+  \item {Android\+App.\+Trip\+Item}, \hyperpage{63}
+  \item {Android\+App.\+Trip\+List\+Adapter}, \hyperpage{66}
+  \item {Android\+App.\+Trip\+List\+Adapter.\+View\+Holder}, 
+		\hyperpage{68}
+  \item {Android\+App\+::\+B\+T\+Connection}
+    \subitem {B\+T\+Connection}, \hyperpage{10}
+    \subitem {connect}, \hyperpage{13}
+    \subitem {get\+R\+X\+Handler}, \hyperpage{11}
+    \subitem {is\+Connected}, \hyperpage{13}
+    \subitem {is\+Running}, \hyperpage{13}
+    \subitem {run}, \hyperpage{11}
+    \subitem {set\+R\+X\+Handler}, \hyperpage{11}
+    \subitem {tx\+Handler}, \hyperpage{14}
+  \item {Android\+App\+::\+B\+T\+Device\+Item}
+    \subitem {B\+T\+Device\+Item}, \hyperpage{15}
+    \subitem {get\+Connection}, \hyperpage{16}
+    \subitem {get\+Device}, \hyperpage{16}
+    \subitem {get\+Icon\+ID}, \hyperpage{17}
+    \subitem {get\+Status}, \hyperpage{17}
+    \subitem {set\+Connection}, \hyperpage{16}
+    \subitem {set\+Icon\+ID}, \hyperpage{18}
+    \subitem {set\+Status}, \hyperpage{17}
+  \item {Android\+App\+::\+B\+T\+Device\+List\+Adapter}
+    \subitem {B\+T\+Device\+List\+Adapter}, \hyperpage{19}
+    \subitem {get\+View}, \hyperpage{20}
+  \item {Android\+App\+::\+Data\+Item}
+    \subitem {add}, \hyperpage{26}
+    \subitem {Data\+Item}, \hyperpage{22, 23}
+    \subitem {divide}, \hyperpage{26}
+    \subitem {get\+Average}, \hyperpage{24}
+    \subitem {get\+Current}, \hyperpage{24}
+    \subitem {get\+Enabled\+Avg\+Min\+Max}, \hyperpage{24}
+    \subitem {get\+Maximum}, \hyperpage{25}
+    \subitem {get\+Minimum}, \hyperpage{24}
+    \subitem {get\+Name}, \hyperpage{23}
+    \subitem {greater\+Than}, \hyperpage{27}
+    \subitem {less\+Than}, \hyperpage{27}
+    \subitem {set\+Current}, \hyperpage{25}
+  \item {Android\+App\+::\+Data\+List\+Adapter}
+    \subitem {Data\+List\+Adapter}, \hyperpage{29}
+    \subitem {get\+View}, \hyperpage{29}
+  \item {Android\+App\+::\+J\+S\+O\+N\+Handler\+Singleton}
+    \subitem {get\+Instance}, \hyperpage{31}
+  \item {Android\+App\+::\+Load\+Device\+Fragment}
+    \subitem {add\+Trip}, \hyperpage{34}
+    \subitem {Load\+Device\+Fragment}, \hyperpage{33}
+    \subitem {on\+Create\+View}, \hyperpage{33}
+    \subitem {R\+X\+Handler}, \hyperpage{35}
+    \subitem {set\+B\+T\+Connection}, \hyperpage{34}
+  \item {Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}
+    \subitem {on\+Item\+Click}, \hyperpage{36}
+  \item {Android\+App\+::\+Main\+Activity}
+    \subitem {on\+Create}, \hyperpage{38}
+    \subitem {on\+Navigation\+Item\+Selected}, \hyperpage{39}
+  \item {Android\+App\+::\+Maps\+Activity}
+    \subitem {calc\+Distance}, \hyperpage{43}
+    \subitem {convert\+Dp\+To\+Pixel}, \hyperpage{44}
+    \subitem {find\+J\+S\+O\+N\+By\+Lat\+Lng}, \hyperpage{42}
+    \subitem {get\+Bitmap\+Descriptor}, \hyperpage{45}
+    \subitem {on\+Create}, \hyperpage{41}
+    \subitem {on\+Map\+Ready}, \hyperpage{43}
+  \item {Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter}
+    \subitem {get\+Info\+Contents}, \hyperpage{46}
+  \item {Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener}
+    \subitem {set\+Markers\+Visible}, \hyperpage{48}
+  \item {Android\+App\+::\+Pair\+Device\+Fragment}
+    \subitem {get\+B\+T\+Connection}, \hyperpage{52}
+    \subitem {get\+Needed\+Privileges}, \hyperpage{52}
+    \subitem {on\+Create\+View}, \hyperpage{50}
+    \subitem {Pair\+Device\+Fragment}, \hyperpage{50}
+  \item {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener}
+    \subitem {on\+Item\+Click}, \hyperpage{53}
+  \item {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener}
+    \subitem {on\+Checked\+Changed}, \hyperpage{55}
+  \item {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}
+    \subitem {on\+Receive}, \hyperpage{56}
+  \item {Android\+App\+::\+Realtime\+Fragment}
+    \subitem {new\+Data}, \hyperpage{59}
+    \subitem {on\+Create\+View}, \hyperpage{58}
+    \subitem {R\+X\+Handler}, \hyperpage{60}
+    \subitem {Realtime\+Fragment}, \hyperpage{58}
+  \item {Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener}
+    \subitem {on\+Click}, \hyperpage{61}
+  \item {Android\+App\+::\+Set\+Of\+Data\+Items}
+    \subitem {get\+Item\+By\+Name}, \hyperpage{62}
+  \item {Android\+App\+::\+Trip\+Item}
+    \subitem {get\+File\+Size}, \hyperpage{65}
+    \subitem {get\+Trip\+Name}, \hyperpage{64}
+    \subitem {set\+File\+Size}, \hyperpage{65}
+    \subitem {set\+Trip\+Name}, \hyperpage{64}
+    \subitem {Trip\+Item}, \hyperpage{64}
+  \item {Android\+App\+::\+Trip\+List\+Adapter}
+    \subitem {get\+View}, \hyperpage{67}
+    \subitem {Trip\+List\+Adapter}, \hyperpage{66}
+
+  \indexspace
+
+  \item {B\+T\+Connection}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{10}
+  \item {B\+T\+Device\+Item}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{15}
+  \item {B\+T\+Device\+List\+Adapter}
+    \subitem {Android\+App\+::\+B\+T\+Device\+List\+Adapter}, 
+		\hyperpage{19}
+
+  \indexspace
+
+  \item {calc\+Distance}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{43}
+  \item {connect}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{13}
+  \item {convert\+Dp\+To\+Pixel}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{44}
+  \item {convert\+Raw\+Accel}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{69}
+  \item {convert\+Raw\+Gyro}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{69}
+
+  \indexspace
+
+  \item {Data\+Item}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{22, 23}
+  \item {Data\+List\+Adapter}
+    \subitem {Android\+App\+::\+Data\+List\+Adapter}, \hyperpage{29}
+  \item {divide}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{26}
+
+  \indexspace
+
+  \item {find\+J\+S\+O\+N\+By\+Lat\+Lng}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{42}
+
+  \indexspace
+
+  \item {generate\+File\+Name}
+    \subitem {Logging\+Device\+::\+Storage}, \hyperpage{74}
+  \item {get\+Average}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{24}
+  \item {get\+B\+T\+Connection}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment}, \hyperpage{52}
+  \item {get\+Bitmap\+Descriptor}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{45}
+  \item {get\+Connection}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{16}
+  \item {get\+Current}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{24}
+  \item {get\+Device}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{16}
+  \item {get\+Enabled\+Avg\+Min\+Max}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{24}
+  \item {get\+File\+Size}
+    \subitem {Android\+App\+::\+Trip\+Item}, \hyperpage{65}
+  \item {get\+Icon\+ID}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{17}
+  \item {get\+Info\+Contents}
+    \subitem {Android\+App\+::\+Maps\+Activity\+::\+Statistic\+Window\+Adapter}, 
+		\hyperpage{46}
+  \item {get\+Instance}
+    \subitem {Android\+App\+::\+J\+S\+O\+N\+Handler\+Singleton}, 
+		\hyperpage{31}
+  \item {get\+Item\+By\+Name}
+    \subitem {Android\+App\+::\+Set\+Of\+Data\+Items}, \hyperpage{62}
+  \item {get\+Maximum}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{25}
+  \item {get\+Minimum}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{24}
+  \item {get\+Name}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{23}
+  \item {get\+Needed\+Privileges}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment}, \hyperpage{52}
+  \item {get\+Pitch}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{72}
+  \item {get\+R\+X\+Handler}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{11}
+  \item {get\+Roll}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{72}
+  \item {get\+Status}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{17}
+  \item {get\+Trip\+Name}
+    \subitem {Android\+App\+::\+Trip\+Item}, \hyperpage{64}
+  \item {get\+View}
+    \subitem {Android\+App\+::\+B\+T\+Device\+List\+Adapter}, 
+		\hyperpage{20}
+    \subitem {Android\+App\+::\+Data\+List\+Adapter}, \hyperpage{29}
+    \subitem {Android\+App\+::\+Trip\+List\+Adapter}, \hyperpage{67}
+  \item {get\+Yaw}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{71}
+  \item {greater\+Than}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{27}
+
+  \indexspace
+
+  \item {init}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{70}
+    \subitem {Logging\+Device\+::\+Storage}, \hyperpage{73}
+  \item {is\+Connected}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{13}
+  \item {is\+Running}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{13}
+
+  \indexspace
+
+  \item {less\+Than}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{27}
+  \item {Load\+Device\+Fragment}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment}, \hyperpage{33}
+  \item {load\+Saved\+Trip}
+    \subitem {Logging\+Device\+::\+Storage}, \hyperpage{75}
+  \item {load\+Trip\+Names}
+    \subitem {Logging\+Device\+::\+Storage}, \hyperpage{75}
+  \item {logging-\/device.\+ino}
+    \subitem {add\+G\+P\+S\+To\+J\+S\+ON}, \hyperpage{89}
+    \subitem {add\+Orientation\+To\+J\+S\+ON}, \hyperpage{89}
+    \subitem {add\+Time\+To\+J\+S\+ON}, \hyperpage{90}
+    \subitem {loop}, \hyperpage{87}
+    \subitem {parse\+New\+Mode}, \hyperpage{87}
+    \subitem {real\+Time\+Mode}, \hyperpage{88}
+    \subitem {setup}, \hyperpage{86}
+  \item {logging-\/device/\+Orientation.\+cpp}, \hyperpage{90}
+  \item {logging-\/device/\+Storage.\+cpp}, \hyperpage{91}
+  \item {logging-\/device/logging-\/device.\+ino}, \hyperpage{85}
+  \item {Logging\+Device\+::\+Orientation}, \hyperpage{68}
+    \subitem {convert\+Raw\+Accel}, \hyperpage{69}
+    \subitem {convert\+Raw\+Gyro}, \hyperpage{69}
+    \subitem {get\+Pitch}, \hyperpage{72}
+    \subitem {get\+Roll}, \hyperpage{72}
+    \subitem {get\+Yaw}, \hyperpage{71}
+    \subitem {init}, \hyperpage{70}
+    \subitem {poll\+I\+MU}, \hyperpage{70}
+  \item {Logging\+Device\+::\+Storage}, \hyperpage{73}
+    \subitem {generate\+File\+Name}, \hyperpage{74}
+    \subitem {init}, \hyperpage{73}
+    \subitem {load\+Saved\+Trip}, \hyperpage{75}
+    \subitem {load\+Trip\+Names}, \hyperpage{75}
+    \subitem {save\+To\+File}, \hyperpage{73}
+  \item {loop}
+    \subitem {logging-\/device.\+ino}, \hyperpage{87}
+
+  \indexspace
+
+  \item {new\+Data}
+    \subitem {Android\+App\+::\+Realtime\+Fragment}, \hyperpage{59}
+
+  \indexspace
+
+  \item {on\+Checked\+Changed}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Button\+Listener}, 
+		\hyperpage{55}
+  \item {on\+Click}
+    \subitem {Android\+App\+::\+Realtime\+Fragment\+::\+Map\+Button\+Listener}, 
+		\hyperpage{61}
+  \item {on\+Create}
+    \subitem {Android\+App\+::\+Main\+Activity}, \hyperpage{38}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{41}
+  \item {on\+Create\+View}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment}, \hyperpage{33}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment}, \hyperpage{50}
+    \subitem {Android\+App\+::\+Realtime\+Fragment}, \hyperpage{58}
+  \item {on\+Item\+Click}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment\+::\+Trip\+Item\+Listener}, 
+		\hyperpage{36}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Device\+Item\+Listener}, 
+		\hyperpage{53}
+  \item {on\+Map\+Ready}
+    \subitem {Android\+App\+::\+Maps\+Activity}, \hyperpage{43}
+  \item {on\+Navigation\+Item\+Selected}
+    \subitem {Android\+App\+::\+Main\+Activity}, \hyperpage{39}
+  \item {on\+Receive}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment\+::\+Discover\+Receiver}, 
+		\hyperpage{56}
+
+  \indexspace
+
+  \item {Pair\+Device\+Fragment}
+    \subitem {Android\+App\+::\+Pair\+Device\+Fragment}, \hyperpage{50}
+  \item {parse\+New\+Mode}
+    \subitem {logging-\/device.\+ino}, \hyperpage{87}
+  \item {poll\+I\+MU}
+    \subitem {Logging\+Device\+::\+Orientation}, \hyperpage{70}
+
+  \indexspace
+
+  \item {R\+X\+Handler}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment}, \hyperpage{35}
+    \subitem {Android\+App\+::\+Realtime\+Fragment}, \hyperpage{60}
+  \item {real\+Time\+Mode}
+    \subitem {logging-\/device.\+ino}, \hyperpage{88}
+  \item {Realtime\+Fragment}
+    \subitem {Android\+App\+::\+Realtime\+Fragment}, \hyperpage{58}
+  \item {run}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{11}
+
+  \indexspace
+
+  \item {save\+To\+File}
+    \subitem {Logging\+Device\+::\+Storage}, \hyperpage{73}
+  \item {set\+B\+T\+Connection}
+    \subitem {Android\+App\+::\+Load\+Device\+Fragment}, \hyperpage{34}
+  \item {set\+Connection}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{16}
+  \item {set\+Current}
+    \subitem {Android\+App\+::\+Data\+Item}, \hyperpage{25}
+  \item {set\+File\+Size}
+    \subitem {Android\+App\+::\+Trip\+Item}, \hyperpage{65}
+  \item {set\+Icon\+ID}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{18}
+  \item {set\+Markers\+Visible}
+    \subitem {Android\+App\+::\+Maps\+Activity\+::\+Zoom\+Toogle\+Listener}, 
+		\hyperpage{48}
+  \item {set\+R\+X\+Handler}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{11}
+  \item {set\+Status}
+    \subitem {Android\+App\+::\+B\+T\+Device\+Item}, \hyperpage{17}
+  \item {set\+Trip\+Name}
+    \subitem {Android\+App\+::\+Trip\+Item}, \hyperpage{64}
+  \item {setup}
+    \subitem {logging-\/device.\+ino}, \hyperpage{86}
+
+  \indexspace
+
+  \item {Trip\+Item}
+    \subitem {Android\+App\+::\+Trip\+Item}, \hyperpage{64}
+  \item {Trip\+List\+Adapter}
+    \subitem {Android\+App\+::\+Trip\+List\+Adapter}, \hyperpage{66}
+  \item {tx\+Handler}
+    \subitem {Android\+App\+::\+B\+T\+Connection}, \hyperpage{14}
+
+\end{theindex}

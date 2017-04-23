@@ -1,0 +1,200 @@
+\hypertarget{class_android_app_1_1_main_activity}{}\section{Android\+App.\+Main\+Activity Class Reference}
+\label{class_android_app_1_1_main_activity}\index{Android\+App.\+Main\+Activity@{Android\+App.\+Main\+Activity}}
+
+
+Main activity class for fragment navigation.  
+
+
+Inheritance diagram for Android\+App.\+Main\+Activity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_main_activity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_afe0a73fb9e8d588b51f2cc8222da80e8}\label{class_android_app_1_1_main_activity_afe0a73fb9e8d588b51f2cc8222da80e8}} 
+void \hyperlink{class_android_app_1_1_main_activity_afe0a73fb9e8d588b51f2cc8222da80e8}{on\+Back\+Pressed} ()
+\begin{DoxyCompactList}\small\item\em Responsible for closing navigation drawer when back button pressed. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_main_activity_a260151867f535b62a2a926c270a2dbb8}{on\+Navigation\+Item\+Selected} (Menu\+Item item)
+\begin{DoxyCompactList}\small\item\em Changes active fragment when a tab has been pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_main_activity_a2b1390dea8035d3802067ceb6ba5ebbd}{on\+Create} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Function called when main activity is loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}\label{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}} 
+\hyperlink{class_android_app_1_1_realtime_fragment}{Realtime\+Fragment} \hyperlink{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}{rt\+Fragment} = null
+\begin{DoxyCompactList}\small\item\em UI fragment for realtime statistic display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}\label{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}} 
+\hyperlink{class_android_app_1_1_load_device_fragment}{Load\+Device\+Fragment} \hyperlink{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}{ld\+Fragment} = null
+\begin{DoxyCompactList}\small\item\em UI fragment for loading previous trips. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}\label{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}} 
+\hyperlink{class_android_app_1_1_pair_device_fragment}{Pair\+Device\+Fragment} \hyperlink{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}{pd\+Fragment} = null
+\begin{DoxyCompactList}\small\item\em UI fragment for pairing to a logging device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_a5b01be4fe68777c22779415e54432a79}\label{class_android_app_1_1_main_activity_a5b01be4fe68777c22779415e54432a79}} 
+static final String \hyperlink{class_android_app_1_1_main_activity_a5b01be4fe68777c22779415e54432a79}{R\+E\+A\+L\+T\+I\+M\+E\+\_\+\+C\+H\+AR} = \char`\"{}1\char`\"{}
+\begin{DoxyCompactList}\small\item\em Command for switching to realtime logging. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_a559f123628c037642baa46b37f23f5cc}\label{class_android_app_1_1_main_activity_a559f123628c037642baa46b37f23f5cc}} 
+static final String \hyperlink{class_android_app_1_1_main_activity_a559f123628c037642baa46b37f23f5cc}{L\+I\+S\+T\+\_\+\+S\+A\+V\+E\+D\+\_\+\+C\+H\+AR} = \char`\"{}2\char`\"{}
+\begin{DoxyCompactList}\small\item\em Command for loading all saved trip details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main activity class for fragment navigation. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_a2b1390dea8035d3802067ceb6ba5ebbd}\label{class_android_app_1_1_main_activity_a2b1390dea8035d3802067ceb6ba5ebbd}} 
+\index{Android\+App\+::\+Main\+Activity@{Android\+App\+::\+Main\+Activity}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!Android\+App\+::\+Main\+Activity@{Android\+App\+::\+Main\+Activity}}
+\subsubsection{\texorpdfstring{on\+Create()}{onCreate()}}
+{\footnotesize\ttfamily void Android\+App.\+Main\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Function called when main activity is loaded. 
+
+Procedure is called when application is first started, sets up UI and creates relevant fragments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em saved\+Instance\+State} & -\/ Information holding last previous state. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+55                                                        \{
+56         super.onCreate(savedInstanceState);
+57         setContentView(R.layout.activity\_main);
+58 
+59         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+60         setSupportActionBar(toolbar);
+61 
+62         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer\_layout);
+63         ActionBarDrawerToggle toggle = \textcolor{keyword}{new} ActionBarDrawerToggle(
+64                 \textcolor{keyword}{this}, drawer, toolbar, R.string.navigation\_drawer\_open, R.string.navigation\_drawer\_close);
+65         drawer.setDrawerListener(toggle);
+66         toggle.syncState();
+67 
+68         NavigationView navigationView = (NavigationView) findViewById(R.id.nav\_view);
+69         navigationView.setNavigationItemSelectedListener(\textcolor{keyword}{this});
+70 
+71         \textcolor{comment}{/* Create our fragments for different sections of UI */}
+72         \hyperlink{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}{rtFragment} = \textcolor{keyword}{new} RealtimeFragment();
+73         \hyperlink{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}{ldFragment} = \textcolor{keyword}{new} LoadDeviceFragment();
+74         \hyperlink{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}{pdFragment} = \textcolor{keyword}{new} PairDeviceFragment();
+75     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_main_activity_a260151867f535b62a2a926c270a2dbb8}\label{class_android_app_1_1_main_activity_a260151867f535b62a2a926c270a2dbb8}} 
+\index{Android\+App\+::\+Main\+Activity@{Android\+App\+::\+Main\+Activity}!on\+Navigation\+Item\+Selected@{on\+Navigation\+Item\+Selected}}
+\index{on\+Navigation\+Item\+Selected@{on\+Navigation\+Item\+Selected}!Android\+App\+::\+Main\+Activity@{Android\+App\+::\+Main\+Activity}}
+\subsubsection{\texorpdfstring{on\+Navigation\+Item\+Selected()}{onNavigationItemSelected()}}
+{\footnotesize\ttfamily boolean Android\+App.\+Main\+Activity.\+on\+Navigation\+Item\+Selected (\begin{DoxyParamCaption}\item[{Menu\+Item}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Changes active fragment when a tab has been pressed. 
+
+Responsible for changing to the new chosen fragment on the UI. Opening of realtime and loaddevice fragments not possible when not connected to the logging device.
+
+Method also responsible for change system state machine on the logging device, this is done by transmitting command code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & -\/ New selected fragment/tab to display. \\
+\hline
+\end{DoxyParams}
+
+
+References Android\+App.\+Pair\+Device\+Fragment.\+get\+B\+T\+Connection(), Android\+App.\+B\+T\+Connection.\+is\+Connected(), Android\+App.\+Load\+Device\+Fragment.\+R\+X\+Handler, Android\+App.\+Realtime\+Fragment.\+R\+X\+Handler, Android\+App.\+Load\+Device\+Fragment.\+set\+B\+T\+Connection(), Android\+App.\+B\+T\+Connection.\+set\+R\+X\+Handler(), and Android\+App.\+B\+T\+Connection.\+tx\+Handler.
+
+
+\begin{DoxyCode}
+105                                                            \{
+106 
+107         Fragment activeFragment = null;
+108 
+109         \textcolor{comment}{/* Handle navigation view clicks here */}
+110         FragmentManager fragmentManager = getFragmentManager();
+111         \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = item.getItemId();
+112 
+113         \textcolor{keywordflow}{switch} (\textcolor{keywordtype}{id}) \{
+114             \textcolor{keywordflow}{case} R.id.nav\_realtime: \{
+115                 \textcolor{comment}{/* Get our bluetooth connection from pairing fragment */}
+116                 BTConnection btConn = \hyperlink{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}{pdFragment}.\hyperlink{class_android_app_1_1_pair_device_fragment_ae68bfed66a421a3020a257cbc034e42d}{getBTConnection}();
+117 
+118                 \textcolor{keywordflow}{if} (btConn != null && btConn.isConnected()) \{
+119                     \textcolor{comment}{/* We set our RX handler and also send our command to indicate mode change */}
+120                     btConn.\hyperlink{class_android_app_1_1_b_t_connection_a41022747db3c5a8bf0f4ddbc7bf32a3d}{setRXHandler}(\hyperlink{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}{rtFragment}.
+      \hyperlink{class_android_app_1_1_realtime_fragment_a6497ae268ff103aecc48a4bae15059d7}{RXHandler});
+121                     Message message = \textcolor{keyword}{new} Message();
+122                     message.obj = (String) \hyperlink{class_android_app_1_1_main_activity_a5b01be4fe68777c22779415e54432a79}{REALTIME\_CHAR};
+123                     message.setTarget(btConn.txHandler);
+124                     message.sendToTarget();
+125 
+126                     \textcolor{comment}{/* Change to our new active fragment */}
+127                     activeFragment = \hyperlink{class_android_app_1_1_main_activity_ad0c2b20cf0204ef3b8ad00596870e9a1}{rtFragment};
+128                 \} \textcolor{keywordflow}{else} \{
+129                     \textcolor{comment}{/* Indicate that we are not connected to device */}
+130                     View rootView = findViewById(R.id.content\_main);
+131                     Snackbar.make(rootView, \textcolor{stringliteral}{"Please connect to a device first."}, Snackbar.LENGTH\_LONG)
+132                             .setAction(\textcolor{stringliteral}{"Action"}, null).show();
+133                 \}
+134                 \textcolor{keywordflow}{break};
+135             \}
+136 
+137             \textcolor{keywordflow}{case} R.id.nav\_loaddevice: \{
+138                 \textcolor{comment}{/* Get our bluetooth connection from pairing fragment */}
+139                 BTConnection btConn = \hyperlink{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}{pdFragment}.\hyperlink{class_android_app_1_1_pair_device_fragment_ae68bfed66a421a3020a257cbc034e42d}{getBTConnection}();
+140 
+141                 \textcolor{keywordflow}{if} (btConn != null && btConn.isConnected()) \{
+142                     \textcolor{comment}{/* We set our RX handler and also send our command to indicate mode change */}
+143                     \hyperlink{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}{ldFragment}.\hyperlink{class_android_app_1_1_load_device_fragment_a77ce93090f6c8c6aac522e35bfe9d21b}{setBTConnection}(btConn);
+144 
+145                     btConn.setRXHandler(\hyperlink{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}{ldFragment}.\hyperlink{class_android_app_1_1_load_device_fragment_ad37565ea5a5332faf0c6b12284ca4e6c}{RXHandler});
+146                     Message message = \textcolor{keyword}{new} Message();
+147                     message.obj = (String) \hyperlink{class_android_app_1_1_main_activity_a559f123628c037642baa46b37f23f5cc}{LIST\_SAVED\_CHAR};
+148                     message.setTarget(btConn.txHandler);
+149                     message.sendToTarget();
+150 
+151                     \textcolor{comment}{/* Change to our new active fragment */}
+152                     activeFragment = \hyperlink{class_android_app_1_1_main_activity_ad54c7414ab4cb86c81e79f2f0037c694}{ldFragment};
+153                 \} \textcolor{keywordflow}{else} \{
+154                     \textcolor{comment}{/* Indicate that we are not connected to device */}
+155                     View rootView = findViewById(R.id.content\_main);
+156                     Snackbar.make(rootView, \textcolor{stringliteral}{"Please connect to a device first."}, Snackbar.LENGTH\_LONG)
+157                             .setAction(\textcolor{stringliteral}{"Action"}, null).show();
+158                 \}
+159                 \textcolor{keywordflow}{break};
+160             \}
+161 
+162             \textcolor{keywordflow}{case} R.id.nav\_pairdevice: \{
+163                 activeFragment = \hyperlink{class_android_app_1_1_main_activity_a6dea684256a0cd0f73f87546ec2b0de2}{pdFragment};
+164             \}
+165 
+166         \}
+167 
+168         \textcolor{keywordflow}{if} (activeFragment != null) \{
+169             \textcolor{comment}{/* Replaces content frame with newly selected one */}
+170             fragmentManager.beginTransaction()
+171                     .replace(R.id.content\_frame, activeFragment)
+172                     .commit();
+173         \}
+174 
+175         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer\_layout);
+176         drawer.closeDrawer(GravityCompat.START);
+177         \textcolor{keywordflow}{return} (activeFragment != null);
+178     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_main_activity_8java}{Main\+Activity.\+java}\end{DoxyCompactItemize}

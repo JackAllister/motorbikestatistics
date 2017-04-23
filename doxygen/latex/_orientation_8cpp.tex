@@ -1,0 +1,45 @@
+\hypertarget{_orientation_8cpp}{}\section{logging-\/device/\+Orientation.cpp File Reference}
+\label{_orientation_8cpp}\index{logging-\/device/\+Orientation.\+cpp@{logging-\/device/\+Orientation.\+cpp}}
+
+
+Module created to deal with all orientation related functionality.  
+
+
+{\ttfamily \#include $<$B\+M\+I160.\+h$>$}\newline
+{\ttfamily \#include $<$Curie\+I\+M\+U.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Orientation.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}\label{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}} 
+\#define \hyperlink{_orientation_8cpp_aacb21c2e16f8c38c985b8f02787a7baf}{I\+M\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}~25
+\begin{DoxyCompactList}\small\item\em Frequency of update rate for I\+MU (25\+Hz) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}\label{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}} 
+\#define \hyperlink{_orientation_8cpp_a16ec7011dea5773b504e875852f35fc1}{A\+C\+C\+E\+L\+\_\+\+R\+A\+N\+GE}~2
+\begin{DoxyCompactList}\small\item\em Range of acelerometer +-\/2G. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}\label{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}} 
+\#define \hyperlink{_orientation_8cpp_af9a0775d43604d7410e3da3dbc90925a}{G\+Y\+R\+O\+\_\+\+R\+A\+N\+GE}~250
+\begin{DoxyCompactList}\small\item\em Range of gyroscope +-\/250 deg/sec. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}\label{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}} 
+\#define \hyperlink{_orientation_8cpp_a203c415ee0716aeaf05afca2a736a9dc}{N\+U\+M\+B\+E\+R\+\_\+\+A\+X\+IS}~3
+\begin{DoxyCompactList}\small\item\em Number of axis for our I\+MU. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}\label{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}} 
+\#define \hyperlink{_orientation_8cpp_a753faa457a1c2937ea3fdcdb83c3ca5f}{A\+X\+I\+S\+\_\+X}~0
+\begin{DoxyCompactList}\small\item\em Reference to X axis in array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}\label{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}} 
+\#define \hyperlink{_orientation_8cpp_a08f3e26d90cf66bf2840d476e5d4711f}{A\+X\+I\+S\+\_\+Y}~1
+\begin{DoxyCompactList}\small\item\em Reference to Y axis in array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}\label{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}} 
+\#define \hyperlink{_orientation_8cpp_a220ebc22eb87c8989bfd63ae3cbbe2a8}{A\+X\+I\+S\+\_\+Z}~2
+\begin{DoxyCompactList}\small\item\em Reference to Z axis in array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Module created to deal with all orientation related functionality. 
+
+\begin{DoxyAuthor}{Author}
+Jack Allister -\/ 23042098 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/2017 Uses the built in Gyroscope \& Accelerometer of the Arduino 101 to create an Inertial Measurement Unit (I\+MU). 
+\end{DoxyDate}

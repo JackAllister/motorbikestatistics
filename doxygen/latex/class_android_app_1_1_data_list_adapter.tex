@@ -1,0 +1,172 @@
+\hypertarget{class_android_app_1_1_data_list_adapter}{}\section{Android\+App.\+Data\+List\+Adapter Class Reference}
+\label{class_android_app_1_1_data_list_adapter}\index{Android\+App.\+Data\+List\+Adapter@{Android\+App.\+Data\+List\+Adapter}}
+
+
+Adapter class used for displaying statistics.  
+
+
+Inheritance diagram for Android\+App.\+Data\+List\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_data_list_adapter}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_android_app_1_1_data_list_adapter_1_1_view_holder}{View\+Holder}
+\begin{DoxyCompactList}\small\item\em Class that holds all data displayed for each List\+Item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_data_list_adapter_a654a6659bcdfdd08be0d7684269c1750}{Data\+List\+Adapter} (Context cnt, int \hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layout\+Resource\+Id}, Array\+List$<$ \hyperlink{class_android_app_1_1_data_item}{Data\+Item} $>$ \hyperlink{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}{data})
+\begin{DoxyCompactList}\small\item\em Constructor for the List\+View adapter. \end{DoxyCompactList}\item 
+View \hyperlink{class_android_app_1_1_data_list_adapter_acb1d33ad30608fff808765c10050f9c3}{get\+View} (int position, View convert\+View, View\+Group parent)
+\begin{DoxyCompactList}\small\item\em Function for returning the view of each list item (\hyperlink{class_android_app_1_1_data_item}{Data\+Item}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_list_adapter_a739dc817ded5d59af25f97be1a88cf75}\label{class_android_app_1_1_data_list_adapter_a739dc817ded5d59af25f97be1a88cf75}} 
+Context \hyperlink{class_android_app_1_1_data_list_adapter_a739dc817ded5d59af25f97be1a88cf75}{context}
+\begin{DoxyCompactList}\small\item\em Context that the List\+View is operating in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}\label{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}} 
+int \hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layout\+Resource\+Id}
+\begin{DoxyCompactList}\small\item\em Resource ID for current layout. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}\label{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}} 
+Array\+List$<$ \hyperlink{class_android_app_1_1_data_item}{Data\+Item} $>$ \hyperlink{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}{data}
+\begin{DoxyCompactList}\small\item\em Array\+List of all statistic items to display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adapter class used for displaying statistics. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_data_list_adapter_a654a6659bcdfdd08be0d7684269c1750}\label{class_android_app_1_1_data_list_adapter_a654a6659bcdfdd08be0d7684269c1750}} 
+\index{Android\+App\+::\+Data\+List\+Adapter@{Android\+App\+::\+Data\+List\+Adapter}!Data\+List\+Adapter@{Data\+List\+Adapter}}
+\index{Data\+List\+Adapter@{Data\+List\+Adapter}!Android\+App\+::\+Data\+List\+Adapter@{Android\+App\+::\+Data\+List\+Adapter}}
+\subsubsection{\texorpdfstring{Data\+List\+Adapter()}{DataListAdapter()}}
+{\footnotesize\ttfamily Android\+App.\+Data\+List\+Adapter.\+Data\+List\+Adapter (\begin{DoxyParamCaption}\item[{Context}]{cnt,  }\item[{int}]{layout\+Resource\+Id,  }\item[{Array\+List$<$ \hyperlink{class_android_app_1_1_data_item}{Data\+Item} $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the List\+View adapter. 
+
+Calls the constructor of the superclass as well as setting other relevant information needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & -\/ Context of the adapter to be operating in. \\
+\hline
+{\em layout\+Resource\+Id} & -\/ Resource ID for current layout. \\
+\hline
+{\em data} & -\/ Array\+List of statistics to display in List\+View. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+47                                                                                         \{
+48         super(cnt, \hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layoutResourceId}, \hyperlink{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}{data});
+49 
+50         this.\hyperlink{class_android_app_1_1_data_list_adapter_a739dc817ded5d59af25f97be1a88cf75}{context} = cnt;
+51         this.\hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layoutResourceId} = \hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layoutResourceId};
+52         this.\hyperlink{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}{data} = \hyperlink{class_android_app_1_1_data_list_adapter_a733766e9ddd9f1cc3943dd83fc734c59}{data};
+53     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_data_list_adapter_acb1d33ad30608fff808765c10050f9c3}\label{class_android_app_1_1_data_list_adapter_acb1d33ad30608fff808765c10050f9c3}} 
+\index{Android\+App\+::\+Data\+List\+Adapter@{Android\+App\+::\+Data\+List\+Adapter}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Android\+App\+::\+Data\+List\+Adapter@{Android\+App\+::\+Data\+List\+Adapter}}
+\subsubsection{\texorpdfstring{get\+View()}{getView()}}
+{\footnotesize\ttfamily View Android\+App.\+Data\+List\+Adapter.\+get\+View (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{View}]{convert\+View,  }\item[{View\+Group}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for returning the view of each list item (\hyperlink{class_android_app_1_1_data_item}{Data\+Item}). 
+
+If a view for selected item has not been created inflater initialises it. A holder is then used to hold all the information that will be displayed on the UI to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ Index of item in array to use/reference to. \\
+\hline
+{\em convert\+View} & -\/ View to be used for specified item. \\
+\hline
+{\em parent} & -\/ Object where the created view will be placed on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ The result view of item with updated/current information. 
+\end{DoxyReturn}
+
+
+References Android\+App.\+Data\+Item$<$ T $>$.\+get\+Average(), Android\+App.\+Data\+Item$<$ T $>$.\+get\+Current(), Android\+App.\+Data\+Item$<$ T $>$.\+get\+Enabled\+Avg\+Min\+Max(), Android\+App.\+Data\+Item$<$ T $>$.\+get\+Maximum(), Android\+App.\+Data\+Item$<$ T $>$.\+get\+Minimum(), and Android\+App.\+Data\+Item$<$ T $>$.\+get\+Name().
+
+
+\begin{DoxyCode}
+80                                                                           \{
+81 
+82         ViewHolder holder;
+83 
+84         \textcolor{keywordflow}{if} (convertView == null)
+85         \{
+86             \textcolor{comment}{/* If view does not already exist. */}
+87             LayoutInflater inflater = (LayoutInflater)\hyperlink{class_android_app_1_1_data_list_adapter_a739dc817ded5d59af25f97be1a88cf75}{context}.getSystemService(Context.
+      LAYOUT\_INFLATER\_SERVICE);
+88             convertView = inflater.inflate(\hyperlink{class_android_app_1_1_data_list_adapter_ac4680f2696f50995ecd43fa418f15524}{layoutResourceId}, parent, \textcolor{keyword}{false});
+89 
+90             holder = \textcolor{keyword}{new} ViewHolder();
+91             holder.name = (TextView)convertView.findViewById(R.id.datalist\_name);
+92             holder.current = (TextView)convertView.findViewById(R.id.datalist\_current);
+93             holder.average = (TextView)convertView.findViewById(R.id.datalist\_average);
+94             holder.minimum = (TextView)convertView.findViewById(R.id.datalist\_minimum);
+95             holder.maximum = (TextView)convertView.findViewById(R.id.datalist\_maximum);
+96             convertView.setTag(holder);
+97         \}
+98         \textcolor{keywordflow}{else}
+99         \{
+100             \textcolor{comment}{/* If view already exists. */}
+101             holder = (ViewHolder)convertView.getTag();
+102         \}
+103 
+104         DataItem dataItem = getItem(position);
+105 
+106         \textcolor{comment}{/* Set our holder with current data of item */}
+107         holder.name.setText(dataItem.getName());
+108 
+109         Object current = dataItem.getCurrent();
+110         \textcolor{keywordflow}{if} (current != null) \{
+111             DecimalFormat df = \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"#.####"});
+112             df.setRoundingMode(RoundingMode.CEILING);
+113 
+114             \textcolor{comment}{/* To aid aesthetics rounding is used. */}
+115             \textcolor{keywordflow}{if} (current instanceof Double) \{
+116                 holder.current.setText(df.format(current));
+117             \} \textcolor{keywordflow}{else} \{
+118                 holder.current.setText(current.toString());
+119             \}
+120 
+121             \textcolor{comment}{/*}
+122 \textcolor{comment}{             * Displays added functionality if available.}
+123 \textcolor{comment}{             * Not all statistics need it, for example averaging of LAT/LNG.}
+124 \textcolor{comment}{             */}
+125             \textcolor{keywordflow}{if} (dataItem.getEnabledAvgMinMax()) \{
+126                 holder.average.setText(df.format(dataItem.getAverage()));
+127                 holder.minimum.setText(df.format(dataItem.getMinimum()));
+128                 holder.maximum.setText(df.format(dataItem.getMaximum()));
+129             \} \textcolor{keywordflow}{else} \{
+130                 holder.average.setText(\textcolor{stringliteral}{"N/A"});
+131                 holder.minimum.setText(\textcolor{stringliteral}{"N/A"});
+132                 holder.maximum.setText(\textcolor{stringliteral}{"N/A"});
+133             \}
+134         \}
+135 
+136         \textcolor{keywordflow}{return} convertView;
+137     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_data_list_adapter_8java}{Data\+List\+Adapter.\+java}\end{DoxyCompactItemize}

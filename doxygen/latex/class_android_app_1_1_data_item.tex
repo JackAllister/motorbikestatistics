@@ -1,0 +1,405 @@
+\hypertarget{class_android_app_1_1_data_item}{}\section{Android\+App.\+Data\+Item$<$ T $>$ Class Template Reference}
+\label{class_android_app_1_1_data_item}\index{Android\+App.\+Data\+Item$<$ T $>$@{Android\+App.\+Data\+Item$<$ T $>$}}
+
+
+Class used for holding and displaying a piece of data within the statistic List\+View UI.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_data_item_a11dd3418028a213466ac1c075120de57}{Data\+Item} (String \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name}, boolean avg\+Min\+Max)
+\begin{DoxyCompactList}\small\item\em Constructor for creation of a \hyperlink{class_android_app_1_1_data_item}{Data\+Item}. \end{DoxyCompactList}\item 
+\hyperlink{class_android_app_1_1_data_item_a46a1d40afefec40e043301faefab4670}{Data\+Item} (String \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name}, boolean avg\+Min\+Max, T value)
+\begin{DoxyCompactList}\small\item\em Constructor for creation of a \hyperlink{class_android_app_1_1_data_item}{Data\+Item}. \end{DoxyCompactList}\item 
+String \hyperlink{class_android_app_1_1_data_item_adb968324854c42160f10bcf4ad05eec2}{get\+Name} ()
+\begin{DoxyCompactList}\small\item\em Getter for name of data item. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_data_item_a45f09cabd91cc7032357b02bb0498c3e}{get\+Enabled\+Avg\+Min\+Max} ()
+\begin{DoxyCompactList}\small\item\em Getter for whether additional functionality enabled. \end{DoxyCompactList}\item 
+T \hyperlink{class_android_app_1_1_data_item_aee0b56933fb8673f7b6e52cde9da157c}{get\+Current} ()
+\begin{DoxyCompactList}\small\item\em Getter for current reading value. \end{DoxyCompactList}\item 
+Double \hyperlink{class_android_app_1_1_data_item_ad3b598a42bc7e38aa46d5091a752a47b}{get\+Average} ()
+\begin{DoxyCompactList}\small\item\em Getter for average of readings. \end{DoxyCompactList}\item 
+T \hyperlink{class_android_app_1_1_data_item_a1acf18ed04f82adb18ff73f4ef70b863}{get\+Minimum} ()
+\begin{DoxyCompactList}\small\item\em Getter for minimum of readings. \end{DoxyCompactList}\item 
+T \hyperlink{class_android_app_1_1_data_item_abc05cb2c7e1c30a018191cb140afc948}{get\+Maximum} ()
+\begin{DoxyCompactList}\small\item\em Getter for maximum of readings. \end{DoxyCompactList}\item 
+void \hyperlink{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}{set\+Current} (T value)
+\begin{DoxyCompactList}\small\item\em Setter for current reading value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Double \hyperlink{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}{add} (Number a, Number b)
+\begin{DoxyCompactList}\small\item\em Function to allow addition of numbers with variable types. \end{DoxyCompactList}\item 
+Double \hyperlink{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}{divide} (Number numerator, Number denominator)
+\begin{DoxyCompactList}\small\item\em Function to allow division of numbers with variable types. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}{greater\+Than} (Number a, Number b)
+\begin{DoxyCompactList}\small\item\em Function to chcek whether A is greater than B. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}{less\+Than} (Number a, Number b)
+\begin{DoxyCompactList}\small\item\em Function to chcek whether A is less than B. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}\label{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}} 
+String \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name}
+\begin{DoxyCompactList}\small\item\em The name of the statistic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}\label{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}} 
+boolean \hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enable\+Avg\+Min\+Max}
+\begin{DoxyCompactList}\small\item\em Whether averaging, min \& max values should be calculated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}\label{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}} 
+T \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = null
+\begin{DoxyCompactList}\small\item\em Current reading value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}\label{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}} 
+Double \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = null
+\begin{DoxyCompactList}\small\item\em Average reading value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}\label{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}} 
+Double \hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{average\+Sum} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Sum of all readings, used for averaging. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}\label{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}} 
+int \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{average\+Count} = 0
+\begin{DoxyCompactList}\small\item\em Number of readings, used for averaging. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}\label{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}} 
+T \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} = null
+\begin{DoxyCompactList}\small\item\em Minimum reading value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}\label{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}} 
+T \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} = null
+\begin{DoxyCompactList}\small\item\em Maximum reading value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used for holding and displaying a piece of data within the statistic List\+View UI. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a11dd3418028a213466ac1c075120de57}\label{class_android_app_1_1_data_item_a11dd3418028a213466ac1c075120de57}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!Data\+Item@{Data\+Item}}
+\index{Data\+Item@{Data\+Item}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{Data\+Item()}{DataItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.\hyperlink{class_android_app_1_1_data_item}{Data\+Item} (\begin{DoxyParamCaption}\item[{String}]{name,  }\item[{boolean}]{avg\+Min\+Max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for creation of a \hyperlink{class_android_app_1_1_data_item}{Data\+Item}. 
+
+Sets up the name of the data item as well as Whether averaging, minimum and maximum readings will be used
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ Name of the data item. \\
+\hline
+{\em avg\+Min\+Max} & -\/ Whether additive functionality shall be available. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+48                                                     \{
+49         this.\hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name} = \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name};
+50         this.\hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax} = avgMinMax;
+51     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a46a1d40afefec40e043301faefab4670}\label{class_android_app_1_1_data_item_a46a1d40afefec40e043301faefab4670}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!Data\+Item@{Data\+Item}}
+\index{Data\+Item@{Data\+Item}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{Data\+Item()}{DataItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.\hyperlink{class_android_app_1_1_data_item}{Data\+Item} (\begin{DoxyParamCaption}\item[{String}]{name,  }\item[{boolean}]{avg\+Min\+Max,  }\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for creation of a \hyperlink{class_android_app_1_1_data_item}{Data\+Item}. 
+
+Similar to other constructor however allows setting of an initial value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ Name of the data item. \\
+\hline
+{\em avg\+Min\+Max} & -\/ Whether additive functionality shall be available. \\
+\hline
+{\em value} & -\/ Initial reading value. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+63                                                              \{
+64         this.\hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name} = \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name};
+65         this.\hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax} = avgMinMax;
+66         this.\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = value;
+67 
+68         \textcolor{keywordflow}{if} ((avgMinMax) && (\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} instanceof Number)) \{
+69 
+70             Number val = (Number)value;
+71             this.\hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = val.doubleValue();
+72             this.\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = val.doubleValue();
+73             this.\hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
+74 
+75             this.\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} = value;
+76             this.\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} = value;
+77         \}
+78     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_adb968324854c42160f10bcf4ad05eec2}\label{class_android_app_1_1_data_item_adb968324854c42160f10bcf4ad05eec2}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily String \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for name of data item. 
+
+\begin{DoxyReturn}{Returns}
+String -\/ \hyperlink{class_android_app_1_1_data_item}{Data\+Item} name. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+84                             \{
+85         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a7e6d01c4d449403e707e99fce240b33b}{name};
+86     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a45f09cabd91cc7032357b02bb0498c3e}\label{class_android_app_1_1_data_item_a45f09cabd91cc7032357b02bb0498c3e}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Enabled\+Avg\+Min\+Max@{get\+Enabled\+Avg\+Min\+Max}}
+\index{get\+Enabled\+Avg\+Min\+Max@{get\+Enabled\+Avg\+Min\+Max}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Enabled\+Avg\+Min\+Max()}{getEnabledAvgMinMax()}}
+{\footnotesize\ttfamily boolean \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Enabled\+Avg\+Min\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for whether additional functionality enabled. 
+
+\begin{DoxyReturn}{Returns}
+boolean -\/ Averaging, Minimum \& Maximum enabled. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+92                                          \{
+93         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax};
+94     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_aee0b56933fb8673f7b6e52cde9da157c}\label{class_android_app_1_1_data_item_aee0b56933fb8673f7b6e52cde9da157c}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Current@{get\+Current}}
+\index{get\+Current@{get\+Current}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Current()}{getCurrent()}}
+{\footnotesize\ttfamily T \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for current reading value. 
+
+\begin{DoxyReturn}{Returns}
+T -\/ Current reading value. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+100                           \{
+101         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+102     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_ad3b598a42bc7e38aa46d5091a752a47b}\label{class_android_app_1_1_data_item_ad3b598a42bc7e38aa46d5091a752a47b}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Average@{get\+Average}}
+\index{get\+Average@{get\+Average}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Average()}{getAverage()}}
+{\footnotesize\ttfamily Double \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Average (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for average of readings. 
+
+\begin{DoxyReturn}{Returns}
+Double -\/ Average of all readings. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+108                                \{
+109         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average};
+110     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a1acf18ed04f82adb18ff73f4ef70b863}\label{class_android_app_1_1_data_item_a1acf18ed04f82adb18ff73f4ef70b863}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Minimum@{get\+Minimum}}
+\index{get\+Minimum@{get\+Minimum}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Minimum()}{getMinimum()}}
+{\footnotesize\ttfamily T \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Minimum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for minimum of readings. 
+
+\begin{DoxyReturn}{Returns}
+T -\/ Minimum value. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+116                           \{
+117         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum};
+118     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_abc05cb2c7e1c30a018191cb140afc948}\label{class_android_app_1_1_data_item_abc05cb2c7e1c30a018191cb140afc948}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!get\+Maximum@{get\+Maximum}}
+\index{get\+Maximum@{get\+Maximum}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{get\+Maximum()}{getMaximum()}}
+{\footnotesize\ttfamily T \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.get\+Maximum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for maximum of readings. 
+
+\begin{DoxyReturn}{Returns}
+T -\/ Maximum value. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+124                           \{
+125         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum};
+126     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}\label{class_android_app_1_1_data_item_a6cd8975067d5be2d5eaac137a94c0eac}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!set\+Current@{set\+Current}}
+\index{set\+Current@{set\+Current}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{set\+Current()}{setCurrent()}}
+{\footnotesize\ttfamily void \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.set\+Current (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for current reading value. 
+
+If additive functionality enabled and the reading is of types number then we go ahead and update our min, max \& average values as well will the passed in new reading.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & -\/ New reading. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+137                                     \{
+138         this.\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} = value;
+139 
+140         \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a330d3ade00b732f202d73dbb0d3b711f}{enableAvgMinMax}) && (\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current} instanceof Number)) \{
+141 
+142             \textcolor{comment}{/* Sets the average */}
+143             \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount}++;
+144             \hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum} = \hyperlink{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}{add}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, (Number)value);
+145             \hyperlink{class_android_app_1_1_data_item_a231634a35289bb35c46f7fa3111cd472}{average} = \hyperlink{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}{divide}(\hyperlink{class_android_app_1_1_data_item_aa146ca811e2838ef5c5621c99c712cda}{averageSum}, \hyperlink{class_android_app_1_1_data_item_ae8ac0338f533843c475fac5e6510ce5c}{averageCount});
+146 
+147             \textcolor{comment}{/* Sets the new minimum and maximums if true */}
+148             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum} == null) || \hyperlink{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}{lessThan}((Number)\hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current}, (Number)
+      \hyperlink{class_android_app_1_1_data_item_a23e9e2f0dbcfe5e163cd57888ed3dbd7}{minimum})) \{
+149                 minimum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+150             \}
+151             \textcolor{keywordflow}{if} ((\hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum} == null) || \hyperlink{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}{greaterThan}((Number)current, (Number)
+      \hyperlink{class_android_app_1_1_data_item_a6e53719b27d08f889c4d6460254583dc}{maximum})) \{
+152                 maximum = \hyperlink{class_android_app_1_1_data_item_aef9fad1dca931e60708187ab89769f54}{current};
+153             \}
+154         \}
+155     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}\label{class_android_app_1_1_data_item_aef809535c5a50c48d521db5ee9f6f9a7}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!add@{add}}
+\index{add@{add}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily Double \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.add (\begin{DoxyParamCaption}\item[{Number}]{a,  }\item[{Number}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function to allow addition of numbers with variable types. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ First operand. \\
+\hline
+{\em b} & -\/ Second operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double -\/ Sum. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+163                                            \{
+164         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(a.doubleValue() + b.doubleValue());
+165     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}\label{class_android_app_1_1_data_item_a3c4b68091e69bed9af18df05d6ea26a5}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!divide@{divide}}
+\index{divide@{divide}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{divide()}{divide()}}
+{\footnotesize\ttfamily Double \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.divide (\begin{DoxyParamCaption}\item[{Number}]{numerator,  }\item[{Number}]{denominator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function to allow division of numbers with variable types. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numerator} & -\/ Numerator of divisior. \\
+\hline
+{\em denominator} & -\/ Denominator of divisor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Double -\/ Result of division. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+173                                                                 \{
+174         \textcolor{keywordflow}{return} \textcolor{keyword}{new} Double(numerator.doubleValue() / denominator.doubleValue());
+175     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}\label{class_android_app_1_1_data_item_ab7fc2c1c68ba314ce4131e3e761aef2e}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!greater\+Than@{greater\+Than}}
+\index{greater\+Than@{greater\+Than}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{greater\+Than()}{greaterThan()}}
+{\footnotesize\ttfamily boolean \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.greater\+Than (\begin{DoxyParamCaption}\item[{Number}]{a,  }\item[{Number}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function to chcek whether A is greater than B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ First operand. \\
+\hline
+{\em b} & -\/ Second operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether A is greater than B. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+183                                                     \{
+184         \textcolor{keywordflow}{return} a.doubleValue() > b.doubleValue();
+185     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}\label{class_android_app_1_1_data_item_a94d948e8d1922c116246402c633109fc}} 
+\index{Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}!less\+Than@{less\+Than}}
+\index{less\+Than@{less\+Than}!Android\+App\+::\+Data\+Item@{Android\+App\+::\+Data\+Item}}
+\subsubsection{\texorpdfstring{less\+Than()}{lessThan()}}
+{\footnotesize\ttfamily boolean \hyperlink{class_android_app_1_1_data_item}{Android\+App.\+Data\+Item}$<$ T $>$.less\+Than (\begin{DoxyParamCaption}\item[{Number}]{a,  }\item[{Number}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Function to chcek whether A is less than B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & -\/ First operand. \\
+\hline
+{\em b} & -\/ Second operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean -\/ Whether A is less than B. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+193                                                  \{
+194         \textcolor{keywordflow}{return} a.doubleValue() < b.doubleValue();
+195     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_data_item_8java}{Data\+Item.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['bt_5fbaud',['BT_BAUD',['../logging-device_8ino.html#a6882992121626898bccaa43be51ba4c2',1,'logging-device.ino']]],
+  ['bt_5fdisabled_5ficon',['BT_DISABLED_ICON',['../class_android_app_1_1_pair_device_fragment.html#a68e4843e20a0d81574ba3d9e78a67be5',1,'AndroidApp::PairDeviceFragment']]],
+  ['bt_5fserial',['BT_SERIAL',['../logging-device_8ino.html#ad1e6e6f6fc813b305067b9e1b0777ea6',1,'BT_SERIAL():&#160;logging-device.ino'],['../_storage_8cpp.html#ad1e6e6f6fc813b305067b9e1b0777ea6',1,'BT_SERIAL():&#160;Storage.cpp']]],
+  ['btadapter',['btAdapter',['../class_android_app_1_1_pair_device_fragment.html#a54c71cf078647dbcd55742fc31a0a191',1,'AndroidApp::PairDeviceFragment']]],
+  ['btconnecteddevice',['btConnectedDevice',['../class_android_app_1_1_pair_device_fragment.html#ac3d93a383672355ed54c56dc3e21e827',1,'AndroidApp::PairDeviceFragment']]],
+  ['btconnection',['BTConnection',['../class_android_app_1_1_b_t_connection.html',1,'AndroidApp.BTConnection'],['../class_android_app_1_1_b_t_connection.html#a9211856a493caa2423f07e36c2fd12b6',1,'AndroidApp.BTConnection.BTConnection()'],['../class_android_app_1_1_load_device_fragment.html#a245147c7d3683cf1556680a382f328a9',1,'AndroidApp.LoadDeviceFragment.btConnection()']]],
+  ['btconnection_2ejava',['BTConnection.java',['../_b_t_connection_8java.html',1,'']]],
+  ['btdevice',['btDevice',['../class_android_app_1_1_b_t_connection.html#a3ed1e51b0f24f0b20ca5c27270f2999c',1,'AndroidApp::BTConnection']]],
+  ['btdeviceitem',['BTDeviceItem',['../class_android_app_1_1_b_t_device_item.html',1,'AndroidApp.BTDeviceItem'],['../class_android_app_1_1_b_t_device_item.html#a8a172bb68f01d765ec832d62008502bc',1,'AndroidApp.BTDeviceItem.BTDeviceItem()']]],
+  ['btdeviceitem_2ejava',['BTDeviceItem.java',['../_b_t_device_item_8java.html',1,'']]],
+  ['btdevicelist',['btDeviceList',['../class_android_app_1_1_pair_device_fragment.html#ac375aedac2d098332a1af1cf696f50a3',1,'AndroidApp::PairDeviceFragment']]],
+  ['btdevicelistadapter',['BTDeviceListAdapter',['../class_android_app_1_1_b_t_device_list_adapter.html',1,'AndroidApp.BTDeviceListAdapter'],['../class_android_app_1_1_b_t_device_list_adapter.html#a6d4d0dc1f894bbb2378a71eea4907bb0',1,'AndroidApp.BTDeviceListAdapter.BTDeviceListAdapter()']]],
+  ['btdevicelistadapter_2ejava',['BTDeviceListAdapter.java',['../_b_t_device_list_adapter_8java.html',1,'']]],
+  ['btnscan',['btnScan',['../class_android_app_1_1_pair_device_fragment.html#ada62059f31e97361bd94f2828cdc44e1',1,'AndroidApp::PairDeviceFragment']]],
+  ['btpairedlist',['btPairedList',['../class_android_app_1_1_pair_device_fragment.html#ab87b3da6318565e92d422a84685ab5b2',1,'AndroidApp::PairDeviceFragment']]],
+  ['btreceiver',['btReceiver',['../class_android_app_1_1_pair_device_fragment.html#ada8ba66b955864829786ffcada7f5948',1,'AndroidApp::PairDeviceFragment']]],
+  ['btsocket',['btSocket',['../class_android_app_1_1_b_t_connection.html#af3cdc6c880b28361d87d0118ace0e49c',1,'AndroidApp::BTConnection']]]
+];
