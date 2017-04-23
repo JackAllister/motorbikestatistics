@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/menu_top">
+        <item
+            android:id="@+id/nav_realtime"
+            android:icon="@drawable/ic_motorcycle_black_24px"
+            android:title="Real Time" />
+        <item
+            android:id="@+id/nav_loaddevice"
+            android:icon="@drawable/ic_sd_storage_black_24px"
+            android:title="Load From Device" />
+        <item android:title="Pair Device"
+            android:id="@+id/nav_pairdevice"
+            android:icon="@drawable/ic_bluetooth_black_24px" />
+    </group>
+</menu>

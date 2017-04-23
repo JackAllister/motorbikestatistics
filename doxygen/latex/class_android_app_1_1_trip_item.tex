@@ -1,0 +1,151 @@
+\hypertarget{class_android_app_1_1_trip_item}{}\section{Android\+App.\+Trip\+Item Class Reference}
+\label{class_android_app_1_1_trip_item}\index{Android\+App.\+Trip\+Item@{Android\+App.\+Trip\+Item}}
+
+
+Class used for holding name and size information relating to a trip.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_trip_item_a3ef9684be0d75a972fc373db43aa0efd}{Trip\+Item} (String name, int size)
+\begin{DoxyCompactList}\small\item\em Constructor for creating of a \hyperlink{class_android_app_1_1_trip_item}{Trip\+Item}. \end{DoxyCompactList}\item 
+String \hyperlink{class_android_app_1_1_trip_item_ae7d202ccb169b225ed3c7f5b6b0fb9eb}{get\+Trip\+Name} ()
+\begin{DoxyCompactList}\small\item\em Getter for trip name. \end{DoxyCompactList}\item 
+void \hyperlink{class_android_app_1_1_trip_item_a6c1705dd48325abf0a0abbda977df903}{set\+Trip\+Name} (String \hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{trip\+Name})
+\begin{DoxyCompactList}\small\item\em Setter for trip name. \end{DoxyCompactList}\item 
+int \hyperlink{class_android_app_1_1_trip_item_a565ec50649fe1edf5db7301ec3f10497}{get\+File\+Size} ()
+\begin{DoxyCompactList}\small\item\em Getter for trip filesize. \end{DoxyCompactList}\item 
+void \hyperlink{class_android_app_1_1_trip_item_a85d328bdc6fd3d54c5c275aea2e23852}{set\+File\+Size} (int \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{file\+Size})
+\begin{DoxyCompactList}\small\item\em Setter for trip filesize. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}\label{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}} 
+String \hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{trip\+Name} = null
+\begin{DoxyCompactList}\small\item\em The trips name on the u\+SD card. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}\label{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}} 
+int \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{file\+Size} = 0
+\begin{DoxyCompactList}\small\item\em The trips file size on the u\+SD card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used for holding name and size information relating to a trip. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_a3ef9684be0d75a972fc373db43aa0efd}\label{class_android_app_1_1_trip_item_a3ef9684be0d75a972fc373db43aa0efd}} 
+\index{Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}!Trip\+Item@{Trip\+Item}}
+\index{Trip\+Item@{Trip\+Item}!Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}}
+\subsubsection{\texorpdfstring{Trip\+Item()}{TripItem()}}
+{\footnotesize\ttfamily Android\+App.\+Trip\+Item.\+Trip\+Item (\begin{DoxyParamCaption}\item[{String}]{name,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for creating of a \hyperlink{class_android_app_1_1_trip_item}{Trip\+Item}. 
+
+Sets the original file name and size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ Trip name. \\
+\hline
+{\em size} & -\/ Size of the file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+31                                            \{
+32         this.\hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{tripName} = name;
+33         this.\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} = size;
+34     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_ae7d202ccb169b225ed3c7f5b6b0fb9eb}\label{class_android_app_1_1_trip_item_ae7d202ccb169b225ed3c7f5b6b0fb9eb}} 
+\index{Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}!get\+Trip\+Name@{get\+Trip\+Name}}
+\index{get\+Trip\+Name@{get\+Trip\+Name}!Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}}
+\subsubsection{\texorpdfstring{get\+Trip\+Name()}{getTripName()}}
+{\footnotesize\ttfamily String Android\+App.\+Trip\+Item.\+get\+Trip\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for trip name. 
+
+\begin{DoxyReturn}{Returns}
+String -\/ Trip name. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+40                                 \{
+41         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{tripName};
+42     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_a6c1705dd48325abf0a0abbda977df903}\label{class_android_app_1_1_trip_item_a6c1705dd48325abf0a0abbda977df903}} 
+\index{Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}!set\+Trip\+Name@{set\+Trip\+Name}}
+\index{set\+Trip\+Name@{set\+Trip\+Name}!Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}}
+\subsubsection{\texorpdfstring{set\+Trip\+Name()}{setTripName()}}
+{\footnotesize\ttfamily void Android\+App.\+Trip\+Item.\+set\+Trip\+Name (\begin{DoxyParamCaption}\item[{String}]{trip\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for trip name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trip\+Name} & -\/ New trip name. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+48                                              \{
+49         this.\hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{tripName} = \hyperlink{class_android_app_1_1_trip_item_ae5137b0b6077e3fcf293430bc9c488e3}{tripName};
+50     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_a565ec50649fe1edf5db7301ec3f10497}\label{class_android_app_1_1_trip_item_a565ec50649fe1edf5db7301ec3f10497}} 
+\index{Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}!get\+File\+Size@{get\+File\+Size}}
+\index{get\+File\+Size@{get\+File\+Size}!Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}}
+\subsubsection{\texorpdfstring{get\+File\+Size()}{getFileSize()}}
+{\footnotesize\ttfamily int Android\+App.\+Trip\+Item.\+get\+File\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for trip filesize. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ Filesize in bytes. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+56                              \{
+57         \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize};
+58     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_trip_item_a85d328bdc6fd3d54c5c275aea2e23852}\label{class_android_app_1_1_trip_item_a85d328bdc6fd3d54c5c275aea2e23852}} 
+\index{Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}!set\+File\+Size@{set\+File\+Size}}
+\index{set\+File\+Size@{set\+File\+Size}!Android\+App\+::\+Trip\+Item@{Android\+App\+::\+Trip\+Item}}
+\subsubsection{\texorpdfstring{set\+File\+Size()}{setFileSize()}}
+{\footnotesize\ttfamily void Android\+App.\+Trip\+Item.\+set\+File\+Size (\begin{DoxyParamCaption}\item[{int}]{file\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for trip filesize. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Size} & -\/ New trip filesize. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+64                                           \{
+65         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} >= 0) \{
+66             this.\hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize} = \hyperlink{class_android_app_1_1_trip_item_a0689a1340427784d8658cc616da310f2}{fileSize};
+67         \}
+68     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_trip_item_8java}{Trip\+Item.\+java}\end{DoxyCompactItemize}

@@ -1,0 +1,146 @@
+\hypertarget{class_android_app_1_1_b_t_device_list_adapter}{}\section{Android\+App.\+B\+T\+Device\+List\+Adapter Class Reference}
+\label{class_android_app_1_1_b_t_device_list_adapter}\index{Android\+App.\+B\+T\+Device\+List\+Adapter@{Android\+App.\+B\+T\+Device\+List\+Adapter}}
+
+
+Adapter class used for displaying bluetooth devices.  
+
+
+Inheritance diagram for Android\+App.\+B\+T\+Device\+List\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_b_t_device_list_adapter}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_android_app_1_1_b_t_device_list_adapter_1_1_view_holder}{View\+Holder}
+\begin{DoxyCompactList}\small\item\em Class that holds all data displayed for each List\+Item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_b_t_device_list_adapter_a6d4d0dc1f894bbb2378a71eea4907bb0}{B\+T\+Device\+List\+Adapter} (Context cnt, int \hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layout\+Resource\+Id}, Array\+List$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}{data})
+\begin{DoxyCompactList}\small\item\em Constructor for the List\+View adapter. \end{DoxyCompactList}\item 
+View \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a3e2ad44a1c55bddc7102aa36ab18ddb0}{get\+View} (int position, View convert\+View, View\+Group parent)
+\begin{DoxyCompactList}\small\item\em Function for returning the view of each list item (\hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}\label{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}} 
+int \hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layout\+Resource\+Id}
+\begin{DoxyCompactList}\small\item\em Resource ID for current layout. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_device_list_adapter_a6ede6626d5bc086d094f35071f8d59c8}\label{class_android_app_1_1_b_t_device_list_adapter_a6ede6626d5bc086d094f35071f8d59c8}} 
+Context \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a6ede6626d5bc086d094f35071f8d59c8}{context}
+\begin{DoxyCompactList}\small\item\em Context that the List\+View is operating in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}\label{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}} 
+Array\+List$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}{data}
+\begin{DoxyCompactList}\small\item\em Array\+List of all bluetooth device items to display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adapter class used for displaying bluetooth devices. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_device_list_adapter_a6d4d0dc1f894bbb2378a71eea4907bb0}\label{class_android_app_1_1_b_t_device_list_adapter_a6d4d0dc1f894bbb2378a71eea4907bb0}} 
+\index{Android\+App\+::\+B\+T\+Device\+List\+Adapter@{Android\+App\+::\+B\+T\+Device\+List\+Adapter}!B\+T\+Device\+List\+Adapter@{B\+T\+Device\+List\+Adapter}}
+\index{B\+T\+Device\+List\+Adapter@{B\+T\+Device\+List\+Adapter}!Android\+App\+::\+B\+T\+Device\+List\+Adapter@{Android\+App\+::\+B\+T\+Device\+List\+Adapter}}
+\subsubsection{\texorpdfstring{B\+T\+Device\+List\+Adapter()}{BTDeviceListAdapter()}}
+{\footnotesize\ttfamily Android\+App.\+B\+T\+Device\+List\+Adapter.\+B\+T\+Device\+List\+Adapter (\begin{DoxyParamCaption}\item[{Context}]{cnt,  }\item[{int}]{layout\+Resource\+Id,  }\item[{Array\+List$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the List\+View adapter. 
+
+Calls the constructor of the superclass as well as setting other relevant information needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & -\/ Context of the adapter to be operating in. \\
+\hline
+{\em layout\+Resource\+Id} & -\/ Resource ID for current layout. \\
+\hline
+{\em data} & -\/ Array\+List of devices to display in List\+View. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+51                                                                                                 \{
+52         super(cnt, \hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layoutResourceId}, \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}{data});
+53         this.\hyperlink{class_android_app_1_1_b_t_device_list_adapter_a6ede6626d5bc086d094f35071f8d59c8}{context} = cnt;
+54         this.\hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layoutResourceId} = \hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layoutResourceId};
+55         this.\hyperlink{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}{data} = \hyperlink{class_android_app_1_1_b_t_device_list_adapter_a210dbb300083d9029aa960841c8aa505}{data};
+56     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_b_t_device_list_adapter_a3e2ad44a1c55bddc7102aa36ab18ddb0}\label{class_android_app_1_1_b_t_device_list_adapter_a3e2ad44a1c55bddc7102aa36ab18ddb0}} 
+\index{Android\+App\+::\+B\+T\+Device\+List\+Adapter@{Android\+App\+::\+B\+T\+Device\+List\+Adapter}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Android\+App\+::\+B\+T\+Device\+List\+Adapter@{Android\+App\+::\+B\+T\+Device\+List\+Adapter}}
+\subsubsection{\texorpdfstring{get\+View()}{getView()}}
+{\footnotesize\ttfamily View Android\+App.\+B\+T\+Device\+List\+Adapter.\+get\+View (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{View}]{convert\+View,  }\item[{View\+Group}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function for returning the view of each list item (\hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item}). 
+
+If a view for selected item has not been created inflater initialises it. A holder is then used to hold all the information that will be displayed on the UI to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & -\/ Index of item in array to use/reference to. \\
+\hline
+{\em convert\+View} & -\/ View to be used for specified item. \\
+\hline
+{\em parent} & -\/ Object where the created view will be placed on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ The result view of item with updated/current information. 
+\end{DoxyReturn}
+
+
+References Android\+App.\+B\+T\+Device\+Item.\+get\+Device(), Android\+App.\+B\+T\+Device\+Item.\+get\+Icon\+I\+D(), and Android\+App.\+B\+T\+Device\+Item.\+get\+Status().
+
+
+\begin{DoxyCode}
+82                                                                           \{
+83 
+84         ViewHolder holder;
+85 
+86         \textcolor{keywordflow}{if} (convertView == null)
+87         \{
+88             \textcolor{comment}{/* Create new view via inflater as it does not exist. */}
+89             LayoutInflater inflater = (LayoutInflater)\hyperlink{class_android_app_1_1_b_t_device_list_adapter_a6ede6626d5bc086d094f35071f8d59c8}{context}.getSystemService(Context.
+      LAYOUT\_INFLATER\_SERVICE);
+90             convertView = inflater.inflate(\hyperlink{class_android_app_1_1_b_t_device_list_adapter_ae0c8b1482e416a5b242dcec87b83f661}{layoutResourceId}, parent, \textcolor{keyword}{false});
+91 
+92             \textcolor{comment}{/* Create holder that will contain information to display. */}
+93             holder = \textcolor{keyword}{new} ViewHolder();
+94             holder.imageStatus = (ImageView)convertView.findViewById(R.id.imageListStatus);
+95             holder.name = (TextView)convertView.findViewById(R.id.textListName);
+96             holder.address = (TextView)convertView.findViewById(R.id.textListAddress);
+97             holder.status = (TextView)convertView.findViewById(R.id.textListStatus);
+98             convertView.setTag(holder);
+99         \}
+100         \textcolor{keywordflow}{else}
+101         \{
+102             \textcolor{comment}{/* Get current holder to use instead of creating new one. */}
+103             holder = (ViewHolder)convertView.getTag();
+104         \}
+105 
+106         \textcolor{comment}{/* Get BTDeviceItem for specified item and update holder info. */}
+107         BTDeviceItem btItem = getItem(position);
+108         holder.imageStatus.setImageResource(btItem.getIconID());
+109         holder.name.setText(btItem.getDevice().getName());
+110         holder.address.setText(btItem.getDevice().getAddress());
+111         holder.status.setText(btItem.getStatus());
+112 
+113         \textcolor{keywordflow}{return} convertView;
+114     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_b_t_device_list_adapter_8java}{B\+T\+Device\+List\+Adapter.\+java}\end{DoxyCompactItemize}

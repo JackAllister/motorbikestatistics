@@ -1,0 +1,276 @@
+\hypertarget{class_android_app_1_1_pair_device_fragment}{}\section{Android\+App.\+Pair\+Device\+Fragment Class Reference}
+\label{class_android_app_1_1_pair_device_fragment}\index{Android\+App.\+Pair\+Device\+Fragment@{Android\+App.\+Pair\+Device\+Fragment}}
+
+
+UI Class for discovering, pairing and connecting to the logging device.  
+
+
+Inheritance diagram for Android\+App.\+Pair\+Device\+Fragment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_android_app_1_1_pair_device_fragment}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_device_item_listener}{Device\+Item\+Listener}
+\begin{DoxyCompactList}\small\item\em Listener for when a List\+View item is pressed (to connect). \end{DoxyCompactList}\item 
+class \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_discover_button_listener}{Discover\+Button\+Listener}
+\begin{DoxyCompactList}\small\item\em Listener for when discovery button is pressed. \end{DoxyCompactList}\item 
+class \hyperlink{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver}{Discover\+Receiver}
+\begin{DoxyCompactList}\small\item\em Receiver for when a new device is discovered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_android_app_1_1_pair_device_fragment_a0abb8db1228e66ff5073816588c77415}{Pair\+Device\+Fragment} ()
+\begin{DoxyCompactList}\small\item\em Constructor for UI fragment. \end{DoxyCompactList}\item 
+View \hyperlink{class_android_app_1_1_pair_device_fragment_af20a6287fc02c251141fef1c24b5e911}{on\+Create\+View} (Layout\+Inflater inflater, View\+Group container, Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em Function called when fragment is shown on UI. \end{DoxyCompactList}\item 
+\hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} \hyperlink{class_android_app_1_1_pair_device_fragment_ae68bfed66a421a3020a257cbc034e42d}{get\+B\+T\+Connection} ()
+\begin{DoxyCompactList}\small\item\em Getter for getting current connected device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_android_app_1_1_pair_device_fragment_ac6569d8f68c8023f2c2d38da55260f29}{get\+Needed\+Privileges} ()
+\begin{DoxyCompactList}\small\item\em Prompts user for needed permissions of this application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_aab068c156fe3ef60bcb35328b697ba99}\label{class_android_app_1_1_pair_device_fragment_aab068c156fe3ef60bcb35328b697ba99}} 
+boolean \hyperlink{class_android_app_1_1_pair_device_fragment_aab068c156fe3ef60bcb35328b697ba99}{first\+Run} = true
+\begin{DoxyCompactList}\small\item\em Check variable used to stop List\+View from being re-\/populated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}\label{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}} 
+Toggle\+Button \hyperlink{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}{btn\+Scan}
+\begin{DoxyCompactList}\small\item\em Scan button, used for toggling discovery. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}\label{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}} 
+Bluetooth\+Adapter \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{bt\+Adapter} = null
+\begin{DoxyCompactList}\small\item\em Mobile\textquotesingle{}s bluetooth adapter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}\label{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}} 
+Array\+List$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}{bt\+Device\+List}
+\begin{DoxyCompactList}\small\item\em List of all devices, unpaired, paired \& connected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}\label{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}} 
+Array\+List$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}{bt\+Paired\+List}
+\begin{DoxyCompactList}\small\item\em List of only paired devices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}\label{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}} 
+Array\+Adapter$<$ \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} $>$ \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lv\+Adapter}
+\begin{DoxyCompactList}\small\item\em UI adapter for List\+View that displays bluetooth devices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}\label{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}} 
+\hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} \hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{bt\+Connected\+Device} = null
+\begin{DoxyCompactList}\small\item\em Applications connected logging device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}\label{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}} 
+\hyperlink{class_android_app_1_1_pair_device_fragment_1_1_discover_receiver}{Discover\+Receiver} \hyperlink{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}{bt\+Receiver} = null
+\begin{DoxyCompactList}\small\item\em Receiver class for when new device discovered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a6d3f89529498ff90429ca5c74de2b177}\label{class_android_app_1_1_pair_device_fragment_a6d3f89529498ff90429ca5c74de2b177}} 
+static final int \hyperlink{class_android_app_1_1_pair_device_fragment_a6d3f89529498ff90429ca5c74de2b177}{R\+E\+Q\+U\+E\+S\+T\+\_\+\+B\+L\+U\+E\+T\+O\+O\+TH} = 1
+\begin{DoxyCompactList}\small\item\em Request code for activating bluetooth. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a199a2a30c45008ec5a7360d11854f02f}\label{class_android_app_1_1_pair_device_fragment_a199a2a30c45008ec5a7360d11854f02f}} 
+static final String \hyperlink{class_android_app_1_1_pair_device_fragment_a199a2a30c45008ec5a7360d11854f02f}{C\+O\+N\+N\+E\+C\+T\+E\+D\+\_\+\+S\+T\+A\+T\+US} = \char`\"{}connected\char`\"{}
+\begin{DoxyCompactList}\small\item\em Status to change \hyperlink{class_android_app_1_1_b_t_device_item}{B\+T\+Device\+Item} to when connected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a68e4843e20a0d81574ba3d9e78a67be5}\label{class_android_app_1_1_pair_device_fragment_a68e4843e20a0d81574ba3d9e78a67be5}} 
+static final int \hyperlink{class_android_app_1_1_pair_device_fragment_a68e4843e20a0d81574ba3d9e78a67be5}{B\+T\+\_\+\+D\+I\+S\+A\+B\+L\+E\+D\+\_\+\+I\+C\+ON} = R.\+drawable.\+ic\+\_\+bluetooth\+\_\+disabled\+\_\+black\+\_\+24px
+\begin{DoxyCompactList}\small\item\em Icon ID to use when device is not connected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+UI Class for discovering, pairing and connecting to the logging device. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_a0abb8db1228e66ff5073816588c77415}\label{class_android_app_1_1_pair_device_fragment_a0abb8db1228e66ff5073816588c77415}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}!Pair\+Device\+Fragment@{Pair\+Device\+Fragment}}
+\index{Pair\+Device\+Fragment@{Pair\+Device\+Fragment}!Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{Pair\+Device\+Fragment()}{PairDeviceFragment()}}
+{\footnotesize\ttfamily Android\+App.\+Pair\+Device\+Fragment.\+Pair\+Device\+Fragment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for UI fragment. 
+
+Get\textquotesingle{}s the mobile\textquotesingle{}s bluetooth adapter and sets up our lists of used for holding devices. 
+\begin{DoxyCode}
+85     \{
+86         \textcolor{comment}{/* Get bluetooth adapter for device & create device arrays */}
+87         \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter} = BluetoothAdapter.getDefaultAdapter();
+88         \hyperlink{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}{btDeviceList} = \textcolor{keyword}{new} ArrayList<BTDeviceItem>();
+89         \hyperlink{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}{btPairedList} = \textcolor{keyword}{new} ArrayList<BTDeviceItem>();
+90         \hyperlink{class_android_app_1_1_pair_device_fragment_ada8ba66b955864829786ffcada7f5948}{btReceiver} = \textcolor{keyword}{new} DiscoverReceiver();
+91     \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_af20a6287fc02c251141fef1c24b5e911}\label{class_android_app_1_1_pair_device_fragment_af20a6287fc02c251141fef1c24b5e911}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}!on\+Create\+View@{on\+Create\+View}}
+\index{on\+Create\+View@{on\+Create\+View}!Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{on\+Create\+View()}{onCreateView()}}
+{\footnotesize\ttfamily View Android\+App.\+Pair\+Device\+Fragment.\+on\+Create\+View (\begin{DoxyParamCaption}\item[{Layout\+Inflater}]{inflater,  }\item[{View\+Group}]{container,  }\item[{Bundle}]{saved\+Instance\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function called when fragment is shown on UI. 
+
+Sets up the UI List\+View and Buttons. Add all paired devices for the bluetooth adapter to the List\+View.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inflater} & -\/ Inflater used for displaying view. \\
+\hline
+{\em container} & -\/ Container that the view will be displayed on. \\
+\hline
+{\em saved\+Instance\+State} & -\/ Last known state of this fragment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View -\/ The UI view of this fragment. 
+\end{DoxyReturn}
+
+
+References Android\+App.\+B\+T\+Device\+Item.\+get\+Connection(), Android\+App.\+B\+T\+Connection.\+is\+Connected(), and Android\+App.\+B\+T\+Connection.\+is\+Running().
+
+
+\begin{DoxyCode}
+106                                                                                                       \{
+107 
+108         View myView = inflater.inflate(R.layout.pairdevice\_layout, container, \textcolor{keyword}{false});
+109 
+110         \textcolor{comment}{/* Request needed privileges for bluetooth to work */}
+111         \hyperlink{class_android_app_1_1_pair_device_fragment_ac6569d8f68c8023f2c2d38da55260f29}{getNeededPrivileges}();
+112 
+113         \textcolor{comment}{/* Set our variables for UI buttons */}
+114         \hyperlink{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}{btnScan} = (ToggleButton)myView.findViewById(R.id.pairdevice\_search);
+115         \hyperlink{class_android_app_1_1_pair_device_fragment_ada62059f31e97361bd94f2828cdc44e1}{btnScan}.setOnCheckedChangeListener(\textcolor{keyword}{new} DiscoverButtonListener());
+116 
+117         ListView lvDevices = (ListView)myView.findViewById(R.id.pairdevice\_deviceList);
+118         lvDevices.setOnItemClickListener(\textcolor{keyword}{new} DeviceItemListener());
+119 
+120         \hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter} = \textcolor{keyword}{new} BTDeviceListAdapter(getActivity(), R.layout.device\_list\_item, 
+      \hyperlink{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}{btDeviceList});
+121         lvDevices.setAdapter(\hyperlink{class_android_app_1_1_pair_device_fragment_a27eee15fc9f4328366bba7e795e026ac}{lvAdapter});
+122 
+123         \textcolor{comment}{/* Check and set up bluetooth adapter */}
+124         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter} == null)
+125         \{
+126             Toast.makeText(getActivity().getApplicationContext(),
+127                     \textcolor{stringliteral}{"This device has no bluetooth adapter"}, Toast.LENGTH\_LONG).show();
+128         \}
+129         \textcolor{keywordflow}{else}
+130         \{
+131             \textcolor{comment}{/* Check to see if connected device still is connected */}
+132             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice} != null)
+133             \{
+134                 \textcolor{keywordflow}{if} (!\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice}.\hyperlink{class_android_app_1_1_b_t_device_item_af256e53bf23dd3f969b14e0566a7b785}{getConnection}().
+      \hyperlink{class_android_app_1_1_b_t_connection_a1c91fcddfe9f3b69cd0141742103191a}{isConnected}() ||
+135                         !\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice}.\hyperlink{class_android_app_1_1_b_t_device_item_af256e53bf23dd3f969b14e0566a7b785}{getConnection}().
+      \hyperlink{class_android_app_1_1_b_t_connection_a88abb39350aef278f15e54be4d0d1df3}{isRunning}())
+136                 \{
+137                     \hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice} = null;
+138                 \}
+139             \}
+140 
+141             \textcolor{comment}{/* firstRun check to list from being re-populated */}
+142             \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_aab068c156fe3ef60bcb35328b697ba99}{firstRun})
+143             \{
+144                 \hyperlink{class_android_app_1_1_pair_device_fragment_aab068c156fe3ef60bcb35328b697ba99}{firstRun} = \textcolor{keyword}{false};
+145 
+146                 \textcolor{comment}{/* Enable bluetooth adapter if disabled */}
+147                 \textcolor{keywordflow}{if} (!\hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.isEnabled())
+148                 \{
+149                     Intent enableBT = \textcolor{keyword}{new} Intent(BluetoothAdapter.ACTION\_REQUEST\_ENABLE);
+150                     startActivityForResult(enableBT, \hyperlink{class_android_app_1_1_pair_device_fragment_a6d3f89529498ff90429ca5c74de2b177}{REQUEST\_BLUETOOTH});
+151                 \}
+152 
+153                 \textcolor{keywordflow}{while} (!\hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.isEnabled())
+154                 \{
+155                     \textcolor{comment}{/* Wait for BT to be enabled */}
+156                 \}
+157 
+158                 \textcolor{comment}{/* Add all paired devices to list */}
+159                 Set<BluetoothDevice> pairedDevices = \hyperlink{class_android_app_1_1_pair_device_fragment_a54c71cf078647dbcd55742fc31a0a191}{btAdapter}.getBondedDevices();
+160                 \textcolor{keywordflow}{if} (pairedDevices.size() > 0)
+161                 \{
+162                     \textcolor{keywordflow}{for} (BluetoothDevice device : pairedDevices)
+163                     \{
+164                         BTDeviceItem newDevice =
+165                             \textcolor{keyword}{new} BTDeviceItem(device, \textcolor{stringliteral}{"paired"}, \hyperlink{class_android_app_1_1_pair_device_fragment_a68e4843e20a0d81574ba3d9e78a67be5}{BT\_DISABLED\_ICON});
+166                         \hyperlink{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}{btPairedList}.add(newDevice);
+167                     \}
+168                 \}
+169                 \hyperlink{class_android_app_1_1_pair_device_fragment_ac375aedac2d098332a1af1cf696f50a3}{btDeviceList}.addAll(\hyperlink{class_android_app_1_1_pair_device_fragment_ab87b3da6318565e92d422a84685ab5b2}{btPairedList});
+170             \}
+171 
+172         \}
+173 
+174         \textcolor{keywordflow}{return} myView;
+175     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ae68bfed66a421a3020a257cbc034e42d}\label{class_android_app_1_1_pair_device_fragment_ae68bfed66a421a3020a257cbc034e42d}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}!get\+B\+T\+Connection@{get\+B\+T\+Connection}}
+\index{get\+B\+T\+Connection@{get\+B\+T\+Connection}!Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{get\+B\+T\+Connection()}{getBTConnection()}}
+{\footnotesize\ttfamily \hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} Android\+App.\+Pair\+Device\+Fragment.\+get\+B\+T\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for getting current connected device. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_android_app_1_1_b_t_connection}{B\+T\+Connection} -\/ Bluetooth device (logging device). 
+\end{DoxyReturn}
+
+
+References Android\+App.\+B\+T\+Device\+Item.\+get\+Connection().
+
+
+\begin{DoxyCode}
+182     \{
+183         \textcolor{keywordflow}{if} (\hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice} != null) \{
+184             \textcolor{keywordflow}{return} \hyperlink{class_android_app_1_1_pair_device_fragment_ac3d93a383672355ed54c56dc3e21e827}{btConnectedDevice}.\hyperlink{class_android_app_1_1_b_t_device_item_af256e53bf23dd3f969b14e0566a7b785}{getConnection}();
+185         \} \textcolor{keywordflow}{else} \{
+186             \textcolor{keywordflow}{return} null;
+187         \}
+188     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_android_app_1_1_pair_device_fragment_ac6569d8f68c8023f2c2d38da55260f29}\label{class_android_app_1_1_pair_device_fragment_ac6569d8f68c8023f2c2d38da55260f29}} 
+\index{Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}!get\+Needed\+Privileges@{get\+Needed\+Privileges}}
+\index{get\+Needed\+Privileges@{get\+Needed\+Privileges}!Android\+App\+::\+Pair\+Device\+Fragment@{Android\+App\+::\+Pair\+Device\+Fragment}}
+\subsubsection{\texorpdfstring{get\+Needed\+Privileges()}{getNeededPrivileges()}}
+{\footnotesize\ttfamily void Android\+App.\+Pair\+Device\+Fragment.\+get\+Needed\+Privileges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Prompts user for needed permissions of this application. 
+
+Due to android using a permissions/access method this method parses through each permission needed and prompts the user to accept. 
+\begin{DoxyCode}
+197     \{
+198         \textcolor{keyword}{final} \textcolor{keywordtype}{int} REQUEST\_CODE = 5;
+199 
+200         \textcolor{keywordtype}{boolean} permsGranted = \textcolor{keyword}{true};
+201         String[] permsToRequest =
+202                 \{
+203                         Manifest.permission.BLUETOOTH\_ADMIN,
+204                         Manifest.permission.BLUETOOTH,
+205                         Manifest.permission.ACCESS\_FINE\_LOCATION,
+206                         Manifest.permission.ACCESS\_COARSE\_LOCATION
+207                 \};
+208 
+209         \textcolor{keywordflow}{for} (String permission: permsToRequest)
+210         \{
+211             permsGranted &= (ContextCompat.checkSelfPermission(getActivity(), permission) == PackageManager
+      .PERMISSION\_GRANTED);
+212         \}
+213 
+214         \textcolor{keywordflow}{if} (!permsGranted)
+215         \{
+216             ActivityCompat.requestPermissions(getActivity(), permsToRequest, REQUEST\_CODE);
+217         \}
+218     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+android-\/app/app/src/main/java/com/jack/motorbikestatistics/\hyperlink{_pair_device_fragment_8java}{Pair\+Device\+Fragment.\+java}\end{DoxyCompactItemize}
