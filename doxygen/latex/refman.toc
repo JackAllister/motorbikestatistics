@@ -1,4 +1,4 @@
-\contentsline {chapter}{\numberline {1}motorbikestatistics}{1}{chapter.1}
+\contentsline {chapter}{\numberline {1}A Motorcycle Statistics System for Monitoring Rider Performance}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
 \contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
@@ -219,4 +219,4 @@
 \contentsline {subsection}{\numberline {6.16.1}Detailed Description}{91}{subsection.6.16.1}
 \contentsline {section}{\numberline {6.17}logging-\/device/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Storage.cpp File Reference}{91}{section.6.17}
 \contentsline {subsection}{\numberline {6.17.1}Detailed Description}{92}{subsection.6.17.1}
-\contentsline {chapter}{Index}{93}{section*.105}
+\contentsline {chapter}{Index}{93}{section*.112}

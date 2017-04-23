@@ -11,5 +11,6 @@ var searchData=
   ['averagesum',['averageSum',['../class_android_app_1_1_data_item.html#aa146ca811e2838ef5c5621c99c712cda',1,'AndroidApp::DataItem']]],
   ['axis_5fx',['AXIS_X',['../_orientation_8cpp.html#a753faa457a1c2937ea3fdcdb83c3ca5f',1,'Orientation.cpp']]],
   ['axis_5fy',['AXIS_Y',['../_orientation_8cpp.html#a08f3e26d90cf66bf2840d476e5d4711f',1,'Orientation.cpp']]],
-  ['axis_5fz',['AXIS_Z',['../_orientation_8cpp.html#a220ebc22eb87c8989bfd63ae3cbbe2a8',1,'Orientation.cpp']]]
+  ['axis_5fz',['AXIS_Z',['../_orientation_8cpp.html#a220ebc22eb87c8989bfd63ae3cbbe2a8',1,'Orientation.cpp']]],
+  ['a_20motorcycle_20statistics_20system_20for_20monitoring_20rider_20performance',['A Motorcycle Statistics System for Monitoring Rider Performance',['../index.html',1,'']]]
 ];

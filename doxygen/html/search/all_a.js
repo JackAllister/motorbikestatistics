@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['motorbikestatistics',['motorbikestatistics',['../index.html',1,'']]],
   ['mainactivity',['MainActivity',['../class_android_app_1_1_main_activity.html',1,'AndroidApp']]],
   ['mainactivity_2ejava',['MainActivity.java',['../_main_activity_8java.html',1,'']]],
   ['mainjson',['mainJSON',['../logging-device_8ino.html#a5eebfb3b76a83174d0f5d032d1f6bfb7',1,'logging-device.ino']]],
